@@ -52,31 +52,54 @@ import Layout from '../layouts/Layout.astro';
             <h2 class="text-3xl font-bold text-center mb-12">What We've Built</h2>
             
             <!-- HealthTrail Medical -->
-            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 mb-8 hover:bg-white/10 transition-all duration-300">
-                <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-8 hover:bg-white/10 transition-all duration-300">
+                <!-- Mobile: icon + name row with chevron toggle -->
+                <details class="md:hidden group">
+                    <summary class="flex items-center gap-4 cursor-pointer list-none">
+                        <img src="/images/healthtrail-medical-icon.webp" alt="HealthTrail Medical" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" />
+                        <div class="flex-1 text-left">
+                            <h3 class="text-xl font-bold">HealthTrail Medical</h3>
+                            <p class="text-sm text-green-400">Your Complete Health Timeline</p>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </summary>
+                    <div class="mt-4 text-center">
+                        <p class="text-gray-300 mb-4 text-sm">
+                            Stop guessing. Start knowing. HealthTrail is your family's digital medical memory, providing an instant visual timeline of every medical event, medication, and milestone. Whether managing your own health, tracking your children's development, or caring for elderly parents, HealthTrail ensures the right information is always in your pocket—with AI-powered medication scanning, comprehensive vaccine tracking, and 100% private local storage.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Health & Fitness</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Medical Records</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Privacy First</span>
+                        </div>
+                        <a href="https://apps.apple.com/us/app/healthtrail-medical/id6758072258" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                            Download on the App Store
+                        </a>
+                    </div>
+                </details>
+                <!-- Desktop: full layout always visible -->
+                <div class="hidden md:flex flex-row items-center gap-8">
                     <div class="flex-shrink-0">
                         <img src="/images/healthtrail-medical-icon.webp" alt="HealthTrail Medical" class="w-32 h-32 rounded-3xl shadow-lg" />
                     </div>
-                    <div class="flex-1 text-center md:text-left">
+                    <div class="flex-1 text-left">
                         <h3 class="text-2xl font-bold mb-2">HealthTrail Medical</h3>
                         <p class="text-lg text-green-400 mb-4">Your Complete Health Timeline</p>
                         <p class="text-gray-300 mb-6">
                             Stop guessing. Start knowing. HealthTrail is your family's digital medical memory, providing an instant visual timeline of every medical event, medication, and milestone. Whether managing your own health, tracking your children's development, or caring for elderly parents, HealthTrail ensures the right information is always in your pocket—with AI-powered medication scanning, comprehensive vaccine tracking, and 100% private local storage.
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
+                        <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Health & Fitness</span>
                             <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Medical Records</span>
                             <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Privacy First</span>
                         </div>
-                        <a 
-                            href="https://apps.apple.com/us/app/healthtrail-medical/id6758072258" 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                        >
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                            </svg>
+                        <a href="https://apps.apple.com/us/app/healthtrail-medical/id6758072258" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                             Download on the App Store
                         </a>
                     </div>
@@ -84,36 +107,57 @@ import Layout from '../layouts/Layout.astro';
             </div>
 
             <!-- Elevator Industry Section -->
-            <div class="bg-gradient-to-br from-blue-500/10 to-orange-500/10 backdrop-blur-sm rounded-3xl p-8 mb-12 border border-blue-400/20">
+            <div class="bg-gradient-to-br from-blue-500/10 to-orange-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-8 mb-12 border border-blue-400/20">
                 <h3 class="text-2xl font-bold text-center mb-2 bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">Elevator Industry</h3>
                 <p class="text-center text-gray-400 mb-8 text-sm">Professional tools for elevator and escalator mechanics</p>
                 
                 <!-- Escalator Field Command -->
-                <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 mb-6 hover:bg-white/10 transition-all duration-300">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-6 hover:bg-white/10 transition-all duration-300">
+                    <details class="md:hidden group">
+                        <summary class="flex items-center gap-4 cursor-pointer list-none">
+                            <img src="/images/escalator-field-command-icon.webp" alt="Escalator Field Command" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" />
+                            <div class="flex-1 text-left">
+                                <h4 class="text-xl font-bold">Escalator Field Command</h4>
+                                <p class="text-sm text-blue-400">Tools for Escalator Mechanics</p>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="mt-4 text-center">
+                            <p class="text-gray-300 mb-4 text-sm">
+                                Built for escalator mechanics who want to work faster, stay organized, and reduce unnecessary labor. This purpose-built tool puts field operations at your fingertips with powerful features for managing maintenance routes, Category 1 testing, SSPI compliance, and comprehensive documentation—all in one intuitive interface designed for real-world use.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Productivity</span>
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Field Operations</span>
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Compliance</span>
+                            </div>
+                            <a href="https://apps.apple.com/us/app/escalator-field-command/id6756789866" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                Download on the App Store
+                            </a>
+                        </div>
+                    </details>
+                    <div class="hidden md:flex flex-row items-center gap-8">
                         <div class="flex-shrink-0">
                             <img src="/images/escalator-field-command-icon.webp" alt="Escalator Field Command" class="w-32 h-32 rounded-3xl shadow-lg" />
                         </div>
-                        <div class="flex-1 text-center md:text-left">
+                        <div class="flex-1 text-left">
                             <h4 class="text-2xl font-bold mb-2">Escalator Field Command</h4>
                             <p class="text-lg text-blue-400 mb-4">Tools for Escalator Mechanics</p>
                             <p class="text-gray-300 mb-6">
                                 Built for escalator mechanics who want to work faster, stay organized, and reduce unnecessary labor. This purpose-built tool puts field operations at your fingertips with powerful features for managing maintenance routes, Category 1 testing, SSPI compliance, and comprehensive documentation—all in one intuitive interface designed for real-world use.
                             </p>
-                            <div class="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
+                            <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Productivity</span>
                                 <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Field Operations</span>
                                 <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Compliance</span>
                             </div>
-                            <a 
-                                href="https://apps.apple.com/us/app/escalator-field-command/id6756789866" 
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                            >
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                                </svg>
+                            <a href="https://apps.apple.com/us/app/escalator-field-command/id6756789866" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                                 Download on the App Store
                             </a>
                         </div>
@@ -121,31 +165,52 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- Elevator Field Command -->
-                <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 hover:bg-white/10 transition-all duration-300">
+                    <details class="md:hidden group">
+                        <summary class="flex items-center gap-4 cursor-pointer list-none">
+                            <img src="/images/elevator-field-command-app-icon.webp" alt="Elevator Field Command" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" />
+                            <div class="flex-1 text-left">
+                                <h4 class="text-xl font-bold">Elevator Field Command</h4>
+                                <p class="text-sm text-orange-400">Tools for Elevator Mechanics</p>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="mt-4 text-center">
+                            <p class="text-gray-300 mb-4 text-sm">
+                                Elevator Field Command is the professional-grade tool built for elevator mechanics who need to stay organized in the field without relying on an internet connection. Track every elevator on your route with detailed equipment specs, service history, and building contacts. Log maintenance, repairs, inspections, and emergency calls in seconds. Upload PDFs, manuals, code books, and technical documents for instant offline access. All data lives on your device with automatic daily backups.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                                <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Productivity</span>
+                                <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Field Operations</span>
+                                <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Offline Access</span>
+                            </div>
+                            <a href="https://apps.apple.com/us/app/elevator-field-command/id6758823711" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                Download on the App Store
+                            </a>
+                        </div>
+                    </details>
+                    <div class="hidden md:flex flex-row items-center gap-8">
                         <div class="flex-shrink-0">
                             <img src="/images/elevator-field-command-app-icon.webp" alt="Elevator Field Command" class="w-32 h-32 rounded-3xl shadow-lg" />
                         </div>
-                        <div class="flex-1 text-center md:text-left">
+                        <div class="flex-1 text-left">
                             <h4 class="text-2xl font-bold mb-2">Elevator Field Command</h4>
                             <p class="text-lg text-orange-400 mb-4">Tools for Elevator Mechanics</p>
                             <p class="text-gray-300 mb-6">
                                 Elevator Field Command is the professional-grade tool built for elevator mechanics who need to stay organized in the field without relying on an internet connection. Track every elevator on your route with detailed equipment specs, service history, and building contacts. Log maintenance, repairs, inspections, and emergency calls in seconds. Upload PDFs, manuals, code books, and technical documents for instant offline access. All data lives on your device with automatic daily backups.
                             </p>
-                            <div class="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
+                            <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Productivity</span>
                                 <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Field Operations</span>
                                 <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Offline Access</span>
                             </div>
-                            <a 
-                                href="https://apps.apple.com/us/app/elevator-field-command/id6758823711" 
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                            >
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                                </svg>
+                            <a href="https://apps.apple.com/us/app/elevator-field-command/id6758823711" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                                 Download on the App Store
                             </a>
                         </div>
@@ -154,31 +219,52 @@ import Layout from '../layouts/Layout.astro';
             </div>
 
             <!-- Life in Focus -->
-            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 mb-8 hover:bg-white/10 transition-all duration-300">
-                <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-8 hover:bg-white/10 transition-all duration-300">
+                <details class="md:hidden group">
+                    <summary class="flex items-center gap-4 cursor-pointer list-none">
+                        <img src="/images/life-in-focus-icon.webp" alt="Life in Focus" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" />
+                        <div class="flex-1 text-left">
+                            <h3 class="text-xl font-bold">Life in Focus</h3>
+                            <p class="text-sm text-purple-400">Your Life, New Perspective</p>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </summary>
+                    <div class="mt-4 text-center">
+                        <p class="text-gray-300 mb-4 text-sm">
+                            See the big picture. Literally. Life in Focus brings Tim Urban's powerful life visualization concept to your pocket, transforming your entire life into a grid of 4,680 squares—each representing one week of a 90-year life. Visualize your journey with personalized life expectancy calculations, customize life periods with meaningful colors, and gain perspective on the finite, beautiful nature of your time in a distraction-free, minimalist design.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Lifestyle</span>
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Mindfulness</span>
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Life Planning</span>
+                        </div>
+                        <a href="https://apps.apple.com/us/app/life-in-focus/id6759227437" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                            Download on the App Store
+                        </a>
+                    </div>
+                </details>
+                <div class="hidden md:flex flex-row items-center gap-8">
                     <div class="flex-shrink-0">
                         <img src="/images/life-in-focus-icon.webp" alt="Life in Focus" class="w-32 h-32 rounded-3xl shadow-lg" />
                     </div>
-                    <div class="flex-1 text-center md:text-left">
+                    <div class="flex-1 text-left">
                         <h3 class="text-2xl font-bold mb-2">Life in Focus</h3>
                         <p class="text-lg text-purple-400 mb-4">Your Life, New Perspective</p>
                         <p class="text-gray-300 mb-6">
                             See the big picture. Literally. Life in Focus brings Tim Urban's powerful life visualization concept to your pocket, transforming your entire life into a grid of 4,680 squares—each representing one week of a 90-year life. Visualize your journey with personalized life expectancy calculations, customize life periods with meaningful colors, and gain perspective on the finite, beautiful nature of your time in a distraction-free, minimalist design.
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
+                        <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Lifestyle</span>
                             <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Mindfulness</span>
                             <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Life Planning</span>
                         </div>
-                        <a 
-                            href="https://apps.apple.com/us/app/life-in-focus/id6759227437" 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                        >
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                            </svg>
+                        <a href="https://apps.apple.com/us/app/life-in-focus/id6759227437" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                             Download on the App Store
                         </a>
                     </div>
@@ -186,36 +272,57 @@ import Layout from '../layouts/Layout.astro';
             </div>
 
             <!-- Financial Section -->
-            <div class="bg-gradient-to-br from-amber-500/10 to-yellow-500/10 backdrop-blur-sm rounded-3xl p-8 mb-12 border border-amber-400/20">
+            <div class="bg-gradient-to-br from-amber-500/10 to-yellow-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-8 mb-12 border border-amber-400/20">
                 <h3 class="text-2xl font-bold text-center mb-2 bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">Financial</h3>
                 <p class="text-center text-gray-400 mb-8 text-sm">Track precious metals and commodity investments</p>
                 
                 <!-- Copper Watcher -->
-                <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 mb-6 hover:bg-white/10 transition-all duration-300">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-6 hover:bg-white/10 transition-all duration-300">
+                    <details class="md:hidden group">
+                        <summary class="flex items-center gap-4 cursor-pointer list-none">
+                            <img src="/images/copper-watcher-icon.webp" alt="Copper Watcher" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" />
+                            <div class="flex-1 text-left">
+                                <h4 class="text-xl font-bold">Copper Watcher (Cu)</h4>
+                                <p class="text-sm text-amber-400">Copper is the future</p>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="mt-4 text-center">
+                            <p class="text-gray-300 mb-4 text-sm">
+                                Keep an eye on copper the easy way. Are you kicking yourself for not investing earlier? Copper Watcher lets you see exactly what you missed—and what you could still earn. This lightweight app tracks the prices of popular copper ETFs and includes a simple "what-if" calculator. Just enter an amount and a past date, and the app instantly shows what that investment would be worth today. No clutter, no complicated charts—just quick, easy numbers.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Finance</span>
+                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Investment Tracking</span>
+                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Reference</span>
+                            </div>
+                            <a href="https://apps.apple.com/us/app/copper-watcher-cu/id6757655923" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                Download on the App Store
+                            </a>
+                        </div>
+                    </details>
+                    <div class="hidden md:flex flex-row items-center gap-8">
                         <div class="flex-shrink-0">
                             <img src="/images/copper-watcher-icon.webp" alt="Copper Watcher" class="w-32 h-32 rounded-3xl shadow-lg" />
                         </div>
-                        <div class="flex-1 text-center md:text-left">
+                        <div class="flex-1 text-left">
                             <h4 class="text-2xl font-bold mb-2">Copper Watcher (Cu)</h4>
                             <p class="text-lg text-amber-400 mb-4">Copper is the future</p>
                             <p class="text-gray-300 mb-6">
                                 Keep an eye on copper the easy way. Are you kicking yourself for not investing earlier? Copper Watcher lets you see exactly what you missed—and what you could still earn. This lightweight app tracks the prices of popular copper ETFs and includes a simple "what-if" calculator. Just enter an amount and a past date, and the app instantly shows what that investment would be worth today. No clutter, no complicated charts—just quick, easy numbers.
                             </p>
-                            <div class="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
+                            <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Finance</span>
                                 <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Investment Tracking</span>
                                 <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Reference</span>
                             </div>
-                            <a 
-                                href="https://apps.apple.com/us/app/copper-watcher-cu/id6757655923" 
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                            >
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                                </svg>
+                            <a href="https://apps.apple.com/us/app/copper-watcher-cu/id6757655923" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                                 Download on the App Store
                             </a>
                         </div>
@@ -223,31 +330,52 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- Gold Watcher -->
-                <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 hover:bg-white/10 transition-all duration-300">
+                    <details class="md:hidden group">
+                        <summary class="flex items-center gap-4 cursor-pointer list-none">
+                            <img src="/images/gold-watcher-icon.webp" alt="Gold Watcher" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" />
+                            <div class="flex-1 text-left">
+                                <h4 class="text-xl font-bold">Gold Watcher (Au)</h4>
+                                <p class="text-sm text-yellow-400">Gold is the new Gold</p>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <div class="mt-4 text-center">
+                            <p class="text-gray-300 mb-4 text-sm">
+                                Track gold prices in real-time with Gold Watcher - your essential companion for monitoring the precious metals market. Get live market data with real-time gold spot prices, COMEX and LME futures, and popular gold ETFs. Interactive charts let you view historical performance across multiple timeframes. Use the investment calculator to see what your gold investment would be worth today by entering any amount and past date. Multi-currency support includes USD, CAD, EUR, GBP, AUD, JPY, CHF, and CNY. Clean, modern design optimized for dark mode with pull-to-refresh updates.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Finance</span>
+                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Investment Tracking</span>
+                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Real-Time Data</span>
+                            </div>
+                            <a href="https://apps.apple.com/us/app/gold-watcher-au/id6758283387" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                Download on the App Store
+                            </a>
+                        </div>
+                    </details>
+                    <div class="hidden md:flex flex-row items-center gap-8">
                         <div class="flex-shrink-0">
                             <img src="/images/gold-watcher-icon.webp" alt="Gold Watcher" class="w-32 h-32 rounded-3xl shadow-lg" />
                         </div>
-                        <div class="flex-1 text-center md:text-left">
+                        <div class="flex-1 text-left">
                             <h4 class="text-2xl font-bold mb-2">Gold Watcher (Au)</h4>
                             <p class="text-lg text-yellow-400 mb-4">Gold is the new Gold</p>
                             <p class="text-gray-300 mb-6">
                                 Track gold prices in real-time with Gold Watcher - your essential companion for monitoring the precious metals market. Get live market data with real-time gold spot prices, COMEX and LME futures, and popular gold ETFs. Interactive charts let you view historical performance across multiple timeframes. Use the investment calculator to see what your gold investment would be worth today by entering any amount and past date. Multi-currency support includes USD, CAD, EUR, GBP, AUD, JPY, CHF, and CNY. Clean, modern design optimized for dark mode with pull-to-refresh updates.
                             </p>
-                            <div class="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
+                            <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Finance</span>
                                 <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Investment Tracking</span>
                                 <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Real-Time Data</span>
                             </div>
-                            <a 
-                                href="https://apps.apple.com/us/app/gold-watcher-au/id6758283387" 
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                            >
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                                </svg>
+                            <a href="https://apps.apple.com/us/app/gold-watcher-au/id6758283387" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                                 Download on the App Store
                             </a>
                         </div>
