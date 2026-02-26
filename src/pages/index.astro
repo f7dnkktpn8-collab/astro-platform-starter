@@ -512,6 +512,8 @@ import Layout from '../layouts/Layout.astro';
 
         function openModal() {
             modal.classList.remove('hidden');
+            // Push a history state so the back button closes the modal
+            history.pushState({ escalatorVideoOpen: true }, '');
         }
 
         function closeModal() {
@@ -529,16 +531,42 @@ import Layout from '../layouts/Layout.astro';
         });
 
         // Close button
-        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (closeBtn) closeBtn.addEventListener('click', function() {
+            // If we pushed a state, go back to pop it; otherwise just close
+            if (history.state && history.state.escalatorVideoOpen) {
+                history.back();
+            } else {
+                closeModal();
+            }
+        });
 
         // Click on backdrop (but not video container) closes modal
         if (modal) modal.addEventListener('click', function(e) {
-            if (!videoContainer.contains(e.target)) closeModal();
+            if (!videoContainer.contains(e.target)) {
+                if (history.state && history.state.escalatorVideoOpen) {
+                    history.back();
+                } else {
+                    closeModal();
+                }
+            }
+        });
+
+        // Browser back button — intercept the popstate and close the modal
+        window.addEventListener('popstate', function(e) {
+            if (!modal.classList.contains('hidden')) {
+                closeModal();
+            }
         });
 
         // Escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
+            if (e.key === 'Escape') {
+                if (history.state && history.state.escalatorVideoOpen) {
+                    history.back();
+                } else {
+                    closeModal();
+                }
+            }
         });
     })();
 </script>
