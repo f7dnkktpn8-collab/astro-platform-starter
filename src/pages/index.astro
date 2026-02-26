@@ -115,7 +115,12 @@ import Layout from '../layouts/Layout.astro';
                 <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-6 hover:bg-white/10 transition-all duration-300">
                     <details class="md:hidden group">
                         <summary class="flex items-center gap-4 cursor-pointer list-none">
-                            <img src="/images/escalator-field-command-icon.webp" alt="Escalator Field Command" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" />
+                            <div class="relative flex-shrink-0 cursor-pointer" onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('escalator-video-modal').classList.remove('hidden');">
+                                <img src="/images/escalator-field-command-icon.webp" alt="Escalator Field Command" class="w-16 h-16 rounded-2xl shadow-lg" />
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/40 rounded-2xl">
+                                    <svg class="w-7 h-7 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                            </div>
                             <div class="flex-1 text-left">
                                 <h4 class="text-xl font-bold">Escalator Field Command</h4>
                                 <p class="text-sm text-blue-400">Tools for Escalator Mechanics</p>
@@ -142,7 +147,15 @@ import Layout from '../layouts/Layout.astro';
                     </details>
                     <div class="hidden md:flex flex-row items-center gap-8">
                         <div class="flex-shrink-0">
-                            <img src="/images/escalator-field-command-icon.webp" alt="Escalator Field Command" class="w-32 h-32 rounded-3xl shadow-lg" />
+                            <div class="relative cursor-pointer" onclick="document.getElementById('escalator-video-modal').classList.remove('hidden');">
+                                <img src="/images/escalator-field-command-icon.webp" alt="Escalator Field Command" class="w-32 h-32 rounded-3xl shadow-lg" />
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/40 rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-200">
+                                    <svg class="w-12 h-12 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                                <div class="absolute -bottom-2 -right-2 bg-blue-500 rounded-full p-1.5 shadow-lg">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                            </div>
                         </div>
                         <div class="flex-1 text-left">
                             <h4 class="text-2xl font-bold mb-2">Escalator Field Command</h4>
@@ -468,4 +481,22 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </div>
     </div>
+<!-- Escalator Video Modal -->
+<div id="escalator-video-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4" onclick="this.classList.add('hidden'); this.querySelector('video').pause();">
+    <div class="relative w-full max-w-2xl" onclick="event.stopPropagation();">
+        <button
+            class="absolute -top-10 right-0 text-white/80 hover:text-white text-sm font-medium flex items-center gap-1"
+            onclick="document.getElementById('escalator-video-modal').classList.add('hidden'); document.querySelector('#escalator-video-modal video').pause();">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            Close
+        </button>
+        <video
+            class="w-full rounded-2xl shadow-2xl"
+            controls
+            playsinline
+            src="/videos/escalator-field-command-demo.mp4">
+        </video>
+    </div>
+</div>
+
 </Layout>
