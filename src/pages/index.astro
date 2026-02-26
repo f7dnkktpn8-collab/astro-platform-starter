@@ -115,7 +115,7 @@ import Layout from '../layouts/Layout.astro';
                 <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-6 hover:bg-white/10 transition-all duration-300">
                     <details class="md:hidden group">
                         <summary class="flex items-center gap-4 cursor-pointer list-none">
-                            <div class="relative flex-shrink-0 cursor-pointer" onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('escalator-video-modal').classList.remove('hidden');">
+                            <div class="relative flex-shrink-0 cursor-pointer" data-open-escalator-video>
                                 <img src="/images/escalator-field-command-icon.webp" alt="Escalator Field Command" class="w-16 h-16 rounded-2xl shadow-lg" />
                                 <div class="absolute inset-0 flex items-center justify-center bg-black/40 rounded-2xl">
                                     <svg class="w-7 h-7 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -147,7 +147,7 @@ import Layout from '../layouts/Layout.astro';
                     </details>
                     <div class="hidden md:flex flex-row items-center gap-8">
                         <div class="flex-shrink-0">
-                            <div class="relative cursor-pointer" onclick="document.getElementById('escalator-video-modal').classList.remove('hidden');">
+                            <div class="relative cursor-pointer" data-open-escalator-video>
                                 <img src="/images/escalator-field-command-icon.webp" alt="Escalator Field Command" class="w-32 h-32 rounded-3xl shadow-lg" />
                                 <div class="absolute inset-0 flex items-center justify-center bg-black/40 rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-200">
                                     <svg class="w-12 h-12 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -482,17 +482,16 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </div>
 <!-- Escalator Video Modal -->
-<div id="escalator-video-modal" class="hidden fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 backdrop-blur-sm" onclick="closeEscalatorModal();">
+<div id="escalator-video-modal" class="hidden fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 backdrop-blur-sm">
     <!-- Close button — always visible at top right of screen -->
     <button
         id="escalator-modal-close"
-        onclick="closeEscalatorModal();"
         class="fixed top-4 right-4 z-[60] flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-semibold px-4 py-2 rounded-full backdrop-blur-sm transition-all duration-200 shadow-lg">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         Close
     </button>
     <!-- Video container — constrained to viewport with padding -->
-    <div class="relative w-full max-w-3xl px-4" style="max-height: 90vh;" onclick="event.stopPropagation();">
+    <div id="escalator-video-container" class="relative w-full max-w-3xl px-4" style="max-height: 90vh;">
         <video
             id="escalator-video"
             class="w-full rounded-2xl shadow-2xl"
@@ -505,16 +504,43 @@ import Layout from '../layouts/Layout.astro';
 </div>
 
 <script>
-    function closeEscalatorModal() {
+    (function() {
         var modal = document.getElementById('escalator-video-modal');
         var video = document.getElementById('escalator-video');
-        if (modal) modal.classList.add('hidden');
-        if (video) { video.pause(); video.currentTime = 0; }
-    }
-    // Also close on Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeEscalatorModal();
-    });
+        var closeBtn = document.getElementById('escalator-modal-close');
+        var videoContainer = document.getElementById('escalator-video-container');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            if (video) { video.pause(); video.currentTime = 0; }
+        }
+
+        // Wire up all open triggers
+        document.querySelectorAll('[data-open-escalator-video]').forEach(function(el) {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                openModal();
+            });
+        });
+
+        // Close button
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+        // Click on backdrop (but not video container) closes modal
+        if (modal) modal.addEventListener('click', function(e) {
+            if (!videoContainer.contains(e.target)) closeModal();
+        });
+
+        // Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+    })();
 </script>
 
 </Layout>
