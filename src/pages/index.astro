@@ -482,21 +482,39 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </div>
 <!-- Escalator Video Modal -->
-<div id="escalator-video-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4" onclick="this.classList.add('hidden'); this.querySelector('video').pause();">
-    <div class="relative w-full max-w-2xl" onclick="event.stopPropagation();">
-        <button
-            class="absolute -top-10 right-0 text-white/80 hover:text-white text-sm font-medium flex items-center gap-1"
-            onclick="document.getElementById('escalator-video-modal').classList.add('hidden'); document.querySelector('#escalator-video-modal video').pause();">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-            Close
-        </button>
+<div id="escalator-video-modal" class="hidden fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 backdrop-blur-sm" onclick="closeEscalatorModal();">
+    <!-- Close button — always visible at top right of screen -->
+    <button
+        id="escalator-modal-close"
+        onclick="closeEscalatorModal();"
+        class="fixed top-4 right-4 z-[60] flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-semibold px-4 py-2 rounded-full backdrop-blur-sm transition-all duration-200 shadow-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        Close
+    </button>
+    <!-- Video container — constrained to viewport with padding -->
+    <div class="relative w-full max-w-3xl px-4" style="max-height: 90vh;" onclick="event.stopPropagation();">
         <video
+            id="escalator-video"
             class="w-full rounded-2xl shadow-2xl"
+            style="max-height: 80vh; object-fit: contain;"
             controls
             playsinline
             src="/videos/escalator-field-command-demo.mp4">
         </video>
     </div>
 </div>
+
+<script>
+    function closeEscalatorModal() {
+        var modal = document.getElementById('escalator-video-modal');
+        var video = document.getElementById('escalator-video');
+        if (modal) modal.classList.add('hidden');
+        if (video) { video.pause(); video.currentTime = 0; }
+    }
+    // Also close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeEscalatorModal();
+    });
+</script>
 
 </Layout>
