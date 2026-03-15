@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+const LAST_UPDATED = "March 15, 2026";
+const DEVELOPER = "Artificial Igknorance";
+const CONTACT_EMAIL = "info@artificialigknorance.com";
+---
+
+<Layout title="Terms of Use — Artificial Igknorance">
+  <div class="max-w-3xl mx-auto py-12 px-4">
+
+    <!-- Back link -->
+    <a href="/" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors mb-8 text-sm">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+      Back to Home
+    </a>
+
+    <h1 class="text-4xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+      Terms of Use
+    </h1>
+    <p class="text-gray-400 text-sm mb-10">
+      {DEVELOPER} &middot; Last updated {LAST_UPDATED}
+    </p>
+
+    <div class="prose prose-invert prose-lg max-w-none space-y-8">
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">1. Acceptance of Terms</h2>
+        <p class="text-gray-300 leading-relaxed">
+          By downloading, installing, or using any app published by {DEVELOPER} ("the App"), you agree to
+          be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, do not use the App.
+          These Terms constitute a legally binding agreement between you and {DEVELOPER}.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">2. Description of Service</h2>
+        <p class="text-gray-300 leading-relaxed">
+          Our apps are reference and productivity tools intended for informational and educational purposes
+          only. Nothing in any of our apps constitutes financial, investment, medical, legal, or professional
+          advice. Always consult a qualified professional before making decisions based on information
+          displayed in our apps.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">3. Subscription and In-App Purchases</h2>
+        <p class="text-gray-300 leading-relaxed">
+          Some apps offer optional premium subscriptions through Apple's In-App Purchase system.
+          Where a subscription is offered:
+        </p>
+        <ul class="list-disc list-inside text-gray-300 space-y-2 mt-3 ml-4">
+          <li>Payment is charged to your Apple ID account upon confirmation of purchase.</li>
+          <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period.</li>
+          <li>A free trial period may be offered for new subscribers. Your subscription will automatically convert to a paid subscription unless cancelled before the trial ends.</li>
+          <li>You can manage and cancel subscriptions in your Apple ID Account Settings (Settings &rsaquo; Apple ID &rsaquo; Subscriptions).</li>
+          <li>No refund is provided for the unused portion of a subscription period.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">4. Data Accuracy Disclaimer</h2>
+        <p class="text-gray-300 leading-relaxed">
+          Where our apps display financial, medical, or other data sourced from third-party providers,
+          we make no warranty that the data is complete, accurate, or up-to-date. Data may be delayed
+          or subject to errors. Do not make financial, health, or other important decisions based solely
+          on data displayed in our apps.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">5. Intellectual Property</h2>
+        <p class="text-gray-300 leading-relaxed">
+          All content, design, graphics, and code in our apps are the property of {DEVELOPER} and are
+          protected by applicable intellectual property laws. You may not reproduce, distribute, or create
+          derivative works from any part of our apps without prior written permission.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">6. Prohibited Uses</h2>
+        <p class="text-gray-300 leading-relaxed">You agree not to:</p>
+        <ul class="list-disc list-inside text-gray-300 space-y-2 mt-3 ml-4">
+          <li>Use any app for any unlawful purpose.</li>
+          <li>Attempt to reverse-engineer, decompile, or disassemble any app.</li>
+          <li>Use automated tools to scrape or extract data from any app.</li>
+          <li>Interfere with any app's operation or servers.</li>
+          <li>Misrepresent your identity or affiliation.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">7. Disclaimer of Warranties</h2>
+        <p class="text-gray-300 leading-relaxed uppercase text-sm">
+          Our apps are provided "as is" and "as available" without warranties of any kind, either express
+          or implied, including but not limited to warranties of merchantability, fitness for a particular
+          purpose, and non-infringement. We do not warrant that any app will be uninterrupted, error-free,
+          or free of viruses or other harmful components.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">8. Limitation of Liability</h2>
+        <p class="text-gray-300 leading-relaxed uppercase text-sm">
+          To the maximum extent permitted by applicable law, {DEVELOPER} shall not be liable for any
+          indirect, incidental, special, consequential, or punitive damages, including loss of profits,
+          data, or goodwill, arising out of or in connection with your use of any app, even if advised
+          of the possibility of such damages.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">9. Changes to Terms</h2>
+        <p class="text-gray-300 leading-relaxed">
+          We reserve the right to modify these Terms at any time. We will notify you of material changes
+          by updating the "Last updated" date above. Your continued use of any app after changes are posted
+          constitutes your acceptance of the revised Terms.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">10. Governing Law</h2>
+        <p class="text-gray-300 leading-relaxed">
+          These Terms are governed by and construed in accordance with the laws of the Province of Alberta,
+          Canada, without regard to conflict of law principles.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">11. Contact</h2>
+        <p class="text-gray-300 leading-relaxed">
+          If you have questions about these Terms, please contact us:
+        </p>
+        <div class="mt-3 p-4 bg-white/5 rounded-xl border border-white/10">
+          <p class="text-white font-semibold">{DEVELOPER}</p>
+          <a href={`mailto:${CONTACT_EMAIL}`} class="text-blue-400 hover:text-blue-300 transition-colors">
+            {CONTACT_EMAIL}
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</Layout>
