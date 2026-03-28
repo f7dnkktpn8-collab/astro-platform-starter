@@ -28,12 +28,23 @@ import Layout from '../layouts/Layout.astro';
                 </div>
             </div>
             
+            <!-- App Count -->
+            <p class="text-gray-400 text-sm mt-6 tracking-wide uppercase">8 apps on the App Store</p>
+
             <!-- Feature Pills -->
-            <div class="flex flex-wrap gap-3 justify-center mt-10 px-4">
+            <div class="flex flex-wrap gap-3 justify-center mt-6 px-4">
                 <span class="px-4 py-2 bg-blue-500/20 border border-blue-400/30 text-blue-300 rounded-full text-sm font-medium backdrop-blur-sm">
                     🔒 No Account Needed
                 </span>
-
+                <span class="px-4 py-2 bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 rounded-full text-sm font-medium backdrop-blur-sm">
+                    📱 100% On-Device
+                </span>
+                <span class="px-4 py-2 bg-purple-500/20 border border-purple-400/30 text-purple-300 rounded-full text-sm font-medium backdrop-blur-sm">
+                    🛡️ Privacy First
+                </span>
+                <span class="px-4 py-2 bg-green-500/20 border border-green-400/30 text-green-300 rounded-full text-sm font-medium backdrop-blur-sm">
+                    🍎 Native iOS
+                </span>
             </div>
         </div>
     </div>
@@ -50,11 +61,11 @@ import Layout from '../layouts/Layout.astro';
             <h2 class="text-3xl font-bold text-center mb-12">What We've Built</h2>
             
             <!-- HealthTrail Medical -->
-            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-8 hover:bg-white/10 transition-all duration-300">
+            <div id="health" class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-8 hover:bg-white/10 transition-all duration-300 scroll-mt-20">
                 <!-- Mobile: icon + name row with chevron toggle -->
                 <details class="md:hidden group">
                     <summary class="flex items-center gap-4 cursor-pointer list-none">
-                        <img src="/images/healthtrail-medical-icon.webp" alt="HealthTrail Medical" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" />
+                        <img src="/images/healthtrail-medical-icon.webp" alt="HealthTrail Medical" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" loading="lazy" />
                         <div class="flex-1 text-left">
                             <h3 class="text-xl font-bold">HealthTrail Medical</h3>
                             <p class="text-sm text-green-400">Your Complete Health Timeline</p>
@@ -65,7 +76,7 @@ import Layout from '../layouts/Layout.astro';
                     </summary>
                     <div class="mt-4 text-center">
                         <p class="text-gray-300 mb-4 text-sm">
-                            Stop guessing. Start knowing. HealthTrail is your family's digital medical memory, providing an instant visual timeline of every medical event, medication, and milestone. Whether managing your own health, tracking your children's development, or caring for elderly parents, HealthTrail ensures the right information is always in your pocket—with AI-powered medication scanning, comprehensive vaccine tracking, and 100% private local storage.
+                            Your family's digital medical memory. A visual timeline of every medical event, medication, and milestone — with AI-powered medication scanning, vaccine tracking, and 100% private local storage.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4 justify-center">
                             <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Health & Fitness</span>
@@ -82,13 +93,13 @@ import Layout from '../layouts/Layout.astro';
                 <!-- Desktop: full layout always visible -->
                 <div class="hidden md:flex flex-row items-center gap-8">
                     <div class="flex-shrink-0">
-                        <img src="/images/healthtrail-medical-icon.webp" alt="HealthTrail Medical" class="w-32 h-32 rounded-3xl shadow-lg" />
+                        <img src="/images/healthtrail-medical-icon.webp" alt="HealthTrail Medical" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
                     </div>
                     <div class="flex-1 text-left">
                         <h3 class="text-2xl font-bold mb-2">HealthTrail Medical</h3>
                         <p class="text-lg text-green-400 mb-4">Your Complete Health Timeline</p>
                         <p class="text-gray-300 mb-6">
-                            Stop guessing. Start knowing. HealthTrail is your family's digital medical memory, providing an instant visual timeline of every medical event, medication, and milestone. Whether managing your own health, tracking your children's development, or caring for elderly parents, HealthTrail ensures the right information is always in your pocket—with AI-powered medication scanning, comprehensive vaccine tracking, and 100% private local storage.
+                            Your family's digital medical memory. A visual timeline of every medical event, medication, and milestone — with AI-powered medication scanning, vaccine tracking, and 100% private local storage.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Health & Fitness</span>
@@ -105,7 +116,7 @@ import Layout from '../layouts/Layout.astro';
             </div>
 
             <!-- Elevator Industry Section -->
-            <div class="bg-gradient-to-br from-blue-500/10 to-orange-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-8 mb-12 border border-blue-400/20">
+            <div id="industry" class="bg-gradient-to-br from-blue-500/10 to-orange-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-8 mb-8 border border-blue-400/20 scroll-mt-20">
                 <h3 class="text-2xl font-bold text-center mb-2 bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">Elevator Industry</h3>
                 <p class="text-center text-gray-400 mb-8 text-sm">Professional tools for elevator and escalator mechanics</p>
                 
@@ -114,7 +125,7 @@ import Layout from '../layouts/Layout.astro';
                     <details class="md:hidden group">
                         <summary class="flex items-center gap-4 cursor-pointer list-none">
                             <div class="relative flex-shrink-0 cursor-pointer" data-open-escalator-video>
-                                <img src="/images/escalator-field-command-icon.webp" alt="Escalator Field Command" class="w-16 h-16 rounded-2xl shadow-lg" />
+                                <img src="/images/escalator-field-command-icon.webp" alt="Escalator Field Command" class="w-16 h-16 rounded-2xl shadow-lg" loading="lazy" />
                                 <div class="absolute inset-0 flex items-center justify-center bg-black/40 rounded-2xl">
                                     <svg class="w-7 h-7 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                                 </div>
@@ -129,7 +140,7 @@ import Layout from '../layouts/Layout.astro';
                         </summary>
                         <div class="mt-4 text-center">
                             <p class="text-gray-300 mb-4 text-sm">
-                                Built for escalator mechanics who want to work faster, stay organized, and reduce unnecessary labor. This purpose-built tool puts field operations at your fingertips with powerful features for managing maintenance routes, Category 1 testing, SSPI compliance, and comprehensive documentation—all in one intuitive interface designed for real-world use.
+                                Built for escalator mechanics. Manage maintenance routes, Category 1 testing, SSPI compliance, and documentation — all in one interface designed for real-world field use.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4 justify-center">
                                 <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Productivity</span>
@@ -146,7 +157,7 @@ import Layout from '../layouts/Layout.astro';
                     <div class="hidden md:flex flex-row items-center gap-8">
                         <div class="flex-shrink-0">
                             <div class="relative cursor-pointer" data-open-escalator-video>
-                                <img src="/images/escalator-field-command-icon.webp" alt="Escalator Field Command" class="w-32 h-32 rounded-3xl shadow-lg" />
+                                <img src="/images/escalator-field-command-icon.webp" alt="Escalator Field Command" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
                                 <div class="absolute inset-0 flex items-center justify-center bg-black/40 rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-200">
                                     <svg class="w-12 h-12 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                                 </div>
@@ -159,7 +170,7 @@ import Layout from '../layouts/Layout.astro';
                             <h4 class="text-2xl font-bold mb-2">Escalator Field Command</h4>
                             <p class="text-lg text-blue-400 mb-4">Tools for Escalator Mechanics</p>
                             <p class="text-gray-300 mb-6">
-                                Built for escalator mechanics who want to work faster, stay organized, and reduce unnecessary labor. This purpose-built tool puts field operations at your fingertips with powerful features for managing maintenance routes, Category 1 testing, SSPI compliance, and comprehensive documentation—all in one intuitive interface designed for real-world use.
+                                Built for escalator mechanics. Manage maintenance routes, Category 1 testing, SSPI compliance, and documentation — all in one interface designed for real-world field use.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Productivity</span>
@@ -179,7 +190,7 @@ import Layout from '../layouts/Layout.astro';
                 <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 hover:bg-white/10 transition-all duration-300">
                     <details class="md:hidden group">
                         <summary class="flex items-center gap-4 cursor-pointer list-none">
-                            <img src="/images/elevator-field-command-app-icon.webp" alt="Elevator Field Command" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" />
+                            <img src="/images/elevator-field-command-app-icon.webp" alt="Elevator Field Command" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" loading="lazy" />
                             <div class="flex-1 text-left">
                                 <h4 class="text-xl font-bold">Elevator Field Command</h4>
                                 <p class="text-sm text-orange-400">Tools for Elevator Mechanics</p>
@@ -190,7 +201,7 @@ import Layout from '../layouts/Layout.astro';
                         </summary>
                         <div class="mt-4 text-center">
                             <p class="text-gray-300 mb-4 text-sm">
-                                Elevator Field Command is the professional-grade tool built for elevator mechanics who need to stay organized in the field without relying on an internet connection. Track every elevator on your route with detailed equipment specs, service history, and building contacts. Log maintenance, repairs, inspections, and emergency calls in seconds. Upload PDFs, manuals, code books, and technical documents for instant offline access. All data lives on your device with automatic daily backups.
+                                Professional-grade tool for elevator mechanics. Track equipment specs, service history, and contacts per unit. Log maintenance and inspections in seconds with full offline access and automatic daily backups.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4 justify-center">
                                 <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Productivity</span>
@@ -206,13 +217,13 @@ import Layout from '../layouts/Layout.astro';
                     </details>
                     <div class="hidden md:flex flex-row items-center gap-8">
                         <div class="flex-shrink-0">
-                            <img src="/images/elevator-field-command-app-icon.webp" alt="Elevator Field Command" class="w-32 h-32 rounded-3xl shadow-lg" />
+                            <img src="/images/elevator-field-command-app-icon.webp" alt="Elevator Field Command" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
                         </div>
                         <div class="flex-1 text-left">
                             <h4 class="text-2xl font-bold mb-2">Elevator Field Command</h4>
                             <p class="text-lg text-orange-400 mb-4">Tools for Elevator Mechanics</p>
                             <p class="text-gray-300 mb-6">
-                                Elevator Field Command is the professional-grade tool built for elevator mechanics who need to stay organized in the field without relying on an internet connection. Track every elevator on your route with detailed equipment specs, service history, and building contacts. Log maintenance, repairs, inspections, and emergency calls in seconds. Upload PDFs, manuals, code books, and technical documents for instant offline access. All data lives on your device with automatic daily backups.
+                                Professional-grade tool for elevator mechanics. Track equipment specs, service history, and contacts per unit. Log maintenance and inspections in seconds with full offline access and automatic daily backups.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Productivity</span>
@@ -285,15 +296,15 @@ import Layout from '../layouts/Layout.astro';
             -->
 
             <!-- Financial Section -->
-            <div class="bg-gradient-to-br from-amber-500/10 to-yellow-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-8 mb-12 border border-amber-400/20">
+            <div id="financial" class="bg-gradient-to-br from-amber-500/10 to-yellow-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-8 mb-8 border border-amber-400/20 scroll-mt-20">
                 <h3 class="text-2xl font-bold text-center mb-2 bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">Financial</h3>
-                <p class="text-center text-gray-400 mb-8 text-sm">Track precious metals and commodity investments</p>
+                <p class="text-center text-gray-400 mb-8 text-sm">Budgeting, bill tracking, and precious metals</p>
                 
                 <!-- SnapLedger -->
                 <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-6 hover:bg-white/10 transition-all duration-300">
                     <details class="md:hidden group">
                         <summary class="flex items-center gap-4 cursor-pointer list-none">
-                            <img src="/images/snapledger-icon.webp" alt="SnapLedger" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" />
+                            <img src="/images/snapledger-icon.webp" alt="SnapLedger" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" loading="lazy" />
                             <div class="flex-1 text-left">
                                 <h4 class="text-xl font-bold">SnapLedger ø</h4>
                                 <p class="text-sm text-green-400">Bills &amp; Subscriptions Tracker</p>
@@ -304,7 +315,7 @@ import Layout from '../layouts/Layout.astro';
                         </summary>
                         <div class="mt-4 text-center">
                             <p class="text-gray-300 mb-4 text-sm">
-                                Take control of your finances — one snap at a time. SnapLedger makes managing your household bills and subscriptions effortless. Simply snap a photo of any bill and let AI instantly extract all the details. No more manual entry, no more surprises. Track subscriptions by category, monitor household expenses like electricity, gas, and internet, and spot trends across months — all in one clean dashboard.
+                                Snap a photo of any bill and let AI extract the details instantly. Track subscriptions by category, monitor household expenses, and spot trends across months — all in one clean dashboard.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4 justify-center">
                                 <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Finance</span>
@@ -320,13 +331,13 @@ import Layout from '../layouts/Layout.astro';
                     </details>
                     <div class="hidden md:flex flex-row items-center gap-8">
                         <div class="flex-shrink-0">
-                            <img src="/images/snapledger-icon.webp" alt="SnapLedger" class="w-32 h-32 rounded-3xl shadow-lg" />
+                            <img src="/images/snapledger-icon.webp" alt="SnapLedger" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
                         </div>
                         <div class="flex-1 text-left">
                             <h4 class="text-2xl font-bold mb-2">SnapLedger ø</h4>
                             <p class="text-lg text-green-400 mb-4">Bills &amp; Subscriptions Tracker</p>
                             <p class="text-gray-300 mb-6">
-                                Take control of your finances — one snap at a time. SnapLedger makes managing your household bills and subscriptions effortless. Simply snap a photo of any bill and let AI instantly extract all the details. No more manual entry, no more surprises. Track subscriptions by category, monitor household expenses like electricity, gas, and internet, and spot trends across months — all in one clean dashboard.
+                                Snap a photo of any bill and let AI extract the details instantly. Track subscriptions by category, monitor household expenses, and spot trends across months — all in one clean dashboard.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Finance</span>
@@ -346,7 +357,7 @@ import Layout from '../layouts/Layout.astro';
                 <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-6 hover:bg-white/10 transition-all duration-300">
                     <details class="md:hidden group">
                         <summary class="flex items-center gap-4 cursor-pointer list-none">
-                            <img src="/images/copper-watcher-icon.webp" alt="Copper Watcher" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" />
+                            <img src="/images/copper-watcher-icon.webp" alt="Copper Watcher" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" loading="lazy" />
                             <div class="flex-1 text-left">
                                 <h4 class="text-xl font-bold">Copper Watcher (Cu)</h4>
                                 <p class="text-sm text-amber-400">Copper is the future</p>
@@ -357,7 +368,7 @@ import Layout from '../layouts/Layout.astro';
                         </summary>
                         <div class="mt-4 text-center">
                             <p class="text-gray-300 mb-4 text-sm">
-                                Track copper prices in real-time — live spot price, top ETFs (CPER, COPX, COPP), copper futures, and a built-in scrap calculator for grades from OFHC lab grade to #2 scrap. The What If calculator shows what any past investment would be worth today, with S&amp;P 500 comparison. Manage your portfolio in oz, g, kg, lb, or tonne. Set price alerts for buy and sell targets. Supports 10 currencies including CAD, USD, EUR, GBP, and INR.
+                                Live copper spot price, ETFs, futures, and a scrap calculator. Portfolio tracking in multiple units, price alerts, a What If calculator with S&amp;P 500 comparison, and support for 10 currencies.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4 justify-center">
                                 <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Finance</span>
@@ -373,13 +384,13 @@ import Layout from '../layouts/Layout.astro';
                     </details>
                     <div class="hidden md:flex flex-row items-center gap-8">
                         <div class="flex-shrink-0">
-                            <img src="/images/copper-watcher-icon.webp" alt="Copper Watcher" class="w-32 h-32 rounded-3xl shadow-lg" />
+                            <img src="/images/copper-watcher-icon.webp" alt="Copper Watcher" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
                         </div>
                         <div class="flex-1 text-left">
                             <h4 class="text-2xl font-bold mb-2">Copper Watcher (Cu)</h4>
                             <p class="text-lg text-amber-400 mb-4">Copper is the future</p>
                             <p class="text-gray-300 mb-6">
-                                Track copper prices in real-time — live spot price, top ETFs (CPER, COPX, COPP), copper futures, and a built-in scrap calculator for grades from OFHC lab grade to #2 scrap. The What If calculator shows what any past investment would be worth today, with S&amp;P 500 comparison. Manage your portfolio in oz, g, kg, lb, or tonne. Set price alerts for buy and sell targets. Supports 10 currencies including CAD, USD, EUR, GBP, and INR.
+                                Live copper spot price, ETFs, futures, and a scrap calculator. Portfolio tracking in multiple units, price alerts, a What If calculator with S&amp;P 500 comparison, and support for 10 currencies.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Finance</span>
@@ -396,10 +407,10 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- Gold Watcher -->
-                <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 hover:bg-white/10 transition-all duration-300">
+                <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 mb-6 hover:bg-white/10 transition-all duration-300">
                     <details class="md:hidden group">
                         <summary class="flex items-center gap-4 cursor-pointer list-none">
-                            <img src="/images/gold-watcher-icon.webp" alt="Gold Watcher" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" />
+                            <img src="/images/gold-watcher-icon.webp" alt="Gold Watcher" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" loading="lazy" />
                             <div class="flex-1 text-left">
                                 <h4 class="text-xl font-bold">Gold Watcher (Au)</h4>
                                 <p class="text-sm text-yellow-400">Gold is the new Gold</p>
@@ -410,7 +421,7 @@ import Layout from '../layouts/Layout.astro';
                         </summary>
                         <div class="mt-4 text-center">
                             <p class="text-gray-300 mb-4 text-sm">
-                                Track gold prices in real-time — live spot price, top ETFs (GLD, IAU, SGOL), gold futures, and the gold/silver ratio. The What If calculator shows what any past investment would be worth today, with S&amp;P 500 comparison. Manage your portfolio in oz, g, kg, or dwt. Set price alerts for buy and sell targets. Built-in karat calculator for jewellers. Supports 10 currencies including CAD, USD, EUR, GBP, and INR.
+                                Live gold spot price, ETFs, futures, and the gold/silver ratio. Portfolio tracking, price alerts, a karat calculator for jewellers, and a What If calculator with S&amp;P 500 comparison across 10 currencies.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4 justify-center">
                                 <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Finance</span>
@@ -426,13 +437,13 @@ import Layout from '../layouts/Layout.astro';
                     </details>
                     <div class="hidden md:flex flex-row items-center gap-8">
                         <div class="flex-shrink-0">
-                            <img src="/images/gold-watcher-icon.webp" alt="Gold Watcher" class="w-32 h-32 rounded-3xl shadow-lg" />
+                            <img src="/images/gold-watcher-icon.webp" alt="Gold Watcher" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
                         </div>
                         <div class="flex-1 text-left">
                             <h4 class="text-2xl font-bold mb-2">Gold Watcher (Au)</h4>
                             <p class="text-lg text-yellow-400 mb-4">Gold is the new Gold</p>
                             <p class="text-gray-300 mb-6">
-                                Track gold prices in real-time — live spot price, top ETFs (GLD, IAU, SGOL), gold futures, and the gold/silver ratio. The What If calculator shows what any past investment would be worth today, with S&amp;P 500 comparison. Manage your portfolio in oz, g, kg, or dwt. Set price alerts for buy and sell targets. Built-in karat calculator for jewellers. Supports 10 currencies including CAD, USD, EUR, GBP, and INR.
+                                Live gold spot price, ETFs, futures, and the gold/silver ratio. Portfolio tracking, price alerts, a karat calculator for jewellers, and a What If calculator with S&amp;P 500 comparison across 10 currencies.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Finance</span>
@@ -449,10 +460,10 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- Silver Watcher -->
-                <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 mt-6 hover:bg-white/10 transition-all duration-300">
+                <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 hover:bg-white/10 transition-all duration-300">
                     <details class="md:hidden group">
                         <summary class="flex items-center gap-4 cursor-pointer list-none">
-                            <img src="/images/silver-watcher-icon.webp" alt="Silver Watcher" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" />
+                            <img src="/images/silver-watcher-icon.webp" alt="Silver Watcher" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" loading="lazy" />
                             <div class="flex-1 text-left">
                                 <h4 class="text-xl font-bold">Silver Watcher (Ag)</h4>
                                 <p class="text-sm text-slate-300">Silver Price Tracker &amp; Alerts</p>
@@ -463,7 +474,7 @@ import Layout from '../layouts/Layout.astro';
                         </summary>
                         <div class="mt-4 text-center">
                             <p class="text-gray-300 mb-4 text-sm">
-                                Track silver prices in real-time — live spot price, top ETFs (SLV, SIVR, PSLV), silver futures, and the gold/silver ratio. The What If calculator shows what any past investment would be worth today, with S&amp;P 500 comparison. Manage your portfolio in oz, g, kg, dwt, tola, tael, or grain. Built-in purity calculator for Sterling (925), Britannia (958), Fine Silver (999), and more. Set price alerts for buy and sell targets. Supports 10 currencies including CAD, USD, EUR, GBP, and INR.
+                                Live silver spot price, ETFs, futures, and the gold/silver ratio. Portfolio tracking, price alerts, a purity calculator for Sterling to Fine Silver, and a What If calculator with S&amp;P 500 comparison across 10 currencies.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4 justify-center">
                                 <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Finance</span>
@@ -479,13 +490,13 @@ import Layout from '../layouts/Layout.astro';
                     </details>
                     <div class="hidden md:flex flex-row items-center gap-8">
                         <div class="flex-shrink-0">
-                            <img src="/images/silver-watcher-icon.webp" alt="Silver Watcher" class="w-32 h-32 rounded-3xl shadow-lg" />
+                            <img src="/images/silver-watcher-icon.webp" alt="Silver Watcher" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
                         </div>
                         <div class="flex-1 text-left">
                             <h4 class="text-2xl font-bold mb-2">Silver Watcher (Ag)</h4>
                             <p class="text-lg text-slate-300 mb-4">Silver Price Tracker &amp; Alerts</p>
                             <p class="text-gray-300 mb-6">
-                                Track silver prices in real-time — live spot price, top ETFs (SLV, SIVR, PSLV), silver futures, and the gold/silver ratio. The What If calculator shows what any past investment would be worth today, with S&amp;P 500 comparison. Manage your portfolio in oz, g, kg, dwt, tola, tael, or grain. Built-in purity calculator for Sterling (925), Britannia (958), Fine Silver (999), and more. Set price alerts for buy and sell targets. Supports 10 currencies including CAD, USD, EUR, GBP, and INR.
+                                Live silver spot price, ETFs, futures, and the gold/silver ratio. Portfolio tracking, price alerts, a purity calculator for Sterling to Fine Silver, and a What If calculator with S&amp;P 500 comparison across 10 currencies.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Finance</span>
@@ -510,7 +521,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <!-- Get in Touch -->
-        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 text-center">
+        <div id="contact" class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 text-center scroll-mt-20">
             <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
             <div class="flex flex-col gap-4 items-center">
                 <a href="mailto:info@artificialigknorance.com" class="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
@@ -525,11 +536,9 @@ import Layout from '../layouts/Layout.astro';
                     </svg>
                     @igknorance
                 </a>
-                <a href="https://artificialigknorance.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-                    </svg>
-                    artificialigknorance.com
+                <a href="https://apps.apple.com/us/developer/mike-dangerfield/id1588904052" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    All Apps on the App Store
                 </a>
             </div>
         </div>
