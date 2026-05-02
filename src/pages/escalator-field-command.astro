@@ -1,0 +1,332 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const SITE_URL = 'https://artificialigknorance.com';
+const APP_STORE_URL = 'https://apps.apple.com/us/app/escalator-field-command/id6756789866';
+const APP_ICON = '/images/escalator-field-command-icon.webp';
+
+const faqs = [
+    {
+        q: 'What is Escalator Field Command?',
+        a: 'Escalator Field Command is a native iOS app built for escalator mechanics. It combines maintenance route management, Category 1 testing logs, SSPI compliance documentation, equipment specs, service history, and per-unit contacts into one offline-first interface designed for real-world field use.'
+    },
+    {
+        q: 'Does it work without an internet connection?',
+        a: 'Yes. The app is fully offline-first. Everything works in elevator pits, mechanical rooms, basements, and any other low-signal environment where escalator work actually happens. Your data lives on the device, with automatic daily backups.'
+    },
+    {
+        q: 'Do I need to create an account?',
+        a: 'No. Zero credentials, zero signups, zero cloud accounts. Open the app and start working. Your data never leaves your iPhone unless you choose to back it up or export it yourself.'
+    },
+    {
+        q: 'Is my data private?',
+        a: '100%. The app is on-device by design — nothing about your routes, units, inspections, or compliance records is sent to a server. There is no analytics SDK, no third-party data sharing, no telemetry.'
+    },
+    {
+        q: 'Who is it built for?',
+        a: 'Escalator mechanics, field service technicians, QEI inspectors, route supervisors, and anyone responsible for ongoing maintenance, testing, or inspection of escalators and moving walks.'
+    },
+    {
+        q: 'How does Category 1 testing work in the app?',
+        a: 'You log Category 1 tests against the specific units they belong to, alongside service history, inspection notes, and equipment specs. Records stay attached to the unit so the next time you visit that escalator, the full history is one tap away.'
+    },
+    {
+        q: 'How much does it cost?',
+        a: 'Free to download from the App Store. See the latest pricing and any in-app options on the App Store listing.'
+    }
+];
+
+const pageStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': SITE_URL + '/escalator-field-command/#webpage',
+            url: SITE_URL + '/escalator-field-command/',
+            name: 'Escalator Field Command — iOS App for Escalator Mechanics',
+            description:
+                'Escalator Field Command is the iOS app for escalator mechanics: maintenance routes, Category 1 testing, SSPI compliance documentation, equipment specs, and inspection logs. Offline-first, no account, 100% on-device.',
+            isPartOf: { '@id': SITE_URL + '/#website' },
+            mainEntity: { '@id': SITE_URL + '/#escalator-field-command' },
+            inLanguage: 'en-US',
+            primaryImageOfPage: {
+                '@type': 'ImageObject',
+                url: SITE_URL + APP_ICON
+            }
+        },
+        {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
+                {
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'Escalator Field Command',
+                    item: SITE_URL + '/escalator-field-command/'
+                }
+            ]
+        },
+        {
+            '@type': 'FAQPage',
+            mainEntity: faqs.map(({ q, a }) => ({
+                '@type': 'Question',
+                name: q,
+                acceptedAnswer: { '@type': 'Answer', text: a }
+            }))
+        }
+    ]
+};
+---
+
+<Layout
+    title="Escalator Field Command — iOS App for Escalator Mechanics"
+    description="The iOS app built for escalator mechanics. Maintenance routes, Category 1 testing, SSPI compliance, equipment specs, and inspection logs — offline-first, 100% on-device, no account required."
+    ogImage={APP_ICON}
+    twitterCard="summary"
+>
+    <script
+        slot="head"
+        type="application/ld+json"
+        set:html={JSON.stringify(pageStructuredData)}
+    />
+
+    <!-- Breadcrumb (visual + crawlable) -->
+    <nav aria-label="Breadcrumb" class="text-sm text-gray-400 pt-6">
+        <ol class="flex items-center gap-2">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-gray-300">Escalator Field Command</li>
+        </ol>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative py-12 sm:py-16">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-blue-400 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-40 h-40 bg-cyan-400 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <img
+                src={APP_ICON}
+                alt="Escalator Field Command app icon"
+                width="180"
+                height="180"
+                class="w-32 h-32 md:w-44 md:h-44 rounded-3xl shadow-2xl flex-shrink-0"
+            />
+            <div class="flex-1 text-center md:text-left">
+                <h1 class="text-4xl sm:text-5xl font-bold mb-3 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                    Escalator Field Command
+                </h1>
+                <p class="text-xl sm:text-2xl text-blue-300 font-medium mb-4">
+                    The iOS app built for escalator mechanics.
+                </p>
+                <p class="text-gray-300 max-w-2xl mb-6 text-lg">
+                    Manage maintenance routes, Category 1 testing, SSPI compliance, and inspection
+                    documentation — all in one offline-first interface designed for real-world field
+                    use.
+                </p>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <a
+                        href={APP_STORE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl no-underline"
+                    >
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+                            ><path
+                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+                            ></path></svg
+                        >
+                        Download on the App Store
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick badges -->
+    <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
+        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">iOS native</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Offline-first</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Zero account</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">100% on-device</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
+            >Category 1 testing</span
+        >
+        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">SSPI compliance</span>
+    </section>
+
+    <!-- What it does -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">What it does</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-blue-300">Maintenance routes</h3>
+                <p class="text-gray-300">
+                    Build and run your daily route. Each unit carries its own equipment specs,
+                    contacts, and full service history — so the next visit picks up where the last
+                    one left off.
+                </p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-blue-300">Category 1 testing</h3>
+                <p class="text-gray-300">
+                    Log Cat 1 tests against the specific units they belong to. Records stay attached
+                    to the equipment, not buried in a folder somewhere.
+                </p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-blue-300">SSPI compliance</h3>
+                <p class="text-gray-300">
+                    Document SSPI work cleanly so audit trails stay intact. No more hunting through
+                    paper logs or shared drives the day before an inspection.
+                </p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-blue-300">Equipment specs &amp; history</h3>
+                <p class="text-gray-300">
+                    Track equipment data, model details, and full service history per unit. Add
+                    notes, photos, and inspection records as you go.
+                </p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-blue-300">Works offline</h3>
+                <p class="text-gray-300">
+                    Mechanical rooms, basements, and pit-level work don't have a signal. The app
+                    doesn't care. Everything works offline and syncs nowhere unless you choose.
+                </p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-blue-300">Daily backups</h3>
+                <p class="text-gray-300">
+                    Automatic daily backups so a lost or replaced phone never means lost records.
+                    Your data stays yours.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built for -->
+    <section
+        class="mb-16 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-10 border border-blue-400/20"
+    >
+        <h2 class="text-3xl font-bold mb-6 text-center">Built for the field</h2>
+        <p class="text-gray-300 text-lg max-w-3xl mx-auto text-center mb-6">
+            This isn't a generic CMMS bolted onto an iPhone. It's built for the specific workflow of
+            escalator and moving-walk mechanics — by someone who works on them.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+            <div class="text-center">
+                <div class="text-blue-300 font-semibold">Mechanics</div>
+            </div>
+            <div class="text-center">
+                <div class="text-blue-300 font-semibold">Field technicians</div>
+            </div>
+            <div class="text-center">
+                <div class="text-blue-300 font-semibold">QEI inspectors</div>
+            </div>
+            <div class="text-center">
+                <div class="text-blue-300 font-semibold">Route supervisors</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why different -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">Why it's different</h2>
+        <div class="space-y-4 max-w-3xl">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold">
+                    1
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-1">No account, ever</h3>
+                    <p class="text-gray-300">
+                        Zero signups. Zero credentials. Zero cloud lock-in. Open the app and work.
+                    </p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold">
+                    2
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-1">100% on-device</h3>
+                    <p class="text-gray-300">
+                        No telemetry, no analytics SDKs, no third-party data sharing. Your route data,
+                        compliance logs, and contacts never leave your phone.
+                    </p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold">
+                    3
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-1">Built by a mechanic</h3>
+                    <p class="text-gray-300">
+                        Created by Mike Dangerfield (Artificial Igknorance). The workflow is shaped by
+                        actual escalator field work, not a product manager's wireframe.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">Frequently asked questions</h2>
+        <div class="space-y-3">
+            {
+                faqs.map(({ q, a }) => (
+                    <details class="bg-white/5 rounded-xl p-5 group hover:bg-white/10 transition-all">
+                        <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-lg">
+                            <span>{q}</span>
+                            <svg
+                                class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7"
+                                />
+                            </svg>
+                        </summary>
+                        <p class="mt-3 text-gray-300">{a}</p>
+                    </details>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="text-center mb-16 bg-gradient-to-br from-blue-500/15 to-cyan-500/15 rounded-3xl p-8 md:p-12 border border-blue-400/20">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get Escalator Field Command</h2>
+        <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+            Free download on the App Store. Built for iPhone, designed for the field.
+        </p>
+        <a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl no-underline text-lg"
+        >
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"
+                ><path
+                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+                ></path></svg
+            >
+            Download on the App Store
+        </a>
+        <p class="mt-6 text-sm text-gray-400">
+            Or browse <a href="/" class="text-blue-300 hover:text-blue-200 underline"
+                >all Artificial Igknorance apps</a
+            >.
+        </p>
+    </section>
+</Layout>

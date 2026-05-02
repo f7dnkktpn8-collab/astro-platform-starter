@@ -8,16 +8,21 @@ import Footer from '../components/Footer.astro';
 interface Props {
     title: string;
     description?: string;
+    ogImage?: string;
+    twitterCard?: 'summary' | 'summary_large_image';
 }
 
 const SITE_URL = 'https://artificialigknorance.com';
 
 const {
     title,
-    description = "Escalator Field Command — iOS app for escalator mechanics: routes, Category 1 testing, SSPI compliance, inspections. Plus privacy-first apps for health, finance & more by Artificial Igknorance."
+    description = "Escalator Field Command — iOS app for escalator mechanics: routes, Category 1 testing, SSPI compliance, inspections. Plus privacy-first apps for health, finance & more by Artificial Igknorance.",
+    ogImage = SITE_URL + '/images/robot-mascot-transparent.png',
+    twitterCard = 'summary_large_image'
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
+const absoluteOgImage = ogImage.startsWith('http') ? ogImage : SITE_URL + ogImage;
 
 // JSON-LD structured data graph. Escalator Field Command appears first and
 // carries the most detail to bias search/Knowledge-Graph weighting toward it.
@@ -173,17 +178,17 @@ const structuredData = {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonicalURL} />
-        <meta property="og:image" content={SITE_URL + "/images/robot-mascot-transparent.png"} />
+        <meta property="og:image" content={absoluteOgImage} />
         <meta property="og:site_name" content="Artificial Igknorance" />
         <meta property="og:locale" content="en_US" />
 
         <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content={twitterCard} />
         <meta name="twitter:site" content="@igknorance" />
         <meta name="twitter:creator" content="@igknorance" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={SITE_URL + "/images/robot-mascot-transparent.png"} />
+        <meta name="twitter:image" content={absoluteOgImage} />
 
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -192,6 +197,9 @@ const structuredData = {
 
         <!-- Structured data: Organization + WebSite + every iOS app, with Escalator Field Command first/most detailed -->
         <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+        <!-- Slot for per-page additions (extra structured data, preloads, etc.) -->
+        <slot name="head" />
     </head>
     <body class="antialiased text-white bg-complementary">
         <div class="flex flex-col min-h-screen px-6 bg-noise sm:px-12">
