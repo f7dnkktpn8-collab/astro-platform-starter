@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Netlify starter-template demo pages — not part of the brand.
+Disallow: /blobs/
+Disallow: /edge/
+Disallow: /image-cdn/
+Disallow: /revalidation/
+
+Sitemap: https://artificialigknorance.com/sitemap-index.xml

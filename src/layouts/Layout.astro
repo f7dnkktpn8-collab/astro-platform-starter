@@ -10,7 +10,150 @@ interface Props {
     description?: string;
 }
 
-const { title, description = "Privacy-first iOS apps by Artificial Igknorance. Health tracking, precious metals, bill scanning, and escalator industry tools — all 100% on-device." } = Astro.props;
+const SITE_URL = 'https://artificialigknorance.com';
+
+const {
+    title,
+    description = "Escalator Field Command — iOS app for escalator mechanics: routes, Category 1 testing, SSPI compliance, inspections. Plus privacy-first apps for health, finance & more by Artificial Igknorance."
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
+
+// JSON-LD structured data graph. Escalator Field Command appears first and
+// carries the most detail to bias search/Knowledge-Graph weighting toward it.
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": SITE_URL + "/#organization",
+            "name": "Artificial Igknorance",
+            "url": SITE_URL,
+            "logo": {
+                "@type": "ImageObject",
+                "url": SITE_URL + "/images/robot-mascot-transparent.png"
+            },
+            "founder": {
+                "@type": "Person",
+                "name": "Mike Dangerfield"
+            },
+            "sameAs": [
+                "https://twitter.com/igknorance",
+                "https://x.com/igknorance"
+            ],
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "Info@artificialigknorance.com",
+                "contactType": "customer support"
+            }
+        },
+        {
+            "@type": "WebSite",
+            "@id": SITE_URL + "/#website",
+            "url": SITE_URL,
+            "name": "Artificial Igknorance",
+            "description": "Privacy-first iOS apps — escalator industry tools, health tracking, precious metals, and bill scanning. 100% on-device.",
+            "publisher": { "@id": SITE_URL + "/#organization" },
+            "inLanguage": "en-US"
+        },
+        {
+            "@type": "MobileApplication",
+            "@id": SITE_URL + "/#escalator-field-command",
+            "name": "Escalator Field Command",
+            "alternateName": "Escalator Field Command for iOS",
+            "description": "Built for escalator mechanics. Manage maintenance routes, Category 1 testing, SSPI compliance, and inspection documentation — all in one offline-first interface designed for real-world field use.",
+            "applicationCategory": "BusinessApplication",
+            "applicationSubCategory": "Productivity",
+            "operatingSystem": "iOS 17+",
+            "url": "https://apps.apple.com/us/app/escalator-field-command/id6756789866",
+            "downloadUrl": "https://apps.apple.com/us/app/escalator-field-command/id6756789866",
+            "installUrl": "https://apps.apple.com/us/app/escalator-field-command/id6756789866",
+            "image": SITE_URL + "/images/escalator-field-command-icon.webp",
+            "screenshot": SITE_URL + "/images/escalator-field-command-icon.webp",
+            "publisher": { "@id": SITE_URL + "/#organization" },
+            "creator": { "@id": SITE_URL + "/#organization" },
+            "author": { "@id": SITE_URL + "/#organization" },
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock"
+            },
+            "inLanguage": "en-US",
+            "keywords": "escalator mechanic, escalator maintenance, Category 1 testing, SSPI compliance, escalator inspection, field service app, escalator field command, iOS escalator app, escalator technician tools"
+        },
+        {
+            "@type": "MobileApplication",
+            "@id": SITE_URL + "/#healthtrail-medical",
+            "name": "HealthTrail Medical",
+            "description": "Your family's digital medical memory. Visual timeline of medical events, medications, and milestones with AI medication scanning, vaccine tracking, and 100% private local storage.",
+            "applicationCategory": "HealthApplication",
+            "operatingSystem": "iOS",
+            "url": "https://apps.apple.com/us/app/healthtrail-medical/id6758072258",
+            "downloadUrl": "https://apps.apple.com/us/app/healthtrail-medical/id6758072258",
+            "image": SITE_URL + "/images/healthtrail-medical-icon.webp",
+            "publisher": { "@id": SITE_URL + "/#organization" },
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "inLanguage": "en-US"
+        },
+        {
+            "@type": "MobileApplication",
+            "@id": SITE_URL + "/#snapledger",
+            "name": "SnapLedger",
+            "description": "Snap a photo of any bill and let AI extract the details. Track subscriptions by category, monitor household expenses, and spot trends across months.",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "iOS",
+            "url": "https://apps.apple.com/ca/app/snapledger-%C3%B8/id6759497982",
+            "downloadUrl": "https://apps.apple.com/ca/app/snapledger-%C3%B8/id6759497982",
+            "image": SITE_URL + "/images/snapledger-icon.webp",
+            "publisher": { "@id": SITE_URL + "/#organization" },
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "inLanguage": "en-US"
+        },
+        {
+            "@type": "MobileApplication",
+            "@id": SITE_URL + "/#copper-watcher",
+            "name": "Copper Watcher (Cu)",
+            "description": "Live copper spot price, ETFs, futures, and a scrap calculator. Portfolio tracking, price alerts, What If calculator with S&P 500 comparison, 10 currencies.",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "iOS",
+            "url": "https://apps.apple.com/us/app/copper-watcher-cu/id6757655923",
+            "downloadUrl": "https://apps.apple.com/us/app/copper-watcher-cu/id6757655923",
+            "image": SITE_URL + "/images/copper-watcher-icon.webp",
+            "publisher": { "@id": SITE_URL + "/#organization" },
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "inLanguage": "en-US"
+        },
+        {
+            "@type": "MobileApplication",
+            "@id": SITE_URL + "/#gold-watcher",
+            "name": "Gold Watcher (Au)",
+            "description": "Live gold spot price, ETFs, futures, and the gold/silver ratio. Portfolio tracking, price alerts, karat calculator for jewellers, What If calculator with S&P 500 comparison.",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "iOS",
+            "url": "https://apps.apple.com/us/app/gold-watcher-au/id6758283387",
+            "downloadUrl": "https://apps.apple.com/us/app/gold-watcher-au/id6758283387",
+            "image": SITE_URL + "/images/gold-watcher-icon.webp",
+            "publisher": { "@id": SITE_URL + "/#organization" },
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "inLanguage": "en-US"
+        },
+        {
+            "@type": "MobileApplication",
+            "@id": SITE_URL + "/#silver-watcher",
+            "name": "Silver Watcher (Ag)",
+            "description": "Live silver spot price, ETFs, futures. Portfolio tracking, price alerts, and What If calculator with S&P 500 comparison across 10 currencies.",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "iOS",
+            "url": "https://apps.apple.com/us/app/silver-watcher-ag/id6760270695",
+            "downloadUrl": "https://apps.apple.com/us/app/silver-watcher-ag/id6760270695",
+            "image": SITE_URL + "/images/silver-watcher-icon.webp",
+            "publisher": { "@id": SITE_URL + "/#organization" },
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "inLanguage": "en-US"
+        }
+    ]
+};
 ---
 
 <!doctype html>
@@ -22,25 +165,33 @@ const { title, description = "Privacy-first iOS apps by Artificial Igknorance. H
         <meta name="description" content={description} />
         <meta name="generator" content={Astro.generator} />
 
+        <!-- Canonical URL -->
+        <link rel="canonical" href={canonicalURL} />
+
         <!-- Open Graph -->
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:url" content="https://artificialigknorance.com" />
-        <meta property="og:image" content="https://artificialigknorance.com/images/robot-mascot-transparent.png" />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:image" content={SITE_URL + "/images/robot-mascot-transparent.png"} />
         <meta property="og:site_name" content="Artificial Igknorance" />
+        <meta property="og:locale" content="en_US" />
 
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@igknorance" />
+        <meta name="twitter:creator" content="@igknorance" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content="https://artificialigknorance.com/images/robot-mascot-transparent.png" />
+        <meta name="twitter:image" content={SITE_URL + "/images/robot-mascot-transparent.png"} />
 
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin />
+
+        <!-- Structured data: Organization + WebSite + every iOS app, with Escalator Field Command first/most detailed -->
+        <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     </head>
     <body class="antialiased text-white bg-complementary">
         <div class="flex flex-col min-h-screen px-6 bg-noise sm:px-12">
