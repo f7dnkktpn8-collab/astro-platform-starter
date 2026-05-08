@@ -163,8 +163,8 @@ const pageStructuredData = {
         <h2 class="text-3xl font-bold mb-3 text-center md:text-left">See it in action</h2>
         <p class="text-gray-400 mb-8 text-center md:text-left text-sm">Real screens from the app. (Sample data shown.)</p>
 
-        <!-- Mobile: horizontal snap-scroll. Desktop: 4-column grid. -->
-        <div class="flex snap-x snap-mandatory overflow-x-auto gap-4 -mx-6 px-6 pb-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible lg:grid-cols-4">
+        <!-- Mobile: horizontal snap-scroll. Desktop: 3-column grid (cleaner 2x3 layout for 6 screenshots). -->
+        <div class="flex snap-x snap-mandatory overflow-x-auto gap-4 -mx-6 px-6 pb-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible lg:grid-cols-3">
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <img
                     src="/images/screenshots/healthtrail/timeline.jpg"
@@ -193,6 +193,19 @@ const pageStructuredData = {
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <img
+                    src="/images/screenshots/healthtrail/medications.jpg"
+                    alt="HealthTrail Medical Medications screen — clearly organized list showing Metformin prescribed by Dr Sarah Chen for Type 2 Diabetes management at 500mg twice daily with meals, and Omeprazole prescribed by Dr Sarah Chen at 20mg once daily — both flagged Active, with View full details links and a quick-add button"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                />
+                <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">Medications, clearly organized</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Active and past prescriptions, each with prescriber, dosage, and frequency.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <img
                     src="/images/screenshots/healthtrail/medication-details.jpg"
                     alt="HealthTrail Medical Medication Details screen — expiration date 2026-09-25, start date Wednesday May 15 2024, prescribing doctor Dr Sarah Chen, pharmacy CVS Pharmacy Main St Vancouver BC with phone number, directions to take one tablet twice daily with breakfast and dinner, and warnings about possible lactic acidosis — emphasizing 100% private and secure local storage"
                     width="800"
@@ -216,6 +229,19 @@ const pageStructuredData = {
                 />
                 <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">Data easily displayed</figcaption>
                 <p class="text-xs text-gray-400 mt-1">BMI, blood pressure, cholesterol — color-coded against optimal ranges.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <img
+                    src="/images/screenshots/healthtrail/insurance.jpg"
+                    alt="HealthTrail Medical Insurance tab — Scan to Auto-Fill feature with Personal Health Number 9876 543 210 captured from a Canadian health card, plus stored cards including Ontario Health for Anita Jean Walker showing photo, name, and health number 5584-486-674-YM, and Yukon Health Care card — all flagged Active for instant access at the pharmacy or doctor's office"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                />
+                <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">Insurance cards, scan to auto-fill</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Snap a card and the data extracts itself — health number, name, expiry, all kept on-device.</p>
             </figure>
         </div>
     </section>
