@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const SITE_URL = 'https://artificialigknorance.com';
+const APP_STORE_URL = 'https://apps.apple.com/us/app/copper-watcher-cu/id6757655923';
+const APP_ICON = '/images/copper-watcher-icon.webp';
+
+const faqs = [
+    {
+        q: 'What is Copper Watcher?',
+        a: 'Copper Watcher is the iPhone app for copper investors, scrap dealers, and metal traders. It tracks the live copper spot price, top copper ETFs (CPER, COPX, COPP) and futures, has a built-in scrap calculator and portfolio tracker, supports 10 currencies, and lets you set custom price alerts.'
+    },
+    {
+        q: 'How do you track the copper spot price?',
+        a: 'Copper Watcher pulls the live copper spot price during trading hours and shows the daily change, daily range, and historical charts from 1 day all the way to all-time. Switch between line and dot chart styles, or rotate your iPhone for an immersive landscape view.'
+    },
+    {
+        q: 'How does the scrap calculator work?',
+        a: 'Enter the weight and pick the copper grade — from OFHC lab grade (100%) down to #2 copper scrap (95%) — and Copper Watcher gives you the value at the current spot price. Built-in labels for every commercial purity level so you can quote a customer instantly.'
+    },
+    {
+        q: 'Can I track my own copper holdings?',
+        a: 'Yes. The portfolio tracker manages holdings in oz, g, kg, lb, or tonne. Track purchase price, profit and loss per holding, and total portfolio value updating live. Mark gifted copper separately so it stays out of your cost-basis math.'
+    },
+    {
+        q: 'What currencies are supported?',
+        a: 'Ten: CAD, USD, EUR, GBP, INR, AUD, CHF, JPY, CNY, and HKD. Pick one and the entire app — spot price, ETFs, portfolio, alerts — switches to it.'
+    },
+    {
+        q: 'Can I set price alerts?',
+        a: 'Yes. Set custom buy or sell targets and Copper Watcher notifies you when the spot price hits that level. Useful for traders waiting for a specific entry, and for scrap dealers timing a delivery to a yard.'
+    },
+    {
+        q: 'How much does it cost?',
+        a: 'Free to download from the App Store. See the latest pricing and any in-app options on the App Store listing.'
+    }
+];
+
+const pageStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': SITE_URL + '/copper-watcher/#webpage',
+            url: SITE_URL + '/copper-watcher/',
+            name: 'Copper Watcher — Live Copper Spot Price App for iPhone',
+            description:
+                'Copper Watcher tracks the live copper spot price, ETFs, futures, scrap value, and your portfolio. Real-time charts, price alerts, 10 currencies. iPhone app for copper investors and scrap dealers.',
+            isPartOf: { '@id': SITE_URL + '/#website' },
+            mainEntity: { '@id': SITE_URL + '/#copper-watcher' },
+            inLanguage: 'en-US',
+            primaryImageOfPage: { '@type': 'ImageObject', url: SITE_URL + APP_ICON }
+        },
+        {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
+                { '@type': 'ListItem', position: 2, name: 'Copper Watcher', item: SITE_URL + '/copper-watcher/' }
+            ]
+        },
+        {
+            '@type': 'FAQPage',
+            mainEntity: faqs.map(({ q, a }) => ({
+                '@type': 'Question',
+                name: q,
+                acceptedAnswer: { '@type': 'Answer', text: a }
+            }))
+        }
+    ]
+};
+---
+
+<Layout
+    title="Copper Watcher — Live Copper Spot Price App for iPhone"
+    description="Live copper spot price, ETFs (CPER, COPX, COPP), futures, scrap calculator, portfolio tracker, and price alerts in 10 currencies. Free iPhone app for copper investors and scrap dealers."
+    ogImage={APP_ICON}
+    twitterCard="summary"
+    smartAppId="6757655923"
+>
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="text-sm text-gray-400 pt-6">
+        <ol class="flex items-center gap-2">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-gray-300">Copper Watcher</li>
+        </ol>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative py-12 sm:py-16">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-amber-400 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-40 h-40 bg-orange-400 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <img src={APP_ICON} alt="Copper Watcher app icon" width="180" height="180" class="w-32 h-32 md:w-44 md:h-44 rounded-3xl shadow-2xl flex-shrink-0" />
+            <div class="flex-1 text-center md:text-left">
+                <h1 class="text-4xl sm:text-5xl font-bold mb-3 bg-gradient-to-r from-amber-400 to-orange-300 bg-clip-text text-transparent">
+                    Copper Watcher (Cu)
+                </h1>
+                <p class="text-xl sm:text-2xl text-amber-300 font-medium mb-4">Live copper prices, in your pocket.</p>
+                <p class="text-gray-300 max-w-2xl mb-6 text-lg">
+                    Live copper spot price, ETFs, futures, scrap valuation, and portfolio tracking — all in one app for
+                    copper investors, scrap dealers, and metal traders.
+                </p>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick badges -->
+    <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Live spot price</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">CPER · COPX · COPP</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Scrap calculator</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Portfolio tracker</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">10 currencies</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Price alerts</span>
+    </section>
+
+    <!-- What it does -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">What it does</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-amber-300">Live spot price</h3>
+                <p class="text-gray-300">Current copper spot price updated through the trading day, with daily change, daily range, and historical charts from 1 day to all-time. Line or dot chart styles.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-amber-300">Copper ETFs &amp; futures</h3>
+                <p class="text-gray-300">Live prices for CPER, COPX, COPP and other top copper ETFs, plus futures contracts. Daily changes and full price history alongside spot.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-amber-300">Scrap calculator</h3>
+                <p class="text-gray-300">Value copper by weight and purity instantly. Built-in grades from OFHC lab grade (100%) down to #2 copper scrap (95%), with labels for every commercial level.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-amber-300">Portfolio tracker</h3>
+                <p class="text-gray-300">Holdings in oz, g, kg, lb, or tonne. Per-position purchase price, profit and loss, gifted-copper flag. Total portfolio value updates live with the spot price.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-amber-300">What If calculator</h3>
+                <p class="text-gray-300">See what a past copper position would be worth today. Compare returns against the S&amp;P 500 and copper ETFs with overlay charts. Toggle lump-sum vs dollar-cost averaging.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-amber-300">Price alerts &amp; 10 currencies</h3>
+                <p class="text-gray-300">Custom buy/sell alerts trigger when copper hits your target. View everything in CAD, USD, EUR, GBP, INR, AUD, CHF, JPY, CNY, or HKD.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built for -->
+    <section class="mb-16 bg-gradient-to-br from-amber-500/10 to-orange-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-10 border border-amber-400/20">
+        <h2 class="text-3xl font-bold mb-6 text-center">Built for copper</h2>
+        <p class="text-gray-300 text-lg max-w-3xl mx-auto text-center mb-6">
+            Most metals apps treat copper as an afterthought. Copper Watcher was built specifically for the people who
+            buy, sell, scrap, or stack the red metal — with the calculators and currency support that real traders need.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+            <div class="text-center"><div class="text-amber-300 font-semibold">Investors</div></div>
+            <div class="text-center"><div class="text-amber-300 font-semibold">Scrap dealers</div></div>
+            <div class="text-center"><div class="text-amber-300 font-semibold">Metal traders</div></div>
+            <div class="text-center"><div class="text-amber-300 font-semibold">Recyclers</div></div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">Frequently asked questions</h2>
+        <div class="space-y-3">
+            {faqs.map(({ q, a }) => (
+                <details class="bg-white/5 rounded-xl p-5 group hover:bg-white/10 transition-all">
+                    <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-lg">
+                        <span>{q}</span>
+                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-3 text-gray-300">{a}</p>
+                </details>
+            ))}
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="text-center mb-16 bg-gradient-to-br from-amber-500/15 to-orange-500/15 rounded-3xl p-8 md:p-12 border border-amber-400/20">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get Copper Watcher</h2>
+        <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">Free download on the App Store. Built for iPhone, designed for the copper market.</p>
+        <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+        <p class="mt-6 text-sm text-gray-400">Or browse <a href="/" class="text-amber-300 hover:text-amber-200 underline">all Artificial Igknorance apps</a>.</p>
+    </section>
+</Layout>

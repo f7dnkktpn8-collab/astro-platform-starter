@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const SITE_URL = 'https://artificialigknorance.com';
+const APP_STORE_URL = 'https://apps.apple.com/ca/app/snapledger-%C3%B8/id6759497982';
+const APP_ICON = '/images/snapledger-icon.webp';
+
+const faqs = [
+    {
+        q: 'What is SnapLedger?',
+        a: 'SnapLedger is an iPhone app that turns the camera into a bill scanner. Snap a photo of any bill or receipt and the AI extracts the amount, date, and category automatically. It then tracks your subscriptions, household expenses, and spending trends in one clean dashboard — no spreadsheets required.'
+    },
+    {
+        q: 'How does the AI bill scanning work?',
+        a: 'Point your iPhone camera at any bill — paper, on-screen, electronic — and SnapLedger reads the amount, due date, vendor, and category in seconds. You can edit any field before saving, but the typical bill is captured correctly on the first try.'
+    },
+    {
+        q: 'Does it sync to my bank account?',
+        a: 'No. SnapLedger does not connect to your bank, your credit card, or any financial institution. It works from photos and manual entry only. That means no third-party login, no Plaid token, and no risk of account credentials leaking.'
+    },
+    {
+        q: 'Can it detect Apple subscriptions automatically?',
+        a: 'Yes. The subscription scanner reliably picks up iCloud+, Apple Music, Apple TV+, AppleCare+, and other Apple subscriptions, and skips anything you already track to avoid duplicates.'
+    },
+    {
+        q: 'Is my financial data private?',
+        a: 'Yes. Every bill, receipt, and subscription stays on your iPhone. There is no cloud sync, no analytics SDK, no third-party data sharing. The app works fully offline — you control where your data goes, and the default is nowhere.'
+    },
+    {
+        q: 'Do I need to create an account?',
+        a: 'No. Open the app, snap a bill, and start tracking. Zero signup, zero credentials, zero cloud account.'
+    },
+    {
+        q: 'How much does it cost?',
+        a: 'Free to download from the App Store. See the latest pricing and any in-app options on the App Store listing.'
+    }
+];
+
+const pageStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': SITE_URL + '/snapledger/#webpage',
+            url: SITE_URL + '/snapledger/',
+            name: 'SnapLedger — iPhone Bill & Subscription Tracker with AI Receipt Scanning',
+            description:
+                'SnapLedger is the iPhone bill and subscription tracker. Snap a photo of any bill, AI extracts the details, and the dashboard tracks your subscriptions and household expenses. No bank login, no signup.',
+            isPartOf: { '@id': SITE_URL + '/#website' },
+            mainEntity: { '@id': SITE_URL + '/#snapledger' },
+            inLanguage: 'en-US',
+            primaryImageOfPage: { '@type': 'ImageObject', url: SITE_URL + APP_ICON }
+        },
+        {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
+                { '@type': 'ListItem', position: 2, name: 'SnapLedger', item: SITE_URL + '/snapledger/' }
+            ]
+        },
+        {
+            '@type': 'FAQPage',
+            mainEntity: faqs.map(({ q, a }) => ({
+                '@type': 'Question',
+                name: q,
+                acceptedAnswer: { '@type': 'Answer', text: a }
+            }))
+        }
+    ]
+};
+---
+
+<Layout
+    title="SnapLedger — iPhone Bill & Subscription Tracker with AI Receipt Scanning"
+    description="Snap any bill and let AI extract the details. Track subscriptions, household expenses, and spending trends in one clean iPhone dashboard. No bank login, no signup, all on-device."
+    ogImage={APP_ICON}
+    twitterCard="summary"
+    smartAppId="6759497982"
+>
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="text-sm text-gray-400 pt-6">
+        <ol class="flex items-center gap-2">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-gray-300">SnapLedger</li>
+        </ol>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative py-12 sm:py-16">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-green-400 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-40 h-40 bg-emerald-400 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <img src={APP_ICON} alt="SnapLedger app icon" width="180" height="180" class="w-32 h-32 md:w-44 md:h-44 rounded-3xl shadow-2xl flex-shrink-0" />
+            <div class="flex-1 text-center md:text-left">
+                <h1 class="text-4xl sm:text-5xl font-bold mb-3 bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent">
+                    SnapLedger
+                </h1>
+                <p class="text-xl sm:text-2xl text-green-300 font-medium mb-4">Snap bills. Track subscriptions. Done.</p>
+                <p class="text-gray-300 max-w-2xl mb-6 text-lg">
+                    Take control of household bills and subscriptions without spreadsheets or bank logins. Point your iPhone
+                    at any bill, and the AI fills in the rest.
+                </p>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick badges -->
+    <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
+        <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">iOS native</span>
+        <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">AI bill scan</span>
+        <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Subscription tracking</span>
+        <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">No bank login</span>
+        <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">100% on-device</span>
+        <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Zero account</span>
+    </section>
+
+    <!-- What it does -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">What it does</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-green-300">Smart bill scanning</h3>
+                <p class="text-gray-300">Point the camera at any bill — paper or on-screen — and the AI reads the amount, date, vendor, and category. No manual entry.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-green-300">Subscription tracking</h3>
+                <p class="text-gray-300">See every monthly and annual subscription you're paying for, grouped by category. No more surprise charges from things you forgot you signed up for.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-green-300">Household expenses</h3>
+                <p class="text-gray-300">Electricity, gas, internet, phone, water — all in one dashboard. Compare months, spot trends, stay ahead of bills.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-green-300">Apple subscription detection</h3>
+                <p class="text-gray-300">Automatically picks up iCloud+, Apple Music, Apple TV+, AppleCare+, and other Apple subscriptions. Skips duplicates so the list stays clean.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-green-300">Full payment history</h3>
+                <p class="text-gray-300">Every category keeps its full history. See exactly what your phone bill, internet bill, or streaming spend looked like over the past year.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-green-300">Zero credentials</h3>
+                <p class="text-gray-300">No bank login, no Plaid token, no signup. The app works from photos and manual entry — and the data never leaves your phone.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built for -->
+    <section class="mb-16 bg-gradient-to-br from-green-500/10 to-emerald-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-10 border border-green-400/20">
+        <h2 class="text-3xl font-bold mb-6 text-center">Built for the household</h2>
+        <p class="text-gray-300 text-lg max-w-3xl mx-auto text-center mb-6">
+            Most expense apps want a bank login. SnapLedger doesn't. It's built around the camera, not your account
+            credentials — so you keep both your privacy and your sanity.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+            <div class="text-center"><div class="text-green-300 font-semibold">Renters</div></div>
+            <div class="text-center"><div class="text-green-300 font-semibold">Homeowners</div></div>
+            <div class="text-center"><div class="text-green-300 font-semibold">Couples & families</div></div>
+            <div class="text-center"><div class="text-green-300 font-semibold">Subscription junkies</div></div>
+        </div>
+    </section>
+
+    <!-- Why different -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">Why SnapLedger is different</h2>
+        <div class="space-y-4 max-w-3xl">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-300 font-bold">1</div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-1">No bank credentials, ever</h3>
+                    <p class="text-gray-300">No third-party data aggregator, no Plaid, no risk of a leaked account login. The app works from a camera, not a credit-card scrape.</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-300 font-bold">2</div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-1">Camera-first workflow</h3>
+                    <p class="text-gray-300">A bill takes seconds to add — point, snap, confirm. Spreadsheets and manual data entry are obsolete.</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-300 font-bold">3</div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-1">Built to be ignored, mostly</h3>
+                    <p class="text-gray-300">Open it once a month, snap your bills, glance at the dashboard. No notifications begging for engagement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">Frequently asked questions</h2>
+        <div class="space-y-3">
+            {faqs.map(({ q, a }) => (
+                <details class="bg-white/5 rounded-xl p-5 group hover:bg-white/10 transition-all">
+                    <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-lg">
+                        <span>{q}</span>
+                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-3 text-gray-300">{a}</p>
+                </details>
+            ))}
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="text-center mb-16 bg-gradient-to-br from-green-500/15 to-emerald-500/15 rounded-3xl p-8 md:p-12 border border-green-400/20">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get SnapLedger</h2>
+        <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">Free download on the App Store. Built for iPhone, designed to stay out of your way.</p>
+        <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+        <p class="mt-6 text-sm text-gray-400">Or browse <a href="/" class="text-green-300 hover:text-green-200 underline">all Artificial Igknorance apps</a>.</p>
+    </section>
+</Layout>

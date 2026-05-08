@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const SITE_URL = 'https://artificialigknorance.com';
+const APP_STORE_URL = 'https://apps.apple.com/us/app/gold-watcher-au/id6758283387';
+const APP_ICON = '/images/gold-watcher-icon.webp';
+
+const faqs = [
+    {
+        q: 'What is Gold Watcher?',
+        a: 'Gold Watcher is the iPhone app for gold investors, jewelers, and precious-metals enthusiasts. It tracks the live gold spot price, top gold ETFs (GLD, IAU, SGOL) and futures, the gold/silver ratio, has a built-in karat calculator and portfolio tracker, supports 10 currencies, and lets you set custom price alerts.'
+    },
+    {
+        q: 'How is the gold spot price tracked?',
+        a: 'Gold Watcher pulls the live gold spot price during trading hours and shows the daily change, daily range, and historical charts from 1 day all the way to all-time. Switch between line and dot chart styles, or rotate your iPhone for an immersive landscape view.'
+    },
+    {
+        q: 'How does the karat calculator work?',
+        a: 'Enter weight and karat — every karat from 24K pure down to 9K, with fineness labels at each level — and Gold Watcher gives you the value at the current spot price. Useful for jewelers quoting a customer or anyone selling scrap gold.'
+    },
+    {
+        q: 'What is the gold/silver ratio and why does it matter?',
+        a: 'The gold/silver ratio is how many ounces of silver one ounce of gold buys. It tells precious-metals investors when one metal is historically expensive or cheap relative to the other. Gold Watcher tracks the live ratio with the historical average for context.'
+    },
+    {
+        q: 'Can I track my own gold holdings?',
+        a: 'Yes. The portfolio tracker manages holdings in oz, g, kg, dwt, tola, tael, or grain. Track purchase price, profit and loss per holding, and total portfolio value updating live. Mark gifted gold separately so it stays out of your cost-basis math.'
+    },
+    {
+        q: 'What currencies are supported?',
+        a: 'Ten: CAD, USD, EUR, GBP, INR, AUD, CHF, JPY, CNY, and HKD. Pick one and the entire app — spot price, ETFs, portfolio, alerts — switches to it.'
+    },
+    {
+        q: 'How much does it cost?',
+        a: 'Free to download from the App Store. See the latest pricing and any in-app options on the App Store listing.'
+    }
+];
+
+const pageStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': SITE_URL + '/gold-watcher/#webpage',
+            url: SITE_URL + '/gold-watcher/',
+            name: 'Gold Watcher — Live Gold Spot Price & Portfolio App for iPhone',
+            description:
+                'Gold Watcher tracks the live gold spot price, ETFs (GLD, IAU, SGOL), futures, gold/silver ratio, karat calculator, and your portfolio. Real-time charts, price alerts, 10 currencies.',
+            isPartOf: { '@id': SITE_URL + '/#website' },
+            mainEntity: { '@id': SITE_URL + '/#gold-watcher' },
+            inLanguage: 'en-US',
+            primaryImageOfPage: { '@type': 'ImageObject', url: SITE_URL + APP_ICON }
+        },
+        {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
+                { '@type': 'ListItem', position: 2, name: 'Gold Watcher', item: SITE_URL + '/gold-watcher/' }
+            ]
+        },
+        {
+            '@type': 'FAQPage',
+            mainEntity: faqs.map(({ q, a }) => ({
+                '@type': 'Question',
+                name: q,
+                acceptedAnswer: { '@type': 'Answer', text: a }
+            }))
+        }
+    ]
+};
+---
+
+<Layout
+    title="Gold Watcher — Live Gold Spot Price & Portfolio App for iPhone"
+    description="Live gold spot price, ETFs (GLD, IAU, SGOL), futures, gold/silver ratio, karat calculator, portfolio tracker, and price alerts in 10 currencies. Free iPhone app for gold investors and jewelers."
+    ogImage={APP_ICON}
+    twitterCard="summary"
+    smartAppId="6758283387"
+>
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="text-sm text-gray-400 pt-6">
+        <ol class="flex items-center gap-2">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-gray-300">Gold Watcher</li>
+        </ol>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative py-12 sm:py-16">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-yellow-400 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-40 h-40 bg-amber-400 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <img src={APP_ICON} alt="Gold Watcher app icon" width="180" height="180" class="w-32 h-32 md:w-44 md:h-44 rounded-3xl shadow-2xl flex-shrink-0" />
+            <div class="flex-1 text-center md:text-left">
+                <h1 class="text-4xl sm:text-5xl font-bold mb-3 bg-gradient-to-r from-yellow-400 to-amber-300 bg-clip-text text-transparent">
+                    Gold Watcher (Au)
+                </h1>
+                <p class="text-xl sm:text-2xl text-yellow-300 font-medium mb-4">Live gold prices, in your pocket.</p>
+                <p class="text-gray-300 max-w-2xl mb-6 text-lg">
+                    Live gold spot price, ETFs, futures, the gold/silver ratio, a karat calculator, and full portfolio
+                    tracking — built for gold investors, jewelers, and precious-metals enthusiasts.
+                </p>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick badges -->
+    <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
+        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Live spot price</span>
+        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">GLD · IAU · SGOL</span>
+        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Karat calculator</span>
+        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Gold/silver ratio</span>
+        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Portfolio tracker</span>
+        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">10 currencies</span>
+    </section>
+
+    <!-- What it does -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">What it does</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-yellow-300">Live spot price</h3>
+                <p class="text-gray-300">Current gold spot price updated through the trading day, with daily change, daily range, and historical charts from 1 day to all-time.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-yellow-300">Gold ETFs &amp; futures</h3>
+                <p class="text-gray-300">Live prices for GLD, IAU, SGOL and other top gold ETFs, plus gold futures contracts. Daily changes and full price history alongside spot.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-yellow-300">Gold / silver ratio</h3>
+                <p class="text-gray-300">Track the live gold-to-silver ratio with the historical average for context — the classic precious-metals indicator for spotting relative value.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-yellow-300">Karat calculator</h3>
+                <p class="text-gray-300">Value gold instantly by weight and karat. Every karat from 24K pure down to 9K, with fineness labels at every level — built for jewelers.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-yellow-300">Portfolio tracker</h3>
+                <p class="text-gray-300">Holdings in oz, g, kg, dwt, tola, tael, or grain. Per-position P/L, gifted-gold flag, and total portfolio value updating live with the spot price.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-yellow-300">What If &amp; price alerts</h3>
+                <p class="text-gray-300">Compare past gold returns against the S&amp;P 500 and gold ETFs with overlay charts. Set custom buy/sell alerts in any of 10 currencies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built for -->
+    <section class="mb-16 bg-gradient-to-br from-yellow-500/10 to-amber-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-10 border border-yellow-400/20">
+        <h2 class="text-3xl font-bold mb-6 text-center">Built for gold</h2>
+        <p class="text-gray-300 text-lg max-w-3xl mx-auto text-center mb-6">
+            Whether you're stacking, trading, quoting jewelry, or just keeping an eye on the gold/silver ratio,
+            Gold Watcher gives you the data you need on one screen — in the currency and unit you actually use.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+            <div class="text-center"><div class="text-yellow-300 font-semibold">Investors</div></div>
+            <div class="text-center"><div class="text-yellow-300 font-semibold">Jewelers</div></div>
+            <div class="text-center"><div class="text-yellow-300 font-semibold">Stackers</div></div>
+            <div class="text-center"><div class="text-yellow-300 font-semibold">Coin collectors</div></div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">Frequently asked questions</h2>
+        <div class="space-y-3">
+            {faqs.map(({ q, a }) => (
+                <details class="bg-white/5 rounded-xl p-5 group hover:bg-white/10 transition-all">
+                    <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-lg">
+                        <span>{q}</span>
+                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-3 text-gray-300">{a}</p>
+                </details>
+            ))}
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="text-center mb-16 bg-gradient-to-br from-yellow-500/15 to-amber-500/15 rounded-3xl p-8 md:p-12 border border-yellow-400/20">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get Gold Watcher</h2>
+        <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">Free download on the App Store. Built for iPhone, designed for the gold market.</p>
+        <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+        <p class="mt-6 text-sm text-gray-400">Or browse <a href="/" class="text-yellow-300 hover:text-yellow-200 underline">all Artificial Igknorance apps</a>.</p>
+    </section>
+</Layout>

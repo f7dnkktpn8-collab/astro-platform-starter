@@ -1,0 +1,229 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const SITE_URL = 'https://artificialigknorance.com';
+const APP_STORE_URL = 'https://apps.apple.com/us/app/healthtrail-medical/id6758072258';
+const APP_ICON = '/images/healthtrail-medical-icon.webp';
+
+const faqs = [
+    {
+        q: 'What is HealthTrail Medical?',
+        a: 'HealthTrail Medical is a native iPhone app that gives your family a single visual timeline of every medical event, medication, vaccine, lab result, and insurance card. Think of it as a shared digital "medical memory" — for you, your kids, your spouse, or your aging parents — that lives entirely on your device.'
+    },
+    {
+        q: 'Is my health data really private?',
+        a: 'Yes. Every record stays on your iPhone. There is no cloud sync, no analytics SDK, no third-party tracker, and no account that ties your medical history to a server. The app is on-device by design — your data leaves your phone only if you explicitly export or share it.'
+    },
+    {
+        q: 'Can I track my whole family in one app?',
+        a: 'Yes. Create a separate profile for each family member — children, spouse, elderly parents — and switch between them with a single tap. The dashboard has a profile-switcher row across the top so caregivers can move quickly between people during a busy appointment.'
+    },
+    {
+        q: 'Do I need to create an account?',
+        a: 'No. Open the app and start adding records. There is no signup, no email, no password, and no cloud lock-in.'
+    },
+    {
+        q: 'How does the AI medication scanning work?',
+        a: 'Point your iPhone camera at a pill bottle. HealthTrail uses on-device intelligence to read the medication name, dosage, prescriber, and refill date, then files the record under the right profile. You can edit anything before saving.'
+    },
+    {
+        q: 'What does the timeline actually track?',
+        a: 'Doctor visits, specialist appointments, surgeries, screenings (Pap smears, colonoscopies, mammograms), lab results, prescriptions and refills, vaccinations and boosters, insurance cards, and any photos or PDFs you attach to those events. Everything is chronological, searchable, and tied to a profile.'
+    },
+    {
+        q: 'Can I share records with my doctor?',
+        a: 'Yes. Export a clean Medical History Report as a PDF — properly named with the date — and email it, AirDrop it, or print it. You control what gets shared and with whom.'
+    },
+    {
+        q: 'How much does it cost?',
+        a: 'Free to download from the App Store. See the latest pricing and any in-app options on the App Store listing.'
+    }
+];
+
+const pageStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': SITE_URL + '/healthtrail-medical/#webpage',
+            url: SITE_URL + '/healthtrail-medical/',
+            name: 'HealthTrail Medical — iOS App for Family Health Records',
+            description:
+                'HealthTrail Medical is the iPhone app for your family\'s medical history. Visual timeline, AI medication scanning, vaccine tracking, family profiles, insurance cards. 100% on-device, no account.',
+            isPartOf: { '@id': SITE_URL + '/#website' },
+            mainEntity: { '@id': SITE_URL + '/#healthtrail-medical' },
+            inLanguage: 'en-US',
+            primaryImageOfPage: { '@type': 'ImageObject', url: SITE_URL + APP_ICON }
+        },
+        {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
+                { '@type': 'ListItem', position: 2, name: 'HealthTrail Medical', item: SITE_URL + '/healthtrail-medical/' }
+            ]
+        },
+        {
+            '@type': 'FAQPage',
+            mainEntity: faqs.map(({ q, a }) => ({
+                '@type': 'Question',
+                name: q,
+                acceptedAnswer: { '@type': 'Answer', text: a }
+            }))
+        }
+    ]
+};
+---
+
+<Layout
+    title="HealthTrail Medical — iOS App for Family Health Records"
+    description="Track your family's complete medical history on iPhone — medications, vaccines, lab results, insurance cards. AI scanning, family profiles, visual timeline. 100% on-device, no account."
+    ogImage={APP_ICON}
+    twitterCard="summary"
+    smartAppId="6758072258"
+>
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="text-sm text-gray-400 pt-6">
+        <ol class="flex items-center gap-2">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-gray-300">HealthTrail Medical</li>
+        </ol>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative py-12 sm:py-16">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-emerald-400 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-40 h-40 bg-teal-400 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <img src={APP_ICON} alt="HealthTrail Medical app icon" width="180" height="180" class="w-32 h-32 md:w-44 md:h-44 rounded-3xl shadow-2xl flex-shrink-0" />
+            <div class="flex-1 text-center md:text-left">
+                <h1 class="text-4xl sm:text-5xl font-bold mb-3 bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
+                    HealthTrail Medical
+                </h1>
+                <p class="text-xl sm:text-2xl text-emerald-300 font-medium mb-4">Your family's digital medical memory.</p>
+                <p class="text-gray-300 max-w-2xl mb-6 text-lg">
+                    Track every medication, vaccine, appointment, and lab result for your entire family — on your iPhone,
+                    with zero cloud accounts and zero data leaving the device.
+                </p>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick badges -->
+    <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
+        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">iOS native</span>
+        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">Family profiles</span>
+        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">AI medication scan</span>
+        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">Vaccine tracking</span>
+        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">100% on-device</span>
+        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">Zero account</span>
+    </section>
+
+    <!-- What it does -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">What it does</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-emerald-300">Visual health timeline</h3>
+                <p class="text-gray-300">A chronological view of every doctor visit, surgery, screening, and lab result — for every member of the family. Scroll back through years in seconds.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-emerald-300">AI medication scanning</h3>
+                <p class="text-gray-300">Point your iPhone at a pill bottle. The app reads the name, dosage, prescriber, and refill date and files it under the right profile.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-emerald-300">Vaccine tracking</h3>
+                <p class="text-gray-300">Childhood boosters, annual flu shots, travel vaccines — logged with photos of records. The next time school, work, or a border asks for proof, you have it ready.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-emerald-300">Family profiles</h3>
+                <p class="text-gray-300">Separate profiles for children, spouses, or elderly parents. Switch between them with a single tap — built for caregivers juggling multiple appointments.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-emerald-300">Insurance cards & docs</h3>
+                <p class="text-gray-300">Photograph an insurance card and the app extracts the data automatically. Attach lab PDFs, discharge papers, and receipts to specific events.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-emerald-300">Daily medication dashboard</h3>
+                <p class="text-gray-300">A daily command center: today's doses, upcoming appointments, vaccinations due in the next 14 days, and one-tap call/book buttons for your top providers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built for -->
+    <section class="mb-16 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-10 border border-emerald-400/20">
+        <h2 class="text-3xl font-bold mb-6 text-center">Built for real families</h2>
+        <p class="text-gray-300 text-lg max-w-3xl mx-auto text-center mb-6">
+            Medical history is scattered across portals, paper files, and aging memories. HealthTrail puts it all in one
+            place — without giving any of it to a third party.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+            <div class="text-center"><div class="text-emerald-300 font-semibold">Parents</div></div>
+            <div class="text-center"><div class="text-emerald-300 font-semibold">Caregivers</div></div>
+            <div class="text-center"><div class="text-emerald-300 font-semibold">Adult children</div></div>
+            <div class="text-center"><div class="text-emerald-300 font-semibold">Anyone with a doctor</div></div>
+        </div>
+    </section>
+
+    <!-- Why different -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">Why HealthTrail is different</h2>
+        <div class="space-y-4 max-w-3xl">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-300 font-bold">1</div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-1">Your records, your phone</h3>
+                    <p class="text-gray-300">Every record is stored locally. There is no cloud, no account, no data broker. Your medical history is yours.</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-300 font-bold">2</div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-1">Built for the whole family</h3>
+                    <p class="text-gray-300">One app, every profile. Track your kids, your spouse, your aging parents, and yourself without juggling separate tools.</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-300 font-bold">3</div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-1">Designed for the doctor's office</h3>
+                    <p class="text-gray-300">When the nurse asks "when was your last tetanus shot?" or "what was that medication?", HealthTrail answers in two taps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">Frequently asked questions</h2>
+        <div class="space-y-3">
+            {faqs.map(({ q, a }) => (
+                <details class="bg-white/5 rounded-xl p-5 group hover:bg-white/10 transition-all">
+                    <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-lg">
+                        <span>{q}</span>
+                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-3 text-gray-300">{a}</p>
+                </details>
+            ))}
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="text-center mb-16 bg-gradient-to-br from-emerald-500/15 to-teal-500/15 rounded-3xl p-8 md:p-12 border border-emerald-400/20">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get HealthTrail Medical</h2>
+        <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">Free download on the App Store. Built for iPhone, designed for the family.</p>
+        <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+        <p class="mt-6 text-sm text-gray-400">Or browse <a href="/" class="text-emerald-300 hover:text-emerald-200 underline">all Artificial Igknorance apps</a>.</p>
+    </section>
+</Layout>
