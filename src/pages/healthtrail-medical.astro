@@ -163,33 +163,59 @@ const pageStructuredData = {
         <h2 class="text-3xl font-bold mb-3 text-center md:text-left">See it in action</h2>
         <p class="text-gray-400 mb-8 text-center md:text-left text-sm">Real screens from the app. (Sample data shown.)</p>
 
-        <!-- Mobile: horizontal snap-scroll. Desktop: 2-column grid, centered. -->
-        <div class="flex snap-x snap-mandatory overflow-x-auto gap-4 -mx-6 px-6 pb-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible max-w-3xl sm:mx-auto">
+        <!-- Mobile: horizontal snap-scroll. Desktop: 4-column grid. -->
+        <div class="flex snap-x snap-mandatory overflow-x-auto gap-4 -mx-6 px-6 pb-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible lg:grid-cols-4">
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <img
-                    src="/images/screenshots/healthtrail/dashboard.jpg"
-                    alt="HealthTrail Medical Dashboard tab showing Upcoming Appointments timeline — Consultation with Cardiologist Mon May 11, Internal medicine about spleen Mon May 11, Dentist Filling 1 of 2 Wed May 20, Dentist Filling 2 of 2 Thu Jun 18, plus Quick Book one-tap speed-dial for Dr Fenn"
+                    src="/images/screenshots/healthtrail/timeline.jpg"
+                    alt="HealthTrail Medical appointment timeline for Dad profile — search bar for events, dates, doctors; Jan 2024 Annual Physical with Dr Sarah Chen at Family Health Clinic; Feb 2024 Blood Work Panel at LabCorp Downtown; Lisinopril medication started Feb 25 2024 — illustrating the all-your-health-in-a-single-timeline concept"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
                 />
-                <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">Dashboard with upcoming care</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Next appointments at a glance, plus one-tap Quick Book for offices you call most.</p>
+                <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">All your health in a single timeline</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Doctor visits, lab work, and meds — chronological, searchable, per family member.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <img
+                    src="/images/screenshots/healthtrail/vaccines.jpg"
+                    alt="HealthTrail Medical Medical History Vaccines tab — Overdue section showing COVID-19 dose 5 of 5 due Sep 15 2025 at Walgreens Pharmacy and Influenza Flu dose 1 of 1 due Oct 1 2025 at CVS Pharmacy; Coming Up section with Tdap due Jun 20 2034 at Family Health Clinic; Administered section with Influenza Flu 2023 — for vaccine tracking and immunization records"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                />
+                <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">Vaccines, never forgotten</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Overdue, coming up, and administered — every shot logged with pharmacy and date.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <img
+                    src="/images/screenshots/healthtrail/medication-details.jpg"
+                    alt="HealthTrail Medical Medication Details screen — expiration date 2026-09-25, start date Wednesday May 15 2024, prescribing doctor Dr Sarah Chen, pharmacy CVS Pharmacy Main St Vancouver BC with phone number, directions to take one tablet twice daily with breakfast and dinner, and warnings about possible lactic acidosis — emphasizing 100% private and secure local storage"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                />
+                <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">100% private &amp; secure</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Prescriber, pharmacy, directions, warnings — all in one record, all on-device.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <img
                     src="/images/screenshots/healthtrail/metrics.jpg"
-                    alt="HealthTrail Medical Metrics tab — LDL cholesterol 2.83 mmol/L Near Optimal, HDL 1.20 mmol/L Optimal, Triglycerides 0.79 mmol/L Normal, Total cholesterol 4.39 mmol/L Desirable, plus Apo-B and Lp(a) tracking with color-coded reference ranges"
+                    alt="HealthTrail Medical Medical History Metrics tab — BMI tracker with target ranges, Blood Pressure 125/78 mmHg flagged as Elevated with reference scale, Cholesterol panel with LDL 115 marked High and HDL 52 marked Optimal — showing health metrics easily displayed against color-coded reference ranges"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
                 />
-                <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">Metrics with reference ranges</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Lipid panel and lab results — color-coded against optimal ranges, side-by-side.</p>
+                <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">Data easily displayed</figcaption>
+                <p class="text-xs text-gray-400 mt-1">BMI, blood pressure, cholesterol — color-coded against optimal ranges.</p>
             </figure>
         </div>
     </section>
