@@ -41,6 +41,27 @@ const faqStructuredData = {
         "acceptedAnswer": { "@type": "Answer", "text": a }
     }))
 };
+
+// VideoObject schema for the Escalator Field Command demo video. Makes the
+// video eligible for Google's video rich results (thumbnail + play icon next
+// to the search listing). The thumbnail uses the dashboard screenshot since
+// it represents what the video opens on.
+const SITE_URL = 'https://artificialigknorance.com';
+const videoStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "@id": SITE_URL + "/#escalator-demo-video",
+    "name": "Escalator Field Command — quick app demo",
+    "description": "A short walk-through of Escalator Field Command on iPhone — daily command-center dashboard, Cat 1 testing progress, SSPI compliance logs, and per-unit shutdown records — built for working escalator mechanics.",
+    "thumbnailUrl": [SITE_URL + "/images/screenshots/escalator/dashboard-overview.jpg"],
+    "uploadDate": "2026-04-29",
+    "duration": "PT10S",
+    "contentUrl": SITE_URL + "/videos/escalator-field-command-demo.mp4",
+    "embedUrl": SITE_URL + "/#escalator-field-command",
+    "publisher": { "@id": SITE_URL + "/#organization" },
+    "about": { "@id": SITE_URL + "/#escalator-field-command" },
+    "inLanguage": "en-US"
+};
 ---
 
 <Layout
@@ -48,6 +69,7 @@ const faqStructuredData = {
     description="Escalator Field Command — iOS app for escalator mechanics: routes, Category 1 testing, SSPI compliance, inspections. Plus privacy-first apps for health, finance & more by Artificial Igknorance."
 >
     <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqStructuredData)} />
+    <script type="application/ld+json" slot="head" set:html={JSON.stringify(videoStructuredData)} />
     <!-- Hero Section with Background -->
     <div class="relative overflow-hidden">
         <!-- Decorative Background Elements -->
@@ -556,6 +578,9 @@ const faqStructuredData = {
             style="max-height: 80vh; object-fit: contain;"
             controls
             playsinline
+            preload="metadata"
+            poster="/images/screenshots/escalator/dashboard-overview.jpg"
+            aria-label="Escalator Field Command — quick app demo (10-second walk-through of the dashboard, Cat 1 testing, SSPI compliance, and unit shutdowns)"
             src="/videos/escalator-field-command-demo.mp4">
         </video>
     </div>

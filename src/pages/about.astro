@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const SITE_URL = 'https://artificialigknorance.com';
+
+// Page-level structured data: tag this as an AboutPage and link the breadcrumb.
+const pageStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'AboutPage',
+            '@id': SITE_URL + '/about/#aboutpage',
+            url: SITE_URL + '/about/',
+            name: 'About Artificial Igknorance',
+            description:
+                'Artificial Igknorance is the indie iOS development brand of Mike Dangerfield. Privacy-first, on-device apps for escalator mechanics, family health, household bills, and precious metals.',
+            isPartOf: { '@id': SITE_URL + '/#website' },
+            about: { '@id': SITE_URL + '/#organization' },
+            mainEntity: { '@id': SITE_URL + '/#mike-dangerfield' },
+            inLanguage: 'en-US'
+        },
+        {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
+                { '@type': 'ListItem', position: 2, name: 'About', item: SITE_URL + '/about/' }
+            ]
+        }
+    ]
+};
+---
+
+<Layout
+    title="About — Artificial Igknorance | Indie iOS Apps by Mike Dangerfield"
+    description="Artificial Igknorance is the indie iOS app brand of Mike Dangerfield — privacy-first apps for escalator mechanics, family health records, household bills, and precious metals. No accounts, no cloud, no telemetry."
+    twitterCard="summary"
+    smartAppId="6756789866"
+    datePublished="2026-05-08"
+    mainEntityId={SITE_URL + "/#organization"}
+>
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="text-sm text-gray-400 pt-6">
+        <ol class="flex items-center gap-2">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-gray-300">About</li>
+        </ol>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative py-12 sm:py-16 text-center">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-blue-400 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-40 h-40 bg-cyan-400 rounded-full blur-3xl"></div>
+        </div>
+        <div class="relative">
+            <img src="/images/robot-mascot-transparent.png" alt="Artificial Igknorance robot mascot" class="w-32 sm:w-40 mx-auto mb-6 drop-shadow-2xl" />
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent pb-2">
+                About Artificial Igknorance
+            </h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                Indie iOS apps that don't need to know everything about you to be useful.
+            </p>
+        </div>
+    </section>
+
+    <!-- Body -->
+    <section class="max-w-3xl mx-auto mb-16 prose prose-invert prose-lg">
+        <h2 class="text-3xl font-bold mb-4">What is Artificial Igknorance?</h2>
+        <p class="text-gray-300 mb-6">
+            Artificial Igknorance is the brand name for the iOS apps designed and shipped by
+            <a href="#mike" class="text-blue-300 hover:text-blue-200 underline">Mike Dangerfield</a>.
+            The name is a deliberate play on "artificial intelligence" — a reminder that the
+            smartest software isn't the one that knows everything about you. It's the one that's
+            strategically ignorant. Our apps don't need your name, your email, your bank login, or
+            your cloud account to work. The misspelling is on purpose.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-4 mt-12">What we ship</h2>
+        <p class="text-gray-300 mb-6">
+            Seven apps live on the App Store today, across four areas:
+        </p>
+        <ul class="text-gray-300 space-y-2 mb-6">
+            <li>
+                <strong class="text-white"><a href="/escalator-field-command/" class="text-blue-300 hover:text-blue-200 underline">Escalator Field Command</a></strong> —
+                the iOS app for working escalator mechanics. Maintenance routes, Category 1 testing,
+                SSPI compliance, equipment specs, inspection logs.
+            </li>
+            <li>
+                <strong class="text-white"><a href="/healthtrail-medical/" class="text-emerald-300 hover:text-emerald-200 underline">HealthTrail Medical</a></strong> —
+                a digital medical memory for the whole family. Visual timeline, AI medication
+                scanning, vaccine tracking, insurance card auto-fill.
+            </li>
+            <li>
+                <strong class="text-white"><a href="/snapledger/" class="text-green-300 hover:text-green-200 underline">SnapLedger</a></strong> —
+                a household bill and subscription tracker that works from photos of your bills
+                instead of bank logins.
+            </li>
+            <li>
+                <strong class="text-white">Precious metals trackers</strong> —
+                <a href="/gold-watcher/" class="text-yellow-300 hover:text-yellow-200 underline">Gold Watcher</a>,
+                <a href="/silver-watcher/" class="text-slate-300 hover:text-slate-200 underline">Silver Watcher</a>,
+                and <a href="/copper-watcher/" class="text-amber-300 hover:text-amber-200 underline">Copper Watcher</a> —
+                live spot prices, ETFs and futures, scrap and karat calculators, portfolios in 10+
+                currencies. Built for stackers, jewellers, and scrap dealers.
+            </li>
+            <li>
+                <strong class="text-white">Life in Focus</strong> — a minimalist life-week
+                visualization (currently not actively promoted while focus stays on the priority apps).
+            </li>
+        </ul>
+
+        <h2 class="text-3xl font-bold mb-4 mt-12">Why we build this way</h2>
+        <p class="text-gray-300 mb-4">
+            Most apps treat your data as the product. We treat the app as the product. That choice
+            shapes everything:
+        </p>
+        <ul class="text-gray-300 space-y-2 mb-6">
+            <li>• <strong class="text-white">No accounts.</strong> Open the app, start working. There's no signup, no email confirmation, no password to forget.</li>
+            <li>• <strong class="text-white">100% on-device.</strong> Your records, your routes, your portfolios, your medical history — all stored locally on your iPhone. Nothing leaves the device unless you explicitly export it.</li>
+            <li>• <strong class="text-white">No telemetry.</strong> No analytics SDKs, no third-party trackers, no behavior pings home. We don't know how you use the app, and we don't need to.</li>
+            <li>• <strong class="text-white">No subscriptions trap.</strong> Most apps are free to download and use. Some include optional in-app purchases for power-user features — never required for the core experience.</li>
+            <li>• <strong class="text-white">iOS only, on purpose.</strong> One platform built well beats two platforms half-finished. iOS gives us secure local storage, on-device AI, Core ML, and Apple's privacy guarantees by default.</li>
+        </ul>
+
+        <h2 id="mike" class="text-3xl font-bold mb-4 mt-12 scroll-mt-20">Who builds it</h2>
+        <p class="text-gray-300 mb-4">
+            Every Artificial Igknorance app is designed and shipped by
+            <strong class="text-white">Mike Dangerfield</strong>, an independent iOS developer.
+            One person, one Apple Developer account
+            (<a href="https://apps.apple.com/us/developer/mike-dangerfield/id1588904052" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 underline">view all apps</a>),
+            one set of design and privacy decisions across the whole catalog.
+        </p>
+        <p class="text-gray-300 mb-6">
+            That means the same person picking the icon also picks the data policy, also writes the
+            release notes, also responds when you email support. There's no growth team, no
+            marketing department, and no investors waiting for your data to monetize.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-4 mt-12">Get in touch</h2>
+        <p class="text-gray-300 mb-3">
+            Found a bug, have an idea, want to say hello?
+        </p>
+        <ul class="text-gray-300 space-y-2 mb-6">
+            <li>• Email: <a href="mailto:info@artificialigknorance.com" class="text-blue-300 hover:text-blue-200 underline">info@artificialigknorance.com</a></li>
+            <li>• X / Twitter: <a href="https://x.com/igknorance" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 underline">@igknorance</a></li>
+            <li>• App Store: <a href="https://apps.apple.com/us/developer/mike-dangerfield/id1588904052" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 underline">all apps by Mike Dangerfield</a></li>
+        </ul>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="text-center mb-16 bg-gradient-to-br from-blue-500/15 to-cyan-500/15 rounded-3xl p-8 md:p-12 border border-blue-400/20">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Try the apps</h2>
+        <p class="text-gray-300 text-lg mb-6 max-w-2xl mx-auto">
+            All seven apps are free to download from the App Store. No account, no signup, no data leaves your device.
+        </p>
+        <a href="/" class="inline-block bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline">
+            See the apps →
+        </a>
+    </section>
+</Layout>

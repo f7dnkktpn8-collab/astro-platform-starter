@@ -39,22 +39,7 @@ const faqs = [
 const pageStructuredData = {
     '@context': 'https://schema.org',
     '@graph': [
-        {
-            '@type': 'WebPage',
-            '@id': SITE_URL + '/escalator-field-command/#webpage',
-            url: SITE_URL + '/escalator-field-command/',
-            name: 'Escalator Field Command — iOS App for Escalator Mechanics',
-            description:
-                'Escalator Field Command is the iOS app for escalator mechanics: maintenance routes, Category 1 testing, SSPI compliance documentation, equipment specs, and inspection logs. Offline-first, no account, 100% on-device.',
-            isPartOf: { '@id': SITE_URL + '/#website' },
-            mainEntity: { '@id': SITE_URL + '/#escalator-field-command' },
-            inLanguage: 'en-US',
-            primaryImageOfPage: {
-                '@type': 'ImageObject',
-                url: SITE_URL + APP_ICON
-            }
-        },
-        {
+                {
             '@type': 'BreadcrumbList',
             itemListElement: [
                 { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
@@ -83,6 +68,9 @@ const pageStructuredData = {
     description="The iOS app built for escalator mechanics. Maintenance routes, Category 1 testing, SSPI compliance, equipment specs, and inspection logs — offline-first, 100% on-device, no account required."
     ogImage={APP_ICON}
     twitterCard="summary"
+    smartAppId="6756789866"
+    datePublished="2026-05-01"
+    mainEntityId={SITE_URL + "/#escalator-field-command"}
 >
     <script
         slot="head"
@@ -205,7 +193,7 @@ const pageStructuredData = {
         <!-- Mobile: horizontal snap-scroll. Desktop: 4-column grid. -->
         <div class="flex snap-x snap-mandatory overflow-x-auto gap-4 -mx-6 px-6 pb-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible lg:grid-cols-4">
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/escalator/dashboard-overview.webp" type="image/webp" /><img
                     src="/images/screenshots/escalator/dashboard-overview.jpg"
                     alt="Escalator Field Command daily command center — morning greeting, high-priority alert banner, 34 running and 5 shutdown unit counts across 39 total escalators, 17 of 39 maintenance done, Cat 1 progress at 1 of 39 completed plus 29 percent partial, this week's hours bar chart by day, and Needs Attention and Urgent action cards"
                     width="800"
@@ -213,12 +201,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-blue-300 font-semibold text-sm">Daily command center</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Greeting, priority alerts, status tiles, week hours, and action cards in one view.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/escalator/cat1-progress.webp" type="image/webp" /><img
                     src="/images/screenshots/escalator/cat1-progress.jpg"
                     alt="Cat 1 testing progress by building in Escalator Field Command — First Canadian Place and PATH-TD Centre with completed and incomplete units"
                     width="800"
@@ -226,12 +214,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-blue-300 font-semibold text-sm">Cat 1 by building</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Completed and incomplete tests across every site on your route.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/escalator/sspi-brake-tests.webp" type="image/webp" /><img
                     src="/images/screenshots/escalator/sspi-brake-tests.jpg"
                     alt="SSPI test thresholds and brake test results for an escalator at First Canadian Place, North Tower Lobby — Step Skirt Performance Index, breakaway torque, and skirt-step clearance values"
                     width="800"
@@ -239,12 +227,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-blue-300 font-semibold text-sm">Test depth</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Brake tests, comb impact, SSPI thresholds — logged per unit.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/escalator/unit-shutdown.webp" type="image/webp" /><img
                     src="/images/screenshots/escalator/unit-shutdown.jpg"
                     alt="Escalator unit detail in Escalator Field Command — Pearson Airport Terminal 1 escalator shut down with shutdown reason, building info, GID, and KONE manufacturer details"
                     width="800"
@@ -252,7 +240,7 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-blue-300 font-semibold text-sm">Unit shutdown logs</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Shutdown reasons, equipment specs, and contacts together.</p>
             </figure>

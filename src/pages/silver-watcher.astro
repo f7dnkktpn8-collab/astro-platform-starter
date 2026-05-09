@@ -39,19 +39,7 @@ const faqs = [
 const pageStructuredData = {
     '@context': 'https://schema.org',
     '@graph': [
-        {
-            '@type': 'WebPage',
-            '@id': SITE_URL + '/silver-watcher/#webpage',
-            url: SITE_URL + '/silver-watcher/',
-            name: 'Silver Watcher — Live Silver Spot Price App for Stackers & Investors',
-            description:
-                'Silver Watcher tracks the live silver spot price, ETFs (SLV, SIVR, PSLV), futures, gold/silver ratio with buy/sell signals, seasonal patterns, purity calculator, portfolio tracker, alerts in 12 currencies.',
-            isPartOf: { '@id': SITE_URL + '/#website' },
-            mainEntity: { '@id': SITE_URL + '/#silver-watcher' },
-            inLanguage: 'en-US',
-            primaryImageOfPage: { '@type': 'ImageObject', url: SITE_URL + APP_ICON }
-        },
-        {
+                {
             '@type': 'BreadcrumbList',
             itemListElement: [
                 { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
@@ -76,6 +64,8 @@ const pageStructuredData = {
     ogImage={APP_ICON}
     twitterCard="summary"
     smartAppId="6760270695"
+    datePublished="2026-05-08"
+    mainEntityId={SITE_URL + "/#silver-watcher"}
 >
     <script slot="head" type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
 
@@ -162,7 +152,7 @@ const pageStructuredData = {
         <!-- Mobile: horizontal snap-scroll. Desktop: 3-column grid (clean 2x3 for 6 screenshots). -->
         <div class="flex snap-x snap-mandatory overflow-x-auto gap-4 -mx-6 px-6 pb-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible lg:grid-cols-3">
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/silver-watcher/spot-price.webp" type="image/webp" /><img
                     src="/images/screenshots/silver-watcher/spot-price.jpg"
                     alt="Silver Watcher live Ag Spot Price C$108.21 down 1.09 percent, day range C$107.92 to C$109.81, Ag Price chart with rotate-to-fullscreen support, Gold/Silver Ratio 63.30 with historical average about 65, and Silver ETFs list starting with SLV C$98.10"
                     width="800"
@@ -170,12 +160,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-slate-300 font-semibold text-sm">Always current spot price</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Ag spot, day range, full chart, the gold/silver ratio in context, and top silver ETFs.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/silver-watcher/what-if.webp" type="image/webp" /><img
                     src="/images/screenshots/silver-watcher/what-if.jpg"
                     alt="Silver Watcher What If calculator — investment amount C$2,800, time options 1Y, 2Y, 5Y, 10Y ago, Compare Against ETF chips for SLV, SIVR, PSLV, SIL, and SPY benchmark, plus Investment Growth comparison chart"
                     width="800"
@@ -183,12 +173,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-slate-300 font-semibold text-sm">What If — past silver investment</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Pick an amount, a year, and silver ETFs to compare against — see the historical gain or loss.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/silver-watcher/returns.webp" type="image/webp" /><img
                     src="/images/screenshots/silver-watcher/returns.jpg"
                     alt="Silver Watcher Investment Growth chart with overlays showing Ag plus 215.1 percent versus SPY plus 30.8 percent over 2 years, Your Investment Today C$8,821.49 from C$2,800 invested at silver price C$34.35, silver purchased 81.5193 oz, current price C$108.21, gain plus C$6,021.49"
                     width="800"
@@ -196,12 +186,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-slate-300 font-semibold text-sm">Silver outperformed SPY +215%</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Overlay silver against the S&P 500 over your chosen window — full gain/loss breakdown below.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/silver-watcher/alerts.webp" type="image/webp" /><img
                     src="/images/screenshots/silver-watcher/alerts.jpg"
                     alt="Silver Watcher Alerts screen — current price C$108.214; alerts list including alert when price goes above C$100.00, above C$108.00, below C$90.00, below C$86.00, and below C$120.00, each with a toggle and Delete option"
                     width="800"
@@ -209,12 +199,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-slate-300 font-semibold text-sm">Never miss a move</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Set custom buy or sell alerts above or below any silver price level.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/silver-watcher/portfolio.webp" type="image/webp" /><img
                     src="/images/screenshots/silver-watcher/portfolio.jpg"
                     alt="Silver Watcher Portfolio — total value C$11,577.05 from 107.0500 oz total, total profit plus C$8,926.05 representing plus 336.7 percent on a C$2,651.00 cost basis; holdings include 40 oz worth C$4,325.85 with cost C$440 (plus 883.1 percent), 67 oz worth C$7,245.80 with cost C$2,211 (plus 227.7 percent), and 1 dwt gift worth C$5.41"
                     width="800"
@@ -222,12 +212,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-slate-300 font-semibold text-sm">Stash manager</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Live value, cost basis, profit, and holding duration on every position.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/silver-watcher/purity-calc.webp" type="image/webp" /><img
                     src="/images/screenshots/silver-watcher/purity-calc.jpg"
                     alt="Silver Watcher Calculate value screen — weight 126 g, weight unit grid showing oz, g (selected), kg, dwt, tola, tael, grain; purity grid with 999 Fine Silver, 958 Britannia, 950 French Silver (selected), 925 Sterling, 900 Coin Silver, 835 Continental, 800 European; estimated value C$416.60 at spot price C$108.15 per ounce"
                     width="800"
@@ -235,7 +225,7 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-slate-300 font-semibold text-sm">Built for stackers and jewellers</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Pick weight and purity — Fine Silver, Britannia, Sterling, Coin Silver, European 800.</p>
             </figure>

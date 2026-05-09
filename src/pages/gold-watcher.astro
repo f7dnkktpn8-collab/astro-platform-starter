@@ -39,19 +39,7 @@ const faqs = [
 const pageStructuredData = {
     '@context': 'https://schema.org',
     '@graph': [
-        {
-            '@type': 'WebPage',
-            '@id': SITE_URL + '/gold-watcher/#webpage',
-            url: SITE_URL + '/gold-watcher/',
-            name: 'Gold Watcher — Live Gold Spot Price & Portfolio App for iPhone',
-            description:
-                'Gold Watcher tracks the live gold spot price, ETFs (GLD, IAU, SGOL), futures, gold/silver ratio, karat calculator, and your portfolio. Real-time charts, price alerts, 10 currencies.',
-            isPartOf: { '@id': SITE_URL + '/#website' },
-            mainEntity: { '@id': SITE_URL + '/#gold-watcher' },
-            inLanguage: 'en-US',
-            primaryImageOfPage: { '@type': 'ImageObject', url: SITE_URL + APP_ICON }
-        },
-        {
+                {
             '@type': 'BreadcrumbList',
             itemListElement: [
                 { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
@@ -76,6 +64,8 @@ const pageStructuredData = {
     ogImage={APP_ICON}
     twitterCard="summary"
     smartAppId="6758283387"
+    datePublished="2026-05-08"
+    mainEntityId={SITE_URL + "/#gold-watcher"}
 >
     <script slot="head" type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
 
@@ -162,7 +152,7 @@ const pageStructuredData = {
         <!-- Mobile: horizontal snap-scroll. Desktop: 3-column grid (clean 2x3 for 6 screenshots). -->
         <div class="flex snap-x snap-mandatory overflow-x-auto gap-4 -mx-6 px-6 pb-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible lg:grid-cols-3">
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/gold-watcher/spot-price.webp" type="image/webp" /><img
                     src="/images/screenshots/gold-watcher/spot-price.jpg"
                     alt="Gold Watcher live Au Spot Price C$6,849.04 down 0.17 percent, day range C$6833.56 to C$6879.45, Au Price chart, Gold/Silver Ratio 63.33 with historical average about 65, and Gold ETFs list starting with GLD SPDR Gold Shares C$629.14"
                     width="800"
@@ -170,12 +160,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-yellow-300 font-semibold text-sm">Live spot price</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Au spot with day range, full chart, the gold/silver ratio in context, and top gold ETFs.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/gold-watcher/etf-detail.webp" type="image/webp" /><img
                     src="/images/screenshots/gold-watcher/etf-detail.jpg"
                     alt="Gold Watcher SGOL abrdn Physical Gold Shares ETF detail screen — price C$65.20, chart over 1M with peaks and troughs labelled, time period selector 1D 1W 1M 3M 1Y, and 30-day volume 3,430,452"
                     width="800"
@@ -183,12 +173,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-yellow-300 font-semibold text-sm">Tap any ETF for detail</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Price, chart, and volume for every gold ETF — line chart and 30-day volume figure.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/gold-watcher/what-if.webp" type="image/webp" /><img
                     src="/images/screenshots/gold-watcher/what-if.jpg"
                     alt="Gold Watcher What If calculator — investment amount C$3,250, time options 1Y, 2Y, 5Y, 10Y ago, Compare Against ETF chips for SGOL, BAR, AAAU, GLDM, and SPY benchmark, plus Investment Growth chart"
                     width="800"
@@ -196,12 +186,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-yellow-300 font-semibold text-sm">What If — past gold investment</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Pick an amount, a year, and an ETF to compare against — see the gain or loss instantly.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/gold-watcher/alerts.webp" type="image/webp" /><img
                     src="/images/screenshots/gold-watcher/alerts.jpg"
                     alt="Gold Watcher Alerts screen — current price C$6,853.779; alerts list including alert when price goes above C$6,500.00, above C$7,000.00, below C$6,500.00, and above C$6,800.00, each with a toggle and Delete option"
                     width="800"
@@ -209,12 +199,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-yellow-300 font-semibold text-sm">Never miss a move</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Set price alerts above or below any level — the app pings you when gold hits your target.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/gold-watcher/portfolio.webp" type="image/webp" /><img
                     src="/images/screenshots/gold-watcher/portfolio.jpg"
                     alt="Gold Watcher Portfolio — total value C$44,207.56 from 6.4501 oz total, total profit plus C$37,007.56 representing plus 514 percent on a C$7,200 cost basis; holdings include 5 oz worth C$34,268.89 with cost C$3,200 (plus 970.9 percent), 14 g gift worth C$3,084.89, and 1 oz worth C$6,853.78 with cost C$4,000 (plus 71.3 percent)"
                     width="800"
@@ -222,7 +212,7 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-yellow-300 font-semibold text-sm">What you own</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Live value, cost basis, and profit on every holding — including gifted gold marked separately.</p>
             </figure>

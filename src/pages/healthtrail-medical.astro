@@ -43,19 +43,7 @@ const faqs = [
 const pageStructuredData = {
     '@context': 'https://schema.org',
     '@graph': [
-        {
-            '@type': 'WebPage',
-            '@id': SITE_URL + '/healthtrail-medical/#webpage',
-            url: SITE_URL + '/healthtrail-medical/',
-            name: 'HealthTrail Medical — iOS App for Family Health Records',
-            description:
-                'HealthTrail Medical is the iPhone app for your family\'s medical history. Visual timeline, AI medication scanning, vaccine tracking, family profiles, insurance cards. 100% on-device, no account.',
-            isPartOf: { '@id': SITE_URL + '/#website' },
-            mainEntity: { '@id': SITE_URL + '/#healthtrail-medical' },
-            inLanguage: 'en-US',
-            primaryImageOfPage: { '@type': 'ImageObject', url: SITE_URL + APP_ICON }
-        },
-        {
+                {
             '@type': 'BreadcrumbList',
             itemListElement: [
                 { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
@@ -80,6 +68,8 @@ const pageStructuredData = {
     ogImage={APP_ICON}
     twitterCard="summary"
     smartAppId="6758072258"
+    datePublished="2026-05-08"
+    mainEntityId={SITE_URL + "/#healthtrail-medical"}
 >
     <script slot="head" type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
 
@@ -166,7 +156,7 @@ const pageStructuredData = {
         <!-- Mobile: horizontal snap-scroll. Desktop: 3-column grid (cleaner 2x3 layout for 6 screenshots). -->
         <div class="flex snap-x snap-mandatory overflow-x-auto gap-4 -mx-6 px-6 pb-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible lg:grid-cols-3">
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/healthtrail/timeline.webp" type="image/webp" /><img
                     src="/images/screenshots/healthtrail/timeline.jpg"
                     alt="HealthTrail Medical appointment timeline for Dad profile — search bar for events, dates, doctors; Jan 2024 Annual Physical with Dr Sarah Chen at Family Health Clinic; Feb 2024 Blood Work Panel at LabCorp Downtown; Lisinopril medication started Feb 25 2024 — illustrating the all-your-health-in-a-single-timeline concept"
                     width="800"
@@ -174,12 +164,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">All your health in a single timeline</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Doctor visits, lab work, and meds — chronological, searchable, per family member.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/healthtrail/vaccines.webp" type="image/webp" /><img
                     src="/images/screenshots/healthtrail/vaccines.jpg"
                     alt="HealthTrail Medical Medical History Vaccines tab — Overdue section showing COVID-19 dose 5 of 5 due Sep 15 2025 at Walgreens Pharmacy and Influenza Flu dose 1 of 1 due Oct 1 2025 at CVS Pharmacy; Coming Up section with Tdap due Jun 20 2034 at Family Health Clinic; Administered section with Influenza Flu 2023 — for vaccine tracking and immunization records"
                     width="800"
@@ -187,12 +177,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">Vaccines, never forgotten</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Overdue, coming up, and administered — every shot logged with pharmacy and date.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/healthtrail/medications.webp" type="image/webp" /><img
                     src="/images/screenshots/healthtrail/medications.jpg"
                     alt="HealthTrail Medical Medications screen — clearly organized list showing Metformin prescribed by Dr Sarah Chen for Type 2 Diabetes management at 500mg twice daily with meals, and Omeprazole prescribed by Dr Sarah Chen at 20mg once daily — both flagged Active, with View full details links and a quick-add button"
                     width="800"
@@ -200,12 +190,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">Medications, clearly organized</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Active and past prescriptions, each with prescriber, dosage, and frequency.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/healthtrail/medication-details.webp" type="image/webp" /><img
                     src="/images/screenshots/healthtrail/medication-details.jpg"
                     alt="HealthTrail Medical Medication Details screen — expiration date 2026-09-25, start date Wednesday May 15 2024, prescribing doctor Dr Sarah Chen, pharmacy CVS Pharmacy Main St Vancouver BC with phone number, directions to take one tablet twice daily with breakfast and dinner, and warnings about possible lactic acidosis — emphasizing 100% private and secure local storage"
                     width="800"
@@ -213,12 +203,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">100% private &amp; secure</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Prescriber, pharmacy, directions, warnings — all in one record, all on-device.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/healthtrail/metrics.webp" type="image/webp" /><img
                     src="/images/screenshots/healthtrail/metrics.jpg"
                     alt="HealthTrail Medical Medical History Metrics tab — BMI tracker with target ranges, Blood Pressure 125/78 mmHg flagged as Elevated with reference scale, Cholesterol panel with LDL 115 marked High and HDL 52 marked Optimal — showing health metrics easily displayed against color-coded reference ranges"
                     width="800"
@@ -226,12 +216,12 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">Data easily displayed</figcaption>
                 <p class="text-xs text-gray-400 mt-1">BMI, blood pressure, cholesterol — color-coded against optimal ranges.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <img
+                <picture><source srcset="/images/screenshots/healthtrail/insurance.webp" type="image/webp" /><img
                     src="/images/screenshots/healthtrail/insurance.jpg"
                     alt="HealthTrail Medical Insurance tab — Scan to Auto-Fill feature with Personal Health Number 9876 543 210 captured from a Canadian health card, plus stored cards including Ontario Health for Anita Jean Walker showing photo, name, and health number 5584-486-674-YM, and Yukon Health Care card — all flagged Active for instant access at the pharmacy or doctor's office"
                     width="800"
@@ -239,7 +229,7 @@ const pageStructuredData = {
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
-                />
+                /></picture>
                 <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">Insurance cards, scan to auto-fill</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Snap a card and the data extracts itself — health number, name, expiry, all kept on-device.</p>
             </figure>

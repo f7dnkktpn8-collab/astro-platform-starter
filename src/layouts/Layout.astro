@@ -16,6 +16,17 @@ interface Props {
      * Field Command (the priority app). Pass an empty string to suppress.
      */
     smartAppId?: string;
+    /**
+     * ISO date this page first went live. Used for `datePublished` in the
+     * page's WebPage JSON-LD. Defaults to the brand-site relaunch date.
+     */
+    datePublished?: string;
+    /**
+     * Schema.org `@id` of the entity this page is primarily about — typically
+     * a `MobileApplication`. Tells Google "this page is about that app" so
+     * the WebPage and the app schema are linked. Optional.
+     */
+    mainEntityId?: string;
 }
 
 const SITE_URL = 'https://artificialigknorance.com';
@@ -25,8 +36,13 @@ const {
     description = "Escalator Field Command — iOS app for escalator mechanics: routes, Category 1 testing, SSPI compliance, inspections. Plus privacy-first apps for health, finance & more by Artificial Igknorance.",
     ogImage = SITE_URL + '/images/robot-mascot-transparent.png',
     twitterCard = 'summary_large_image',
-    smartAppId = '6756789866'
+    smartAppId = '6756789866',
+    datePublished = '2026-04-15',
+    mainEntityId
 } = Astro.props;
+
+// dateModified updates with each build. Google reads this as a freshness signal.
+const dateModified = new Date().toISOString();
 
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
 const absoluteOgImage = ogImage.startsWith('http') ? ogImage : SITE_URL + ogImage;
@@ -37,6 +53,27 @@ const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
         {
+            "@type": "Person",
+            "@id": SITE_URL + "/#mike-dangerfield",
+            "name": "Mike Dangerfield",
+            "jobTitle": "Independent iOS Developer",
+            "worksFor": { "@id": SITE_URL + "/#organization" },
+            "sameAs": [
+                "https://twitter.com/igknorance",
+                "https://x.com/igknorance",
+                "https://apps.apple.com/us/developer/mike-dangerfield/id1588904052"
+            ],
+            "knowsAbout": [
+                "iOS app development",
+                "Privacy-first software design",
+                "Escalator industry tools",
+                "Category 1 testing and SSPI compliance",
+                "Precious metals tracking",
+                "Health records management",
+                "On-device AI"
+            ]
+        },
+        {
             "@type": "Organization",
             "@id": SITE_URL + "/#organization",
             "name": "Artificial Igknorance",
@@ -45,13 +82,11 @@ const structuredData = {
                 "@type": "ImageObject",
                 "url": SITE_URL + "/images/robot-mascot-transparent.png"
             },
-            "founder": {
-                "@type": "Person",
-                "name": "Mike Dangerfield"
-            },
+            "founder": { "@id": SITE_URL + "/#mike-dangerfield" },
             "sameAs": [
                 "https://twitter.com/igknorance",
-                "https://x.com/igknorance"
+                "https://x.com/igknorance",
+                "https://apps.apple.com/us/developer/mike-dangerfield/id1588904052"
             ],
             "contactPoint": {
                 "@type": "ContactPoint",
@@ -67,6 +102,20 @@ const structuredData = {
             "description": "Privacy-first iOS apps — escalator industry tools, health tracking, precious metals, and bill scanning. 100% on-device.",
             "publisher": { "@id": SITE_URL + "/#organization" },
             "inLanguage": "en-US"
+        },
+        {
+            "@type": "WebPage",
+            "@id": canonicalURL + "#webpage",
+            "url": canonicalURL,
+            "name": title,
+            "description": description,
+            "isPartOf": { "@id": SITE_URL + "/#website" },
+            "about": { "@id": SITE_URL + "/#organization" },
+            ...(mainEntityId ? { "mainEntity": { "@id": mainEntityId } } : {}),
+            "datePublished": datePublished,
+            "dateModified": dateModified,
+            "inLanguage": "en-US",
+            "primaryImageOfPage": { "@type": "ImageObject", "url": absoluteOgImage }
         },
         {
             "@type": "MobileApplication",
