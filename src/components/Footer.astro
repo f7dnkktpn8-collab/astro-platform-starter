@@ -1,7 +1,49 @@
 ---
+// Footer with internal cross-links so every page (especially on mobile, where
+// the header nav lives behind a hamburger) has reachable navigation back to
+// the apps, the FAQ, the about page, and legal. Also a small SEO win: every
+// page links back to the priority pages.
 ---
 
-<footer class="pt-6 pb-8 text-center space-y-2">
-    <p class="text-sm text-gray-400 font-medium">No data collected. No accounts. No tracking.</p>
-    <p class="text-sm text-gray-500">&copy; {new Date().getFullYear()} Artificial Igknorance. All rights reserved.</p>
+<footer class="pt-12 pb-8 mt-16 border-t border-white/10 text-sm">
+    <div class="max-w-5xl mx-auto">
+        <!-- Cross-links: apps + site. Stacked on mobile (so the 6-item Apps
+             list and 2-item Legal list can't collide in a 2-col grid),
+             3-column on sm+. -->
+        <div class="flex flex-col gap-y-8 sm:grid sm:grid-cols-3 sm:gap-x-6 sm:gap-y-2 mb-8">
+            <div>
+                <h3 class="text-gray-300 font-semibold mb-3">Apps</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="/escalator-field-command/" class="hover:text-white transition-colors no-underline">Escalator Field Command</a></li>
+                    <li><a href="/healthtrail-medical/" class="hover:text-white transition-colors no-underline">HealthTrail Medical</a></li>
+                    <li><a href="/snapledger/" class="hover:text-white transition-colors no-underline">SnapLedger</a></li>
+                    <li><a href="/gold-watcher/" class="hover:text-white transition-colors no-underline">Gold Watcher</a></li>
+                    <li><a href="/silver-watcher/" class="hover:text-white transition-colors no-underline">Silver Watcher</a></li>
+                    <li><a href="/copper-watcher/" class="hover:text-white transition-colors no-underline">Copper Watcher</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-gray-300 font-semibold mb-3">Site</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="/" class="hover:text-white transition-colors no-underline">Home</a></li>
+                    <li><a href="/about/" class="hover:text-white transition-colors no-underline">About</a></li>
+                    <li><a href="/#faq" class="hover:text-white transition-colors no-underline">FAQ</a></li>
+                    <li><a href="/#contact" class="hover:text-white transition-colors no-underline">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-gray-300 font-semibold mb-3">Legal</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="/privacy/" class="hover:text-white transition-colors no-underline">Privacy</a></li>
+                    <li><a href="/terms/" class="hover:text-white transition-colors no-underline">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Brand line + tagline -->
+        <div class="text-center space-y-2 pt-6 border-t border-white/5">
+            <p class="text-gray-400 font-medium">No data collected. No accounts. No tracking.</p>
+            <p class="text-gray-500">&copy; {new Date().getFullYear()} Artificial Igknorance. All rights reserved.</p>
+        </div>
+    </div>
 </footer>

@@ -1,11 +1,17 @@
 ---
+// Sticky header. On desktop (sm+) the nav links sit inline. On mobile they live
+// inside a <details> panel toggled by the hamburger button — pure HTML/CSS, no
+// JS, no flash-of-unstyled-content. The summary's chevron rotates on open via
+// the `group-open:rotate-180` utility.
 ---
 
 <header class="sticky top-0 z-40 backdrop-blur-md bg-[#355c7d]/80 border-b border-white/10 -mx-6 sm:-mx-12 px-6 sm:px-12">
-    <div class="max-w-5xl mx-auto flex items-center justify-between h-14">
+    <div class="max-w-5xl mx-auto h-14 flex items-center justify-between">
         <a href="/" class="text-lg font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent no-underline hover:opacity-100">
             Artificial Igknorance
         </a>
+
+        <!-- Desktop nav -->
         <nav class="hidden sm:flex items-center gap-6 text-sm text-gray-300">
             <a href="/healthtrail-medical/" class="no-underline hover:text-white transition-colors">Health</a>
             <a href="/escalator-field-command/" class="no-underline hover:text-white transition-colors">Escalator</a>
@@ -14,5 +20,28 @@
             <a href="/#faq" class="no-underline hover:text-white transition-colors">FAQ</a>
             <a href="/#contact" class="no-underline hover:text-white transition-colors">Contact</a>
         </nav>
+
+        <!-- Mobile menu toggle -->
+        <details class="sm:hidden group relative">
+            <summary class="flex items-center justify-center w-10 h-10 rounded-lg cursor-pointer list-none text-gray-200 hover:bg-white/10 active:bg-white/20 transition-colors" aria-label="Open menu">
+                <!-- Hamburger when closed; X when open -->
+                <svg class="w-6 h-6 group-open:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg class="w-6 h-6 hidden group-open:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </summary>
+            <!-- Drop-down panel: full-width on mobile, anchored to the right of the toggle -->
+            <nav class="absolute right-0 mt-2 w-64 max-w-[calc(100vw-1.5rem)] bg-[#355c7d] border border-white/15 rounded-2xl shadow-2xl overflow-hidden text-base">
+                <a href="/" class="block px-5 py-3.5 text-gray-200 hover:bg-white/10 active:bg-white/20 transition-colors no-underline border-b border-white/10">Home</a>
+                <a href="/healthtrail-medical/" class="block px-5 py-3.5 text-gray-200 hover:bg-white/10 active:bg-white/20 transition-colors no-underline border-b border-white/10">Health</a>
+                <a href="/escalator-field-command/" class="block px-5 py-3.5 text-gray-200 hover:bg-white/10 active:bg-white/20 transition-colors no-underline border-b border-white/10">Escalator</a>
+                <a href="/#financial" class="block px-5 py-3.5 text-gray-200 hover:bg-white/10 active:bg-white/20 transition-colors no-underline border-b border-white/10">Financial</a>
+                <a href="/about/" class="block px-5 py-3.5 text-gray-200 hover:bg-white/10 active:bg-white/20 transition-colors no-underline border-b border-white/10">About</a>
+                <a href="/#faq" class="block px-5 py-3.5 text-gray-200 hover:bg-white/10 active:bg-white/20 transition-colors no-underline border-b border-white/10">FAQ</a>
+                <a href="/#contact" class="block px-5 py-3.5 text-gray-200 hover:bg-white/10 active:bg-white/20 transition-colors no-underline">Contact</a>
+            </nav>
+        </details>
     </div>
 </header>
