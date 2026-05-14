@@ -8,31 +8,43 @@ const APP_ICON = '/images/gold-watcher-icon.webp';
 const faqs = [
     {
         q: 'What is Gold Watcher?',
-        a: 'Gold Watcher is the iPhone app for gold investors, jewelers, and precious-metals enthusiasts. It tracks the live gold spot price, top gold ETFs (GLD, IAU, SGOL) and futures, the gold/silver ratio, has a built-in karat calculator and portfolio tracker, supports 10 currencies, and lets you set custom price alerts.'
+        a: 'Gold Watcher is the iPhone app for gold investors, jewelers, and precious-metals enthusiasts. It tracks the live gold spot price, top gold ETFs (GLD, IAU, SGOL) and futures, the gold/silver ratio, prediction markets, a smarter sentiment badge, seasonal patterns, a karat calculator, and a karat-aware portfolio with realized profit tracking.'
     },
     {
         q: 'How is the gold spot price tracked?',
-        a: 'Gold Watcher pulls the live gold spot price during trading hours and shows the daily change, daily range, and historical charts from 1 day all the way to all-time. Switch between line and dot chart styles, or rotate your iPhone for an immersive landscape view.'
+        a: 'Gold Watcher pulls the live gold spot price during trading hours with a live heartbeat indicator. Historical charts cover 1D, 1W, 1M, 3M, 1Y, 5Y, and ALL. Switch between line and dot chart styles, or rotate your iPhone for an immersive landscape view.'
+    },
+    {
+        q: 'What is "karat-aware" portfolio tracking?',
+        a: 'When you log a 14K or 18K piece, Gold Watcher prices it correctly against pure gold instead of treating it like 24K. So your gold-coin holding and your 14K bracelet sit in the same portfolio with both showing the real live value.'
+    },
+    {
+        q: 'How does the realized profit work when I sell?',
+        a: 'When you sell a position, record the sale price and date — Gold Watcher logs the realized gain and rolls it into a running cumulative profit across all of your closed positions. Gifts can be marked separately so they don\'t inflate the profit number.'
+    },
+    {
+        q: 'What are Prediction Markets?',
+        a: 'A live read of Polymarket bets on the macro forces that move gold — Fed rate cuts, inflation, recession risk, central-bank reserves — pulled into a section of the Charts tab. A market view, not a chart view.'
+    },
+    {
+        q: 'What does the Smarter Sentiment badge do?',
+        a: 'A Bullish / Bearish / Neutral indicator that blends short-term price momentum, the health of the 50-day trend, and the tone of recent news headlines into one signal — instead of just reflecting today\'s price change.'
     },
     {
         q: 'How does the karat calculator work?',
-        a: 'Enter weight and karat — every karat from 24K pure down to 9K, with fineness labels at each level — and Gold Watcher gives you the value at the current spot price. Useful for jewelers quoting a customer or anyone selling scrap gold.'
+        a: 'Enter weight and karat — every karat from 24K pure (.999 fine) down to 9K, with fineness labels at each level — and Gold Watcher gives you the value at the current spot price. Useful for jewelers quoting a customer or anyone selling scrap gold.'
     },
     {
         q: 'What is the gold/silver ratio and why does it matter?',
         a: 'The gold/silver ratio is how many ounces of silver one ounce of gold buys. It tells precious-metals investors when one metal is historically expensive or cheap relative to the other. Gold Watcher tracks the live ratio with the historical average for context.'
     },
     {
-        q: 'Can I track my own gold holdings?',
-        a: 'Yes. The portfolio tracker manages holdings in oz, g, kg, dwt, tola, tael, or grain. Track purchase price, profit and loss per holding, and total portfolio value updating live. Mark gifted gold separately so it stays out of your cost-basis math.'
-    },
-    {
         q: 'What currencies are supported?',
-        a: 'Ten: CAD, USD, EUR, GBP, INR, AUD, CHF, JPY, CNY, and HKD. Pick one and the entire app — spot price, ETFs, portfolio, alerts — switches to it.'
+        a: 'Ten: CAD, USD, EUR, GBP, INR, AUD, CHF, JPY, CNY, and HKD. Pick one and the entire app switches.'
     },
     {
-        q: 'How much does it cost?',
-        a: 'Free to download from the App Store. See the latest pricing and any in-app options on the App Store listing.'
+        q: 'What does Premium cost?',
+        a: 'Free to download. The Portfolio, What-If, and Calculator tabs are unlocked with a Gold Watcher subscription at $1.99 per month or $4.99 per year. The yearly plan comes with a 7-day free trial.'
     }
 ];
 
@@ -59,8 +71,8 @@ const pageStructuredData = {
 ---
 
 <Layout
-    title="Gold Watcher — Live Gold Spot Price & Portfolio App for iPhone"
-    description="Live gold spot price, ETFs (GLD, IAU, SGOL), futures, gold/silver ratio, karat calculator, portfolio tracker, and price alerts in 10 currencies. Free iPhone app for gold investors and jewelers."
+    title="Gold Watcher — Live Gold Spot Price, Karat-Aware Portfolio, Prediction Markets"
+    description="Live gold spot price, ETFs (GLD, IAU, SGOL), futures, gold/silver ratio, karat-aware portfolio with realized P&L, Polymarket prediction markets, sentiment badge, seasonal patterns, and karat calculator. Free iPhone app for gold investors and jewelers."
     ogImage={APP_ICON}
     twitterCard="summary"
     smartAppId="6758283387"
@@ -91,10 +103,11 @@ const pageStructuredData = {
                 <h1 class="text-4xl sm:text-5xl font-bold mb-3 bg-gradient-to-r from-yellow-400 to-amber-300 bg-clip-text text-transparent">
                     Gold Watcher (Au)
                 </h1>
-                <p class="text-xl sm:text-2xl text-yellow-300 font-medium mb-4">Live gold prices, in your pocket.</p>
+                <p class="text-xl sm:text-2xl text-yellow-300 font-medium mb-4">Serious gold tools, no learning curve.</p>
                 <p class="text-gray-300 max-w-2xl mb-6 text-lg">
-                    Live gold spot price, ETFs, futures, the gold/silver ratio, a karat calculator, and full portfolio
-                    tracking — built for gold investors, jewelers, and precious-metals enthusiasts.
+                    Live gold spot price, ETFs and futures, the gold/silver ratio, prediction markets, a smarter
+                    sentiment badge, seasonal patterns, and a karat-aware portfolio with realized profit tracking —
+                    built for gold investors, jewelers, and precious-metals enthusiasts.
                 </p>
                 <div class="flex flex-wrap gap-3 justify-center md:justify-start">
                     <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
@@ -105,12 +118,12 @@ const pageStructuredData = {
 
     <!-- Quick badges -->
     <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
-        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Live spot price</span>
+        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Live spot + heartbeat</span>
         <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">GLD · IAU · SGOL</span>
-        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Karat calculator</span>
+        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Karat-aware portfolio</span>
         <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Gold/silver ratio</span>
-        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Portfolio tracker</span>
-        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">10 currencies</span>
+        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Prediction markets</span>
+        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Smarter sentiment</span>
     </section>
 
     <!-- What it does -->
@@ -118,28 +131,36 @@ const pageStructuredData = {
         <h2 class="text-3xl font-bold mb-8 text-center md:text-left">What it does</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-yellow-300">Live spot price</h3>
-                <p class="text-gray-300">Current gold spot price updated through the trading day, with daily change, daily range, and historical charts from 1 day to all-time.</p>
+                <h3 class="text-xl font-bold mb-2 text-yellow-300">Live spot price + heartbeat</h3>
+                <p class="text-gray-300">Spot gold updated through the trading day with a live heartbeat indicator. Daily range and historical charts (1D, 1W, 1M, 3M, 1Y, 5Y, ALL). Line or dot chart styles. Rotate for fullscreen.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-yellow-300">Gold ETFs &amp; futures</h3>
-                <p class="text-gray-300">Live prices for GLD, IAU, SGOL and other top gold ETFs, plus gold futures contracts. Daily changes and full price history alongside spot.</p>
+                <h3 class="text-xl font-bold mb-2 text-yellow-300">Gold ETFs, futures &amp; ratios</h3>
+                <p class="text-gray-300">Live prices for GLD, IAU, SGOL and other top gold ETFs, gold futures, and the gold-to-silver ratio with historical average — the classic indicator for spotting relative value.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-yellow-300">Gold / silver ratio</h3>
-                <p class="text-gray-300">Track the live gold-to-silver ratio with the historical average for context — the classic precious-metals indicator for spotting relative value.</p>
+                <h3 class="text-xl font-bold mb-2 text-yellow-300">Karat-aware portfolio</h3>
+                <p class="text-gray-300">Holdings in oz, g, kg, dwt, tola, tael, or grain. 14K and 18K pieces priced correctly against pure gold. Live P&amp;L per position, gifts flagged separately, and realized profit logged across every closed position.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-yellow-300">Karat calculator</h3>
-                <p class="text-gray-300">Value gold instantly by weight and karat. Every karat from 24K pure down to 9K, with fineness labels at every level — built for jewelers.</p>
+                <p class="text-gray-300">Value gold instantly by weight and karat. Every karat from 24K pure (.999 fine) down to 9K, with fineness labels at every level — built for jewelers.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-yellow-300">Portfolio tracker</h3>
-                <p class="text-gray-300">Holdings in oz, g, kg, dwt, tola, tael, or grain. Per-position P/L, gifted-gold flag, and total portfolio value updating live with the spot price.</p>
+                <h3 class="text-xl font-bold mb-2 text-yellow-300">Prediction markets</h3>
+                <p class="text-gray-300">Live Polymarket bets on the macro forces moving gold — Fed rate cuts, inflation, recession risk, central-bank reserves — pulled into a section of the Charts tab.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-yellow-300">What If &amp; price alerts</h3>
-                <p class="text-gray-300">Compare past gold returns against the S&amp;P 500 and gold ETFs with overlay charts. Set custom buy/sell alerts in any of 10 currencies.</p>
+                <h3 class="text-xl font-bold mb-2 text-yellow-300">Smarter sentiment</h3>
+                <p class="text-gray-300">A Bullish / Bearish / Neutral badge that blends short-term momentum, 50-day trend health, and news-headline tone into one signal — not just today's price change.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-yellow-300">What-If calculator</h3>
+                <p class="text-gray-300">See what your gold would be worth today if you'd bought at any past date. Compare returns against the S&amp;P 500 and gold ETFs with overlay charts. Lump-sum or dollar-cost-averaging.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-yellow-300">Seasonal patterns</h3>
+                <p class="text-gray-300">A 10-year average monthly return chart so you can time purchases with data, not guesswork.</p>
             </div>
         </div>
     </section>
@@ -191,30 +212,17 @@ const pageStructuredData = {
                 <p class="text-xs text-gray-400 mt-1">Pick an amount, a year, and an ETF to compare against — see the gain or loss instantly.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <picture><source srcset="/images/screenshots/gold-watcher/alerts.webp" type="image/webp" /><img
-                    src="/images/screenshots/gold-watcher/alerts.jpg"
-                    alt="Gold Watcher Alerts screen — current price C$6,853.779; alerts list including alert when price goes above C$6,500.00, above C$7,000.00, below C$6,500.00, and above C$6,800.00, each with a toggle and Delete option"
-                    width="800"
-                    height="1738"
-                    loading="lazy"
-                    decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
-                /></picture>
-                <figcaption class="mt-3 text-yellow-300 font-semibold text-sm">Never miss a move</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Set price alerts above or below any level — the app pings you when gold hits your target.</p>
-            </figure>
-            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/gold-watcher/portfolio.webp" type="image/webp" /><img
                     src="/images/screenshots/gold-watcher/portfolio.jpg"
-                    alt="Gold Watcher Portfolio — total value C$44,207.56 from 6.4501 oz total, total profit plus C$37,007.56 representing plus 514 percent on a C$7,200 cost basis; holdings include 5 oz worth C$34,268.89 with cost C$3,200 (plus 970.9 percent), 14 g gift worth C$3,084.89, and 1 oz worth C$6,853.78 with cost C$4,000 (plus 71.3 percent)"
+                    alt="Gold Watcher Portfolio — total value with cost basis and live P/L per holding, including karat-aware pricing for 14K and 18K pieces, gifted gold flagged separately, and realized profit logged across every closed position"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
                 /></picture>
-                <figcaption class="mt-3 text-yellow-300 font-semibold text-sm">What you own</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Live value, cost basis, and profit on every holding — including gifted gold marked separately.</p>
+                <figcaption class="mt-3 text-yellow-300 font-semibold text-sm">Karat-aware portfolio</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Live P&amp;L per holding, realized profit on closed positions, gifts flagged separately.</p>
             </figure>
         </div>
     </section>

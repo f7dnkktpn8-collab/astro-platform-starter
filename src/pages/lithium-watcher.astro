@@ -8,35 +8,43 @@ const APP_ICON = '/images/lithium-watcher-icon.webp';
 const faqs = [
     {
         q: 'What is Lithium Watcher?',
-        a: 'Lithium Watcher is the iPhone app for lithium investors and EV-market enthusiasts. It tracks the live LIT ETF price (the Global X Lithium & Battery Tech ETF), top lithium mining stocks (ALB, SQM, PLL, LAC), and the major EV manufacturers (Tesla, Rivian, Lucid, NIO, XPeng, Li Auto, BYD) — the full supply chain from lithium mine to the road.'
+        a: 'Lithium Watcher is the iPhone app for lithium investors and EV-market enthusiasts. It tracks the lithium price via three sources (Lithium Hydroxide CME futures, the GSCI Lithium Index, and the LIT ETF), lithium mining stocks (ALB, SQM, PLL, LAC), the major EV manufacturers (Tesla, Rivian, Lucid, NIO, XPeng, Li Auto, BYD), prediction markets, a smarter sentiment badge, seasonal patterns, and a portfolio with realized profit tracking.'
     },
     {
         q: 'How is the lithium price tracked?',
-        a: 'Lithium Watcher pulls the lithium price via the LIT ETF and updates throughout the trading day with a live heartbeat indicator. Detailed price charts are available in 1D, 1W, 1M, 3M, 6M, 1Y, and 5Y windows, switchable between line and candlestick styles.'
+        a: 'Lithium Watcher pulls three live sources updated throughout the trading day: Lithium Hydroxide CME futures, the GSCI Lithium Index, and the LIT ETF (Global X Lithium & Battery Tech). Historical charts cover 1D, 1W, 1M, 3M, 6M, 1Y, and 5Y, switchable between line and dot styles. Rotate your iPhone for immersive fullscreen charts.'
     },
     {
         q: 'What lithium ETFs and stocks does it cover?',
-        a: 'Lithium ETFs include LIT (Global X Lithium & Battery Tech), BATT (Amplify Lithium & Battery Technology), and REMX. Mining stocks include Albemarle (ALB), Sociedad Química y Minera (SQM), Sigma Lithium (SGML), Lithium Americas (LAC), and Ganfeng Lithium Group. The app also surfaces lithium-relevant news and sentiment.'
+        a: 'Lithium ETFs include LIT (Global X Lithium & Battery Tech) and KARS (KraneShares Electric Vehicles & Future Mobility). Mining stocks include Albemarle (ALB), Sociedad Química y Minera (SQM), Piedmont Lithium (PLL), and Lithium Americas (LAC).'
     },
     {
         q: 'What is the EV Market tab?',
-        a: 'A dedicated tab tracking the major EV manufacturers — Tesla, Rivian, Lucid, NIO, XPeng, Li Auto, and BYD — alongside an EV-supply-chain performance chart so you can see lithium and the EV market move together.'
+        a: 'A dedicated tab tracking the major EV manufacturers — Tesla, Rivian, Lucid, NIO, XPeng, Li Auto, BYD — on a single compare chart. Each ticker gets its own fixed colour (no more red/green flipping based on direction) so you can read the chart at a glance.'
     },
     {
-        q: 'Can I track my own lithium investments?',
-        a: 'Yes. The portfolio tracker manages LIT, ALB, SQM, PLL, LAC, and other lithium-sector shares with purchase price, profit/loss, and holding duration on every position.'
+        q: 'How does the realized profit work when I sell?',
+        a: 'When you sell a position, record the sale price and date — Lithium Watcher logs the realized gain and rolls it into a running cumulative profit across all of your closed positions. Gifts can be marked separately so they don\'t inflate the profit number.'
     },
     {
-        q: 'Is there a What If calculator?',
-        a: 'Yes. Pick an investment amount and a date — Lithium Watcher shows what that position would be worth today, with a side-by-side lump-sum vs dollar-cost-averaging breakdown.'
+        q: 'What are Prediction Markets?',
+        a: 'A live read of Polymarket bets on the forces driving lithium demand — Tesla quarterly numbers, Rivian deliveries, EV sales targets, battery supply chains — pulled into a section of the Charts tab.'
+    },
+    {
+        q: 'What does the Smarter Sentiment badge do?',
+        a: 'A Bullish / Bearish / Neutral indicator that blends short-term price momentum, the health of the 50-day trend, and the tone of recent news headlines into one signal.'
+    },
+    {
+        q: 'What about seasonal patterns?',
+        a: 'A 10-year average monthly return chart shows which months lithium has historically been strongest and weakest — useful for timing entries with data instead of guesswork.'
     },
     {
         q: 'What currencies are supported?',
         a: 'USD, CAD, EUR, GBP, AUD, JPY, CHF, CNY, INR, and more. Pick one and the entire app switches.'
     },
     {
-        q: 'How much does it cost?',
-        a: 'Free to download from the App Store. The Charts, Portfolio, Alerts, and EV Market tabs are part of an optional Premium subscription — see the latest pricing on the App Store listing.'
+        q: 'What does Premium cost?',
+        a: 'Free to download. The Portfolio and EV Market tabs are unlocked with a Lithium Watcher subscription at $1.99 per month or $4.99 per year. The yearly plan comes with a 7-day free trial.'
     }
 ];
 
@@ -63,8 +71,8 @@ const pageStructuredData = {
 ---
 
 <Layout
-    title="Lithium Watcher — Live LIT ETF, Mining Stocks & EV Market on iPhone"
-    description="Track lithium prices via the LIT ETF, lithium mining stocks (ALB, SQM, PLL, LAC), and major EV manufacturers (Tesla, Rivian, NIO, XPeng) — all in one iPhone app. Portfolio, alerts, What If calculator."
+    title="Lithium Watcher — Live Lithium Price, EV Market, Prediction Markets"
+    description="Track lithium via three sources (Lithium Hydroxide CME futures, GSCI Lithium Index, LIT ETF), mining stocks (ALB, SQM, PLL, LAC), and EV manufacturers (Tesla, Rivian, NIO, XPeng, BYD) on a single compare chart. Prediction markets, sentiment, seasonal patterns, and portfolio with realized P&L."
     ogImage={APP_ICON}
     twitterCard="summary"
     smartAppId="6761344726"
@@ -97,7 +105,9 @@ const pageStructuredData = {
                 </h1>
                 <p class="text-xl sm:text-2xl text-teal-300 font-medium mb-4">From lithium mine to the road.</p>
                 <p class="text-gray-300 max-w-2xl mb-6 text-lg">
-                    Live LIT ETF price, lithium mining stocks, and the major EV manufacturers in one iPhone app — built for lithium investors riding the EV-market wave.
+                    Lithium prices from three live sources — Lithium Hydroxide CME futures, the GSCI Lithium Index, and
+                    the LIT ETF — alongside mining stocks, EV manufacturers, prediction markets, sentiment, and a
+                    portfolio with realized profit tracking. Built for the EV-market wave.
                 </p>
                 <div class="flex flex-wrap gap-3 justify-center md:justify-start">
                     <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
@@ -108,12 +118,12 @@ const pageStructuredData = {
 
     <!-- Quick badges -->
     <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
-        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">LIT ETF live</span>
+        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">CME · GSCI · LIT</span>
         <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">ALB · SQM · PLL · LAC</span>
-        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">EV Market tab</span>
-        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">Portfolio tracker</span>
-        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">What If calculator</span>
-        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">10+ currencies</span>
+        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">EV Market compare chart</span>
+        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">Prediction markets</span>
+        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">Smarter sentiment</span>
+        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">Seasonal patterns</span>
     </section>
 
     <!-- What it does -->
@@ -121,28 +131,36 @@ const pageStructuredData = {
         <h2 class="text-3xl font-bold mb-8 text-center md:text-left">What it does</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-teal-300">Live lithium price</h3>
-                <p class="text-gray-300">Current lithium price via the LIT ETF, updated through the trading day with a live heartbeat indicator. Charts in 1D, 1W, 1M, 3M, 6M, 1Y, and 5Y — line or candlestick.</p>
+                <h3 class="text-xl font-bold mb-2 text-teal-300">Three live lithium prices</h3>
+                <p class="text-gray-300">Lithium Hydroxide CME futures, the GSCI Lithium Index, and the LIT ETF — all updated throughout the trading day. Historical charts (1D, 1W, 1M, 3M, 6M, 1Y, 5Y), line or dot styles, rotate for fullscreen.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-teal-300">Lithium ETFs &amp; mining stocks</h3>
-                <p class="text-gray-300">LIT, BATT, and REMX ETFs alongside Albemarle (ALB), Sociedad Química y Minera (SQM), Sigma Lithium (SGML), Lithium Americas (LAC), and Ganfeng — all in one place, with relevant news and sentiment.</p>
+                <h3 class="text-xl font-bold mb-2 text-teal-300">Mining stocks &amp; battery ETFs</h3>
+                <p class="text-gray-300">Lithium mining stocks (ALB, SQM, PLL, LAC) alongside LIT (Global X Lithium &amp; Battery Tech) and KARS (KraneShares Electric Vehicles &amp; Future Mobility) — the full battery-and-EV supply chain in one place.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-teal-300">EV Market tab</h3>
-                <p class="text-gray-300">Track the major EV manufacturers — Tesla, Rivian, Lucid, NIO, XPeng, Li Auto, BYD — alongside an EV-supply-chain performance chart. Lithium and EVs move together.</p>
+                <h3 class="text-xl font-bold mb-2 text-teal-300">EV Market compare chart</h3>
+                <p class="text-gray-300">Tesla, Rivian, Lucid, NIO, XPeng, Li Auto, and BYD on a single compare chart. Each ticker gets its own fixed colour — no more red/green flipping based on direction — so the chart reads at a glance.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-teal-300">Portfolio tracker</h3>
-                <p class="text-gray-300">Track LIT, ALB, SQM, PLL, LAC, and other lithium-sector holdings with purchase price, profit/loss, and holding duration on every position.</p>
+                <h3 class="text-xl font-bold mb-2 text-teal-300">Portfolio with realized P&amp;L</h3>
+                <p class="text-gray-300">Track LIT, ALB, SQM, PLL, LAC, and other lithium-sector positions. Live P&amp;L per position, gifts flagged separately, and realized profit logged across every closed position when you record a sale.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-teal-300">What If calculator</h3>
-                <p class="text-gray-300">Pick an amount and a date — see what that position would be worth today, with a side-by-side lump-sum vs dollar-cost-averaging breakdown and overlay charts.</p>
+                <h3 class="text-xl font-bold mb-2 text-teal-300">Prediction markets</h3>
+                <p class="text-gray-300">Live Polymarket bets on the forces driving lithium demand — Tesla quarterly numbers, Rivian deliveries, EV sales targets, battery supply chains — pulled into a section of the Charts tab.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-teal-300">Price alerts &amp; multi-currency</h3>
-                <p class="text-gray-300">Custom price alerts when lithium hits your target. View everything in USD, CAD, EUR, GBP, AUD, JPY, CHF, CNY, INR, and more.</p>
+                <h3 class="text-xl font-bold mb-2 text-teal-300">Smarter sentiment</h3>
+                <p class="text-gray-300">A Bullish / Bearish / Neutral badge that blends short-term momentum, 50-day trend health, and news-headline tone into one signal.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-teal-300">Seasonal patterns</h3>
+                <p class="text-gray-300">Average monthly lithium returns over the past 10 years — see which months have historically been strongest and weakest.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-teal-300">Multi-currency</h3>
+                <p class="text-gray-300">View prices in USD, CAD, EUR, GBP, AUD, JPY, CHF, CNY, INR, and more. Pick one and the entire app switches.</p>
             </div>
         </div>
     </section>
@@ -166,32 +184,6 @@ const pageStructuredData = {
                 /></picture>
                 <figcaption class="mt-3 text-teal-300 font-semibold text-sm">Live lithium markets</figcaption>
                 <p class="text-xs text-gray-400 mt-1">Spot prices, futures, and ETFs with seasonal-pattern context.</p>
-            </figure>
-            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <picture><source srcset="/images/screenshots/lithium-watcher/what-if.webp" type="image/webp" /><img
-                    src="/images/screenshots/lithium-watcher/what-if.jpg"
-                    alt="Lithium Watcher What If calculator — investment amount C$3,800, time options 1Y, 2Y, 5Y, 10Y ago, Compare Against ETF chips for LIOH, GSCI Li, LIT, BATT, ALB, plus an Investment Growth chart over time"
-                    width="800"
-                    height="1738"
-                    loading="lazy"
-                    decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
-                /></picture>
-                <figcaption class="mt-3 text-teal-300 font-semibold text-sm">What If calculator</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Pick an amount and a date — see what that position is worth today.</p>
-            </figure>
-            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <picture><source srcset="/images/screenshots/lithium-watcher/compare-scenarios.webp" type="image/webp" /><img
-                    src="/images/screenshots/lithium-watcher/compare-scenarios.jpg"
-                    alt="Lithium Watcher investment growth comparison chart — Li plus 59.9 percent versus SPY plus 21.0 percent and ALB benchmark over the chosen window, demonstrating lump-sum versus dollar-cost-averaging side by side"
-                    width="800"
-                    height="1738"
-                    loading="lazy"
-                    decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
-                /></picture>
-                <figcaption class="mt-3 text-teal-300 font-semibold text-sm">Compare every scenario</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Lump-sum vs DCA, lithium vs SPY — full investment-growth overlay.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/lithium-watcher/mining-stocks.webp" type="image/webp" /><img

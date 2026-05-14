@@ -8,11 +8,27 @@ const APP_ICON = '/images/copper-watcher-icon.webp';
 const faqs = [
     {
         q: 'What is Copper Watcher?',
-        a: 'Copper Watcher is the iPhone app for copper investors, scrap dealers, and metal traders. It tracks the live copper spot price, top copper ETFs (CPER, COPX, COPP) and futures, has a built-in scrap calculator and portfolio tracker, supports 10 currencies, and lets you set custom price alerts.'
+        a: 'Copper Watcher is the iPhone app for copper investors, scrap dealers, electricians, and metal traders. It tracks the live copper spot price, top copper ETFs (CPER, COPX, COPP) and futures, prediction markets, a smarter sentiment badge, the Dr Copper signal vs the S&P 500, a scrap calculator, and a portfolio with realized profit tracking.'
     },
     {
-        q: 'How do you track the copper spot price?',
-        a: 'Copper Watcher pulls the live copper spot price during trading hours and shows the daily change, daily range, and historical charts from 1 day all the way to all-time. Switch between line and dot chart styles, or rotate your iPhone for an immersive landscape view.'
+        q: 'How is the copper spot price tracked?',
+        a: 'Spot copper updates throughout the trading day with a live heartbeat indicator. Historical charts cover 1D, 1W, 1M, 3M, 1Y, 5Y, and ALL. Switch between line and dot chart styles, or rotate your iPhone for immersive fullscreen charts.'
+    },
+    {
+        q: 'What is the Dr Copper signal?',
+        a: '"Dr. Copper" is the old market nickname for copper\'s ability to predict the broader economy — when copper turns, the S&P 500 often follows. Copper Watcher gives you a live read of that relationship, plotted so you can see when copper is leading or trailing the market.'
+    },
+    {
+        q: 'How does the realized profit work when I sell?',
+        a: 'When you sell a position, record the sale price and date — Copper Watcher logs the realized gain and rolls it into a running cumulative profit across all of your closed positions. Gifts can be marked separately so they don\'t inflate the profit number.'
+    },
+    {
+        q: 'What are Prediction Markets?',
+        a: 'A live read of Polymarket bets on the forces driving copper — China manufacturing, data-center buildout, industrial production, recession risk — pulled into a section of the Charts tab.'
+    },
+    {
+        q: 'What does the Smarter Sentiment badge do?',
+        a: 'A Bullish / Bearish / Neutral indicator that blends short-term price momentum, the health of the 50-day trend, and the tone of recent news headlines into one signal.'
     },
     {
         q: 'How does the scrap calculator work?',
@@ -20,19 +36,15 @@ const faqs = [
     },
     {
         q: 'Can I track my own copper holdings?',
-        a: 'Yes. The portfolio tracker manages holdings in oz, g, kg, lb, or tonne. Track purchase price, profit and loss per holding, and total portfolio value updating live. Mark gifted copper separately so it stays out of your cost-basis math.'
+        a: 'Yes. The portfolio tracker manages holdings in oz, g, kg, lb, or tonne. Track purchase price, live P&L per position, and the running realized profit on closed positions. Mark gifts separately so they don\'t inflate the profit number.'
     },
     {
         q: 'What currencies are supported?',
-        a: 'Ten: CAD, USD, EUR, GBP, INR, AUD, CHF, JPY, CNY, and HKD. Pick one and the entire app — spot price, ETFs, portfolio, alerts — switches to it.'
+        a: 'Ten: CAD, USD, EUR, GBP, INR, AUD, CHF, JPY, CNY, and HKD. Pick one and the entire app switches.'
     },
     {
-        q: 'Can I set price alerts?',
-        a: 'Yes. Set custom buy or sell targets and Copper Watcher notifies you when the spot price hits that level. Useful for traders waiting for a specific entry, and for scrap dealers timing a delivery to a yard.'
-    },
-    {
-        q: 'How much does it cost?',
-        a: 'Free to download from the App Store. See the latest pricing and any in-app options on the App Store listing.'
+        q: 'What does Premium cost?',
+        a: 'Free to download. The Portfolio, What-If, and Calculator tabs are unlocked with a Copper Watcher subscription at $1.99 per month or $4.99 per year. The yearly plan comes with a 7-day free trial.'
     }
 ];
 
@@ -59,8 +71,8 @@ const pageStructuredData = {
 ---
 
 <Layout
-    title="Copper Watcher — Live Copper Spot Price App for iPhone"
-    description="Live copper spot price, ETFs (CPER, COPX, COPP), futures, scrap calculator, portfolio tracker, and price alerts in 10 currencies. Free iPhone app for copper investors and scrap dealers."
+    title="Copper Watcher — Live Copper Spot, Dr Copper Signal, Prediction Markets"
+    description="Live copper spot price, ETFs (CPER, COPX, COPP), futures, the Dr Copper signal vs S&P 500, Polymarket prediction markets, sentiment badge, scrap calculator, and portfolio with realized P&L. Free iPhone app for copper investors, scrap dealers, electricians, and traders."
     ogImage={APP_ICON}
     twitterCard="summary"
     smartAppId="6757655923"
@@ -93,8 +105,9 @@ const pageStructuredData = {
                 </h1>
                 <p class="text-xl sm:text-2xl text-amber-300 font-medium mb-4">Live copper prices, in your pocket.</p>
                 <p class="text-gray-300 max-w-2xl mb-6 text-lg">
-                    Live copper spot price, ETFs, futures, scrap valuation, and portfolio tracking — all in one app for
-                    copper investors, scrap dealers, and metal traders.
+                    Live copper spot price, ETFs and futures, the Dr Copper signal vs the S&amp;P 500, prediction
+                    markets, a smarter sentiment badge, a scrap calculator, and portfolio tracking with realized
+                    profit — built for copper investors, scrap dealers, electricians, and metal traders.
                 </p>
                 <div class="flex flex-wrap gap-3 justify-center md:justify-start">
                     <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
@@ -105,12 +118,12 @@ const pageStructuredData = {
 
     <!-- Quick badges -->
     <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
-        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Live spot price</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Live spot + heartbeat</span>
         <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">CPER · COPX · COPP</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Dr Copper signal</span>
         <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Scrap calculator</span>
-        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Portfolio tracker</span>
-        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">10 currencies</span>
-        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Price alerts</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Prediction markets</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Smarter sentiment</span>
     </section>
 
     <!-- What it does -->
@@ -118,28 +131,36 @@ const pageStructuredData = {
         <h2 class="text-3xl font-bold mb-8 text-center md:text-left">What it does</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-amber-300">Live spot price</h3>
-                <p class="text-gray-300">Current copper spot price updated through the trading day, with daily change, daily range, and historical charts from 1 day to all-time. Line or dot chart styles.</p>
+                <h3 class="text-xl font-bold mb-2 text-amber-300">Live spot price + heartbeat</h3>
+                <p class="text-gray-300">Spot copper updated through the trading day with a live heartbeat indicator. Historical charts (1D, 1W, 1M, 3M, 1Y, 5Y, ALL), line or dot styles, rotate for fullscreen.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-amber-300">Copper ETFs &amp; futures</h3>
                 <p class="text-gray-300">Live prices for CPER, COPX, COPP and other top copper ETFs, plus futures contracts. Daily changes and full price history alongside spot.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-amber-300">Dr Copper signal</h3>
+                <p class="text-gray-300">A live read on copper's relationship to the S&amp;P 500 — the classic "Dr. Copper" indicator that has predicted recessions and recoveries. Plotted so you can see when copper is leading or trailing the market.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-amber-300">Scrap calculator</h3>
                 <p class="text-gray-300">Value copper by weight and purity instantly. Built-in grades from OFHC lab grade (100%) down to #2 copper scrap (95%), with labels for every commercial level.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-amber-300">Portfolio tracker</h3>
-                <p class="text-gray-300">Holdings in oz, g, kg, lb, or tonne. Per-position purchase price, profit and loss, gifted-copper flag. Total portfolio value updates live with the spot price.</p>
+                <h3 class="text-xl font-bold mb-2 text-amber-300">Portfolio with realized P&amp;L</h3>
+                <p class="text-gray-300">Holdings in oz, g, kg, lb, or tonne. Live P&amp;L per position, gifts flagged separately, and realized profit logged across every closed position when you record a sale.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-amber-300">What If calculator</h3>
-                <p class="text-gray-300">See what a past copper position would be worth today. Compare returns against the S&amp;P 500 and copper ETFs with overlay charts. Toggle lump-sum vs dollar-cost averaging.</p>
+                <h3 class="text-xl font-bold mb-2 text-amber-300">Prediction markets</h3>
+                <p class="text-gray-300">Live Polymarket bets on the forces driving copper — China manufacturing, data-center buildout, industrial production, recession risk — pulled into a section of the Charts tab.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-amber-300">Price alerts &amp; 10 currencies</h3>
-                <p class="text-gray-300">Custom buy/sell alerts trigger when copper hits your target. View everything in CAD, USD, EUR, GBP, INR, AUD, CHF, JPY, CNY, or HKD.</p>
+                <h3 class="text-xl font-bold mb-2 text-amber-300">Smarter sentiment</h3>
+                <p class="text-gray-300">A Bullish / Bearish / Neutral badge that blends short-term momentum, 50-day trend health, and news-headline tone into one signal.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-amber-300">What-If calculator</h3>
+                <p class="text-gray-300">See what a past copper position would be worth today. Compare returns against the S&amp;P 500 and copper ETFs with overlay charts. Lump-sum or dollar-cost averaging.</p>
             </div>
         </div>
     </section>
@@ -242,8 +263,8 @@ const pageStructuredData = {
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
             <div class="text-center"><div class="text-amber-300 font-semibold">Investors</div></div>
             <div class="text-center"><div class="text-amber-300 font-semibold">Scrap dealers</div></div>
+            <div class="text-center"><div class="text-amber-300 font-semibold">Electricians</div></div>
             <div class="text-center"><div class="text-amber-300 font-semibold">Metal traders</div></div>
-            <div class="text-center"><div class="text-amber-300 font-semibold">Recyclers</div></div>
         </div>
     </section>
 
