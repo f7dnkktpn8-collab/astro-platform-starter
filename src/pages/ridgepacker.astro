@@ -1,0 +1,276 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const SITE_URL = 'https://artificialigknorance.com';
+const APP_STORE_URL = 'https://apps.apple.com/us/app/ridgepacker/id6766699306';
+const APP_ICON = '/images/ridgepacker-icon.webp';
+
+const faqs = [
+    {
+        q: 'What is RidgePacker?',
+        a: 'RidgePacker is the iPhone and iPad app for hikers, backpackers, and weekend adventurers who actually plan what goes in their pack. Keep a master catalog of every piece of gear with photo, weight, brand, and notes — then build a packing list for any trip in seconds. Track packed weight versus total weight, nest a day-pack sublist under any trip, keep a permanent Everyday Carry list, and export trips as a clean printable PDF.'
+    },
+    {
+        q: 'How do I build a packing list for a trip?',
+        a: 'Create a trip, then pick items from your gear catalog — RidgePacker pulls in the weight and details automatically. Check items off as you pack. The header shows your packed weight running against the trip total so you know exactly what you are carrying before you leave the house.'
+    },
+    {
+        q: 'What is a sublist?',
+        a: 'A sublist is a child trip nested under a parent trip — for example, a "Day Pack" under "Machu Picchu" containing just the gear you take on day hikes. Items in a sublist are automatically counted as part of the parent trip too, so nothing gets double-booked or forgotten. Each trip can have one sublist, one level deep.'
+    },
+    {
+        q: 'What is the Everyday Carry (EDC) tab?',
+        a: 'A separate, permanent list for the gear you actually carry every day — wallet, knife, flashlight, phone, AirPods, whatever lives on you. Independent from your trip lists so it never gets mixed up. You can hide the EDC tab in Settings if you do not need it.'
+    },
+    {
+        q: 'How does export and backup work?',
+        a: 'Two options. Export any trip as a clean printable PDF — packing list with brand, weight, and notes per item, ready to share or print. For a full backup, export your entire library as a single JSON file with all photos embedded, then import it on any device. RidgePacker also keeps automatic daily backups inside the app for two weeks.'
+    },
+    {
+        q: 'Are my photos and gear data stored in the cloud?',
+        a: 'No. Everything lives on your device. No accounts, no cloud sync, no analytics, no tracking. If you want to move data to another device, use the JSON export — you control where it goes.'
+    },
+    {
+        q: 'Will it work on my iPad?',
+        a: 'Yes. RidgePacker is a universal app — same code, runs natively on iPhone and iPad. iOS 17 or later is required.'
+    },
+    {
+        q: 'What does Pro cost?',
+        a: 'Free to download. The Gear catalog is always free. The Trips and Everyday Carry tabs are unlocked with RidgePacker Pro — monthly or yearly auto-renewing subscription, each with a 3-day free trial. Tap Settings inside the app for current pricing in your region.'
+    }
+];
+
+const pageStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
+                { '@type': 'ListItem', position: 2, name: 'RidgePacker', item: SITE_URL + '/ridgepacker/' }
+            ]
+        },
+        {
+            '@type': 'FAQPage',
+            mainEntity: faqs.map(({ q, a }) => ({
+                '@type': 'Question',
+                name: q,
+                acceptedAnswer: { '@type': 'Answer', text: a }
+            }))
+        }
+    ]
+};
+---
+
+<Layout
+    title="RidgePacker — Hiking & Backpacking Gear and Packing-List App"
+    description="Master gear catalog with photos and weights, per-trip packing lists with day-pack sublists, Everyday Carry tracking, PDF export, and JSON backup. Free iPhone and iPad app for hikers and backpackers. Private — everything stays on your device."
+    ogImage={APP_ICON}
+    twitterCard="summary"
+    smartAppId="6766699306"
+    datePublished="2026-05-19"
+    mainEntityId={SITE_URL + "/#ridgepacker"}
+>
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="text-sm text-gray-400 pt-6">
+        <ol class="flex items-center gap-2">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-gray-300">RidgePacker</li>
+        </ol>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative py-12 sm:py-16">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-sky-400 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-40 h-40 bg-cyan-400 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <img src={APP_ICON} alt="RidgePacker app icon — a backpack and mountain ridge silhouette on a steel-blue background" width="180" height="180" class="w-32 h-32 md:w-44 md:h-44 rounded-3xl shadow-2xl flex-shrink-0" />
+            <div class="flex-1 text-center md:text-left">
+                <h1 class="text-4xl sm:text-5xl font-bold mb-3 bg-gradient-to-r from-sky-300 to-cyan-300 bg-clip-text text-transparent">
+                    RidgePacker
+                </h1>
+                <p class="text-xl sm:text-2xl text-sky-300 font-medium mb-4">Plan the trip. Pack the gear. Know the weight.</p>
+                <p class="text-gray-300 max-w-2xl mb-6 text-lg">
+                    The gear-organization app for the way you actually plan a trip. Catalog every piece of gear with
+                    photos and weights, build packing lists in seconds, track what's packed against your total load,
+                    and nest a day pack under any trip — all on iPhone and iPad, all stored on your device.
+                </p>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick badges -->
+    <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
+        <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">iPhone &amp; iPad</span>
+        <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">Pack-to-the-gram weights</span>
+        <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">Day-pack sublists</span>
+        <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">Everyday Carry</span>
+        <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">PDF + JSON export</span>
+        <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">No cloud, no tracking</span>
+    </section>
+
+    <!-- What it does -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">What it does</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-sky-300">Master gear catalog</h3>
+                <p class="text-gray-300">Every piece of gear with photo, brand and model, weight, sack or pocket location, and notes. Group by category — Core Gear, Clothing, Food and Water, whatever you organize by. Link out to the product page for quick re-orders.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-sky-300">Per-trip packing lists</h3>
+                <p class="text-gray-300">Build a packing list for any trip from your master catalog in seconds. Check items off as you pack. Watch packed weight vs total weight update live so there are no surprises at the trailhead.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-sky-300">Day-pack sublists</h3>
+                <p class="text-gray-300">Nest a sublist under any trip for short side trips and day hikes. Items cascade up automatically — what's in the day pack is also counted in the parent trip's load. One level deep, one sublist per trip.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-sky-300">Everyday Carry</h3>
+                <p class="text-gray-300">A separate, permanent EDC list for the gear you carry every day — wallet, knife, flashlight, phone. Independent from trip lists. Show or hide the EDC tab from Settings.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-sky-300">Cover photos for trips</h3>
+                <p class="text-gray-300">Set a hero photo for each trip — Machu Picchu, Camino, weekend backcountry — so your list feels like more than a spreadsheet.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-sky-300">PDF + JSON export</h3>
+                <p class="text-gray-300">Export any trip as a clean printable PDF — packing list, brand, weight, notes. For backup, export your entire library as a single JSON file with embedded photos. Import on any device.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-sky-300">Automatic daily backups</h3>
+                <p class="text-gray-300">RidgePacker quietly snapshots your library every day and keeps the last two weeks inside the app. Restore from a backup at any time.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-sky-300">Privacy first</h3>
+                <p class="text-gray-300">Everything is stored on your device. No accounts, no cloud sync, no analytics, no tracking. Your gear and trips are yours.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- See it in action -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-3 text-center md:text-left">See it in action</h2>
+        <p class="text-gray-400 mb-8 text-center md:text-left text-sm">Real screens from the App Store. (Sample data shown.)</p>
+
+        <!-- Mobile: horizontal snap-scroll. Desktop: 2-column / 3-column grid. -->
+        <div class="flex snap-x snap-mandatory overflow-x-auto gap-4 -mx-6 px-6 pb-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible lg:grid-cols-3">
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/ridgepacker/trips.webp" type="image/webp" /><img
+                    src="/images/screenshots/ridgepacker/trips.jpg"
+                    alt="RidgePacker Trips tab — Machu Picchu trip with a Day Pack sublist nested underneath plus a Camino 2026 trip, each showing packed count, total weight, and a cover photo"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-sky-300 font-semibold text-sm">All your trips</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Every trip with its cover photo, packed status, and total weight at a glance.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/ridgepacker/trip-detail.webp" type="image/webp" /><img
+                    src="/images/screenshots/ridgepacker/trip-detail.jpg"
+                    alt="RidgePacker Machu Picchu trip detail — packed 0 of 16, total weight 4.08 kilograms, packed weight 0 grams, grouped by Core Gear (backpack, sleeping bag) and Clothing (rain jacket)"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-sky-300 font-semibold text-sm">Pack to the gram</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Packed weight vs total weight, grouped by category, tickbox per item.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/ridgepacker/gear-detail.webp" type="image/webp" /><img
+                    src="/images/screenshots/ridgepacker/gear-detail.jpg"
+                    alt="RidgePacker Backpack gear-item detail — photo of a Zpacks Arc Haul 40 pack, category Core Gear, weight 743 grams, sack location, trips assigned (Machu Picchu), and a notes field reading Very water resistant, not technically waterproof"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-sky-300 font-semibold text-sm">Every item, fully detailed</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Photo, brand and model, weight, category, sack location, trips assigned, and notes.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/ridgepacker/gear-catalog.webp" type="image/webp" /><img
+                    src="/images/screenshots/ridgepacker/gear-catalog.jpg"
+                    alt="RidgePacker Gear catalog with a sort and filter menu open — sort by Category, Name (A to Z), Weight lightest or heaviest, or Newest first; filter by All gear, Camino 2026, or Day Pack"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-sky-300 font-semibold text-sm">Find any piece fast</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Sort the catalog by category, name, weight, or newest — and filter by trip.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/ridgepacker/edc.webp" type="image/webp" /><img
+                    src="/images/screenshots/ridgepacker/edc.jpg"
+                    alt="RidgePacker Everyday Carry tab — packed 0 of 4, total weight 327 grams, items include Small Knife from Thailand, Mini flashlight RovyVon Aurora A8, Phone iPhone 16 Pro, and AirPods Pro"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-sky-300 font-semibold text-sm">Everyday Carry</figcaption>
+                <p class="text-xs text-gray-400 mt-1">A permanent, separate list for the gear you actually carry every day.</p>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Built for -->
+    <section class="mb-16 bg-gradient-to-br from-sky-500/10 to-cyan-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-10 border border-sky-400/20">
+        <h2 class="text-3xl font-bold mb-6 text-center">Built for the trail</h2>
+        <p class="text-gray-300 text-lg max-w-3xl mx-auto text-center mb-6">
+            Whether you're prepping for a thru-hike, a weekend in the backcountry, a Camino, or just keeping your
+            day pack honest, RidgePacker gives you a real catalog of your gear and a clean way to plan every trip
+            from it.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+            <div class="text-center"><div class="text-sky-300 font-semibold">Backpackers</div></div>
+            <div class="text-center"><div class="text-sky-300 font-semibold">Day hikers</div></div>
+            <div class="text-center"><div class="text-sky-300 font-semibold">Thru-hikers</div></div>
+            <div class="text-center"><div class="text-sky-300 font-semibold">Weekend adventurers</div></div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">Frequently asked questions</h2>
+        <div class="space-y-3">
+            {faqs.map(({ q, a }) => (
+                <details class="bg-white/5 rounded-xl p-5 group hover:bg-white/10 transition-all">
+                    <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-lg">
+                        <span>{q}</span>
+                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-3 text-gray-300">{a}</p>
+                </details>
+            ))}
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="text-center mb-16 bg-gradient-to-br from-sky-500/15 to-cyan-500/15 rounded-3xl p-8 md:p-12 border border-sky-400/20">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get RidgePacker</h2>
+        <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">Free download on the App Store. Built for iPhone and iPad. Everything stays on your device.</p>
+        <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+        <p class="mt-6 text-sm text-gray-400">Or browse <a href="/" class="text-sky-300 hover:text-sky-200 underline">all Artificial Igknorance apps</a>.</p>
+    </section>
+</Layout>
