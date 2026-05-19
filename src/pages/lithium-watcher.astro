@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { PRICING, trialSentence } from '../data/pricing';
 
 const SITE_URL = 'https://artificialigknorance.com';
 const APP_STORE_URL = 'https://apps.apple.com/us/app/lithium-watcher-li/id6761344726';
 const APP_ICON = '/images/lithium-watcher-icon.webp';
+const p = PRICING['lithium-watcher'];
 
 const faqs = [
     {
@@ -44,7 +46,7 @@ const faqs = [
     },
     {
         q: 'What does Premium cost?',
-        a: 'Free to download. The Portfolio and EV Market tabs are unlocked with a Lithium Watcher subscription at $1.99 per month or $4.99 per year. The yearly plan comes with a 7-day free trial.'
+        a: `Free to download. The Portfolio and EV Market tabs are unlocked with a Lithium Watcher subscription at ${p.monthly} per month or ${p.yearly} per year. ${trialSentence('lithium-watcher')}`
     }
 ];
 

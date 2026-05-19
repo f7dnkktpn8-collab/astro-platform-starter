@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { trialSentence } from '../data/pricing';
 
 const SITE_URL = 'https://artificialigknorance.com';
 const APP_STORE_URL = 'https://apps.apple.com/us/app/ridgepacker/id6766699306';
@@ -36,7 +37,7 @@ const faqs = [
     },
     {
         q: 'What does Pro cost?',
-        a: 'Free to download. The Gear catalog is always free. The Trips and Everyday Carry tabs are unlocked with RidgePacker Pro — monthly or yearly auto-renewing subscription, each with a 3-day free trial. Tap Settings inside the app for current pricing in your region.'
+        a: `Free to download. The Gear catalog is always free. The Trips and Everyday Carry tabs are unlocked with RidgePacker Pro — monthly or yearly auto-renewing subscription. ${trialSentence('ridgepacker')} Tap Settings inside the app for current pricing in your region.`
     }
 ];
 

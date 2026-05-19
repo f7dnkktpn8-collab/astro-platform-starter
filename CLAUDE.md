@@ -64,6 +64,11 @@ hidden). Update this AND the "Nine apps" / "nine apps" strings on
   right. Never blue chevrons.
 - **JSON-LD MobileApplication entries** live in `Layout.astro`
   `@graph` — one per app, each with its own `screenshot` array.
+- **Subscription pricing + free-trial copy lives in `src/data/pricing.ts`** —
+  one source of truth. Each app page imports `PRICING` and `trialSentence()`
+  and interpolates the values into its FAQ. To change a price or trial
+  length, edit ONLY this file. Do not put price strings inline in any
+  `*.astro` page. Build at the end to verify the rendered HTML.
 - **VideoObject `uploadDate` must include time AND timezone.** Google
   Search Console flagged a date-only value (`"2026-04-29"`) as a
   non-critical structured-data issue. Always use full ISO 8601 with
