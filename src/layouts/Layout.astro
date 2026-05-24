@@ -125,7 +125,7 @@ const structuredData = {
             "description": "Built for escalator mechanics. Manage maintenance routes, Category 1 testing, SSPI compliance, and inspection documentation — all in one offline-first interface designed for real-world field use.",
             "applicationCategory": "BusinessApplication",
             "applicationSubCategory": "Productivity",
-            "operatingSystem": "iOS 17+",
+            "operatingSystem": "iOS",
             "url": "https://apps.apple.com/us/app/escalator-field-command/id6756789866",
             "downloadUrl": "https://apps.apple.com/us/app/escalator-field-command/id6756789866",
             "installUrl": "https://apps.apple.com/us/app/escalator-field-command/id6756789866",
@@ -168,7 +168,8 @@ const structuredData = {
             ],
             "publisher": { "@id": SITE_URL + "/#organization" },
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-            "inLanguage": "en-US"
+            "inLanguage": "en-US",
+            "keywords": "family medical records, on-device health timeline, vaccine tracker, medication scanner, AI medication, kids health records, insurance card scanner, private health app, iOS health records, medical history app"
         },
         {
             "@type": "MobileApplication",
@@ -189,7 +190,8 @@ const structuredData = {
             ],
             "publisher": { "@id": SITE_URL + "/#organization" },
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-            "inLanguage": "en-US"
+            "inLanguage": "en-US",
+            "keywords": "bill tracker app, photo bill scanner, household subscriptions tracker, AI bill extraction, expense tracking iPhone, bills and subscriptions, recurring expense tracker, on-device finance, no-bank-login budget app, Apple subscription tracker"
         },
         {
             "@type": "MobileApplication",
@@ -211,7 +213,8 @@ const structuredData = {
             ],
             "publisher": { "@id": SITE_URL + "/#organization" },
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-            "inLanguage": "en-US"
+            "inLanguage": "en-US",
+            "keywords": "copper spot price, Dr Copper signal, CPER COPX COPP ETF, copper futures, scrap copper calculator, industrial metals tracker, copper investor app, OFHC copper grade, iOS metals app, copper price tracker"
         },
         {
             "@type": "MobileApplication",
@@ -231,7 +234,8 @@ const structuredData = {
             ],
             "publisher": { "@id": SITE_URL + "/#organization" },
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-            "inLanguage": "en-US"
+            "inLanguage": "en-US",
+            "keywords": "gold spot price, gold ETF tracker, GLD IAU SGOL, gold silver ratio, karat calculator, precious metals portfolio, gold investment app, gold stacker tools, iOS gold tracker, prediction markets gold"
         },
         {
             "@type": "MobileApplication",
@@ -252,7 +256,8 @@ const structuredData = {
             ],
             "publisher": { "@id": SITE_URL + "/#organization" },
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-            "inLanguage": "en-US"
+            "inLanguage": "en-US",
+            "keywords": "silver spot price, silver ETF tracker, SLV SIVR PSLV, gold silver ratio, sterling silver purity calculator, silver stacker app, precious metals portfolio, silver investment app, iOS silver tracker, prediction markets silver"
         },
         {
             "@type": "MobileApplication",
@@ -271,7 +276,8 @@ const structuredData = {
             ],
             "publisher": { "@id": SITE_URL + "/#organization" },
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-            "inLanguage": "en-US"
+            "inLanguage": "en-US",
+            "keywords": "lithium price tracker, LIT ETF, lithium mining stocks, Albemarle SQM PLL LAC, EV manufacturers, Tesla Rivian NIO, battery metals, KARS ETF, EV investor app, lithium hydroxide CME futures"
         },
         {
             "@type": "MobileApplication",
@@ -292,7 +298,8 @@ const structuredData = {
             ],
             "publisher": { "@id": SITE_URL + "/#organization" },
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-            "inLanguage": "en-US"
+            "inLanguage": "en-US",
+            "keywords": "hiking gear catalog, backpacking packing list, ultralight gear weight, day pack sublist, everyday carry, EDC tracker, trip planning app, gear list iPhone, backpacker gear app, thru-hike planner"
         }
     ]
 };
@@ -336,6 +343,9 @@ const structuredData = {
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+        <!-- Mobile browser chrome — matches site background -->
+        <meta name="theme-color" content="#355c7d" />
         <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin />
         <!-- Preload the hero mascot: it's the largest above-the-fold image, so this lifts LCP / page-speed score -->
         <link rel="preload" as="image" href="/images/robot-mascot-transparent.png" />

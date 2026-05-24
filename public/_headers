@@ -1,0 +1,10 @@
+# Sane security defaults for every response.
+# CSP intentionally NOT set here — it can break image embeds / future
+# third-party scripts; revisit when we add a script audit pass.
+
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload

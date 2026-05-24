@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+    title="Page not found — Artificial Igknorance"
+    description="The page you're looking for doesn't exist. Head back home or browse the apps."
+    twitterCard="summary_large_image"
+>
+    <section class="text-center py-16 sm:py-24">
+        <p class="text-sky-300 font-semibold tracking-wider uppercase text-sm mb-4">404</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4">This page can't be found.</h1>
+        <p class="text-gray-300 text-lg mb-10 max-w-xl mx-auto">
+            The link might be old, or you may have typed the URL wrong. Either way,
+            here's where you probably want to go.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <a href="/" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline">
+                Back to home
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-6 0h6"/></svg>
+            </a>
+            <a href="/#apps" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-8 py-4 rounded-full backdrop-blur-sm transition-all duration-300 no-underline">
+                Browse the apps
+            </a>
+        </div>
+
+        <div class="mt-16 max-w-2xl mx-auto text-left">
+            <p class="text-gray-400 text-sm uppercase tracking-wide mb-4 text-center">Or jump straight to an app</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <a href="/escalator-field-command/" class="bg-white/5 hover:bg-white/10 rounded-xl p-3 text-blue-300 hover:text-blue-200 text-sm no-underline transition-colors">Escalator Field Command</a>
+                <a href="/healthtrail-medical/" class="bg-white/5 hover:bg-white/10 rounded-xl p-3 text-emerald-300 hover:text-emerald-200 text-sm no-underline transition-colors">HealthTrail Medical</a>
+                <a href="/snapledger/" class="bg-white/5 hover:bg-white/10 rounded-xl p-3 text-green-300 hover:text-green-200 text-sm no-underline transition-colors">SnapLedger</a>
+                <a href="/gold-watcher/" class="bg-white/5 hover:bg-white/10 rounded-xl p-3 text-yellow-300 hover:text-yellow-200 text-sm no-underline transition-colors">Gold Watcher</a>
+                <a href="/silver-watcher/" class="bg-white/5 hover:bg-white/10 rounded-xl p-3 text-slate-300 hover:text-slate-200 text-sm no-underline transition-colors">Silver Watcher</a>
+                <a href="/copper-watcher/" class="bg-white/5 hover:bg-white/10 rounded-xl p-3 text-amber-300 hover:text-amber-200 text-sm no-underline transition-colors">Copper Watcher</a>
+                <a href="/lithium-watcher/" class="bg-white/5 hover:bg-white/10 rounded-xl p-3 text-teal-300 hover:text-teal-200 text-sm no-underline transition-colors">Lithium Watcher</a>
+                <a href="/ridgepacker/" class="bg-white/5 hover:bg-white/10 rounded-xl p-3 text-sky-300 hover:text-sky-200 text-sm no-underline transition-colors">RidgePacker</a>
+                <a href="/about/" class="bg-white/5 hover:bg-white/10 rounded-xl p-3 text-gray-300 hover:text-gray-200 text-sm no-underline transition-colors">About</a>
+            </div>
+        </div>
+    </section>
+</Layout>
