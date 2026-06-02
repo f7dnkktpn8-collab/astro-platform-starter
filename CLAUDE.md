@@ -36,11 +36,9 @@ Live at https://artificialigknorance.com.
 | Silver Watcher (Ag) | 6760270695 | us | slate | shipping |
 | Lithium Watcher (Li) | 6761344726 | us | teal | shipping |
 | RidgePacker | 6766699306 | us | sky | shipping |
-| Life in Focus | 6759227437 | us | purple | **hidden** (HTML-commented in index.astro) |
 
-Hero copy: "9 apps on the App Store" (counts Life in Focus even though
-hidden). Update this AND the "Nine apps" / "nine apps" strings on
-`/about/` whenever the catalog changes.
+Hero copy: "8 apps on the App Store". Update this AND the "Eight apps"
+/ "eight apps" strings on `/about/` whenever the catalog changes.
 
 ## Conventions (don't drift from these)
 
