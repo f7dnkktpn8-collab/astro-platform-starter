@@ -149,19 +149,30 @@ const pageStructuredData = {
         </p>
 
         <h2 class="text-3xl font-bold mb-4 mt-12">Other things we&apos;re building</h2>
-        <p class="text-gray-300 mb-3">
+        <p class="text-gray-300 mb-5">
             The apps are the biggest piece of the work right now &mdash; but not the only piece.
         </p>
-        <ul class="text-gray-300 space-y-2 mb-6">
-            <li>
-                <strong class="text-white"><a href="https://escalift.io" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 underline">Escalift</a></strong> &mdash;
-                a community for vertical-transportation pros. Forum, shop talk, an open library of industry references, and ongoing discussion of news and modernization. Gatekeeping-free &mdash; welcoming to technicians and curious enthusiasts alike.
-            </li>
-            <li>
-                <strong class="text-white"><a href="https://counterweight.ghost.io/" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 underline">Counterweight</a></strong> &mdash;
-                an elevator and escalator industry briefing in newsletter form, at <a href="https://counterweight.ghost.io/" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 underline">counterweight.ghost.io</a>. Currently in early access while it finds its rhythm.
-            </li>
-        </ul>
+        <div class="grid sm:grid-cols-2 gap-4 mb-6">
+            <a href="https://escalift.io" target="_blank" rel="noopener noreferrer"
+               class="flex items-start gap-3 bg-white/5 hover:bg-white/10 rounded-xl p-5 transition-colors no-underline group">
+                <img src="/images/escalift-logo.svg" alt="Escalift" class="w-10 h-10 rounded-xl flex-none mt-0.5" />
+                <div>
+                    <div class="font-semibold text-white group-hover:text-blue-300 transition-colors mb-1">Escalift</div>
+                    <p class="text-gray-400 text-sm leading-relaxed">A community for vertical-transportation pros. Forum, shop talk, an open library of industry references, and ongoing discussion of news and modernization. Gatekeeping-free &mdash; welcoming to technicians and curious enthusiasts alike.</p>
+                </div>
+            </a>
+            <a href="https://counterweight.ghost.io/" target="_blank" rel="noopener noreferrer"
+               class="flex items-start gap-3 bg-white/5 hover:bg-white/10 rounded-xl p-5 transition-colors no-underline group">
+                <picture>
+                    <source srcset="/images/counterweight-logo.webp" type="image/webp" />
+                    <img src="/images/counterweight-logo.png" alt="Counterweight" class="w-10 h-10 rounded-xl flex-none mt-0.5" />
+                </picture>
+                <div>
+                    <div class="font-semibold text-white group-hover:text-blue-300 transition-colors mb-1">Counterweight</div>
+                    <p class="text-gray-400 text-sm leading-relaxed">The elevator and escalator industry newsletter. Weekly briefings on code updates, modernization projects, industry news, and the conversations shaping how the trade moves. For technicians, consultants, and anyone who follows the vertical-transportation world closely.</p>
+                </div>
+            </a>
+        </div>
 
         <h2 class="text-3xl font-bold mb-4 mt-12">Get in touch</h2>
         <p class="text-gray-300 mb-3">

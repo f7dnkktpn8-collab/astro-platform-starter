@@ -123,9 +123,9 @@ const pageStructuredData = {
         <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Live spot + heartbeat</span>
         <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">CPER · COPX · COPP</span>
         <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Dr Copper signal</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Picks &amp; Shovels (CAT, ETN, PWR)</span>
         <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Scrap calculator</span>
-        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Prediction markets</span>
-        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Smarter sentiment</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Signals · news + Polymarket</span>
     </section>
 
     <!-- What it does -->
@@ -134,7 +134,7 @@ const pageStructuredData = {
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-amber-300">Live spot price + heartbeat</h3>
-                <p class="text-gray-300">Spot copper updated through the trading day with a live heartbeat indicator. Historical charts (1D, 1W, 1M, 3M, 1Y, 5Y, ALL), line or dot styles, rotate for fullscreen.</p>
+                <p class="text-gray-300">Spot copper updated through the trading day with a live heartbeat indicator. Charts from 1D through 10Y and MAX, line or dot styles, rotate for fullscreen.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-amber-300">Copper ETFs &amp; futures</h3>
@@ -142,7 +142,11 @@ const pageStructuredData = {
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-amber-300">Dr Copper signal</h3>
-                <p class="text-gray-300">A live read on copper's relationship to the S&amp;P 500 — the classic "Dr. Copper" indicator that has predicted recessions and recoveries. Plotted so you can see when copper is leading or trailing the market.</p>
+                <p class="text-gray-300">A live read on copper&apos;s relationship to the S&amp;P 500 — the classic &quot;Dr. Copper&quot; indicator that has predicted recessions and recoveries. Plotted so you can see when copper is leading or trailing the market.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-amber-300">Picks &amp; Shovels</h3>
+                <p class="text-gray-300">A Premium section of companies that profit from copper demand — heavy equipment makers like Caterpillar, electrical-component firms (Eaton, nVent), mining service providers, and infrastructure plays. A different angle on copper exposure beyond the metal itself.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-amber-300">Scrap calculator</h3>
@@ -153,8 +157,8 @@ const pageStructuredData = {
                 <p class="text-gray-300">Holdings in oz, g, kg, lb, or tonne. Live P&amp;L per position, gifts flagged separately, and realized profit logged across every closed position when you record a sale.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-amber-300">Prediction markets</h3>
-                <p class="text-gray-300">Live Polymarket bets on the forces driving copper — China manufacturing, data-center buildout, industrial production, recession risk — pulled into a section of the Charts tab.</p>
+                <h3 class="text-xl font-bold mb-2 text-amber-300">Signals</h3>
+                <p class="text-gray-300">Live financial news from Reuters, Bloomberg, MarketWatch, Mining.com and more — each with the publisher&apos;s logo. Plus live Polymarket prediction-market odds on the forces driving copper: Fed rate cuts, inflation, China growth, EV demand.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-amber-300">Smarter sentiment</h3>
@@ -162,7 +166,7 @@ const pageStructuredData = {
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-amber-300">What-If calculator</h3>
-                <p class="text-gray-300">See what a past copper position would be worth today. Compare returns against the S&amp;P 500 and copper ETFs with overlay charts. Lump-sum or dollar-cost averaging.</p>
+                <p class="text-gray-300">See what a past copper position would be worth today. Compare returns against the S&amp;P 500 and copper ETFs with overlay charts. Toggle between lump-sum and dollar-cost-averaging strategies.</p>
             </div>
         </div>
     </section>
@@ -172,64 +176,64 @@ const pageStructuredData = {
         <h2 class="text-3xl font-bold mb-3 text-center md:text-left">See it in action</h2>
         <p class="text-gray-400 mb-8 text-center md:text-left text-sm">Real screens from the App Store. (Sample data shown.)</p>
 
-        <!-- Mobile: horizontal snap-scroll. Desktop: 3-column grid (clean 2x3 for 6 screenshots). -->
+        <!-- Mobile: horizontal snap-scroll. Desktop: 2-column then 3-column grid. -->
         <div class="flex snap-x snap-mandatory overflow-x-auto gap-4 -mx-6 px-6 pb-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible lg:grid-cols-3">
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/copper-watcher/spot-price.webp" type="image/webp" /><img
                     src="/images/screenshots/copper-watcher/spot-price.jpg"
-                    alt="Copper Watcher live Cu Spot Price C$7.8932 down 1.12 percent, day range C$7.8713 to C$8.0137, Cu Price chart over 1Y, time period selector with 1D 1W 1M 3M 1Y 5Y ALL, and Copper ETFs list — CPER United States Copper Index Fund C$48.86, COPX Global X Copper Miners ETF C$107.68, JJC iPath A Series B Bloomberg C$26.78"
+                    alt="Copper Watcher Cu Spot Price C$9.2173 per pound down 0.25 percent, day range C$9.1882 to C$9.2512, Cu Price chart over a 1Y timeframe, and a Dr. Copper Economic Indicator card reading 'Economy Expanding'"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
                 /></picture>
-                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Always current spot price</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Cu spot, day range, full chart from 1D to all-time, gold/silver ratio context, and top ETFs.</p>
-            </figure>
-            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <picture><source srcset="/images/screenshots/copper-watcher/what-if.webp" type="image/webp" /><img
-                    src="/images/screenshots/copper-watcher/what-if.jpg"
-                    alt="Copper Watcher What If calculator — investment amount C$2,500, time period selector showing 1Y, 2Y, 5Y, 10Y ago options, Compare Against ETF chips for COPX, COPP, MCX:COPPER, and SPY benchmark, and an Investment Growth comparison chart"
-                    width="800"
-                    height="1738"
-                    loading="lazy"
-                    decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
-                /></picture>
-                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">What If — past copper investment</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Pick an amount, a year, and Copper Watcher shows what that position would be worth today.</p>
-            </figure>
-            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <picture><source srcset="/images/screenshots/copper-watcher/compare-returns.webp" type="image/webp" /><img
-                    src="/images/screenshots/copper-watcher/compare-returns.jpg"
-                    alt="Copper Watcher Investment Growth chart with overlays showing Cu plus 40.1 percent, SPY plus 30.8 percent, and COPP plus 59.2 percent over the period, with Your Investment Today C$3,503.46 from C$2,500 invested at copper price C$5.6332, copper purchased 443.7963 oz, current price C$7.8943, gain plus C$1,003.46"
-                    width="800"
-                    height="1738"
-                    loading="lazy"
-                    decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
-                /></picture>
-                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Returns vs SPY and ETFs</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Overlay Copper, the S&P 500, and copper ETFs over the same window — see who actually won.</p>
+                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Live spot price</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Cu spot, day range, full historical chart, and the Dr. Copper read on the macro economy.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/copper-watcher/portfolio.webp" type="image/webp" /><img
                     src="/images/screenshots/copper-watcher/portfolio.jpg"
-                    alt="Copper Watcher Portfolio screen — total value C$1,656.40 from 209.8221 oz total, holdings list including 2 oz, 64g, 4kg, and a 2.4kg melted wire holding each with their live value, plus an Add Holding button"
+                    alt="Copper Watcher Portfolio screen — Total Value C$34.10 across 3.70 lb total, Total Profit/Loss +C$0.00 (gifts received C$34.10), Portfolio Value Over Time bar chart, and an Add Holding button"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
                 /></picture>
-                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Stash Manager</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Track holdings in oz, g, kg, lb, or tonne — with live total value and per-position cost basis.</p>
+                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Portfolio with realized P&amp;L</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Holdings in oz, g, kg, lb, or tonne — live value, cost basis, gifts flagged separately.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/copper-watcher/what-if.webp" type="image/webp" /><img
+                    src="/images/screenshots/copper-watcher/what-if.jpg"
+                    alt="Copper Watcher What-If calculator — investment amount C$2,150, Invested On 5Y ago, Compare Against ETF chips COPX, COPP, HG=F, and SPY (selected), Lump Sum vs DCA toggle on with 13 monthly contributions of C$165.38, and a Lump Sum vs DCA chart below"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Lump-sum or DCA</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Pick an amount and a date, then compare lump-sum vs dollar-cost-averaging against any copper ETF.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/copper-watcher/investment-detail.webp" type="image/webp" /><img
+                    src="/images/screenshots/copper-watcher/investment-detail.jpg"
+                    alt="Copper Watcher detail view of a DCA investment — Your Investment Today C$3,155.23 up 46.8 percent, Invested C$2,150, Copper price then C$6.2811, Copper purchased 342.2942 lb, current Copper price C$9.2179, Gain/Loss +C$1,005.23, and a full Dollar-Cost Averaging breakdown showing DCA winning by 7.8 percent"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Investment detail</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Drill into any past investment to see exactly how lump-sum vs DCA played out.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/copper-watcher/scrap-calc.webp" type="image/webp" /><img
                     src="/images/screenshots/copper-watcher/scrap-calc.jpg"
-                    alt="Copper Watcher Calculate scrap value screen — weight 1.3 kg, purity grades grid showing 100% OFHC Lab Grade, 99.99% OFE Cathode, 99.95% ETP Wire Grade, 99.9% Bare Bright Scrap, 99.5% Fire Refined, 99% Commercial Grade selected, 98% #1 Copper Scrap, 97% General Engineering, 95% #2 Copper Scrap; estimated value C$326.86"
+                    alt="Copper Watcher Calculate scrap value screen — weight 74, unit lb selected, Purity grid showing 100 percent OFHC Lab Grade, 99.99 percent OFE Cathode, 99.95 percent ETP Wire Grade (selected), 99.9 percent Bare Bright Scrap, 99.5 percent Fire Refined, 99 percent Commercial Grade, 98 percent #1 Copper Scrap, 97 percent General Engineering, 95 percent #2 Copper Scrap; Estimated Value C$681.78 at spot C$9.2179 per lb"
                     width="800"
                     height="1738"
                     loading="lazy"
@@ -240,17 +244,43 @@ const pageStructuredData = {
                 <p class="text-xs text-gray-400 mt-1">Pick weight and grade — OFHC lab grade through #2 scrap — and quote a customer in seconds.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <picture><source srcset="/images/screenshots/copper-watcher/currencies.webp" type="image/webp" /><img
-                    src="/images/screenshots/copper-watcher/currencies.jpg"
-                    alt="Copper Watcher Settings currency picker showing 12 supported currencies — Canadian Dollar selected, US Dollar, Euro, British Pound, Indian Rupee, Australian Dollar, Japanese Yen, Swiss Franc, Chinese Yuan, Hong Kong Dollar, Singapore Dollar, Brazilian Real, plus a Premium upgrade option"
+                <picture><source srcset="/images/screenshots/copper-watcher/dr-copper-seasonal.webp" type="image/webp" /><img
+                    src="/images/screenshots/copper-watcher/dr-copper-seasonal.jpg"
+                    alt="Copper Watcher Dr. Copper Economic Indicator card reading 'Economy Expanding — Copper and equities both rising signals broad economic growth' with Copper 3M +13.0 percent and S&P 500 3M +11.6 percent, then a Seasonal Patterns 10Y AVG chart and Copper ETFs list — CPER C$56.19, COPX C$129.63"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
                 /></picture>
-                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Your currency, your price</figcaption>
-                <p class="text-xs text-gray-400 mt-1">CAD, USD, EUR, GBP, INR, AUD, CHF, JPY, CNY, HKD, SGD, BRL — pick one and the entire app switches.</p>
+                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Dr. Copper + seasonal</figcaption>
+                <p class="text-xs text-gray-400 mt-1">The classic copper-vs-S&amp;P macro signal, plus 10-year seasonal returns and every copper ETF.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/copper-watcher/signals.webp" type="image/webp" /><img
+                    src="/images/screenshots/copper-watcher/signals.jpg"
+                    alt="Copper Watcher Signals tab — 'Prediction markets and news moving copper' header, then a Prediction Markets section from Polymarket listing Fed interest-rate questions for the June 2026 meeting with vote-volume and YES odds for each"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Signals — news + Polymarket</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Live financial news with publisher logos plus prediction-market odds on macro forces moving copper.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/copper-watcher/picks-shovels.webp" type="image/webp" /><img
+                    src="/images/screenshots/copper-watcher/picks-shovels.jpg"
+                    alt="Copper Watcher Picks &amp; Shovels Premium section — 'Profit from copper demand, not the spot price' subtitle, with CAT (Caterpillar) C$1259.43, ETN (Eaton Corporation) C$578.10, PWR (Quanta Services) C$977.38, NVT (nVent Electric) C$240.02, and a Futures section below showing HG=F Copper Jul 26 C$9.22"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Picks &amp; Shovels</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Heavy equipment, electrical components, infrastructure — companies that profit from copper demand.</p>
             </figure>
         </div>
     </section>

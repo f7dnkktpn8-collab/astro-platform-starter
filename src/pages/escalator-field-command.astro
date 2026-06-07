@@ -344,13 +344,30 @@ const pageStructuredData = {
         </div>
     </section>
 
-    <!-- Quiet community mention — vertical-transportation forum + library -->
-    <section class="mb-12 text-center text-sm text-gray-400">
-        <p>
-            There&apos;s also a community for vertical-transportation pros at
-            <a href="https://escalift.io" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 underline">escalift.io</a>
-            &mdash; forum, shop talk, and an open library of industry references. Come say hi if you&apos;re in the trade.
-        </p>
+    <!-- Community + newsletter — vertical-transportation pros -->
+    <section class="mb-12">
+        <p class="text-center text-gray-400 text-sm mb-4">More for people in the trade:</p>
+        <div class="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+            <a href="https://escalift.io" target="_blank" rel="noopener noreferrer"
+               class="flex items-center gap-3 bg-white/5 hover:bg-white/10 rounded-xl p-4 transition-colors no-underline group">
+                <img src="/images/escalift-logo.svg" alt="Escalift" class="w-10 h-10 rounded-xl flex-none" />
+                <div>
+                    <div class="font-semibold text-white group-hover:text-blue-300 transition-colors text-sm">Escalift</div>
+                    <p class="text-gray-400 text-xs mt-0.5 leading-relaxed">Forum &amp; community for elevator and escalator pros</p>
+                </div>
+            </a>
+            <a href="https://counterweight.ghost.io/" target="_blank" rel="noopener noreferrer"
+               class="flex items-center gap-3 bg-white/5 hover:bg-white/10 rounded-xl p-4 transition-colors no-underline group">
+                <picture>
+                    <source srcset="/images/counterweight-logo.webp" type="image/webp" />
+                    <img src="/images/counterweight-logo.png" alt="Counterweight" class="w-10 h-10 rounded-xl flex-none" />
+                </picture>
+                <div>
+                    <div class="font-semibold text-white group-hover:text-blue-300 transition-colors text-sm">Counterweight</div>
+                    <p class="text-gray-400 text-xs mt-0.5 leading-relaxed">The elevator and escalator industry newsletter</p>
+                </div>
+            </a>
+        </div>
     </section>
 
     <!-- Final CTA -->

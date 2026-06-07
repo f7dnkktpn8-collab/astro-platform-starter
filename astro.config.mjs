@@ -34,29 +34,40 @@ const PAGE_IMAGES = {
     ],
     '/copper-watcher/': [
         SITE + '/images/screenshots/copper-watcher/spot-price.jpg',
-        SITE + '/images/screenshots/copper-watcher/what-if.jpg',
-        SITE + '/images/screenshots/copper-watcher/compare-returns.jpg',
         SITE + '/images/screenshots/copper-watcher/portfolio.jpg',
+        SITE + '/images/screenshots/copper-watcher/what-if.jpg',
+        SITE + '/images/screenshots/copper-watcher/investment-detail.jpg',
         SITE + '/images/screenshots/copper-watcher/scrap-calc.jpg',
-        SITE + '/images/screenshots/copper-watcher/currencies.jpg'
+        SITE + '/images/screenshots/copper-watcher/dr-copper-seasonal.jpg',
+        SITE + '/images/screenshots/copper-watcher/signals.jpg',
+        SITE + '/images/screenshots/copper-watcher/picks-shovels.jpg'
     ],
     '/gold-watcher/': [
         SITE + '/images/screenshots/gold-watcher/spot-price.jpg',
-        SITE + '/images/screenshots/gold-watcher/etf-detail.jpg',
-        SITE + '/images/screenshots/gold-watcher/what-if.jpg',
-        SITE + '/images/screenshots/gold-watcher/portfolio.jpg'
+        SITE + '/images/screenshots/gold-watcher/portfolio.jpg',
+        SITE + '/images/screenshots/gold-watcher/dca.jpg',
+        SITE + '/images/screenshots/gold-watcher/investment-detail.jpg',
+        SITE + '/images/screenshots/gold-watcher/compare-spy.jpg',
+        SITE + '/images/screenshots/gold-watcher/real-rate-seasonal.jpg',
+        SITE + '/images/screenshots/gold-watcher/ratios.jpg'
     ],
     '/silver-watcher/': [
         SITE + '/images/screenshots/silver-watcher/spot-price.jpg',
-        SITE + '/images/screenshots/silver-watcher/what-if.jpg',
-        SITE + '/images/screenshots/silver-watcher/returns.jpg',
         SITE + '/images/screenshots/silver-watcher/portfolio.jpg',
+        SITE + '/images/screenshots/silver-watcher/what-if.jpg',
+        SITE + '/images/screenshots/silver-watcher/ratio-signal.jpg',
+        SITE + '/images/screenshots/silver-watcher/signals.jpg',
+        SITE + '/images/screenshots/silver-watcher/seasonal-etfs.jpg',
         SITE + '/images/screenshots/silver-watcher/purity-calc.jpg'
     ],
     '/lithium-watcher/': [
-        SITE + '/images/screenshots/lithium-watcher/markets-overview.jpg',
-        SITE + '/images/screenshots/lithium-watcher/mining-stocks.jpg',
-        SITE + '/images/screenshots/lithium-watcher/ev-market.jpg'
+        SITE + '/images/screenshots/lithium-watcher/markets.jpg',
+        SITE + '/images/screenshots/lithium-watcher/portfolio.jpg',
+        SITE + '/images/screenshots/lithium-watcher/ev-compare.jpg',
+        SITE + '/images/screenshots/lithium-watcher/ev-manufacturers.jpg',
+        SITE + '/images/screenshots/lithium-watcher/etfs-miners.jpg',
+        SITE + '/images/screenshots/lithium-watcher/seasonal.jpg',
+        SITE + '/images/screenshots/lithium-watcher/signals.jpg'
     ],
     '/ridgepacker/': [
         SITE + '/images/screenshots/ridgepacker/trips.jpg',

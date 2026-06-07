@@ -121,10 +121,10 @@ const pageStructuredData = {
     <!-- Quick badges -->
     <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
         <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Live spot + heartbeat</span>
-        <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">SLV · SIVR · PSLV</span>
+        <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">SLV · SIVR · PSLV + miners</span>
         <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Purity-aware portfolio</span>
-        <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Gold/silver ratio + signals</span>
-        <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Prediction markets</span>
+        <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Gold/silver ratio + buy/sell signal</span>
+        <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Signals · news + Polymarket</span>
         <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Smarter sentiment</span>
     </section>
 
@@ -134,11 +134,11 @@ const pageStructuredData = {
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-slate-300">Live spot price + heartbeat</h3>
-                <p class="text-gray-300">Spot silver updated through the trading day with a live heartbeat indicator. Historical charts (1D, 1W, 1M, 3M, 1Y, 5Y, ALL), line or dot styles, rotate for fullscreen.</p>
+                <p class="text-gray-300">Spot silver updated through the trading day with a live heartbeat indicator. Charts from 1D through 10Y and MAX, line or dot styles, rotate for fullscreen.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-slate-300">Gold/silver ratio with signals</h3>
-                <p class="text-gray-300">Live ratio with a 5-year historical chart, current value vs. low/average/high, and built-in buy/sell signals when silver is historically cheap or expensive vs. gold.</p>
+                <h3 class="text-xl font-bold mb-2 text-slate-300">Gold/silver ratio + buy/sell signal</h3>
+                <p class="text-gray-300">Live ratio with adaptive timeframe (1Y, 5Y, 10Y, MAX), dated x-axis, and current value against low/average/high. Premium adds a clean buy/sell signal that calls silver overvalued or undervalued vs gold based on the historical band.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-slate-300">Purity-aware portfolio</h3>
@@ -149,8 +149,12 @@ const pageStructuredData = {
                 <p class="text-gray-300">Value silver instantly by weight and purity. Grades from Fine Silver (.999) to European (.800), including Sterling, Britannia, and Coin Silver.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-slate-300">Prediction markets</h3>
-                <p class="text-gray-300">Live Polymarket bets on the forces moving silver — Fed rate cuts, inflation, recession risk, plus solar and EV demand — pulled into a section of the Charts tab.</p>
+                <h3 class="text-xl font-bold mb-2 text-slate-300">Signals</h3>
+                <p class="text-gray-300">Live financial news from Reuters, Bloomberg, Kitco, MarketWatch and more — each with the publisher&apos;s logo. Plus live Polymarket prediction-market odds on the forces moving silver: Fed rate cuts, inflation, recession risk, solar and EV demand.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-slate-300">ETFs, futures &amp; miners</h3>
+                <p class="text-gray-300">Live prices and history for SLV, SIVR, and PSLV. Silver futures contracts. Major silver mining stocks tracked alongside — another angle on silver exposure.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-slate-300">Smarter sentiment</h3>
@@ -158,11 +162,7 @@ const pageStructuredData = {
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-slate-300">What-If calculator</h3>
-                <p class="text-gray-300">See what your silver would be worth today if you'd bought at any past date. Compare against the S&amp;P 500 and silver ETFs with overlay charts. Lump-sum vs DCA with detailed breakdowns.</p>
-            </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-slate-300">Seasonal patterns</h3>
-                <p class="text-gray-300">A 10-year average monthly return chart showing which months silver historically performs best — time purchases with data, not guesswork.</p>
+                <p class="text-gray-300">See what your silver would be worth today if you&apos;d bought at any past date. Compare against the S&amp;P 500 and silver ETFs with overlay charts. Toggle between lump-sum and dollar-cost-averaging with detailed DCA breakdowns.</p>
             </div>
         </div>
     </section>
@@ -172,25 +172,38 @@ const pageStructuredData = {
         <h2 class="text-3xl font-bold mb-3 text-center md:text-left">See it in action</h2>
         <p class="text-gray-400 mb-8 text-center md:text-left text-sm">Real screens from the App Store. (Sample data shown.)</p>
 
-        <!-- Mobile: horizontal snap-scroll. Desktop: 3-column grid (clean 2x3 for 6 screenshots). -->
+        <!-- Mobile: horizontal snap-scroll. Desktop: 2-column then 3-column grid. -->
         <div class="flex snap-x snap-mandatory overflow-x-auto gap-4 -mx-6 px-6 pb-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible lg:grid-cols-3">
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/silver-watcher/spot-price.webp" type="image/webp" /><img
                     src="/images/screenshots/silver-watcher/spot-price.jpg"
-                    alt="Silver Watcher live Ag Spot Price C$108.21 down 1.09 percent, day range C$107.92 to C$109.81, Ag Price chart with rotate-to-fullscreen support, Gold/Silver Ratio 63.30 with historical average about 65, and Silver ETFs list starting with SLV C$98.10"
+                    alt="Silver Watcher Ag Spot Price C$104.34 per ounce down 0.25 percent, day range C$102.60 to C$104.70, Ag Price chart, and the Gold/Silver Ratio 59.90 — with a tab bar at the bottom showing Spot, Signals, Portfolio, Calc and What If"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
                 /></picture>
-                <figcaption class="mt-3 text-slate-300 font-semibold text-sm">Always current spot price</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Ag spot, day range, full chart, the gold/silver ratio in context, and top silver ETFs.</p>
+                <figcaption class="mt-3 text-slate-300 font-semibold text-sm">Live spot price</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Ag spot, day range, full chart, and the gold/silver ratio in context.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/silver-watcher/portfolio.webp" type="image/webp" /><img
+                    src="/images/screenshots/silver-watcher/portfolio.jpg"
+                    alt="Silver Watcher Portfolio screen — Total Value C$5,214.59 across 50 oz, Total Profit/Loss +C$1,394.59 (+36.5 percent) on a C$3,820 cost basis, Portfolio Value Over Time bar chart, and individual holdings (10 5oz bars at C$5,214.59) listed below"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-slate-300 font-semibold text-sm">Purity-aware portfolio</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Live value, cost basis, profit, and holding duration on every position.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/silver-watcher/what-if.webp" type="image/webp" /><img
                     src="/images/screenshots/silver-watcher/what-if.jpg"
-                    alt="Silver Watcher What If calculator — investment amount C$2,800, time options 1Y, 2Y, 5Y, 10Y ago, Compare Against ETF chips for SLV, SIVR, PSLV, SIL, and SPY benchmark, plus Investment Growth comparison chart"
+                    alt="Silver Watcher Investment Backtesting screen — Compare Against ETF chips SIVR, PSLV, SIL (selected) and SPY (selected), Investment Growth chart, and Your Investment Today C$10,266.90 up 118.4 percent with Ag +118.4 percent vs SPY +27.4 percent and SIL +98.7 percent"
                     width="800"
                     height="1738"
                     loading="lazy"
@@ -198,38 +211,51 @@ const pageStructuredData = {
                     class="w-full rounded-2xl shadow-xl border border-white/10"
                 /></picture>
                 <figcaption class="mt-3 text-slate-300 font-semibold text-sm">What If — past silver investment</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Pick an amount, a year, and silver ETFs to compare against — see the historical gain or loss.</p>
+                <p class="text-xs text-gray-400 mt-1">Pick an amount, a year, and ETFs to compare against — full gain/loss breakdown below.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <picture><source srcset="/images/screenshots/silver-watcher/returns.webp" type="image/webp" /><img
-                    src="/images/screenshots/silver-watcher/returns.jpg"
-                    alt="Silver Watcher Investment Growth chart with overlays showing Ag plus 215.1 percent versus SPY plus 30.8 percent over 2 years, Your Investment Today C$8,821.49 from C$2,800 invested at silver price C$34.35, silver purchased 81.5193 oz, current price C$108.21, gain plus C$6,021.49"
+                <picture><source srcset="/images/screenshots/silver-watcher/ratio-signal.webp" type="image/webp" /><img
+                    src="/images/screenshots/silver-watcher/ratio-signal.jpg"
+                    alt="Silver Watcher Gold/Silver Ratio 59.90 against long-term average about 65 with a 5Y chart (low 59.6, average 81.4, high 101.6), and a Ratio Buy/Sell Signal card reading 'Silver Overvalued' with the note 'Silver looks historically expensive vs gold'"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
                 /></picture>
-                <figcaption class="mt-3 text-slate-300 font-semibold text-sm">Silver outperformed SPY +215%</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Overlay silver against the S&P 500 over your chosen window — full gain/loss breakdown below.</p>
+                <figcaption class="mt-3 text-slate-300 font-semibold text-sm">Ratio + buy/sell signal</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Live gold/silver ratio against the historical band, with a clean over/undervalued read for Premium users.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
-                <picture><source srcset="/images/screenshots/silver-watcher/portfolio.webp" type="image/webp" /><img
-                    src="/images/screenshots/silver-watcher/portfolio.jpg"
-                    alt="Silver Watcher Portfolio — total value C$11,577.05 from 107.0500 oz total, total profit plus C$8,926.05 representing plus 336.7 percent on a C$2,651.00 cost basis; holdings include 40 oz worth C$4,325.85 with cost C$440 (plus 883.1 percent), 67 oz worth C$7,245.80 with cost C$2,211 (plus 227.7 percent), and 1 dwt gift worth C$5.41"
+                <picture><source srcset="/images/screenshots/silver-watcher/signals.webp" type="image/webp" /><img
+                    src="/images/screenshots/silver-watcher/signals.jpg"
+                    alt="Silver Watcher Signals tab — 'Prediction markets and news moving silver' header, then a Prediction Markets section from Polymarket listing Fed interest-rate questions for the June 2026 meeting with vote-volume and YES odds for each"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
                     class="w-full rounded-2xl shadow-xl border border-white/10"
                 /></picture>
-                <figcaption class="mt-3 text-slate-300 font-semibold text-sm">Stash manager</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Live value, cost basis, profit, and holding duration on every position.</p>
+                <figcaption class="mt-3 text-slate-300 font-semibold text-sm">Signals — news + Polymarket</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Live financial news with publisher logos plus prediction-market odds on macro forces moving silver.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/silver-watcher/seasonal-etfs.webp" type="image/webp" /><img
+                    src="/images/screenshots/silver-watcher/seasonal-etfs.jpg"
+                    alt="Silver Watcher Seasonal Patterns 10Y AVG chart showing average monthly returns January through December with the current month highlighted, followed by the Silver ETFs list — SLV C$94.13, SIVR C$98.91, PSLV C$33.07, SIL C$127.45 — and a Silver Miners section below"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-slate-300 font-semibold text-sm">Seasonal + ETFs + miners</figcaption>
+                <p class="text-xs text-gray-400 mt-1">10-year monthly seasonal returns, then every silver ETF and the major mining stocks.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/silver-watcher/purity-calc.webp" type="image/webp" /><img
                     src="/images/screenshots/silver-watcher/purity-calc.jpg"
-                    alt="Silver Watcher Calculate value screen — weight 126 g, weight unit grid showing oz, g (selected), kg, dwt, tola, tael, grain; purity grid with 999 Fine Silver, 958 Britannia, 950 French Silver (selected), 925 Sterling, 900 Coin Silver, 835 Continental, 800 European; estimated value C$416.60 at spot price C$108.15 per ounce"
+                    alt="Silver Watcher Calculate value screen — weight 158 g, weight unit grid showing oz, g (selected), kg, dwt, tola, tael, grain; purity grid with 999 Fine Silver, 958 Britannia, 950 French Silver, 925 Sterling (selected), 900 Coin Silver, 835 Continental, 800 European; Estimated Value C$490.53 at spot price C$104.29 per ounce"
                     width="800"
                     height="1738"
                     loading="lazy"
