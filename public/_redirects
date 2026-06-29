@@ -1,0 +1,3 @@
+# Field Guide universal-link fallback: if the app isn't installed, tapping the
+# in-app event deep link lands on the Escalator Field Command product page.
+/escalator-field-command/guide   /escalator-field-command   302

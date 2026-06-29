@@ -8,3 +8,8 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), interest-cohort=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# Apple universal-link verification file must be served as JSON, no redirect.
+# Powers the Escalator Field Command in-app event deep link into the Field Guide.
+/.well-known/apple-app-site-association
+  Content-Type: application/json
