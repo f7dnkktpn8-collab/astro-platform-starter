@@ -9,6 +9,10 @@ Live at https://artificialigknorance.com.
 - **Astro** + Tailwind (via `src/styles/globals.css`), Inter Variable font
 - Deployed to **Netlify** on push to `main`
   (repo: `github.com/f7dnkktpn8-collab/astro-platform-starter`)
+- **Domain `artificialigknorance.com`:** registered at **GoDaddy**, but
+  DNS is delegated to **Netlify** (NS1 nameservers `DNS{1-4}.P06.NSONE.NET`).
+  So the domain bill is at GoDaddy; the DNS records that point the site
+  live in the Netlify dashboard.
 - Single layout: `src/layouts/Layout.astro`. Props: `title`,
   `description`, `ogImage`, `twitterCard`, `smartAppId`, `datePublished`,
   `mainEntityId`. Emits OG/Twitter cards, canonical URL, iOS Smart App
@@ -112,51 +116,59 @@ base URL to fetch at full resolution. The iTunes Search API's
 
 ## Current Session State
 
-Last updated: 2026-05-14 — Refreshed metals apps content for v2.5.9 /
-Lithium v1.2.8 features, then swapped Gold/Silver/Copper icons to the
-new chart-style art that already shipped for Lithium.
+Last updated: 2026-06-29 — Refreshed the 4 metals pages for the
+v2.6.9 App Store update, then made the Escalift forum + Counterweight
+newsletter links more visible across the whole site (new header
+"Other Projects" dropdown, logo'd footer + cards). All shipped.
 
-**Current focus:** website is fully up to date with the live App Store
-catalog. No active work.
+**Current focus:** repositioning the site as a company umbrella — apps
+stay primary, but Escalift (forum) and Counterweight (newsletter) now
+have real, branded presence sitewide instead of buried text links. No
+active work in flight.
 
-**Last shipped:**
-- `af6a1c8` — Gold/Silver/Copper icons updated to new chart style
-- `5ad8898` — Metals apps content refresh (added Prediction Markets,
-  Smarter Sentiment, realized P&L, Dr Copper signal, karat/purity-aware
-  portfolios, 3 lithium price sources, KARS ETF; removed Price Alerts
-  and Lithium What-If; added Premium pricing)
-- `f88045a` — Lithium Watcher added (eighth app)
+**Last shipped:** website is a static site — "shipped" = pushed to
+`main`, Netlify auto-deploys. `main` is in sync with origin. Latest
+commits:
+- `97718dd` — Apple universal-link verification for EFC (hosts
+  apple-app-site-association so the in-app Field Guide deep link works)
+- `41ea288` — Renamed project links to "Escalift Forum" /
+  "Counterweight Newsletter"; sub-label "Elevator & escalator community"
+- `d99406c` — Metals v2.6.9 screenshot + content refresh AND
+  Escalift/Counterweight visibility upgrade (header dropdown with logos,
+  footer logos, About-page logo cards, EFC two-card row). New assets:
+  `escalift-logo.svg`, `counterweight-logo.png/.webp`
 
-**Uncommitted work queued for next ship:** none — working tree is
-clean and `main` is in sync with origin.
+**Uncommitted work queued for next ship:** none — working tree is clean.
+
+**Waiting on Mike / open decisions:** none.
+
+**Parked for later:**
+- **App Store affiliate enrollment** — not enrolled; small per-install
+  revenue with no effort once Mike signs up. Parked, no urgency.
+- **Homepage mention of Escalift/Counterweight** — deliberately NOT added
+  this session. Homepage stays app-focused; revisit if the umbrella
+  push grows. (Parked 2026-06-29.)
 
 **Known issues / TODO:**
-- App Store CDN still serves older screenshot UUIDs for Gold, Silver,
-  Copper, Lithium (Apple hasn't refreshed them yet despite the new app
-  versions). When Mike re-uploads marketing screenshots in App Store
-  Connect, run the scraper again to refresh `public/images/screenshots/`.
-- **Analytics still not installed.** Cloudflare Web Analytics is the
-  blessed path — needs Mike to add the site in his Cloudflare dashboard
-  and hand over the beacon snippet.
-- App Store affiliate links — Mike has not enrolled in Apple's
-  affiliate program yet. Would add a small per-install revenue stream
-  with no effort once enrolled.
+- **Counterweight is still on `counterweight.ghost.io`.** When it moves
+  to a custom domain, update the link in FOUR places: footer, header
+  dropdown, About-page card, and the EFC-page card.
+- Privacy + Terms pages still read "Last updated: March 15, 2026" but
+  Cloudflare Web Analytics was added after that — may want a refresh.
 - The "Smart App Banner default" is Escalator Field Command. If a
   different app becomes priority, change the default in `Layout.astro`.
 
 **Recent key decisions:**
-1. **Escalator Field Command is first** in the homepage apps list
-   (commit 34e61f0). Reinforces the Escalator-led SEO focus and matches
-   the auto-expanded card pattern on mobile.
-2. **Mobile card icons stay at `w-16`** even when titles need to shrink
-   to fit on one line. Achieved with `text-sm sm:text-xl + truncate`
-   plus tighter section padding (`p-2 sm:p-6`) rather than shrinking
-   the icons.
-3. **Price alerts removed** from Gold/Silver/Copper/Lithium content
-   (commit 5ad8898) — feature dropped from the apps themselves in
-   v2.5.9 / v1.2.8.
-4. **Lithium What-If calculator removed** from the website (same
-   commit) — feature no longer exists in v1.2.8 of the app.
+1. **Project links get logos + descriptive names** ("Escalift Forum",
+   "Counterweight Newsletter") sitewide — goal was "slightly more
+   noticeable, not invisible, but not a big feature yet." Avoid jargon:
+   "VT" was replaced with "elevator & escalator" in plain English.
+2. **Counterweight added to the EFC page** (wasn't there before) — that
+   page's audience is exactly the elevator/escalator trade.
+3. **Cloudflare Web Analytics is live** (token in `Layout.astro` beacon)
+   — the old "analytics not installed" gap is closed.
+4. **Centralized pricing** lives in `src/data/pricing.ts` — change a
+   price or trial length there only, never inline in a page.
 
 ## Session-end protocol
 
