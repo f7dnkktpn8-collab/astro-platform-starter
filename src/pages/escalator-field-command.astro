@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { trialSentence } from '../data/pricing';
 
 const SITE_URL = 'https://artificialigknorance.com';
 const APP_STORE_URL = 'https://apps.apple.com/us/app/escalator-field-command/id6756789866';
@@ -12,7 +13,7 @@ const faqs = [
     },
     {
         q: 'What is the Escalator Field Guide?',
-        a: 'The Field Guide is a searchable, plain-language companion to the escalator and moving walk safety codes, built into the app. Ask a question the way you would ask a senior mechanic and get a clear, sourced answer in seconds — complete with the exact code section it came from, drawn from ASME A17.1, A17.2, CSA B44, and the MCP. You can also jump to any rule by its code number and bookmark the requirements you rely on most. The Field Guide is part of Pro, the optional in-app subscription.'
+        a: 'The Field Guide is a searchable, plain-language companion to the escalator and moving walk safety codes, built into the app. Ask a question the way you would ask a senior mechanic and get a clear, sourced answer in seconds — complete with the exact code section it came from, drawn from ASME A17.1, A17.2, CSA B44, and the MCP. You can also jump to any rule by its code number, open linked references between sections without leaving the app, and bookmark and highlight the requirements you rely on most. The Field Guide is part of Pro, the optional in-app subscription.'
     },
     {
         q: 'Does it work without an internet connection?',
@@ -36,7 +37,7 @@ const faqs = [
     },
     {
         q: 'How much does it cost?',
-        a: 'Escalator Field Command is free to download. The Field Guide is a Pro feature, unlocked with an optional in-app subscription — see the App Store listing for current Pro pricing and any free trial.'
+        a: `Escalator Field Command is free to download. The Field Guide is a Pro feature, unlocked with an optional in-app subscription. ${trialSentence('escalator-field-command')} See the App Store listing for current Pro pricing.`
     }
 ];
 
@@ -188,6 +189,10 @@ const pageStructuredData = {
                 <li class="flex items-start gap-2 text-gray-200">
                     <svg class="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                     <span>Jump straight to any rule by its code number.</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-200">
+                    <svg class="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    <span>Open linked references between sections without ever leaving the app.</span>
                 </li>
                 <li class="flex items-start gap-2 text-gray-200">
                     <svg class="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
