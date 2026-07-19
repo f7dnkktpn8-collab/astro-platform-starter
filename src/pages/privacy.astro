@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const LAST_UPDATED = "March 15, 2026";
+const LAST_UPDATED = "July 19, 2026";
 const DEVELOPER = "Artificial Igknorance";
 const CONTACT_EMAIL = "info@artificialigknorance.com";
 ---
@@ -31,7 +31,9 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
           All apps published by {DEVELOPER} are built with a privacy-first philosophy. We do not collect,
           store, or share your personal data. All information you enter into our apps — including your
           portfolio holdings, price alerts, health records, and settings — is stored exclusively on your
-          device and never transmitted to our servers.
+          device and never transmitted to our servers, with one exception: apps that include an AI
+          coaching or assistant feature send the relevant context to a third-party AI provider solely to
+          generate your personalized response, as described in Section 4 below.
         </p>
       </section>
 
@@ -47,6 +49,7 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
         <ul class="list-disc list-inside text-gray-300 space-y-2 mt-3 ml-4">
           <li>Market data (commodity prices, financial data) fetched from third-party APIs. These requests do not include any personal information.</li>
           <li>Anonymous crash and diagnostic data collected by Apple through standard iOS mechanisms if you have opted in to share analytics with app developers in your iOS Settings.</li>
+          <li>For apps with an AI coaching feature, the context needed to generate your personalized plan — see Section 4.</li>
         </ul>
       </section>
 
@@ -73,7 +76,26 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
       </section>
 
       <section>
-        <h2 class="text-xl font-bold text-white mb-3">4. Third-Party Services</h2>
+        <h2 class="text-xl font-bold text-white mb-3">4. AI Coaching Features</h2>
+        <p class="text-gray-300 leading-relaxed">
+          Some of our apps (for example, Clock-In Everyday) include an AI-powered coaching feature. When you
+          use it, relevant context needed to generate your personalized plan — such as your stated goals,
+          equipment, injuries, freeform notes, recent workout history, and Apple Health-derived readiness
+          metrics (e.g. sleep, heart rate, heart rate variability) — is sent from your device to our
+          Cloudflare Worker, which forwards it to Anthropic's Claude API to generate a response.
+        </p>
+        <p class="text-gray-300 leading-relaxed mt-3">
+          This data is not tied to an account or any other identifying information, and our Worker does not
+          store it — it is passed through solely to generate your plan and is not retained by us afterward.
+          Anthropic's handling of this data is governed by
+          <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer"
+            class="text-blue-400 hover:text-blue-300 underline">Anthropic's Privacy Policy</a>.
+          This feature is never used for anything beyond generating the coaching response you requested.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">5. Third-Party Services</h2>
         <p class="text-gray-300 leading-relaxed">
           Our apps may use the following third-party services depending on the app:
         </p>
@@ -81,12 +103,13 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
           <li><strong class="text-white">Gold-API.com</strong> — for live precious metal spot price data. Requests are made with an API key; no personal data is transmitted.</li>
           <li><strong class="text-white">Yahoo Finance (public API)</strong> — for historical price and financial data. Standard HTTP requests are made; no personal data is transmitted.</li>
           <li><strong class="text-white">RevenueCat</strong> — for subscription management where applicable. See Section 3 above.</li>
+          <li><strong class="text-white">Anthropic (Claude)</strong> — for AI coaching features where applicable. See Section 4 above.</li>
           <li><strong class="text-white">Apple Push Notification Service</strong> — for local notifications. Notifications are scheduled locally on your device and do not pass through our servers.</li>
         </ul>
       </section>
 
       <section>
-        <h2 class="text-xl font-bold text-white mb-3">5. Children's Privacy</h2>
+        <h2 class="text-xl font-bold text-white mb-3">6. Children's Privacy</h2>
         <p class="text-gray-300 leading-relaxed">
           Our apps are not directed at children under the age of 13. We do not knowingly collect personal
           information from children. If you believe a child has provided personal information through one
@@ -95,7 +118,7 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
       </section>
 
       <section>
-        <h2 class="text-xl font-bold text-white mb-3">6. Data Security</h2>
+        <h2 class="text-xl font-bold text-white mb-3">7. Data Security</h2>
         <p class="text-gray-300 leading-relaxed">
           Because all user data is stored locally on your device, it is protected by your device's
           built-in security features, including device encryption and Face ID/Touch ID where applicable.
@@ -105,7 +128,7 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
       </section>
 
       <section>
-        <h2 class="text-xl font-bold text-white mb-3">7. Changes to This Policy</h2>
+        <h2 class="text-xl font-bold text-white mb-3">8. Changes to This Policy</h2>
         <p class="text-gray-300 leading-relaxed">
           We may update this Privacy Policy from time to time. We will notify you of material changes by
           updating the "Last updated" date at the top of this policy. Your continued use of our apps
@@ -114,16 +137,18 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
       </section>
 
       <section>
-        <h2 class="text-xl font-bold text-white mb-3">8. Your Rights</h2>
+        <h2 class="text-xl font-bold text-white mb-3">9. Your Rights</h2>
         <p class="text-gray-300 leading-relaxed">
           Since we do not collect or store your personal data on our servers, there is no personal data
           for us to provide, correct, or delete on your behalf. You can delete all locally stored app
-          data at any time by uninstalling the app from your device.
+          data at any time by uninstalling the app from your device. Data sent to an AI coaching feature
+          (Section 4) is not retained after your request is answered, so there is nothing to delete there
+          either.
         </p>
       </section>
 
       <section>
-        <h2 class="text-xl font-bold text-white mb-3">9. Contact Us</h2>
+        <h2 class="text-xl font-bold text-white mb-3">10. Contact Us</h2>
         <p class="text-gray-300 leading-relaxed">
           If you have any questions or concerns about this Privacy Policy, please contact us:
         </p>
