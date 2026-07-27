@@ -36,6 +36,10 @@ const faqs = [
         a: 'You log Category 1 tests against the specific units they belong to, alongside service history, inspection notes, and equipment specs. Records stay attached to the unit so the next time you visit that escalator, the full history is one tap away.'
     },
     {
+        q: 'What is the State of the Union report?',
+        a: 'The State of the Union is a route-wide PDF snapshot showing where every unit on your route currently stands. It is one of the polished PDF reports the app generates — ready to share with a supervisor, a building owner, or an inspector in seconds. The dashboard also lists your upcoming service jobs, so bigger work is visible well before it lands on you.'
+    },
+    {
         q: 'How much does it cost?',
         a: `Escalator Field Command is free to download. The Field Guide is a Pro feature, unlocked with an optional in-app subscription. ${trialSentence('escalator-field-command')} See the App Store listing for current Pro pricing.`
     }
@@ -147,6 +151,7 @@ const pageStructuredData = {
             >Category 1 testing</span
         >
         <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">SSPI compliance</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">PDF reports</span>
         <span class="px-3 py-1 bg-cyan-500/20 text-cyan-200 rounded-full text-sm">Field Guide</span>
     </section>
 
@@ -256,6 +261,14 @@ const pageStructuredData = {
                 <p class="text-gray-300">
                     Track equipment data, model details, and full service history per unit. Add
                     notes, photos, and inspection records as you go.
+                </p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-blue-300">Upcoming jobs &amp; PDF reports</h3>
+                <p class="text-gray-300">
+                    See your upcoming service jobs right on the dashboard so bigger work never sneaks
+                    up on you. Then generate polished PDF reports — including the State of the Union,
+                    a route-wide snapshot of where every unit stands — ready to share in seconds.
                 </p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
