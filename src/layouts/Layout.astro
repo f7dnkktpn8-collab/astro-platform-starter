@@ -116,7 +116,7 @@ const structuredData = {
             "@id": SITE_URL + "/#website",
             "url": SITE_URL,
             "name": "Artificial Igknorance",
-            "description": "Privacy-first iOS apps — escalator industry tools, health tracking, precious metals, and bill scanning. 100% on-device.",
+            "description": "Privacy-first iOS apps — escalator industry tools, health tracking, AI-coached fitness, precious metals, and bill scanning. On-device by default.",
             "publisher": { "@id": SITE_URL + "/#organization" },
             "inLanguage": "en-US"
         },
@@ -328,6 +328,29 @@ const structuredData = {
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
             "inLanguage": "en-US",
             "keywords": "hiking gear catalog, backpacking packing list, ultralight gear weight, day pack sublist, everyday carry, EDC tracker, trip planning app, gear list iPhone, backpacker gear app, thru-hike planner"
+        },
+        {
+            "@type": "MobileApplication",
+            "@id": SITE_URL + "/#clock-in-everyday",
+            "name": "Clock-In Everyday",
+            "alternateName": "Clock-In",
+            "description": "Daily AI-coached fitness app built for people over 50 and heading into retirement. Morning readiness scoring (Iron Will Index) from Apple Health, sessions that adapt to sleep and recovery, real progression tracking, personalized daily stretches, and event-based training with automatic taper.",
+            "applicationCategory": "HealthApplication",
+            "applicationSubCategory": "Fitness",
+            "operatingSystem": "iOS",
+            "url": "https://apps.apple.com/us/app/clock-in-everyday/id6791800212",
+            "downloadUrl": "https://apps.apple.com/us/app/clock-in-everyday/id6791800212",
+            "image": SITE_URL + "/images/clock-in-everyday-icon.webp",
+            "screenshot": [
+                SITE_URL + "/images/screenshots/clock-in-everyday/dashboard.jpg",
+                SITE_URL + "/images/screenshots/clock-in-everyday/workout.jpg",
+                SITE_URL + "/images/screenshots/clock-in-everyday/progress.jpg",
+                SITE_URL + "/images/screenshots/clock-in-everyday/supplements.jpg"
+            ],
+            "publisher": { "@id": SITE_URL + "/#organization" },
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "inLanguage": "en-US",
+            "keywords": "fitness app for seniors, workout app over 50, retirement fitness, AI fitness coach, readiness score app, Apple Health workout app, daily stretching app, strength training over 50"
         }
     ]
 };

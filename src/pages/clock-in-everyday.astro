@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { PRICING, trialSentence } from '../data/pricing';
+
+const SITE_URL = 'https://artificialigknorance.com';
+const APP_STORE_URL = 'https://apps.apple.com/us/app/clock-in-everyday/id6791800212';
+const APP_ICON = '/images/clock-in-everyday-icon.webp';
+const p = PRICING['clock-in-everyday'];
+
+const faqs = [
+    {
+        q: 'What is Clock-In Everyday?',
+        a: "Clock-In Everyday is a daily AI-coached fitness app built specifically for people over 50 — especially those heading into retirement. Instead of a rigid program built for someone in their twenties, each session is shaped by how you actually slept, how you're recovering, your goals, and any aches or injuries you're managing."
+    },
+    {
+        q: 'What is the Iron Will Index?',
+        a: "The Iron Will Index is a morning readiness score. Clock-In reads your sleep, heart rate, and heart rate variability from Apple Health each morning and turns it into a plain-language readiness score and band — so a rough night means an easier day, and a good one means you can push a little harder."
+    },
+    {
+        q: 'How does the AI coaching work?',
+        a: "Every session is built fresh, not pulled from a fixed program. The coach factors in your readiness, stated goals, equipment, and any injuries you're managing, then writes a plain-language note explaining why today's session looks the way it does. It also remembers your working weights and reps and nudges them up or down based on what you actually did last time."
+    },
+    {
+        q: 'Is my data private?',
+        a: 'Your health data, workout history, and notes are stored on your device. The one exception: generating your daily AI-coached session sends the relevant context — your readiness, goals, injuries, and notes — to a secure backend that forwards it to Anthropic\'s Claude API to write your plan. That data isn\'t tied to an account and isn\'t stored afterward. Full detail is in our <a href="/privacy/" class="text-orange-300 hover:text-orange-200 underline">Privacy Policy</a>.'
+    },
+    {
+        q: 'Do I need to create an account?',
+        a: 'No. There\'s no signup or login — just onboarding questions about your goals, equipment, and any injuries, then you\'re in.'
+    },
+    {
+        q: 'What if I have an injury, or I\'m training for something specific?',
+        a: "Daily stretches are picked from your specific aches and how today's going, with a note on why each one was chosen — not the same generic routine every day. You can also add an upcoming hike, ride, or event, and your sessions build toward it, sharpening as the date gets closer, then tapering automatically in the final days so you arrive fresh."
+    },
+    {
+        q: 'What are the supplement suggestions?',
+        a: 'General, evidence-informed suggestions tailored to your goals and notes — never a substitute for medical advice, and always with a reminder to check with your doctor before starting anything, especially with existing conditions or medications.'
+    },
+    {
+        q: 'What does it cost?',
+        a: `Free to download. ${trialSentence('clock-in-everyday')} After the trial, Clock-In Pro is ${p.monthly} per month or ${p.yearly} per year. Cancel anytime in Settings.`
+    }
+];
+
+const pageStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
+                { '@type': 'ListItem', position: 2, name: 'Clock-In Everyday', item: SITE_URL + '/clock-in-everyday/' }
+            ]
+        },
+        {
+            '@type': 'FAQPage',
+            mainEntity: faqs.map(({ q, a }) => ({
+                '@type': 'Question',
+                name: q,
+                acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') }
+            }))
+        }
+    ]
+};
+---
+
+<Layout
+    title="Clock-In Everyday — Daily AI-Coached Fitness for Life After 50"
+    description="A daily AI-coached fitness app built for people over 50 and heading into retirement. Morning readiness scoring from Apple Health, sessions that adapt to how you slept, real progression tracking, and personalized daily stretches."
+    ogImage={APP_ICON}
+    twitterCard="summary_large_image"
+    smartAppId="6791800212"
+    datePublished="2026-08-02"
+    mainEntityId={SITE_URL + "/#clock-in-everyday"}
+>
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="text-sm text-gray-400 pt-6">
+        <ol class="flex items-center gap-2">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-gray-300">Clock-In Everyday</li>
+        </ol>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative py-12 sm:py-16">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-orange-400 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-40 h-40 bg-teal-400 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <img
+                src={APP_ICON}
+                alt="Clock-In Everyday app icon"
+                width="180"
+                height="180"
+                class="w-32 h-32 md:w-44 md:h-44 rounded-3xl shadow-2xl flex-shrink-0"
+            />
+            <div class="flex-1 text-center md:text-left">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-orange-400 to-teal-300 bg-clip-text text-transparent">
+                    Clock-In Everyday
+                </h1>
+                <p class="text-xl sm:text-2xl text-orange-300 font-medium mb-4">
+                    Your new full time job is your body.
+                </p>
+                <p class="text-gray-300 max-w-2xl mb-6 text-lg">
+                    A daily AI-coached fitness app built specifically for people over 50 — especially
+                    those heading into retirement. Each session is shaped by how you actually slept,
+                    how you're recovering, your goals, and any aches you're managing, so a rough night
+                    means an easier day and a good one means you can push a little.
+                </p>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick badges -->
+    <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
+        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">iOS native</span>
+        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Health &amp; Fitness</span>
+        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">AI-coached</span>
+        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Apple Health sync</span>
+        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">No account needed</span>
+    </section>
+
+    <!-- What it does -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">What it does</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-orange-300">Iron Will Index</h3>
+                <p class="text-gray-300">A morning readiness score built from your own sleep, heart rate, and heart rate variability — not a fixed number for everyone. Plain-language, so you know exactly why today looks the way it does.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-orange-300">A session built fresh, every day</h3>
+                <p class="text-gray-300">No rigid program to fight against. Your workout is shaped by how you slept, your recovery, your goals, and any injuries — so it actually adapts to your life instead of ignoring it.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-orange-300">Real progression, not guesswork</h3>
+                <p class="text-gray-300">Clock-In remembers your working weights and reps and adjusts them based on what you actually did last time — sets, reps, and how it felt — so the app gets to know you the longer you use it.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-orange-300">Daily stretches that make sense for you</h3>
+                <p class="text-gray-300">Picked from your specific aches and how today's going, not the same generic routine every day — with a clear note on why each one was chosen.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-orange-300">Training toward something?</h3>
+                <p class="text-gray-300">Add an upcoming hike, ride, or event, and your sessions build toward it — sharpening as the date gets closer, then tapering automatically in the final days so you arrive fresh.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-orange-300">Gladiator Gauge</h3>
+                <p class="text-gray-300">Tracks the workouts, steps, stretches, and wellness habits you actually put in day to day — a simple, honest read on effort and consistency, not just streak-shaming.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-orange-300">Simple supplement guidance</h3>
+                <p class="text-gray-300">General, evidence-informed suggestions tailored to your goals and notes — never a substitute for medical advice, always with a reminder to check with your doctor.</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-orange-300">Built for the next chapter</h3>
+                <p class="text-gray-300">Retirement isn't the end of your career — it's a promotion to the most important job you'll ever have: taking care of yourself. Clock-In helps you show up for that job, every single day.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- See it in action -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-3 text-center md:text-left">See it in action</h2>
+        <p class="text-gray-400 mb-8 text-center md:text-left text-sm">Real screens from the App Store.</p>
+
+        <div class="flex snap-x snap-mandatory overflow-x-auto gap-4 -mx-6 px-6 pb-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible lg:grid-cols-4">
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/clock-in-everyday/dashboard.webp" type="image/webp" /><img
+                    src="/images/screenshots/clock-in-everyday/dashboard.jpg"
+                    alt="Clock-In Everyday dashboard — Iron Will Index readiness score of 50 (Steady), Gladiator Gauge at 0 (Just getting started), step count, this week's meditation and workout progress, and this week's sleep"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-orange-300 font-semibold text-sm">Daily readiness</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Iron Will Index, Gladiator Gauge, steps, and this week's workouts and sleep in one view.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/clock-in-everyday/workout.webp" type="image/webp" /><img
+                    src="/images/screenshots/clock-in-everyday/workout.jpg"
+                    alt="Clock-In Everyday Workout tab — Pull, Legs & Core session with a plain-language AI coach note explaining today's plan, followed by warm-up exercises like cat-cow and arm circles with set and rep counts"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-orange-300 font-semibold text-sm">AI-coached session</figcaption>
+                <p class="text-xs text-gray-400 mt-1">A plain-language note explaining today's plan, then the exercises themselves.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/clock-in-everyday/progress.webp" type="image/webp" /><img
+                    src="/images/screenshots/clock-in-everyday/progress.jpg"
+                    alt="Clock-In Everyday Progress tab — 1 day streak, 1 this week, 3 all-time, progression on plank hold, goblet squats, and dumbbell rows, and a list of recent in-app sessions"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-orange-300 font-semibold text-sm">Real progression</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Streaks, per-exercise progress, and every session you've logged.</p>
+            </figure>
+            <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
+                <picture><source srcset="/images/screenshots/clock-in-everyday/supplements.webp" type="image/webp" /><img
+                    src="/images/screenshots/clock-in-everyday/supplements.jpg"
+                    alt="Clock-In Everyday Supplements tab — a not-medical-advice disclaimer followed by general suggestions for protein, Vitamin D3, Omega-3, magnesium, and creatine monohydrate, each with dosage and a personal note"
+                    width="800"
+                    height="1738"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                /></picture>
+                <figcaption class="mt-3 text-orange-300 font-semibold text-sm">Supplement guidance</figcaption>
+                <p class="text-xs text-gray-400 mt-1">Evidence-informed suggestions tailored to your goals — never medical advice.</p>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Built for -->
+    <section class="mb-16 bg-gradient-to-br from-orange-500/10 to-teal-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-10 border border-orange-400/20">
+        <h2 class="text-3xl font-bold mb-6 text-center">Built for the next chapter</h2>
+        <p class="text-gray-300 text-lg max-w-3xl mx-auto text-center mb-6">
+            There are plenty of workout apps built for 25-year-olds chasing personal records. Clock-In
+            Everyday is different — built for the aches, priorities, and pace of a different stage of life.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+            <div class="text-center"><div class="text-orange-300 font-semibold">Ages 50+</div></div>
+            <div class="text-center"><div class="text-orange-300 font-semibold">Retirees</div></div>
+            <div class="text-center"><div class="text-orange-300 font-semibold">Weekend hikers &amp; riders</div></div>
+            <div class="text-center"><div class="text-orange-300 font-semibold">Anyone rebuilding a routine</div></div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center md:text-left">Frequently asked questions</h2>
+        <div class="space-y-3">
+            {
+                faqs.map(({ q, a }) => (
+                    <details class="bg-white/5 rounded-xl p-5 group hover:bg-white/10 transition-all">
+                        <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-lg">
+                            <span>{q}</span>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <p class="mt-3 text-gray-300" set:html={a} />
+                    </details>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="text-center mb-16 bg-gradient-to-br from-orange-500/15 to-teal-500/15 rounded-3xl p-8 md:p-12 border border-orange-400/20">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get Clock-In Everyday</h2>
+        <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+            Free download on the App Store. {trialSentence('clock-in-everyday')}
+        </p>
+        <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+        <p class="mt-6 text-sm text-gray-400">
+            Or browse <a href="/" class="text-orange-300 hover:text-orange-200 underline">all Artificial Igknorance apps</a>.
+        </p>
+    </section>
+</Layout>
