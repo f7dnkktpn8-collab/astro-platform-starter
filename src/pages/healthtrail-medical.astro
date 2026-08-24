@@ -12,7 +12,7 @@ const faqs = [
     },
     {
         q: 'Is my health data really private?',
-        a: 'Yes. Every record stays on your iPhone. There is no cloud sync, no analytics SDK, no third-party tracker, and no account that ties your medical history to a server. The app is on-device by design — your data leaves your phone only if you explicitly export or share it.'
+        a: 'Your records are stored on your iPhone, not in a cloud account we control, and they are never sold or shared for advertising. There is no analytics SDK, no third-party tracker, and no account tying your medical history to a server. The one exception is the optional AI scan: when you choose to photograph a document, insurance card, or pill bottle, that single image is sent to our AI provider to read it, and it is not stored by them for training. Everything else stays on your device, and you control your own backups and exports.'
     },
     {
         q: 'Can I track my whole family in one app?',
@@ -24,7 +24,7 @@ const faqs = [
     },
     {
         q: 'How does the AI medication scanning work?',
-        a: 'Point your iPhone camera at a pill bottle. HealthTrail uses on-device intelligence to read the medication name, dosage, prescriber, and refill date, then files the record under the right profile. You can edit anything before saving.'
+        a: 'Point your iPhone camera at a pill bottle. HealthTrail sends that one photo to our AI provider, which reads the medication name, dosage, prescriber, and refill date, and the record is filed under the right profile. The image is not kept for training. You can edit every field before saving, and scanning is always optional.'
     },
     {
         q: 'What does the timeline actually track?',
@@ -64,7 +64,7 @@ const pageStructuredData = {
 
 <Layout
     title="HealthTrail Medical — iOS App for Family Health Records"
-    description="Track your family's complete medical history on iPhone — medications, vaccines, lab results, insurance cards. AI scanning, family profiles, visual timeline. 100% on-device, no account."
+    description="Track your family's complete medical history on iPhone — medications, vaccines, lab results, insurance cards. AI scanning, family profiles, visual timeline. Records stored on your device, no account."
     ogImage={APP_ICON}
     twitterCard="summary_large_image"
     smartAppId="6758072258"
@@ -97,8 +97,8 @@ const pageStructuredData = {
                 </h1>
                 <p class="text-xl sm:text-2xl text-emerald-300 font-medium mb-4">Your family's digital medical memory.</p>
                 <p class="text-gray-300 max-w-2xl mb-6 text-lg">
-                    Track every medication, vaccine, appointment, and lab result for your entire family — on your iPhone,
-                    with zero cloud accounts and zero data leaving the device.
+                    Track every medication, vaccine, appointment, and lab result for your entire family, on your iPhone,
+                    with no cloud account and your records stored on your device.
                 </p>
                 <div class="flex flex-wrap gap-3 justify-center md:justify-start">
                     <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
@@ -113,7 +113,7 @@ const pageStructuredData = {
         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">Family profiles</span>
         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">AI medication scan</span>
         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">Vaccine tracking</span>
-        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">100% on-device</span>
+        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">Stored on your device</span>
         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">Zero account</span>
     </section>
 
@@ -127,7 +127,7 @@ const pageStructuredData = {
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-emerald-300">AI medication scanning</h3>
-                <p class="text-gray-300">Point your iPhone at a pill bottle. The app reads the name, dosage, prescriber, and refill date and files it under the right profile.</p>
+                <p class="text-gray-300">Point your iPhone at a pill bottle. The photo goes to our AI provider to read the name, dosage, prescriber, and refill date, then the record files itself under the right profile. Optional, and the image is not kept for training.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-emerald-300">Vaccine tracking</h3>
