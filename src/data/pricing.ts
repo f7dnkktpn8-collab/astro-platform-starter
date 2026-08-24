@@ -34,7 +34,7 @@ export const PRICING: Record<string, AppPricing> = {
         yearly: null,
         trialDays: 30,
         trialScope: null,
-        trialText: 'Pro includes a 30-day free trial — no credit card required.'
+        trialText: 'Pro includes a one-month free trial.'
     },
     'clock-in-everyday': { monthly: '$1.99', yearly: '$9.99', trialDays: 7, trialScope: 'both' }
 };
