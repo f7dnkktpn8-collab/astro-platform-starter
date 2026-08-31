@@ -97,7 +97,7 @@ const structuredData = {
             "url": SITE_URL,
             "logo": {
                 "@type": "ImageObject",
-                "url": SITE_URL + "/images/robot-mascot-transparent.png"
+                "url": SITE_URL + "/images/hero-ai-handshake.png"
             },
             "founder": { "@id": SITE_URL + "/#mike-dangerfield" },
             "sameAs": [
@@ -398,8 +398,8 @@ const structuredData = {
         <!-- Mobile browser chrome — matches site background -->
         <meta name="theme-color" content="#355c7d" />
         <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin />
-        <!-- Preload the hero mascot: it's the largest above-the-fold image, so this lifts LCP / page-speed score -->
-        <link rel="preload" as="image" href="/images/robot-mascot-transparent.png" />
+        <!-- Preload the homepage hero image: it's the largest above-the-fold image there, so this lifts LCP / page-speed score -->
+        <link rel="preload" as="image" href="/images/hero-ai-handshake.png" />
 
         <!-- Structured data: Organization + WebSite + every iOS app, with Escalator Field Command first/most detailed -->
         <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
