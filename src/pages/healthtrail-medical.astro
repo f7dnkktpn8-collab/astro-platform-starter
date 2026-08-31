@@ -8,11 +8,11 @@ const APP_ICON = '/images/healthtrail-medical-icon.webp';
 const faqs = [
     {
         q: 'What is HealthTrail Medical?',
-        a: 'HealthTrail Medical is a native iPhone app that gives your family a single visual timeline of every medical event, medication, vaccine, lab result, and insurance card. Think of it as a shared digital "medical memory" — for you, your kids, your spouse, or your aging parents — that lives entirely on your device.'
+        a: 'HealthTrail Medical is a native iPhone app that gives your family a single visual timeline of every medical event, medication, vaccine, lab result, and insurance card. Think of it as a shared digital "medical memory" — for you, your kids, your spouse, or your aging parents — that lives on your device.'
     },
     {
         q: 'Is my health data really private?',
-        a: 'Yes. Every record stays on your iPhone. There is no cloud sync, no analytics SDK, no third-party tracker, and no account that ties your medical history to a server. The app is on-device by design — your data leaves your phone only if you explicitly export or share it.'
+        a: 'Your records are stored on your iPhone, not in a cloud account we control, and they are never sold or shared for advertising. There is no analytics SDK, no third-party tracker, and no signup that ties your medical history to a server. The one exception is scanning. If you choose to photograph a document, card, or label, that image is sent to our AI provider to read it, and it is not kept by them for training. Everything else stays on your phone, and you control your own backups and exports.'
     },
     {
         q: 'Can I track my whole family in one app?',
@@ -24,7 +24,7 @@ const faqs = [
     },
     {
         q: 'How does the AI medication scanning work?',
-        a: 'Point your iPhone camera at a pill bottle. HealthTrail uses on-device intelligence to read the medication name, dosage, prescriber, and refill date, then files the record under the right profile. You can edit anything before saving.'
+        a: 'Point your iPhone camera at a pill bottle and HealthTrail reads the medication name, dosage, prescriber, and refill date, then files the record under the right profile. You can edit anything before saving. Scanning is the one part of the app that goes online: the photo is sent to our AI provider to be read, and is not kept by them for training. It is optional, so you can always type a record in by hand instead.'
     },
     {
         q: 'What does the timeline actually track?',
@@ -64,7 +64,7 @@ const pageStructuredData = {
 
 <Layout
     title="HealthTrail Medical — iOS App for Family Health Records"
-    description="Track your family's complete medical history on iPhone — medications, vaccines, lab results, insurance cards. AI scanning, family profiles, visual timeline. 100% on-device, no account."
+    description="Track your family's complete medical history on iPhone — medications, vaccines, lab results, insurance cards. AI scanning, family profiles, visual timeline. Records stay on your device, no account."
     ogImage={APP_ICON}
     twitterCard="summary_large_image"
     smartAppId="6758072258"
@@ -98,7 +98,7 @@ const pageStructuredData = {
                 <p class="text-xl sm:text-2xl text-emerald-300 font-medium mb-4">Your family's digital medical memory.</p>
                 <p class="text-gray-300 max-w-2xl mb-6 text-lg">
                     Track every medication, vaccine, appointment, and lab result for your entire family — on your iPhone,
-                    with zero cloud accounts and zero data leaving the device.
+                    with zero cloud accounts and your records kept on the device.
                 </p>
                 <div class="flex flex-wrap gap-3 justify-center md:justify-start">
                     <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
@@ -113,7 +113,7 @@ const pageStructuredData = {
         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">Family profiles</span>
         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">AI medication scan</span>
         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">Vaccine tracking</span>
-        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">100% on-device</span>
+        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">Records stay on device</span>
         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">Zero account</span>
     </section>
 
@@ -127,7 +127,7 @@ const pageStructuredData = {
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-emerald-300">AI medication scanning</h3>
-                <p class="text-gray-300">Point your iPhone at a pill bottle. The app reads the name, dosage, prescriber, and refill date and files it under the right profile.</p>
+                <p class="text-gray-300">Point your iPhone at a pill bottle. The app reads the name, dosage, prescriber, and refill date and files it under the right profile. Scanning sends that one photo out to be read; everything else stays on your phone.</p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
                 <h3 class="text-xl font-bold mb-2 text-emerald-300">Vaccine tracking</h3>
@@ -205,7 +205,7 @@ const pageStructuredData = {
                     class="w-full rounded-2xl shadow-xl border border-white/10"
                 /></picture>
                 <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">100% private &amp; secure</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Prescriber, pharmacy, directions, warnings — all in one record, all on-device.</p>
+                <p class="text-xs text-gray-400 mt-1">Prescriber, pharmacy, directions, warnings — all in one record, kept on your phone.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/healthtrail/metrics.webp" type="image/webp" /><img
@@ -231,7 +231,7 @@ const pageStructuredData = {
                     class="w-full rounded-2xl shadow-xl border border-white/10"
                 /></picture>
                 <figcaption class="mt-3 text-emerald-300 font-semibold text-sm">Insurance cards, scan to auto-fill</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Snap a card and the data extracts itself — health number, name, expiry, all kept on-device.</p>
+                <p class="text-xs text-gray-400 mt-1">Snap a card and the data extracts itself: health number, name, expiry. The record is saved on your phone.</p>
             </figure>
         </div>
     </section>
@@ -241,7 +241,7 @@ const pageStructuredData = {
         <h2 class="text-3xl font-bold mb-6 text-center">Built for real families</h2>
         <p class="text-gray-300 text-lg max-w-3xl mx-auto text-center mb-6">
             Medical history is scattered across portals, paper files, and aging memories. HealthTrail puts it all in one
-            place — without giving any of it to a third party.
+            place, without handing your history to a data broker.
         </p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
             <div class="text-center"><div class="text-emerald-300 font-semibold">Parents</div></div>
@@ -259,7 +259,7 @@ const pageStructuredData = {
                 <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-300 font-bold">1</div>
                 <div>
                     <h3 class="font-semibold text-lg mb-1">Your records, your phone</h3>
-                    <p class="text-gray-300">Every record is stored locally. There is no cloud, no account, no data broker. Your medical history is yours.</p>
+                    <p class="text-gray-300">Every record is stored on your phone. There is no cloud account, and nothing is sold or shared for advertising. You control your own backups and exports. Your medical history is yours.</p>
                 </div>
             </div>
             <div class="flex gap-4">
