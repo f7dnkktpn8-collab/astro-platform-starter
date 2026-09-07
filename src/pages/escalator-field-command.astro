@@ -40,6 +40,10 @@ const faqs = [
         a: 'The State of the Union is a route-wide PDF snapshot showing where every unit on your route currently stands. It is one of the polished PDF reports the app generates, ready to share with a supervisor, a building owner, or an inspector in seconds. The dashboard also lists your upcoming service jobs, so bigger work is visible well before it lands on you, and you can check each one off once it is done.'
     },
     {
+        q: 'Can the app remind me about recurring work like safety meetings or recertifications?',
+        a: 'Yes. Set up the jobs that come round on a cycle once, whether that is a weekly safety meeting, a monthly report, or an annual recertification, and anything due today is waiting across the top of your dashboard when you open the app. Units already on a maintenance schedule are added for you, so the recurring side of your route builds itself.'
+    },
+    {
         q: 'Can I build my own reports?',
         a: 'Yes. When you need something the built-in reports do not already cover, you can write your own report for a building, pick the units it covers, and attach photos. It comes out as the same polished PDF, ready to send.'
     },
@@ -161,6 +165,7 @@ const pageStructuredData = {
         <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">SSPI compliance</span>
         <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">PDF reports</span>
         <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Custom reports</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Recurring tasks</span>
         <span class="px-3 py-1 bg-cyan-500/20 text-cyan-200 rounded-full text-sm">Field Guide</span>
     </section>
 
@@ -280,6 +285,15 @@ const pageStructuredData = {
                     reports, including the State of the Union, a route-wide snapshot of where every
                     unit stands. Need something the app doesn't already cover? Write your own report
                     for a building, pick the units it covers, and attach photos.
+                </p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                <h3 class="text-xl font-bold mb-2 text-blue-300">Recurring tasks</h3>
+                <p class="text-gray-300">
+                    Some jobs come round again on a fixed cycle. A safety meeting, a monthly report,
+                    an annual recertification. Set each one up once and whatever falls on today is
+                    waiting across the top of your dashboard the moment you open the app. Units
+                    already on a maintenance schedule get added for you.
                 </p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
