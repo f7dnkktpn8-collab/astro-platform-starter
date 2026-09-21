@@ -13,15 +13,15 @@ const faqs = [
     },
     {
         q: 'What is the Escalator Field Guide?',
-        a: 'The Field Guide is a searchable, plain-language companion to the escalator and moving walk safety codes, built into the app. Ask a question the way you would ask a senior mechanic and get a clear, sourced answer in seconds — complete with the exact code section it came from, drawn from ASME A17.1, A17.2, CSA B44, and the MCP. You can also jump to any rule by its code number, open linked references between sections without leaving the app, and bookmark and highlight the requirements you rely on most. The Field Guide is part of Pro, the optional in-app subscription.'
+        a: 'The Field Guide is a searchable, plain-language companion to the escalator and moving walk safety codes, built into the app. Ask a question the way you would ask a senior mechanic, typed or spoken, and get a clear, sourced answer in seconds — complete with the exact code section it came from, drawn from ASME A17.1, A17.2, CSA B44, and the MCP. You can also jump to any rule by its code number, open linked references between sections without leaving the app, and bookmark and highlight the requirements you rely on most. The Field Guide is part of Pro, the optional in-app subscription.'
     },
     {
         q: 'Does it work without an internet connection?',
-        a: 'Yes. The app is fully offline-first. Everything works in elevator pits, mechanical rooms, basements, and any other low-signal environment where escalator work actually happens. Your data lives on the device, with automatic daily backups.'
+        a: 'Yes. The app is fully offline-first. Everything works in elevator pits, mechanical rooms, basements, and any other low-signal environment where escalator work actually happens. Your data lives on the device, with automatic daily backups, and one export file carries your records, photos and manuals to a new phone or a coworker.'
     },
     {
         q: 'Do I need to create an account?',
-        a: 'No. Zero credentials, zero signups, zero cloud accounts. Open the app and start working. Your data never leaves your iPhone unless you choose to back it up or export it yourself.'
+        a: 'No. Zero credentials, zero signups, zero cloud accounts. Open the app and start working. Your data never leaves your iPhone or iPad unless you choose to back it up or export it yourself.'
     },
     {
         q: 'Is my data private?',
@@ -164,6 +164,7 @@ const pageStructuredData = {
     <!-- Quick badges -->
     <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
         <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">iOS native</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">iPhone &amp; iPad</span>
         <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Offline-first</span>
         <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Zero account</span>
         <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">100% on-device</span>
@@ -205,13 +206,13 @@ const pageStructuredData = {
             <span class="inline-block mb-3 px-3 py-1 bg-amber-400/20 text-amber-200 rounded-full text-xs font-semibold uppercase tracking-wide">Pro feature</span>
             <p class="text-gray-200 max-w-2xl">
                 A searchable, plain-language companion to the escalator and moving walk safety codes,
-                built right into the app. Ask it the way you'd ask a senior mechanic and get a clear,
-                sourced answer in seconds — no flipping through binders on the job.
+                built right into the app. Ask it the way you'd ask a senior mechanic, typed or spoken,
+                and get a clear, sourced answer in seconds — no flipping through binders on the job.
             </p>
             <ul class="mt-4 space-y-2 max-w-2xl">
                 <li class="flex items-start gap-2 text-gray-200">
                     <svg class="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                    <span>Ask in plain language — and get a clear answer with the exact code section it came from.</span>
+                    <span>Ask in plain language, typed or spoken, and get a clear answer with the exact code section it came from.</span>
                 </li>
                 <li class="flex items-start gap-2 text-gray-200">
                     <svg class="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -338,10 +339,11 @@ const pageStructuredData = {
                 </p>
             </div>
             <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-blue-300">Daily backups</h3>
+                <h3 class="text-xl font-bold mb-2 text-blue-300">Daily backups &amp; one-file export</h3>
                 <p class="text-gray-300">
                     Automatic daily backups so a lost or replaced phone never means lost records.
-                    Your data stays yours.
+                    One export file carries your records, photos and manuals to a new phone or a
+                    coworker. Your data stays yours.
                 </p>
             </div>
         </div>
@@ -541,7 +543,7 @@ const pageStructuredData = {
     <section class="text-center mb-16 bg-gradient-to-br from-blue-500/15 to-cyan-500/15 rounded-3xl p-8 md:p-12 border border-blue-400/20">
         <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get Escalator Field Command</h2>
         <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Free download on the App Store. Built for iPhone, designed for the field.
+            Free download on the App Store. Built for iPhone and iPad, designed for the field.
         </p>
         <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
         <p class="mt-6 text-sm text-gray-400">
