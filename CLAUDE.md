@@ -207,7 +207,14 @@ adjust it again.
 
 **Uncommitted work queued for next ship:** none — working tree is clean.
 
-**Waiting on Mike / open decisions:** none.
+**Waiting on Mike / open decisions:**
+- **Lifetime Access plan (flagged by the 2026-09-28 weekly sync).** The
+  App Store text for Gold, Silver and Lithium Watcher now says "Monthly,
+  yearly, and one-time Lifetime Access plans available." The site's
+  Premium FAQs and `src/data/pricing.ts` only know about monthly/yearly.
+  The sync left this alone on purpose (a new plan type needs Mike's OK,
+  and a price). Once he confirms the lifetime price, add a `lifetime`
+  field to `pricing.ts` and mention it in those three FAQs.
 
 **Parked for later:**
 - **App Store affiliate enrollment** — not enrolled; small per-install
