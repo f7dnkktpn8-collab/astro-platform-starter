@@ -172,7 +172,7 @@ base URL to fetch at full resolution. The iTunes Search API's
 Last updated: 2026-09-01 — Redesigned the homepage hero (typography-led,
 small logo lockup, single CTA) and iterated it live per Mike's feedback
 over several rounds; added Clock-In Everyday as the 9th app; finished
-the Escalift -> Counterweight Dispatch rebrand; shipped a new SEO
+the rename to Counterweight Dispatch; shipped a new SEO
 landing page. All pushed to `main` and deployed.
 
 **Current focus:** No active work in flight. The homepage hero redesign
@@ -196,7 +196,7 @@ adjust it again.
   new "Health & Fitness" section, matching the Financial pattern.
 - `34e1e61` — added Clock-In Everyday (app id `6791800212`) as the 9th
   app: dedicated page, homepage card, pricing.ts entry, JSON-LD.
-- `e0ab295`, `329e550`, `c35fb48` — Escalift -> Counterweight Dispatch
+- `e0ab295`, `329e550`, `c35fb48` — rename to Counterweight Dispatch
   rebrand (new domains/links), logo fix (was showing a mislabeled
   escalator-steps icon instead of the real "C" mark), then collapsed
   the Projects nav from two links to one ("Counterweight Dispatch").
@@ -241,7 +241,7 @@ adjust it again.
    Worker -> Claude backend. Corrected the site's blanket "100%
    on-device" claims (About page, Organization JSON-LD description) to
    carry an honest named exception instead of overclaiming.
-3. **Escalift -> Counterweight Dispatch rebrand complete.** Two
+3. **Rename to Counterweight Dispatch complete.** Two
    properties (Forum + Newsletter) now live under one umbrella domain;
    the site's "Projects" nav (footer + header) shows a single
    "Counterweight Dispatch" link, while About/EFC pages keep the
