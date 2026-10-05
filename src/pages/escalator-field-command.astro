@@ -17,7 +17,7 @@ const faqs = [
     },
     {
         q: 'Does it work without an internet connection?',
-        a: 'Yes. The app is fully offline-first. Everything works in elevator pits, mechanical rooms, basements, and any other low-signal environment where escalator work actually happens. Your data lives on the device, with automatic daily backups, and one export file carries your records, photos and manuals to a new phone or a coworker.'
+        a: 'Yes. The app is fully offline-first. Everything works in elevator pits, mechanical rooms, basements, and any other low-signal environment where escalator work actually happens. Your data lives on the device, with automatic daily backups, optional iCloud Backup to your own iCloud Drive (off unless you turn it on), and one export file carries your records, photos and manuals to a new phone or a coworker.'
     },
     {
         q: 'Do I need to create an account?',
@@ -61,7 +61,7 @@ const faqs = [
     },
     {
         q: 'How much does it cost?',
-        a: `Escalator Field Command is free to download. The Field Guide is a Pro feature, unlocked with an optional in-app subscription. ${trialSentence('escalator-field-command')} See the App Store listing for current Pro pricing.`
+        a: `Escalator Field Command is free to download, and the free version keeps up to three of your own escalators. The Field Guide is a Pro feature, unlocked with an optional in-app subscription. ${trialSentence('escalator-field-command')} See the App Store listing for current Pro pricing.`
     }
 ];
 
@@ -344,6 +344,8 @@ const pageStructuredData = {
                 <h3 class="text-xl font-bold mb-2 text-blue-300">Daily backups &amp; one-file export</h3>
                 <p class="text-gray-300">
                     Automatic daily backups so a lost or replaced phone never means lost records.
+                    Want a copy off the phone? Optional iCloud Backup saves one a day to your own
+                    iCloud Drive. It stays off unless you turn it on.
                     One export file carries your records, photos and manuals to a new phone or a
                     coworker. Your data stays yours.
                 </p>
