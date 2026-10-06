@@ -5,7 +5,7 @@ const DEVELOPER = "Artificial Igknorance";
 const CONTACT_EMAIL = "info@artificialigknorance.com";
 ---
 
-<Layout title="Privacy Policy — Artificial Igknorance">
+<Layout title="Privacy Policy | Artificial Igknorance">
   <div class="max-w-3xl mx-auto py-12 px-4">
 
     <!-- Back link -->
@@ -29,8 +29,8 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
         <h2 class="text-xl font-bold text-ink mb-3">Our Privacy Commitment</h2>
         <p class="text-body leading-relaxed">
           All apps published by {DEVELOPER} are built with a privacy-first philosophy. We do not collect,
-          store, or share your personal data. All information you enter into our apps — including your
-          portfolio holdings, price alerts, health records, and settings — is stored exclusively on your
+          store, or share your personal data. All information you enter into our apps (including your
+          portfolio holdings, price alerts, health records, and settings) is stored exclusively on your
           device and never transmitted to our servers, with one exception: apps that include an AI
           coaching or assistant feature send the relevant context to a third-party AI provider solely to
           generate your personalized response, as described in Section 4 below.
@@ -49,7 +49,7 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
         <ul class="list-disc list-inside text-body space-y-2 mt-3 ml-4">
           <li>Market data (commodity prices, financial data) fetched from third-party APIs. These requests do not include any personal information.</li>
           <li>Anonymous crash and diagnostic data collected by Apple through standard iOS mechanisms if you have opted in to share analytics with app developers in your iOS Settings.</li>
-          <li>For apps with an AI coaching feature, the context needed to generate your personalized plan — see Section 4.</li>
+          <li>For apps with an AI coaching feature, the context needed to generate your personalized plan (see Section 4).</li>
         </ul>
       </section>
 
@@ -79,14 +79,14 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
         <h2 class="text-xl font-bold text-ink mb-3">4. AI Coaching Features</h2>
         <p class="text-body leading-relaxed">
           Some of our apps (for example, Clock-In Everyday) include an AI-powered coaching feature. When you
-          use it, relevant context needed to generate your personalized plan — such as your stated goals,
+          use it, relevant context needed to generate your personalized plan, such as your stated goals,
           equipment, injuries, freeform notes, recent workout history, and Apple Health-derived readiness
-          metrics (e.g. sleep, heart rate, heart rate variability) — is sent from your device to our
+          metrics (e.g. sleep, heart rate, heart rate variability), is sent from your device to our
           Cloudflare Worker, which forwards it to Anthropic's Claude API to generate a response.
         </p>
         <p class="text-body leading-relaxed mt-3">
           This data is not tied to an account or any other identifying information, and our Worker does not
-          store it — it is passed through solely to generate your plan and is not retained by us afterward.
+          store it. It is passed through solely to generate your plan and is not retained by us afterward.
           Anthropic's handling of this data is governed by
           <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer"
             class="text-accent hover:text-accent-deep underline">Anthropic's Privacy Policy</a>.
@@ -100,11 +100,11 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
           Our apps may use the following third-party services depending on the app:
         </p>
         <ul class="list-disc list-inside text-body space-y-2 mt-3 ml-4">
-          <li><strong class="text-ink">Gold-API.com</strong> — for live precious metal spot price data. Requests are made with an API key; no personal data is transmitted.</li>
-          <li><strong class="text-ink">Yahoo Finance (public API)</strong> — for historical price and financial data. Standard HTTP requests are made; no personal data is transmitted.</li>
-          <li><strong class="text-ink">RevenueCat</strong> — for subscription management where applicable. See Section 3 above.</li>
-          <li><strong class="text-ink">Anthropic (Claude)</strong> — for AI coaching features where applicable. See Section 4 above.</li>
-          <li><strong class="text-ink">Apple Push Notification Service</strong> — for local notifications. Notifications are scheduled locally on your device and do not pass through our servers.</li>
+          <li><strong class="text-ink">Gold-API.com</strong>: for live precious metal spot price data. Requests are made with an API key; no personal data is transmitted.</li>
+          <li><strong class="text-ink">Yahoo Finance (public API)</strong>: for historical price and financial data. Standard HTTP requests are made; no personal data is transmitted.</li>
+          <li><strong class="text-ink">RevenueCat</strong>: for subscription management where applicable. See Section 3 above.</li>
+          <li><strong class="text-ink">Anthropic (Claude)</strong>: for AI coaching features where applicable. See Section 4 above.</li>
+          <li><strong class="text-ink">Apple Push Notification Service</strong>: for local notifications. Notifications are scheduled locally on your device and do not pass through our servers.</li>
         </ul>
       </section>
 

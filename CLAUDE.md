@@ -91,6 +91,13 @@ Old anchors still exist: `#apps`, `#industry`, `#health`, `#financial`,
 
 ## Conventions (don't drift from these)
 
+- **No em dashes anywhere on the site, ever** (Mike, 2026-10-05: "no more
+  em dashes ever", "an ugly AI giveaway"). Use a comma, colon, period,
+  parentheses, or " | " in titles. This is enforced: `scripts/check-no-em-dashes.mjs`
+  runs on every build (wired in through `astro.config.mjs`) and fails the
+  build, so nothing with an em dash can deploy. It also catches `&mdash;`
+  and `\u2014`. The weekly App Store sync must rewrite App Store wording
+  that contains one. Run by hand: `node scripts/check-no-em-dashes.mjs`.
 - **No author name and no "one person" framing on the public site** (Mike,
   2026-10-05: "it does more harm than good", "keep my name off the site
   too"). Don't write "one person", "solo", "indie", "independent
@@ -220,9 +227,6 @@ and Netlify auto-deploys. The Daylight redesign was pushed to `main` on
   4-line SnapLedger page change on branch `appstore-sync/2026-10-05`
   instead of publishing it. Needs a look, then merge or discard. It was
   written against the old page markup, so expect to re-apply by hand.
-- **Em dashes still in three files:** `privacy.astro` (12), `terms.astro` (1)
-  and `elevator-code-answers.astro` (8, Mike's own answers). Left alone
-  on purpose; ask before cleaning.
 
 **Parked for later:**
 - **App Store affiliate enrollment**: not enrolled; small per-install
@@ -238,7 +242,8 @@ and Netlify auto-deploys. The Daylight redesign was pushed to `main` on
 1. **Daylight redesign** (Mike picked option A of three mockups): light
    Apple-style look, tokens in `globals.css`, homepage styles in `home.css`.
    Inner pages keep their markup; only class lists changed (plus an
-   em dash clean-up of the wording).
+   em dash clean-up of the wording, including Privacy, Terms and the
+   Elevator Code Answers FAQ, which Mike approved).
 2. **No author name and no "one person" framing on the public site**
    (Mike, 2026-10-05). See the Conventions section.
 3. **Clock-In Everyday is NOT "100% on-device"**: its AI coach sends

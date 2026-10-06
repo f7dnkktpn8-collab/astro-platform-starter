@@ -3,10 +3,11 @@ import netlify from '@astrojs/netlify';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import { noEmDashes } from './scripts/check-no-em-dashes.mjs';
 
 const SITE = 'https://artificialigknorance.com';
 
-// Per-page screenshot inventory — mirrors the MobileApplication JSON-LD in
+// Per-page screenshot inventory that mirrors the MobileApplication JSON-LD in
 // Layout.astro. Used to emit <image:image> entries in the sitemap so Google
 // Image search can surface these screenshots.
 const PAGE_IMAGES = {
@@ -87,6 +88,7 @@ export default defineConfig({
         plugins: [tailwindcss()]
     },
     integrations: [
+        noEmDashes(),
         react(),
         sitemap({
             // Keep only real public pages out of the Netlify starter template demos.

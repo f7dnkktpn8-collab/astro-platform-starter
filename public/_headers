@@ -1,5 +1,5 @@
 # Sane security defaults for every response.
-# CSP intentionally NOT set here — it can break image embeds / future
+# CSP intentionally NOT set here: it can break image embeds / future
 # third-party scripts; revisit when we add a script audit pass.
 
 /*
