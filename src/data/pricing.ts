@@ -1,5 +1,5 @@
 // Source of truth for subscription pricing and free-trial copy across every
-// app page on the site. When Mike changes a price or trial length in App
+// app page on the site. When a price or trial length changes in App
 // Store Connect, update the entry here and every page that imports it picks
 // up the new value on the next build.
 //

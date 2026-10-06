@@ -27,22 +27,35 @@ Live at https://artificialigknorance.com.
   `privacy.astro`, `terms.astro`. The Astro starter demo pages (`blobs/`,
   `edge/`, `image-cdn/`, `revalidation/`, `api/`) are inherited and
   `Disallow`-ed in robots.txt.
-- Site background: `#355c7d` (dark blue, defined as `--color-complementary`).
+- **Look: "Daylight"** (light, Apple-style, redesigned Oct 2026 from the old
+  dark-blue `#355c7d` glass look). Tokens live in the `@theme` block of
+  `src/styles/globals.css`: page `bg-paper` `#fbfbfd`, text `text-ink`
+  `#1d1d1f` / `text-body` / `text-muted`, hairlines `border-line`, accent
+  teal `text-accent` `#0a7c96` (hover `accent-deep`), dark bands
+  `navy` `#0b1f33`. Homepage styles are in `src/styles/home.css`, every
+  rule scoped under `.home` so nothing leaks to other pages. Inner pages
+  keep their original markup and Tailwind classes, re-skinned to the light
+  tokens (white cards with `border-line`, per-app colors darkened to
+  `-700`, gradient headings replaced by `text-ink`). `Layout.astro` takes
+  `contained={false}` for full-bleed pages (only the homepage).
   Always use the **WHITE** Apple App Store badge at
-  `public/images/appstore-badge.svg` — never the black one.
+  `public/images/appstore-badge.svg`, never the plain black one (the
+  "white" badge is black with a white outline, so it reads fine on light
+  and dark backgrounds).
 - **Brand mark:** `public/images/hero-ai-handshake-transparent.png/.webp`
   (human + AI hand shaking, transparent background, cropped from a source
-  image Mike generated and dropped on his Desktop). Used as: the homepage
-  hero logo (small lockup beside the "Artificial Igknorance" wordmark, NOT
-  a large illustration), the Organization JSON-LD `logo` in `Layout.astro`,
-  the homepage LCP `<link rel="preload">`, and the source for
+  image Mike generated and dropped on his Desktop). Used as: the small logo
+  beside the "Artificial Igknorance" wordmark in the header and footer, the
+  logo on the About page and the homepage maker card, the Organization
+  JSON-LD `logo` in `Layout.astro`, and the source for
   `apple-touch-icon.png` / `favicon-32x32.png` / `favicon.ico` (a tighter,
   text-free crop of the same art, composited opaque since favicons don't
-  need transparency). The About page still shows the OLDER
-  `robot-mascot-transparent.png` mascot — that was deliberately left alone
-  when the homepage hero was redesigned (Mike scoped the change to the
-  homepage only). Don't reintroduce a large hero image on the homepage
-  without checking with Mike first — he explicitly downsized it twice.
+  need transparency). The old `robot-mascot-transparent.png` file is still
+  in `public/images` but no longer referenced anywhere. The logo stays
+  SMALL everywhere: the homepage hero is a headline plus a row of real app
+  screenshots in phone frames (its LCP preload is the main phone
+  screenshot). Don't make the logo a big hero image without checking with
+  Mike first, he explicitly downsized it twice.
 
 ## App IDs
 
@@ -66,35 +79,44 @@ catalog changes. There is no standalone "N apps on the App Store" line
 anymore; it was folded into the subheading during the hero redesign
 (see Current Session State).
 
-Homepage app-card grouping convention: apps are either inside a named,
-bordered category section (`<h3>` + subtitle, e.g. "Escalator
-Industry", "Health & Fitness", "Financial" — see `index.astro`) or
-standalone/ungrouped (currently just RidgePacker). A grouped app's own
-heading is `<h4>`, not `<h3>`, since the category owns the `<h3>`.
-When adding a new app, decide whether it joins an existing category,
-starts a new one, or stays standalone — don't leave a category with
-only one remaining app if you move something out of it.
+Homepage layout (Daylight): hero + proof strip, then a dark featured band
+for Escalator Field Command (always first, SEO priority), then "For
+everyday life" (HealthTrail Medical, Clock-In Everyday, RidgePacker,
+SnapLedger as a 2x2 grid of tiles), then "The Watchers" (Gold, Silver,
+Copper, Lithium as a row of four). The tiles are driven by the `everyday`
+and `watchers` arrays at the top of `index.astro`: adding an app means
+adding an entry there (plus its screenshots in `public/images/home/`).
+Old anchors still exist: `#apps`, `#industry`, `#health`, `#financial`,
+`#faq`, `#contact`, and one id per app.
 
 ## Conventions (don't drift from these)
 
+- **No author name and no "one person" framing on the public site** (Mike,
+  2026-10-05: "it does more harm than good", "keep my name off the site
+  too"). Don't write "one person", "solo", "indie", "independent
+  developer", "no growth team/investors", or his name, in page copy,
+  titles, meta descriptions or JSON-LD. Use "Artificial Igknorance" as the
+  maker everywhere. The only place his name survives is inside the App
+  Store developer-page link addresses (`.../developer/mike-dangerfield/...`),
+  which can't be changed.
 - **App Store buttons use Apple's official badge SVG**, never styled
   gradient buttons.
-- **Mobile homepage app cards** use `<details><summary>` accordion with:
-  - icon `w-16 h-16` (Mike wants this size kept)
-  - title `text-sm sm:text-xl font-bold truncate`
-  - flex parent `flex-1 min-w-0 text-left` (needed for truncate)
-  - gap `gap-2 sm:gap-4`
-  - First card (Escalator) auto-expanded with `<details ... open>` so
-    visitors learn the others are tappable.
-- **Mobile-first**: site has a hamburger menu in header (Header.astro,
-  `<details>` pattern, no JS). Footer has 3-column cross-link panel
-  (stacks vertically on mobile). Every page reachable from every page.
+- **Homepage app tiles** show the official App Store badge (`h-10`) plus a
+  "Details" link, same badge as the app pages. Screenshots on the homepage
+  come from `public/images/home/` via `components/Shot.astro` (WebP first,
+  JPG fallback, real width/height).
+- **Header and footer** (`Header.astro`, `Footer.astro`) are shared by every
+  page. The header has an "Apps" dropdown listing all nine apps (hover or
+  keyboard focus) and a hamburger `<details>` panel on mobile, no JS.
+  Every page stays reachable from every page.
 - **All FAQ accordions use the unified pattern**: `<details
-  class="bg-white/5 rounded-xl p-5 group hover:bg-white/10
-  transition-all">` with `<summary class="flex items-center
-  justify-between cursor-pointer list-none font-semibold text-lg">` and
-  a gray chevron (`text-gray-400`). Question span first, chevron at
-  right. Never blue chevrons.
+  class="p-5 transition-all bg-white border border-line rounded-2xl group
+  hover:shadow-md">` with `<summary class="flex items-center
+  justify-between gap-4 cursor-pointer list-none font-semibold text-lg">`,
+  the question span first, and a gray circle chevron at the right:
+  `class="flex-shrink-0 w-8 h-8 p-1.5 transition-transform duration-300
+  rounded-full bg-[#efeff2] text-muted group-open:rotate-180"`.
+  Never blue chevrons.
 - **JSON-LD MobileApplication entries** live in `Layout.astro`
   `@graph` — one per app, each with its own `screenshot` array.
 - **Subscription pricing + free-trial copy lives in `src/data/pricing.ts`** —
@@ -152,6 +174,11 @@ base URL to fetch at full resolution. The iTunes Search API's
 - **Never push without explicit "ship it" from Mike** — EXCEPT the
   automated weekly App Store sync below, which has its own standing
   authorization to push straight to `main`.
+- **Never leave unfinished work in this main folder.** The weekly sync
+  runs `git add -A` and pushes to `main`, so anything uncommitted here
+  would go live by accident. Do big or risky work in a separate git
+  worktree (`git worktree add ../artificialigknorance-website-<name> -b
+  <branch> main`) and merge only on "ship it".
 - **Weekly App Store description sync (automated).** `scripts/appstore/check.mjs`
   compares each app's live App Store description against a saved
   snapshot (`scripts/appstore/descriptions.json`) and reports what
@@ -169,89 +196,59 @@ base URL to fetch at full resolution. The iTunes Search API's
 
 ## Current Session State
 
-Last updated: 2026-09-01 — Redesigned the homepage hero (typography-led,
-small logo lockup, single CTA) and iterated it live per Mike's feedback
-over several rounds; added Clock-In Everyday as the 9th app; finished
-the rename to Counterweight Dispatch; shipped a new SEO
-landing page. All pushed to `main` and deployed.
+Last updated: 2026-10-05: Shipped the "Daylight" redesign of the whole site
+(new light look, new homepage, header with Apps dropdown, footer, every inner
+page re-skinned), a new link-preview picture, and removed the author name
+and every "one person / indie" claim from the public site.
 
-**Current focus:** No active work in flight. The homepage hero redesign
-looks settled (Mike stopped requesting changes after the last icon-size
-bump), but it was an explicitly subjective "try something new, I may
-revert" request — don't be surprised if a future session gets asked to
-adjust it again.
+**Current focus:** No active work in flight.
 
-**Last shipped:** website is a static site — "shipped" = pushed to
-`main`, Netlify auto-deploys. `main` is in sync with origin at
-`435969f` ("Size up the hero icon another 5%"). Working tree is clean
-(verified via `git status`). Recent commits, newest first:
-- `435969f`, `a86bf1c`, `38c0bd1`, `042a976`, `9320cc7`, `e29c856` —
-  the homepage hero redesign, in order: swap in the new handshake logo
-  as hero image + favicon -> make it transparent instead of a boxed
-  card -> full typography-led redesign (logo lockup, one-sentence
-  subhead, single CTA button, trust-badge row) -> drop the trust row
-  entirely -> drop the redundant "What We've Built" heading -> icon
-  sized up twice (+10%, +5%) after Mike said it read too small live.
-- `8644de8` — grouped HealthTrail Medical + Clock-In Everyday under a
-  new "Health & Fitness" section, matching the Financial pattern.
-- `34e1e61` — added Clock-In Everyday (app id `6791800212`) as the 9th
-  app: dedicated page, homepage card, pricing.ts entry, JSON-LD.
-- `e0ab295`, `329e550`, `c35fb48` — rename to Counterweight Dispatch
-  rebrand (new domains/links), logo fix (was showing a mislabeled
-  escalator-steps icon instead of the real "C" mark), then collapsed
-  the Projects nav from two links to one ("Counterweight Dispatch").
-- `b777b00` — new SEO page `/elevator-code-answers/` (Mike-approved
-  exception to the Escalator-led SEO rule).
-- `7d5ba77` — privacy policy updated to disclose Clock-In's AI-coaching
-  data flow (not by this session, but relevant — see App IDs section).
+**Last shipped:** website is a static site, so "shipped" = pushed to `main`
+and Netlify auto-deploys. The Daylight redesign was pushed to `main` on
+2026-10-05 (see `git log` for the commit). Working tree clean at the time.
 
-**Uncommitted work queued for next ship:** none — working tree is clean.
+**Uncommitted work queued for next ship:** none.
 
 **Waiting on Mike / open decisions:**
 - **Lifetime Access plan (flagged by the 2026-09-28 weekly sync).** The
   App Store text for Gold, Silver and Lithium Watcher now says "Monthly,
   yearly, and one-time Lifetime Access plans available." The site's
   Premium FAQs and `src/data/pricing.ts` only know about monthly/yearly.
-  The sync left this alone on purpose (a new plan type needs Mike's OK,
-  and a price). Once he confirms the lifetime price, add a `lifetime`
-  field to `pricing.ts` and mention it in those three FAQs.
+  Once he confirms the lifetime price, add a `lifetime` field to
+  `pricing.ts` and mention it in those three FAQs.
+- **SnapLedger wording held for review.** The 2026-10-05 weekly sync left a
+  4-line SnapLedger page change on branch `appstore-sync/2026-10-05`
+  instead of publishing it. Needs a look, then merge or discard. It was
+  written against the old page markup, so expect to re-apply by hand.
+- **Em dashes still in three files:** `privacy.astro` (12), `terms.astro` (1)
+  and `elevator-code-answers.astro` (8, Mike's own answers). Left alone
+  on purpose; ask before cleaning.
 
 **Parked for later:**
-- **App Store affiliate enrollment** — not enrolled; small per-install
+- **App Store affiliate enrollment**: not enrolled; small per-install
   revenue with no effort once Mike signs up. Parked, no urgency.
 
 **Known issues / TODO:**
 - The "Smart App Banner default" is Escalator Field Command. If a
   different app becomes priority, change the default in `Layout.astro`.
-- The About page still uses the older `robot-mascot-transparent.png`
-  mascot in its own hero-ish intro — intentionally left alone when the
-  homepage hero was redesigned. Revisit only if Mike asks.
+- Inner pages were re-skinned (colors and cards), not re-laid-out. Each app
+  page could get a Daylight-native layout later.
 
 **Recent key decisions:**
-1. **Homepage hero fully redesigned**, inspired by clean SaaS landing
-   pages (Linear/Stripe/Vercel style) at Mike's request ("try something
-   new... I may revert"). Small logo lockup replaced a large floating
-   image; three stacked bold statements collapsed into one sentence;
-   added a real primary CTA button; the four colored trust pills and
-   the "What We've Built" heading were both removed entirely after
-   live feedback. The new brand mark (`hero-ai-handshake-transparent.*`)
-   is also the site's favicon and Organization JSON-LD logo now.
-2. **Clock-In Everyday is NOT "100% on-device"** like every other app —
-   its AI coach sends readiness/goals/injury context to a Cloudflare
-   Worker -> Claude backend. Corrected the site's blanket "100%
-   on-device" claims (About page, Organization JSON-LD description) to
-   carry an honest named exception instead of overclaiming.
-3. **Rename to Counterweight Dispatch complete.** Two
-   properties (Forum + Newsletter) now live under one umbrella domain;
-   the site's "Projects" nav (footer + header) shows a single
-   "Counterweight Dispatch" link, while About/EFC pages keep the
-   fuller two-card Forum/Newsletter treatment (Mike's explicit call to
-   keep those two separate there).
-4. **Weekly App Store sync can now publish straight to `main`** for
-   plain, literal changes (a feature line or trial length changed),
-   only holding back for review when a change looks ambiguous or
-   structural. Standing authorization from Mike, not a one-off.
-5. **Centralized pricing** lives in `src/data/pricing.ts` — change a
+1. **Daylight redesign** (Mike picked option A of three mockups): light
+   Apple-style look, tokens in `globals.css`, homepage styles in `home.css`.
+   Inner pages keep their markup; only class lists changed (plus an
+   em dash clean-up of the wording).
+2. **No author name and no "one person" framing on the public site**
+   (Mike, 2026-10-05). See the Conventions section.
+3. **Clock-In Everyday is NOT "100% on-device"**: its AI coach sends
+   readiness/goals/injury context to a backend. The site carries an honest
+   named exception instead of overclaiming (plus optional photo scanning in
+   HealthTrail Medical).
+4. **Weekly App Store sync can publish straight to `main`** for plain,
+   literal changes, only holding back for review when a change looks
+   ambiguous or structural. Standing authorization from Mike.
+5. **Centralized pricing** lives in `src/data/pricing.ts`: change a
    price or trial length there only, never inline in a page.
 
 ## Session-end protocol

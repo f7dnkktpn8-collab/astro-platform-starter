@@ -13,7 +13,7 @@ const faqs = [
     },
     {
         q: 'What is the Escalator Field Guide?',
-        a: 'The Field Guide is a searchable, plain-language companion to the escalator and moving walk safety codes, built into the app. Ask a question the way you would ask a senior mechanic, typed or spoken, and get a clear, sourced answer in seconds — complete with the exact code section it came from, drawn from ASME A17.1, A17.2, CSA B44, and the MCP. You can also jump to any rule by its code number, open linked references between sections without leaving the app, and bookmark and highlight the requirements you rely on most. The Field Guide is part of Pro, the optional in-app subscription.'
+        a: 'The Field Guide is a searchable, plain-language companion to the escalator and moving walk safety codes, built into the app. Ask a question the way you would ask a senior mechanic, typed or spoken, and get a clear, sourced answer in seconds: complete with the exact code section it came from, drawn from ASME A17.1, A17.2, CSA B44, and the MCP. You can also jump to any rule by its code number, open linked references between sections without leaving the app, and bookmark and highlight the requirements you rely on most. The Field Guide is part of Pro, the optional in-app subscription.'
     },
     {
         q: 'Does it work without an internet connection?',
@@ -25,7 +25,7 @@ const faqs = [
     },
     {
         q: 'Is my data private?',
-        a: '100%. The app is on-device by design — nothing about your routes, units, inspections, or compliance records is sent to a server. There is no analytics SDK, no third-party data sharing, no telemetry.'
+        a: '100%. The app is on-device by design: nothing about your routes, units, inspections, or compliance records is sent to a server. There is no analytics SDK, no third-party data sharing, no telemetry.'
     },
     {
         q: 'Who is it built for?',
@@ -82,7 +82,7 @@ const pageStructuredData = {
         },
         {
             '@type': 'VideoObject',
-            name: 'Escalator Field Guide — searchable safety codes in action',
+            name: 'Escalator Field Guide: searchable safety codes in action',
             description: 'A short demo of the Escalator Field Guide inside Escalator Field Command: ask a plain-language question about the force required to trip a comb impact device and get a clear, sourced answer citing the exact code section (ASME A17.1 6.1.6.3.13). Sample data shown.',
             thumbnailUrl: [SITE_URL + '/videos/escalator-field-guide-poster.jpg'],
             uploadDate: '2026-06-29T20:00:00-04:00',
@@ -104,8 +104,8 @@ const pageStructuredData = {
 ---
 
 <Layout
-    title="Escalator Field Command — iOS App for Escalator Mechanics"
-    description="The iOS app built for escalator mechanics. Maintenance routes, Category 1 testing, SSPI compliance, a searchable safety-code Field Guide, and inspection logs — offline-first, 100% on-device, no account required."
+    title="Escalator Field Command | iOS App for Escalator Mechanics"
+    description="The iOS app built for escalator mechanics. Maintenance routes, Category 1 testing, SSPI compliance, a searchable safety-code Field Guide, and inspection logs, offline-first, 100% on-device, no account required."
     ogImage={APP_ICON}
     twitterCard="summary_large_image"
     smartAppId="6756789866"
@@ -119,11 +119,11 @@ const pageStructuredData = {
     />
 
     <!-- Breadcrumb (visual + crawlable) -->
-    <nav aria-label="Breadcrumb" class="text-sm text-gray-400 pt-6">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted pt-6">
         <ol class="flex items-center gap-2">
-            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="/" class="hover:text-ink transition-colors">Home</a></li>
             <li aria-hidden="true">/</li>
-            <li class="text-gray-300">Escalator Field Command</li>
+            <li class="text-body">Escalator Field Command</li>
         </ol>
     </nav>
 
@@ -143,16 +143,16 @@ const pageStructuredData = {
                 class="w-32 h-32 md:w-44 md:h-44 rounded-3xl shadow-2xl flex-shrink-0"
             />
             <div class="flex-1 text-center md:text-left">
-                <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-3 text-ink">
                     Escalator Field Command
                 </h1>
-                <p class="text-xl sm:text-2xl text-blue-300 font-medium mb-4">
+                <p class="text-xl sm:text-2xl text-accent font-medium mb-4">
                     The iOS app built for escalator mechanics.
                 </p>
-                <p class="text-gray-300 max-w-2xl mb-6 text-lg">
+                <p class="text-body max-w-2xl mb-6 text-lg">
                     Manage maintenance routes, Category 1 testing, SSPI compliance, and inspection
-                    documentation — plus a searchable Field Guide to the escalator and moving walk
-                    safety codes — all in one offline-first interface designed for real-world field use.
+                    documentation, plus a searchable Field Guide to the escalator and moving walk
+                    safety codes, all in one offline-first interface designed for real-world field use.
                 </p>
                 <div class="flex flex-wrap gap-3 justify-center md:justify-start">
                     <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
@@ -163,25 +163,25 @@ const pageStructuredData = {
 
     <!-- Quick badges -->
     <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">iOS native</span>
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">iPhone &amp; iPad</span>
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Offline-first</span>
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Zero account</span>
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">100% on-device</span>
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">iOS native</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">iPhone &amp; iPad</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">Offline-first</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">Zero account</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">100% on-device</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm"
             >Category 1 testing</span
         >
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">SSPI compliance</span>
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">PDF reports</span>
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Custom reports</span>
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Recurring tasks</span>
-        <span class="px-3 py-1 bg-cyan-500/20 text-cyan-200 rounded-full text-sm">Field Guide</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">SSPI compliance</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">PDF reports</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">Custom reports</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">Recurring tasks</span>
+        <span class="px-3 py-1 bg-cyan-500/20 text-accent rounded-full text-sm">Field Guide</span>
     </section>
 
-    <!-- Headline feature: Field Guide — recreates the in-app dashboard card -->
+    <!-- Headline feature: Field Guide: recreates the in-app dashboard card -->
     <section class="mb-16">
         <!-- Field Guide: the in-app card (sized down) sits inside the same Pro panel as the explanation -->
-        <div class="bg-white/5 rounded-2xl p-5 sm:p-6 border border-white/10">
+        <div class="bg-white rounded-2xl p-5 sm:p-6 border border-line">
             <!-- The Field Guide card, matched to the app's dashboard button (chevron omitted) -->
             <div class="flex items-center gap-3 sm:gap-4 rounded-xl p-4 shadow-lg bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 mb-5">
                 <picture class="flex-shrink-0">
@@ -203,31 +203,31 @@ const pageStructuredData = {
                 </div>
             </div>
 
-            <span class="inline-block mb-3 px-3 py-1 bg-amber-400/20 text-amber-200 rounded-full text-xs font-semibold uppercase tracking-wide">Pro feature</span>
-            <p class="text-gray-200 max-w-2xl">
+            <span class="inline-block mb-3 px-3 py-1 bg-amber-400/20 text-amber-700 rounded-full text-xs font-semibold uppercase tracking-wide">Pro feature</span>
+            <p class="text-ink max-w-2xl">
                 A searchable, plain-language companion to the escalator and moving walk safety codes,
                 built right into the app. Ask it the way you'd ask a senior mechanic, typed or spoken,
-                and get a clear, sourced answer in seconds — no flipping through binders on the job.
+                and get a clear, sourced answer in seconds, no flipping through binders on the job.
             </p>
             <ul class="mt-4 space-y-2 max-w-2xl">
-                <li class="flex items-start gap-2 text-gray-200">
-                    <svg class="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <li class="flex items-start gap-2 text-ink">
+                    <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                     <span>Ask in plain language, typed or spoken, and get a clear answer with the exact code section it came from.</span>
                 </li>
-                <li class="flex items-start gap-2 text-gray-200">
-                    <svg class="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <li class="flex items-start gap-2 text-ink">
+                    <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                     <span>Jump straight to any rule by its code number.</span>
                 </li>
-                <li class="flex items-start gap-2 text-gray-200">
-                    <svg class="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <li class="flex items-start gap-2 text-ink">
+                    <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                     <span>Open linked references between sections without ever leaving the app.</span>
                 </li>
-                <li class="flex items-start gap-2 text-gray-200">
-                    <svg class="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <li class="flex items-start gap-2 text-ink">
+                    <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                     <span>Bookmark and highlight the requirements you rely on most.</span>
                 </li>
-                <li class="flex items-start gap-2 text-gray-200">
-                    <svg class="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <li class="flex items-start gap-2 text-ink">
+                    <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                     <span>Drawn from ASME A17.1, A17.2, CSA B44, and the MCP.</span>
                 </li>
             </ul>
@@ -242,12 +242,12 @@ const pageStructuredData = {
                     playsinline
                     preload="metadata"
                     poster="/videos/escalator-field-guide-poster.jpg"
-                    aria-label="Escalator Field Guide demo — typing a plain-language question about the force needed to trip a comb impact device and getting a sourced answer that cites ASME A17.1 section 6.1.6.3.13. Sample data shown."
+                    aria-label="Escalator Field Guide demo: typing a plain-language question about the force needed to trip a comb impact device and getting a sourced answer that cites ASME A17.1 section 6.1.6.3.13. Sample data shown."
                 >
                     <source src="/videos/escalator-field-guide-demo.mp4" type="video/mp4" />
                 </video>
-                <p class="mt-3 text-xs text-gray-400 text-center max-w-xs">
-                    Ask a question, get a sourced answer in seconds — citing the exact code section. (Sample data shown.)
+                <p class="mt-3 text-xs text-muted text-center max-w-xs">
+                    Ask a question, get a sourced answer in seconds, citing the exact code section. (Sample data shown.)
                 </p>
             </div>
         </div>
@@ -257,48 +257,48 @@ const pageStructuredData = {
     <section class="mb-16">
         <h2 class="text-3xl font-bold mb-8 text-center md:text-left">What it does</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-blue-300">Maintenance routes</h3>
-                <p class="text-gray-300">
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-accent">Maintenance routes</h3>
+                <p class="text-body">
                     Build and run your daily route. Each unit carries its own equipment specs,
-                    contacts, and full service history — so the next visit picks up where the last
+                    contacts, and full service history, so the next visit picks up where the last
                     one left off.
                 </p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-blue-300">Category 1 testing</h3>
-                <p class="text-gray-300">
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-accent">Category 1 testing</h3>
+                <p class="text-body">
                     Log Cat 1 tests against the specific units they belong to. Records stay attached
                     to the equipment, not buried in a folder somewhere. Put a unit on hold when
                     it&apos;s out for the year, then share a completion report showing every
                     unit&apos;s pass or fail.
                 </p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-blue-300">SSPI compliance</h3>
-                <p class="text-gray-300">
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-accent">SSPI compliance</h3>
+                <p class="text-body">
                     Document SSPI work cleanly so audit trails stay intact. No more hunting through
                     paper logs or shared drives the day before an inspection.
                 </p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-blue-300">Equipment specs &amp; history</h3>
-                <p class="text-gray-300">
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-accent">Equipment specs &amp; history</h3>
+                <p class="text-body">
                     Track equipment data, model details, and full service history per unit. Add
                     notes, photos, and inspection records as you go.
                 </p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-blue-300">Documents, always offline</h3>
-                <p class="text-gray-300">
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-accent">Documents, always offline</h3>
+                <p class="text-body">
                     Upload manuals, test reports, photos, and any supporting documents so everything
                     for the job lives in one place, organized and available with no signal. Search
                     inside a PDF for a word or a part number and jump straight to the page it is on.
                 </p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-blue-300">Time tickets &amp; timesheets</h3>
-                <p class="text-gray-300">
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-accent">Time tickets &amp; timesheets</h3>
+                <p class="text-body">
                     Log time tickets for maintenance, repairs, travel, and training, and your weekly
                     timesheet fills itself in from those records. Copy a whole day as one block of
                     text to paste into your company's system, or send it as a PDF with your parking,
@@ -306,9 +306,9 @@ const pageStructuredData = {
                     before you set off.
                 </p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-blue-300">Upcoming jobs &amp; PDF reports</h3>
-                <p class="text-gray-300">
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-accent">Upcoming jobs &amp; PDF reports</h3>
+                <p class="text-body">
                     See your upcoming service jobs right on the dashboard so bigger work never sneaks
                     up on you, and check them off once they're done. Then generate polished PDF
                     reports, including the State of the Union, a route-wide snapshot of where every
@@ -316,33 +316,33 @@ const pageStructuredData = {
                     for a building, pick the units it covers, and attach photos.
                 </p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-blue-300">Recurring tasks</h3>
-                <p class="text-gray-300">
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-accent">Recurring tasks</h3>
+                <p class="text-body">
                     Some jobs come round again on a fixed cycle. A safety meeting, a monthly report,
                     an annual recertification. Set each one up once and whatever falls on today is
                     waiting across the top of your dashboard the moment you open the app. Units
                     already on a maintenance schedule get added for you.
                 </p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-blue-300">Technical Safety BC data sheet</h3>
-                <p class="text-gray-300">
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-accent">Technical Safety BC data sheet</h3>
+                <p class="text-body">
                     Working in British Columbia? Fill in the Technical Safety BC Escalator Data Sheet
                     Checklist on site and send it as a PDF, instead of carrying the paper form around
                     with you.
                 </p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-blue-300">Works offline</h3>
-                <p class="text-gray-300">
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-accent">Works offline</h3>
+                <p class="text-body">
                     Mechanical rooms, basements, and pit-level work don't have a signal. The app
                     doesn't care. Everything works offline and syncs nowhere unless you choose.
                 </p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-blue-300">Daily backups &amp; one-file export</h3>
-                <p class="text-gray-300">
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-accent">Daily backups &amp; one-file export</h3>
+                <p class="text-body">
                     Automatic daily backups so a lost or replaced phone never means lost records.
                     Want a copy off the phone? Optional iCloud Backup saves one a day to your own
                     iCloud Drive. It stays off unless you turn it on.
@@ -356,7 +356,7 @@ const pageStructuredData = {
     <!-- See it in action -->
     <section class="mb-16">
         <h2 class="text-3xl font-bold mb-3 text-center md:text-left">See it in action</h2>
-        <p class="text-gray-400 mb-8 text-center md:text-left text-sm">
+        <p class="text-muted mb-8 text-center md:text-left text-sm">
             Real workflows from the field. (Sample data shown.)
         </p>
 
@@ -365,54 +365,54 @@ const pageStructuredData = {
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/escalator/dashboard-overview.webp" type="image/webp" /><img
                     src="/images/screenshots/escalator/dashboard-overview.jpg"
-                    alt="Escalator Field Command daily command center — greeting, status tiles showing 15 running, 0 shutdown, 15 total units and 13 of 15 maintenance done, the Escalator Field Guide quick-access banner, this week's hours bar chart by day, and Cat 1 progress and maintenance cards"
+                    alt="Escalator Field Command daily command center: greeting, status tiles showing 15 running, 0 shutdown, 15 total units and 13 of 15 maintenance done, the Escalator Field Guide quick-access banner, this week's hours bar chart by day, and Cat 1 progress and maintenance cards"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                    class="w-full rounded-2xl shadow-xl border border-line"
                 /></picture>
-                <figcaption class="mt-3 text-blue-300 font-semibold text-sm">Daily command center</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Greeting, status tiles, the Field Guide, week hours, and progress cards in one view.</p>
+                <figcaption class="mt-3 text-accent font-semibold text-sm">Daily command center</figcaption>
+                <p class="text-xs text-muted mt-1">Greeting, status tiles, the Field Guide, week hours, and progress cards in one view.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/escalator/cat1-progress.webp" type="image/webp" /><img
                     src="/images/screenshots/escalator/cat1-progress.jpg"
-                    alt="Cat 1 testing progress by building in Escalator Field Command — First Canadian Place and PATH-TD Centre with completed and incomplete units"
+                    alt="Cat 1 testing progress by building in Escalator Field Command: First Canadian Place and PATH-TD Centre with completed and incomplete units"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                    class="w-full rounded-2xl shadow-xl border border-line"
                 /></picture>
-                <figcaption class="mt-3 text-blue-300 font-semibold text-sm">Cat 1 by building</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Completed and incomplete tests across every site on your route.</p>
+                <figcaption class="mt-3 text-accent font-semibold text-sm">Cat 1 by building</figcaption>
+                <p class="text-xs text-muted mt-1">Completed and incomplete tests across every site on your route.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/escalator/sspi-brake-tests.webp" type="image/webp" /><img
                     src="/images/screenshots/escalator/sspi-brake-tests.jpg"
-                    alt="SSPI test thresholds and brake test results for an escalator at First Canadian Place, North Tower Lobby — Step Skirt Performance Index, breakaway torque, and skirt-step clearance values"
+                    alt="SSPI test thresholds and brake test results for an escalator at First Canadian Place, North Tower Lobby: Step Skirt Performance Index, breakaway torque, and skirt-step clearance values"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                    class="w-full rounded-2xl shadow-xl border border-line"
                 /></picture>
-                <figcaption class="mt-3 text-blue-300 font-semibold text-sm">Test depth</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Brake tests, comb impact, SSPI thresholds — logged per unit.</p>
+                <figcaption class="mt-3 text-accent font-semibold text-sm">Test depth</figcaption>
+                <p class="text-xs text-muted mt-1">Brake tests, comb impact, SSPI thresholds: logged per unit.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/escalator/unit-shutdown.webp" type="image/webp" /><img
                     src="/images/screenshots/escalator/unit-shutdown.jpg"
-                    alt="Escalator unit detail in Escalator Field Command — Pearson Airport Terminal 1 escalator shut down with shutdown reason, building info, GID, and KONE manufacturer details"
+                    alt="Escalator unit detail in Escalator Field Command: Pearson Airport Terminal 1 escalator shut down with shutdown reason, building info, GID, and KONE manufacturer details"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                    class="w-full rounded-2xl shadow-xl border border-line"
                 /></picture>
-                <figcaption class="mt-3 text-blue-300 font-semibold text-sm">Unit shutdown logs</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Shutdown reasons, equipment specs, and contacts together.</p>
+                <figcaption class="mt-3 text-accent font-semibold text-sm">Unit shutdown logs</figcaption>
+                <p class="text-xs text-muted mt-1">Shutdown reasons, equipment specs, and contacts together.</p>
             </figure>
         </div>
     </section>
@@ -422,22 +422,22 @@ const pageStructuredData = {
         class="mb-16 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-10 border border-blue-400/20"
     >
         <h2 class="text-3xl font-bold mb-6 text-center">Built for the field</h2>
-        <p class="text-gray-300 text-lg max-w-3xl mx-auto text-center mb-6">
+        <p class="text-body text-lg max-w-3xl mx-auto text-center mb-6">
             This isn't a generic CMMS bolted onto an iPhone. It's built for the specific workflow of
-            escalator and moving-walk mechanics — by someone who works on them.
+            escalator and moving-walk mechanics.
         </p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
             <div class="text-center">
-                <div class="text-blue-300 font-semibold">Mechanics</div>
+                <div class="text-accent font-semibold">Mechanics</div>
             </div>
             <div class="text-center">
-                <div class="text-blue-300 font-semibold">Field technicians</div>
+                <div class="text-accent font-semibold">Field technicians</div>
             </div>
             <div class="text-center">
-                <div class="text-blue-300 font-semibold">Inspectors</div>
+                <div class="text-accent font-semibold">Inspectors</div>
             </div>
             <div class="text-center">
-                <div class="text-blue-300 font-semibold">Route supervisors</div>
+                <div class="text-accent font-semibold">Route supervisors</div>
             </div>
         </div>
     </section>
@@ -447,37 +447,37 @@ const pageStructuredData = {
         <h2 class="text-3xl font-bold mb-8 text-center md:text-left">Why it's different</h2>
         <div class="space-y-4 max-w-3xl">
             <div class="flex gap-4">
-                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-accent font-bold">
                     1
                 </div>
                 <div>
                     <h3 class="font-semibold text-lg mb-1">No account, ever</h3>
-                    <p class="text-gray-300">
+                    <p class="text-body">
                         Zero signups. Zero credentials. Zero cloud lock-in. Open the app and work.
                     </p>
                 </div>
             </div>
             <div class="flex gap-4">
-                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-accent font-bold">
                     2
                 </div>
                 <div>
                     <h3 class="font-semibold text-lg mb-1">100% on-device</h3>
-                    <p class="text-gray-300">
+                    <p class="text-body">
                         No telemetry, no analytics SDKs, no third-party data sharing. Your route data,
                         compliance logs, and contacts never leave your phone.
                     </p>
                 </div>
             </div>
             <div class="flex gap-4">
-                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-accent font-bold">
                     3
                 </div>
                 <div>
-                    <h3 class="font-semibold text-lg mb-1">Built by a mechanic</h3>
-                    <p class="text-gray-300">
-                        Created by Mike Dangerfield (Artificial Igknorance). The workflow is shaped by
-                        actual escalator field work, not a product manager's wireframe.
+                    <h3 class="font-semibold text-lg mb-1">Shaped by real field work</h3>
+                    <p class="text-body">
+                        The workflow comes from actual escalator field work, not a product manager's
+                        wireframe.
                     </p>
                 </div>
             </div>
@@ -490,11 +490,11 @@ const pageStructuredData = {
         <div class="space-y-3">
             {
                 faqs.map(({ q, a }) => (
-                    <details class="bg-white/5 rounded-xl p-5 group hover:bg-white/10 transition-all">
+                    <details class="p-5 transition-all bg-white border border-line rounded-2xl group hover:shadow-md">
                         <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-lg">
                             <span>{q}</span>
                             <svg
-                                class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180"
+                                class="flex-shrink-0 w-8 h-8 p-1.5 transition-transform duration-300 rounded-full bg-[#efeff2] text-muted group-open:rotate-180"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -507,37 +507,37 @@ const pageStructuredData = {
                                 />
                             </svg>
                         </summary>
-                        <p class="mt-3 text-gray-300">{a}</p>
+                        <p class="mt-3 text-body">{a}</p>
                     </details>
                 ))
             }
         </div>
     </section>
 
-    <!-- Community + newsletter — vertical-transportation pros -->
+    <!-- Community + newsletter: vertical-transportation pros -->
     <section class="mb-12">
-        <p class="text-center text-gray-400 text-sm mb-4">More for people in the trade:</p>
+        <p class="text-center text-muted text-sm mb-4">More for people in the trade:</p>
         <div class="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
             <a href="https://counterweightforum.counterweightdispatch.com" target="_blank" rel="noopener noreferrer"
-               class="flex items-center gap-3 bg-white/5 hover:bg-white/10 rounded-xl p-4 transition-colors no-underline group">
+               class="flex items-center gap-3 bg-white hover:shadow-md rounded-xl p-4 transition-colors no-underline group border border-line">
                 <picture>
                     <source srcset="/images/counterweight-logo.webp" type="image/webp" />
                     <img src="/images/counterweight-logo.png" alt="Counterweight Forum" class="w-10 h-10 rounded-xl flex-none" />
                 </picture>
                 <div>
-                    <div class="font-semibold text-white group-hover:text-blue-300 transition-colors text-sm">Counterweight Forum</div>
-                    <p class="text-gray-400 text-xs mt-0.5 leading-relaxed">Forum &amp; community for elevator and escalator pros</p>
+                    <div class="font-semibold text-ink group-hover:text-accent-deep transition-colors text-sm">Counterweight Forum</div>
+                    <p class="text-muted text-xs mt-0.5 leading-relaxed">Forum &amp; community for elevator and escalator pros</p>
                 </div>
             </a>
             <a href="https://counterweightnewsletter.counterweightdispatch.com" target="_blank" rel="noopener noreferrer"
-               class="flex items-center gap-3 bg-white/5 hover:bg-white/10 rounded-xl p-4 transition-colors no-underline group">
+               class="flex items-center gap-3 bg-white hover:shadow-md rounded-xl p-4 transition-colors no-underline group border border-line">
                 <picture>
                     <source srcset="/images/counterweight-logo.webp" type="image/webp" />
                     <img src="/images/counterweight-logo.png" alt="Counterweight Newsletter" class="w-10 h-10 rounded-xl flex-none" />
                 </picture>
                 <div>
-                    <div class="font-semibold text-white group-hover:text-blue-300 transition-colors text-sm">Counterweight Newsletter</div>
-                    <p class="text-gray-400 text-xs mt-0.5 leading-relaxed">The elevator and escalator industry newsletter</p>
+                    <div class="font-semibold text-ink group-hover:text-accent-deep transition-colors text-sm">Counterweight Newsletter</div>
+                    <p class="text-muted text-xs mt-0.5 leading-relaxed">The elevator and escalator industry newsletter</p>
                 </div>
             </a>
         </div>
@@ -546,12 +546,12 @@ const pageStructuredData = {
     <!-- Final CTA -->
     <section class="text-center mb-16 bg-gradient-to-br from-blue-500/15 to-cyan-500/15 rounded-3xl p-8 md:p-12 border border-blue-400/20">
         <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get Escalator Field Command</h2>
-        <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+        <p class="text-body text-lg mb-8 max-w-2xl mx-auto">
             Free download on the App Store. Built for iPhone and iPad, designed for the field.
         </p>
         <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
-        <p class="mt-6 text-sm text-gray-400">
-            Or browse <a href="/" class="text-blue-300 hover:text-blue-200 underline"
+        <p class="mt-6 text-sm text-muted">
+            Or browse <a href="/" class="text-accent hover:text-accent-deep underline"
                 >all Artificial Igknorance apps</a
             >.
         </p>

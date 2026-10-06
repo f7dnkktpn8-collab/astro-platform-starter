@@ -1,0 +1,27 @@
+---
+// A homepage screenshot: WebP first, JPG fallback, with real dimensions so the
+// page doesn't jump while images load. Files live in public/images/home/.
+interface Props {
+    name: string;
+    alt?: string;
+    width: number;
+    height: number;
+    class?: string;
+    eager?: boolean;
+}
+const { name, alt = '', width, height, class: cls = '', eager = false } = Astro.props;
+---
+
+<picture>
+    <source srcset={`/images/home/${name}.webp`} type="image/webp" />
+    <img
+        src={`/images/home/${name}.jpg`}
+        alt={alt}
+        width={width}
+        height={height}
+        class={cls}
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
+        fetchpriority={eager ? 'high' : undefined}
+    />
+</picture>

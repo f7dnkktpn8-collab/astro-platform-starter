@@ -13,10 +13,10 @@ const pageStructuredData = {
             url: SITE_URL + '/about/',
             name: 'About Artificial Igknorance',
             description:
-                'Artificial Igknorance is the indie iOS development brand of Mike Dangerfield. Privacy-first, on-device apps for escalator mechanics, family health, household bills, and precious metals.',
+                'Artificial Igknorance is an iOS app brand. Privacy-first, on-device apps for escalator mechanics, family health, household bills, and precious metals.',
             isPartOf: { '@id': SITE_URL + '/#website' },
             about: { '@id': SITE_URL + '/#organization' },
-            mainEntity: { '@id': SITE_URL + '/#mike-dangerfield' },
+            mainEntity: { '@id': SITE_URL + '/#organization' },
             inLanguage: 'en-US'
         },
         {
@@ -31,8 +31,8 @@ const pageStructuredData = {
 ---
 
 <Layout
-    title="About — Artificial Igknorance | Indie iOS Apps by Mike Dangerfield"
-    description="Artificial Igknorance is the indie iOS app brand of Mike Dangerfield — privacy-first apps for escalator mechanics, family health records, household bills, and precious metals. No accounts, no cloud, no telemetry."
+    title="About | Artificial Igknorance | Privacy-First iOS Apps"
+    description="Artificial Igknorance is an iOS app brand: privacy-first apps for escalator mechanics, family health records, household bills, and precious metals. No accounts, no cloud, no telemetry."
     twitterCard="summary_large_image"
     smartAppId="6756789866"
     datePublished="2026-05-08"
@@ -41,11 +41,11 @@ const pageStructuredData = {
     <script slot="head" type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
 
     <!-- Breadcrumb -->
-    <nav aria-label="Breadcrumb" class="text-sm text-gray-400 pt-6">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted pt-6">
         <ol class="flex items-center gap-2">
-            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="/" class="hover:text-ink transition-colors">Home</a></li>
             <li aria-hidden="true">/</li>
-            <li class="text-gray-300">About</li>
+            <li class="text-body">About</li>
         </ol>
     </nav>
 
@@ -56,12 +56,15 @@ const pageStructuredData = {
             <div class="absolute bottom-10 right-10 w-40 h-40 bg-cyan-400 rounded-full blur-3xl"></div>
         </div>
         <div class="relative">
-            <img src="/images/robot-mascot-transparent.png" alt="Artificial Igknorance robot mascot" class="w-32 sm:w-40 mx-auto mb-6 drop-shadow-2xl" />
-            <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent pb-2">
+            <picture>
+                <source srcset="/images/hero-ai-handshake-transparent.webp" type="image/webp" />
+                <img src="/images/hero-ai-handshake-transparent.png" alt="Artificial Igknorance logo: a human hand and an AI hand shaking" width="664" height="503" class="w-32 sm:w-40 h-auto mx-auto mb-6 drop-shadow-xl" />
+            </picture>
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 pb-2 text-ink">
                 About Artificial Igknorance
             </h1>
-            <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                Indie iOS apps that don't need to know everything about you to be useful.
+            <p class="text-xl text-body max-w-2xl mx-auto">
+                iOS apps that don't need to know everything about you to be useful.
             </p>
         </div>
     </section>
@@ -69,58 +72,57 @@ const pageStructuredData = {
     <!-- Body -->
     <section class="max-w-3xl mx-auto mb-16 prose prose-invert prose-lg">
         <h2 class="text-3xl font-bold mb-4">What is Artificial Igknorance?</h2>
-        <p class="text-gray-300 mb-6">
-            Artificial Igknorance is the brand name for the iOS apps designed and shipped by
-            <a href="#mike" class="text-blue-300 hover:text-blue-200 underline">Mike Dangerfield</a>.
-            The name is a deliberate play on "artificial intelligence" — a reminder that the
+        <p class="text-body mb-6">
+            Artificial Igknorance is the brand name for the iOS apps on this site.
+            The name is a deliberate play on "artificial intelligence", a reminder that the
             smartest software isn't the one that knows everything about you. It's the one that's
             strategically ignorant. Our apps don't need your name, your email, your bank login, or
             your cloud account to work. The misspelling is on purpose.
         </p>
 
         <h2 class="text-3xl font-bold mb-4 mt-12">What we ship</h2>
-        <p class="text-gray-300 mb-6">
+        <p class="text-body mb-6">
             Nine apps live on the App Store today, across seven areas:
         </p>
-        <ul class="text-gray-300 space-y-2 mb-6">
+        <ul class="text-body space-y-2 mb-6">
             <li>
-                <strong class="text-white"><a href="/escalator-field-command/" class="text-blue-300 hover:text-blue-200 underline">Escalator Field Command</a></strong> —
+                <strong class="text-ink"><a href="/escalator-field-command/" class="text-accent hover:text-accent-deep underline">Escalator Field Command</a></strong>:
                 the iOS app for working escalator mechanics. Maintenance routes, Category 1 testing,
                 SSPI compliance, equipment specs, inspection logs.
             </li>
             <li>
-                <strong class="text-white"><a href="/healthtrail-medical/" class="text-emerald-300 hover:text-emerald-200 underline">HealthTrail Medical</a></strong> —
+                <strong class="text-ink"><a href="/healthtrail-medical/" class="text-emerald-700 hover:text-emerald-900 underline">HealthTrail Medical</a></strong>:
                 a digital medical memory for the whole family. Visual timeline, AI medication
                 scanning, vaccine tracking, insurance card auto-fill.
             </li>
             <li>
-                <strong class="text-white"><a href="/clock-in-everyday/" class="text-orange-300 hover:text-orange-200 underline">Clock-In Everyday</a></strong> —
+                <strong class="text-ink"><a href="/clock-in-everyday/" class="text-orange-700 hover:text-orange-900 underline">Clock-In Everyday</a></strong>:
                 daily AI-coached fitness for people over 50 and heading into retirement. Morning
                 readiness scoring from Apple Health, sessions that adapt to how you slept, and
                 personalized daily stretches.
             </li>
             <li>
-                <strong class="text-white"><a href="/snapledger/" class="text-green-300 hover:text-green-200 underline">SnapLedger</a></strong> —
+                <strong class="text-ink"><a href="/snapledger/" class="text-green-700 hover:text-green-900 underline">SnapLedger</a></strong>:
                 a household bill and subscription tracker that works from photos of your bills
                 instead of bank logins.
             </li>
             <li>
-                <strong class="text-white">Precious metals trackers</strong> —
-                <a href="/gold-watcher/" class="text-yellow-300 hover:text-yellow-200 underline">Gold Watcher</a>,
-                <a href="/silver-watcher/" class="text-slate-300 hover:text-slate-200 underline">Silver Watcher</a>,
-                and <a href="/copper-watcher/" class="text-amber-300 hover:text-amber-200 underline">Copper Watcher</a> —
+                <strong class="text-ink">Precious metals trackers</strong>:
+                <a href="/gold-watcher/" class="text-yellow-700 hover:text-yellow-900 underline">Gold Watcher</a>,
+                <a href="/silver-watcher/" class="text-slate-700 hover:text-slate-900 underline">Silver Watcher</a>,
+                and <a href="/copper-watcher/" class="text-amber-700 hover:text-amber-900 underline">Copper Watcher</a>:
                 live spot prices, ETFs and futures, scrap and karat calculators, portfolios in 10+
                 currencies. Built for stackers, jewellers, and scrap dealers.
             </li>
             <li>
-                <strong class="text-white"><a href="/lithium-watcher/" class="text-teal-300 hover:text-teal-200 underline">Lithium Watcher</a></strong> —
+                <strong class="text-ink"><a href="/lithium-watcher/" class="text-teal-700 hover:text-teal-900 underline">Lithium Watcher</a></strong>:
                 lithium prices from three sources (CME futures, GSCI Index, LIT ETF), mining stocks
                 (ALB, SQM, PLL, LAC), and the major EV manufacturers (Tesla, Rivian, NIO, XPeng,
                 Lucid, Li Auto, BYD) on one compare chart. Plus prediction markets and portfolio
                 tracking. Built for lithium investors and EV-market watchers.
             </li>
             <li>
-                <strong class="text-white"><a href="/ridgepacker/" class="text-sky-300 hover:text-sky-200 underline">RidgePacker</a></strong> —
+                <strong class="text-ink"><a href="/ridgepacker/" class="text-sky-700 hover:text-sky-900 underline">RidgePacker</a></strong>:
                 hiking and backpacking gear organization for iPhone and iPad. Master gear catalog with
                 photos and weights, per-trip packing lists, day-pack sublists, and an Everyday Carry
                 list. Everything stored on-device.
@@ -128,78 +130,64 @@ const pageStructuredData = {
         </ul>
 
         <h2 class="text-3xl font-bold mb-4 mt-12">Why we build this way</h2>
-        <p class="text-gray-300 mb-4">
+        <p class="text-body mb-4">
             Most apps treat your data as the product. We treat the app as the product. That choice
             shapes everything:
         </p>
-        <ul class="text-gray-300 space-y-2 mb-6">
-            <li>• <strong class="text-white">No accounts.</strong> Open the app, start working. There's no signup, no email confirmation, no password to forget.</li>
-            <li>• <strong class="text-white">On-device by default.</strong> Your records, your routes, your portfolios, your medical history — all stored locally on your iPhone. Nothing leaves the device unless you explicitly export it, with two named exceptions: apps with AI coaching send only what's needed to generate your plan, never stored afterward and never tied to an account, and optional AI scanning in HealthTrail Medical sends the photo you chose to scan to our AI provider to read it, and it is not stored by them for training — see our <a href="/privacy/" class="text-blue-300 hover:text-blue-200 underline">Privacy Policy</a>.</li>
-            <li>• <strong class="text-white">No telemetry.</strong> No analytics SDKs, no third-party trackers, no behavior pings home. We don't know how you use the app, and we don't need to.</li>
-            <li>• <strong class="text-white">No subscriptions trap.</strong> Every app is free to download. Pro subscriptions for deeper features (portfolio tracking, packing-list tools, advanced calculators) always start with a free trial. No dark patterns, no surprise auto-renew.</li>
+        <ul class="text-body space-y-2 mb-6">
+            <li>• <strong class="text-ink">No accounts.</strong> Open the app, start working. There's no signup, no email confirmation, no password to forget.</li>
+            <li>• <strong class="text-ink">On-device by default.</strong> Your records, your routes, your portfolios, your medical history, all stored locally on your iPhone. Nothing leaves the device unless you explicitly export it, with two named exceptions: apps with AI coaching send only what's needed to generate your plan, never stored afterward and never tied to an account, and optional AI scanning in HealthTrail Medical sends the photo you chose to scan to our AI provider to read it, and it is not stored by them for training, see our <a href="/privacy/" class="text-accent hover:text-accent-deep underline">Privacy Policy</a>.</li>
+            <li>• <strong class="text-ink">No telemetry.</strong> No analytics SDKs, no third-party trackers, no behavior pings home. We don't know how you use the app, and we don't need to.</li>
+            <li>• <strong class="text-ink">No subscriptions trap.</strong> Every app is free to download. Pro subscriptions for deeper features (portfolio tracking, packing-list tools, advanced calculators) always start with a free trial. No dark patterns, no surprise auto-renew.</li>
         </ul>
 
-        <h2 id="mike" class="text-3xl font-bold mb-4 mt-12 scroll-mt-20">Who builds it</h2>
-        <p class="text-gray-300 mb-4">
-            Every Artificial Igknorance app is designed and shipped by
-            <strong class="text-white">Mike Dangerfield</strong>, an independent iOS developer.
-            One person, one Apple Developer account
-            (<a href="https://apps.apple.com/us/developer/mike-dangerfield/id1588904052" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 underline">view all apps</a>),
-            one set of design and privacy decisions across the whole catalog.
-        </p>
-        <p class="text-gray-300 mb-6">
-            That means the same person picking the icon also picks the data policy, also writes the
-            release notes, also responds when you email support. There's no growth team, no
-            marketing department, and no investors waiting for your data to monetize.
-        </p>
-
         <h2 class="text-3xl font-bold mb-4 mt-12">Other things we&apos;re building</h2>
-        <p class="text-gray-300 mb-5">
-            The apps are the biggest piece of the work right now &mdash; but not the only piece.
+        <p class="text-body mb-5">
+            The apps are the biggest piece of the work right now, but not the only piece.
         </p>
         <div class="grid sm:grid-cols-2 gap-4 mb-6">
             <a href="https://counterweightforum.counterweightdispatch.com" target="_blank" rel="noopener noreferrer"
-               class="flex items-start gap-3 bg-white/5 hover:bg-white/10 rounded-xl p-5 transition-colors no-underline group">
+               class="flex items-start gap-3 bg-white hover:shadow-md rounded-xl p-5 transition-colors no-underline group border border-line">
                 <picture>
                     <source srcset="/images/counterweight-logo.webp" type="image/webp" />
                     <img src="/images/counterweight-logo.png" alt="Counterweight Forum" class="w-10 h-10 rounded-xl flex-none mt-0.5" />
                 </picture>
                 <div>
-                    <div class="font-semibold text-white group-hover:text-blue-300 transition-colors mb-1">Counterweight Forum</div>
-                    <p class="text-gray-400 text-sm leading-relaxed">A community for vertical-transportation pros. Forum, shop talk, an open library of industry references, and ongoing discussion of news and modernization. Gatekeeping-free &mdash; welcoming to technicians and curious enthusiasts alike.</p>
+                    <div class="font-semibold text-ink group-hover:text-accent-deep transition-colors mb-1">Counterweight Forum</div>
+                    <p class="text-muted text-sm leading-relaxed">A community for vertical-transportation pros. Forum, shop talk, an open library of industry references, and ongoing discussion of news and modernization. Gatekeeping-free and welcoming to technicians and curious enthusiasts alike.</p>
                 </div>
             </a>
             <a href="https://counterweightnewsletter.counterweightdispatch.com" target="_blank" rel="noopener noreferrer"
-               class="flex items-start gap-3 bg-white/5 hover:bg-white/10 rounded-xl p-5 transition-colors no-underline group">
+               class="flex items-start gap-3 bg-white hover:shadow-md rounded-xl p-5 transition-colors no-underline group border border-line">
                 <picture>
                     <source srcset="/images/counterweight-logo.webp" type="image/webp" />
                     <img src="/images/counterweight-logo.png" alt="Counterweight Newsletter" class="w-10 h-10 rounded-xl flex-none mt-0.5" />
                 </picture>
                 <div>
-                    <div class="font-semibold text-white group-hover:text-blue-300 transition-colors mb-1">Counterweight Newsletter</div>
-                    <p class="text-gray-400 text-sm leading-relaxed">The elevator and escalator industry newsletter. Weekly briefings on code updates, modernization projects, industry news, and the conversations shaping how the trade moves. For technicians, consultants, and anyone who follows the vertical-transportation world closely.</p>
+                    <div class="font-semibold text-ink group-hover:text-accent-deep transition-colors mb-1">Counterweight Newsletter</div>
+                    <p class="text-muted text-sm leading-relaxed">The elevator and escalator industry newsletter. Weekly briefings on code updates, modernization projects, industry news, and the conversations shaping how the trade moves. For technicians, consultants, and anyone who follows the vertical-transportation world closely.</p>
                 </div>
             </a>
         </div>
 
         <h2 class="text-3xl font-bold mb-4 mt-12">Get in touch</h2>
-        <p class="text-gray-300 mb-3">
+        <p class="text-body mb-3">
             Found a bug, have an idea, want to say hello?
         </p>
-        <ul class="text-gray-300 space-y-2 mb-6">
-            <li>• Email: <a href="mailto:info@artificialigknorance.com" class="text-blue-300 hover:text-blue-200 underline">info@artificialigknorance.com</a></li>
-            <li>• X / Twitter: <a href="https://x.com/igknorance" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 underline">@igknorance</a></li>
-            <li>• App Store: <a href="https://apps.apple.com/us/developer/mike-dangerfield/id1588904052" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 underline">all apps by Mike Dangerfield</a></li>
+        <ul class="text-body space-y-2 mb-6">
+            <li>• Email: <a href="mailto:info@artificialigknorance.com" class="text-accent hover:text-accent-deep underline">info@artificialigknorance.com</a></li>
+            <li>• X / Twitter: <a href="https://x.com/igknorance" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-deep underline">@igknorance</a></li>
+            <li>• App Store: <a href="https://apps.apple.com/us/developer/mike-dangerfield/id1588904052" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-deep underline">all Artificial Igknorance apps</a></li>
         </ul>
     </section>
 
     <!-- Final CTA -->
     <section class="text-center mb-16 bg-gradient-to-br from-blue-500/15 to-cyan-500/15 rounded-3xl p-8 md:p-12 border border-blue-400/20">
         <h2 class="text-3xl sm:text-4xl font-bold mb-4">Try the apps</h2>
-        <p class="text-gray-300 text-lg mb-6 max-w-2xl mx-auto">
-            All nine apps are free to download from the App Store. No account, no signup — and no data leaves your device beyond what AI coaching needs to build your plan.
+        <p class="text-body text-lg mb-6 max-w-2xl mx-auto">
+            All nine apps are free to download from the App Store. No account, no signup, and no data leaves your device beyond what AI coaching needs to build your plan.
         </p>
-        <a href="/" class="inline-block bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline">
+        <a href="/" class="inline-block text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline bg-accent hover:bg-accent-deep">
             See the apps →
         </a>
     </section>

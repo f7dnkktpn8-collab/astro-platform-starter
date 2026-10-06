@@ -18,15 +18,15 @@ const faqs = [
     },
     {
         q: 'What is the Dr Copper signal?',
-        a: '"Dr. Copper" is the old market nickname for copper\'s ability to predict the broader economy — when copper turns, the S&P 500 often follows. Copper Watcher gives you a live read of that relationship, plotted so you can see when copper is leading or trailing the market.'
+        a: '"Dr. Copper" is the old market nickname for copper\'s ability to predict the broader economy: when copper turns, the S&P 500 often follows. Copper Watcher gives you a live read of that relationship, plotted so you can see when copper is leading or trailing the market.'
     },
     {
         q: 'How does the realized profit work when I sell?',
-        a: 'When you sell a position, record the sale price and date — Copper Watcher logs the realized gain and rolls it into a running cumulative profit across all of your closed positions. Gifts can be marked separately so they don\'t inflate the profit number.'
+        a: 'When you sell a position, record the sale price and date: Copper Watcher logs the realized gain and rolls it into a running cumulative profit across all of your closed positions. Gifts can be marked separately so they don\'t inflate the profit number.'
     },
     {
         q: 'What are Prediction Markets?',
-        a: 'A live read of Polymarket bets on the forces driving copper — China manufacturing, data-center buildout, industrial production, recession risk — pulled into a section of the Charts tab.'
+        a: 'A live read of Polymarket bets on the forces driving copper (China manufacturing, data-center buildout, industrial production, recession risk), pulled into a section of the Charts tab.'
     },
     {
         q: 'What does the Smarter Sentiment badge do?',
@@ -34,7 +34,7 @@ const faqs = [
     },
     {
         q: 'How does the scrap calculator work?',
-        a: 'Enter the weight and pick the copper grade — from OFHC lab grade (100%) down to #2 copper scrap (95%) — and Copper Watcher gives you the value at the current spot price. Built-in labels for every commercial purity level so you can quote a customer instantly.'
+        a: 'Enter the weight and pick the copper grade, from OFHC lab grade (100%) down to #2 copper scrap (95%), and Copper Watcher gives you the value at the current spot price. Built-in labels for every commercial purity level so you can quote a customer instantly.'
     },
     {
         q: 'Can I track my own copper holdings?',
@@ -73,7 +73,7 @@ const pageStructuredData = {
 ---
 
 <Layout
-    title="Copper Watcher — Live Copper Spot, Dr Copper Signal, Prediction Markets"
+    title="Copper Watcher | Live Copper Spot, Dr Copper Signal, Prediction Markets"
     description="Live copper spot price, ETFs (CPER, COPX, COPP), futures, the Dr Copper signal vs S&P 500, Polymarket prediction markets, sentiment badge, scrap calculator, and portfolio with realized P&L. Free iPhone app for copper investors, scrap dealers, electricians, and traders."
     ogImage={APP_ICON}
     twitterCard="summary_large_image"
@@ -84,11 +84,11 @@ const pageStructuredData = {
     <script slot="head" type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
 
     <!-- Breadcrumb -->
-    <nav aria-label="Breadcrumb" class="text-sm text-gray-400 pt-6">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted pt-6">
         <ol class="flex items-center gap-2">
-            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="/" class="hover:text-ink transition-colors">Home</a></li>
             <li aria-hidden="true">/</li>
-            <li class="text-gray-300">Copper Watcher</li>
+            <li class="text-body">Copper Watcher</li>
         </ol>
     </nav>
 
@@ -102,14 +102,14 @@ const pageStructuredData = {
         <div class="relative flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <img src={APP_ICON} alt="Copper Watcher app icon" width="180" height="180" class="w-32 h-32 md:w-44 md:h-44 rounded-3xl shadow-2xl flex-shrink-0" />
             <div class="flex-1 text-center md:text-left">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-amber-400 to-orange-300 bg-clip-text text-transparent">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-ink">
                     Copper Watcher (Cu)
                 </h1>
-                <p class="text-xl sm:text-2xl text-amber-300 font-medium mb-4">Live copper prices, in your pocket.</p>
-                <p class="text-gray-300 max-w-2xl mb-6 text-lg">
+                <p class="text-xl sm:text-2xl text-amber-700 font-medium mb-4">Live copper prices, in your pocket.</p>
+                <p class="text-body max-w-2xl mb-6 text-lg">
                     Live copper spot price, ETFs and futures, the Dr Copper signal vs the S&amp;P 500, prediction
                     markets, a smarter sentiment badge, a scrap calculator, and portfolio tracking with realized
-                    profit — built for copper investors, scrap dealers, electricians, and metal traders.
+                    profit: built for copper investors, scrap dealers, electricians, and metal traders.
                 </p>
                 <div class="flex flex-wrap gap-3 justify-center md:justify-start">
                     <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
@@ -120,61 +120,61 @@ const pageStructuredData = {
 
     <!-- Quick badges -->
     <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
-        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Home &amp; Lock Screen widgets</span>
-        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Live spot + Today&apos;s Pulse</span>
-        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">CPER · COPX · COPP</span>
-        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Dr Copper signal</span>
-        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Picks &amp; Shovels (CAT, ETN, PWR)</span>
-        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Scrap calculator</span>
-        <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Signals · news + Polymarket</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-700 rounded-full text-sm">Home &amp; Lock Screen widgets</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-700 rounded-full text-sm">Live spot + Today&apos;s Pulse</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-700 rounded-full text-sm">CPER · COPX · COPP</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-700 rounded-full text-sm">Dr Copper signal</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-700 rounded-full text-sm">Picks &amp; Shovels (CAT, ETN, PWR)</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-700 rounded-full text-sm">Scrap calculator</span>
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-700 rounded-full text-sm">Signals · news + Polymarket</span>
     </section>
 
     <!-- What it does -->
     <section class="mb-16">
         <h2 class="text-3xl font-bold mb-8 text-center md:text-left">What it does</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            <div class="sm:col-span-2 bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
+            <div class="sm:col-span-2 bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
                 <div class="flex items-center gap-2 mb-2">
-                    <h3 class="text-xl font-bold text-amber-300">Home &amp; Lock Screen widgets</h3>
-                    <span class="px-2 py-0.5 bg-amber-500/20 text-amber-300 rounded-full text-xs font-semibold uppercase tracking-wide">New</span>
+                    <h3 class="text-xl font-bold text-amber-700">Home &amp; Lock Screen widgets</h3>
+                    <span class="px-2 py-0.5 bg-amber-500/20 text-amber-700 rounded-full text-xs font-semibold uppercase tracking-wide">New</span>
                 </div>
-                <p class="text-gray-300">Add a small or medium widget for the live copper spot price, today&apos;s change, and a 7-day chart — right on your home screen, in your selected currency. Lock Screen widgets show the price and today&apos;s move at a glance. They refresh through the day without opening the app.</p>
+                <p class="text-body">Add a small or medium widget for the live copper spot price, today&apos;s change, and a 7-day chart, right on your home screen, in your selected currency. Lock Screen widgets show the price and today&apos;s move at a glance. They refresh through the day without opening the app.</p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-amber-300">Live spot + Today&apos;s Pulse</h3>
-                <p class="text-gray-300">Spot copper updated through the trading day with a live heartbeat indicator. Today&apos;s Pulse gives a one-sentence read on what&apos;s moving, and a second line says whether copper is following the S&amp;P, tracking China, or moving on its own. Charts from 1D through 10Y and MAX, line or dot styles, rotate for fullscreen.</p>
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-amber-700">Live spot + Today&apos;s Pulse</h3>
+                <p class="text-body">Spot copper updated through the trading day with a live heartbeat indicator. Today&apos;s Pulse gives a one-sentence read on what&apos;s moving, and a second line says whether copper is following the S&amp;P, tracking China, or moving on its own. Charts from 1D through 10Y and MAX, line or dot styles, rotate for fullscreen.</p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-amber-300">Copper ETFs &amp; futures</h3>
-                <p class="text-gray-300">Live prices for CPER, COPX, COPP and other top copper ETFs, plus futures contracts. Daily changes and full price history alongside spot.</p>
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-amber-700">Copper ETFs &amp; futures</h3>
+                <p class="text-body">Live prices for CPER, COPX, COPP and other top copper ETFs, plus futures contracts. Daily changes and full price history alongside spot.</p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-amber-300">Dr Copper signal</h3>
-                <p class="text-gray-300">A live read on copper&apos;s relationship to the S&amp;P 500 — the classic &quot;Dr. Copper&quot; indicator that has predicted recessions and recoveries. Plotted so you can see when copper is leading or trailing the market.</p>
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-amber-700">Dr Copper signal</h3>
+                <p class="text-body">A live read on copper&apos;s relationship to the S&amp;P 500, the classic &quot;Dr. Copper&quot; indicator that has predicted recessions and recoveries. Plotted so you can see when copper is leading or trailing the market.</p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-amber-300">Picks &amp; Shovels</h3>
-                <p class="text-gray-300">A Premium section of companies that profit from copper demand — heavy equipment makers like Caterpillar, electrical-component firms (Eaton, nVent), mining service providers, and infrastructure plays. A different angle on copper exposure beyond the metal itself.</p>
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-amber-700">Picks &amp; Shovels</h3>
+                <p class="text-body">A Premium section of companies that profit from copper demand: heavy equipment makers like Caterpillar, electrical-component firms (Eaton, nVent), mining service providers, and infrastructure plays. A different angle on copper exposure beyond the metal itself.</p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-amber-300">Scrap calculator</h3>
-                <p class="text-gray-300">Value copper by weight and purity instantly. Built-in grades from OFHC lab grade (100%) down to #2 copper scrap (95%), with labels for every commercial level.</p>
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-amber-700">Scrap calculator</h3>
+                <p class="text-body">Value copper by weight and purity instantly. Built-in grades from OFHC lab grade (100%) down to #2 copper scrap (95%), with labels for every commercial level.</p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-amber-300">Portfolio with realized P&amp;L</h3>
-                <p class="text-gray-300">Holdings in oz, g, kg, lb, or tonne. Live P&amp;L per position, gifts flagged separately, and realized profit logged across every closed position when you record a sale.</p>
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-amber-700">Portfolio with realized P&amp;L</h3>
+                <p class="text-body">Holdings in oz, g, kg, lb, or tonne. Live P&amp;L per position, gifts flagged separately, and realized profit logged across every closed position when you record a sale.</p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-amber-300">Signals</h3>
-                <p class="text-gray-300">Live financial news from Reuters, Bloomberg, MarketWatch, Mining.com and more — each with the publisher&apos;s logo. Plus live Polymarket prediction-market odds on the forces driving copper: Fed rate cuts, inflation, China growth, EV demand.</p>
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-amber-700">Signals</h3>
+                <p class="text-body">Live financial news from Reuters, Bloomberg, MarketWatch, Mining.com and more, each with the publisher&apos;s logo. Plus live Polymarket prediction-market odds on the forces driving copper: Fed rate cuts, inflation, China growth, EV demand.</p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-amber-300">Smarter sentiment</h3>
-                <p class="text-gray-300">A Bullish / Bearish / Neutral badge that blends short-term momentum, 50-day trend health, and news-headline tone into one signal.</p>
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-amber-700">Smarter sentiment</h3>
+                <p class="text-body">A Bullish / Bearish / Neutral badge that blends short-term momentum, 50-day trend health, and news-headline tone into one signal.</p>
             </div>
-            <div class="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                <h3 class="text-xl font-bold mb-2 text-amber-300">What-If calculator</h3>
-                <p class="text-gray-300">See what a past copper position would be worth today. Compare returns against the S&amp;P 500 and copper ETFs with overlay charts. Toggle between lump-sum and dollar-cost-averaging strategies.</p>
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-amber-700">What-If calculator</h3>
+                <p class="text-body">See what a past copper position would be worth today. Compare returns against the S&amp;P 500 and copper ETFs with overlay charts. Toggle between lump-sum and dollar-cost-averaging strategies.</p>
             </div>
         </div>
     </section>
@@ -182,7 +182,7 @@ const pageStructuredData = {
     <!-- See it in action -->
     <section class="mb-16">
         <h2 class="text-3xl font-bold mb-3 text-center md:text-left">See it in action</h2>
-        <p class="text-gray-400 mb-8 text-center md:text-left text-sm">Real screens from the App Store. (Sample data shown.)</p>
+        <p class="text-muted mb-8 text-center md:text-left text-sm">Real screens from the App Store. (Sample data shown.)</p>
 
         <!-- Mobile: horizontal snap-scroll. Desktop: 2-column then 3-column grid. -->
         <div class="flex snap-x snap-mandatory overflow-x-auto gap-4 -mx-6 px-6 pb-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible lg:grid-cols-3">
@@ -194,101 +194,101 @@ const pageStructuredData = {
                     height="1738"
                     loading="lazy"
                     decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                    class="w-full rounded-2xl shadow-xl border border-line"
                 /></picture>
-                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Live spot price</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Cu spot, day range, full historical chart, and the Dr. Copper read on the macro economy.</p>
+                <figcaption class="mt-3 text-amber-700 font-semibold text-sm">Live spot price</figcaption>
+                <p class="text-xs text-muted mt-1">Cu spot, day range, full historical chart, and the Dr. Copper read on the macro economy.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/copper-watcher/portfolio.webp" type="image/webp" /><img
                     src="/images/screenshots/copper-watcher/portfolio.jpg"
-                    alt="Copper Watcher Portfolio screen — Total Value C$34.10 across 3.70 lb total, Total Profit/Loss +C$0.00 (gifts received C$34.10), Portfolio Value Over Time bar chart, and an Add Holding button"
+                    alt="Copper Watcher Portfolio screen: Total Value C$34.10 across 3.70 lb total, Total Profit/Loss +C$0.00 (gifts received C$34.10), Portfolio Value Over Time bar chart, and an Add Holding button"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                    class="w-full rounded-2xl shadow-xl border border-line"
                 /></picture>
-                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Portfolio with realized P&amp;L</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Holdings in oz, g, kg, lb, or tonne — live value, cost basis, gifts flagged separately.</p>
+                <figcaption class="mt-3 text-amber-700 font-semibold text-sm">Portfolio with realized P&amp;L</figcaption>
+                <p class="text-xs text-muted mt-1">Holdings in oz, g, kg, lb, or tonne: live value, cost basis, gifts flagged separately.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/copper-watcher/what-if.webp" type="image/webp" /><img
                     src="/images/screenshots/copper-watcher/what-if.jpg"
-                    alt="Copper Watcher What-If calculator — investment amount C$2,150, Invested On 5Y ago, Compare Against ETF chips COPX, COPP, HG=F, and SPY (selected), Lump Sum vs DCA toggle on with 13 monthly contributions of C$165.38, and a Lump Sum vs DCA chart below"
+                    alt="Copper Watcher What-If calculator: investment amount C$2,150, Invested On 5Y ago, Compare Against ETF chips COPX, COPP, HG=F, and SPY (selected), Lump Sum vs DCA toggle on with 13 monthly contributions of C$165.38, and a Lump Sum vs DCA chart below"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                    class="w-full rounded-2xl shadow-xl border border-line"
                 /></picture>
-                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Lump-sum or DCA</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Pick an amount and a date, then compare lump-sum vs dollar-cost-averaging against any copper ETF.</p>
+                <figcaption class="mt-3 text-amber-700 font-semibold text-sm">Lump-sum or DCA</figcaption>
+                <p class="text-xs text-muted mt-1">Pick an amount and a date, then compare lump-sum vs dollar-cost-averaging against any copper ETF.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/copper-watcher/investment-detail.webp" type="image/webp" /><img
                     src="/images/screenshots/copper-watcher/investment-detail.jpg"
-                    alt="Copper Watcher detail view of a DCA investment — Your Investment Today C$3,155.23 up 46.8 percent, Invested C$2,150, Copper price then C$6.2811, Copper purchased 342.2942 lb, current Copper price C$9.2179, Gain/Loss +C$1,005.23, and a full Dollar-Cost Averaging breakdown showing DCA winning by 7.8 percent"
+                    alt="Copper Watcher detail view of a DCA investment: Your Investment Today C$3,155.23 up 46.8 percent, Invested C$2,150, Copper price then C$6.2811, Copper purchased 342.2942 lb, current Copper price C$9.2179, Gain/Loss +C$1,005.23, and a full Dollar-Cost Averaging breakdown showing DCA winning by 7.8 percent"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                    class="w-full rounded-2xl shadow-xl border border-line"
                 /></picture>
-                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Investment detail</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Drill into any past investment to see exactly how lump-sum vs DCA played out.</p>
+                <figcaption class="mt-3 text-amber-700 font-semibold text-sm">Investment detail</figcaption>
+                <p class="text-xs text-muted mt-1">Drill into any past investment to see exactly how lump-sum vs DCA played out.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/copper-watcher/scrap-calc.webp" type="image/webp" /><img
                     src="/images/screenshots/copper-watcher/scrap-calc.jpg"
-                    alt="Copper Watcher Calculate scrap value screen — weight 74, unit lb selected, Purity grid showing 100 percent OFHC Lab Grade, 99.99 percent OFE Cathode, 99.95 percent ETP Wire Grade (selected), 99.9 percent Bare Bright Scrap, 99.5 percent Fire Refined, 99 percent Commercial Grade, 98 percent #1 Copper Scrap, 97 percent General Engineering, 95 percent #2 Copper Scrap; Estimated Value C$681.78 at spot C$9.2179 per lb"
+                    alt="Copper Watcher Calculate scrap value screen: weight 74, unit lb selected, Purity grid showing 100 percent OFHC Lab Grade, 99.99 percent OFE Cathode, 99.95 percent ETP Wire Grade (selected), 99.9 percent Bare Bright Scrap, 99.5 percent Fire Refined, 99 percent Commercial Grade, 98 percent #1 Copper Scrap, 97 percent General Engineering, 95 percent #2 Copper Scrap; Estimated Value C$681.78 at spot C$9.2179 per lb"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                    class="w-full rounded-2xl shadow-xl border border-line"
                 /></picture>
-                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Built for scrap dealers</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Pick weight and grade — OFHC lab grade through #2 scrap — and quote a customer in seconds.</p>
+                <figcaption class="mt-3 text-amber-700 font-semibold text-sm">Built for scrap dealers</figcaption>
+                <p class="text-xs text-muted mt-1">Pick weight and grade: OFHC lab grade through #2 scrap, and quote a customer in seconds.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/copper-watcher/dr-copper-seasonal.webp" type="image/webp" /><img
                     src="/images/screenshots/copper-watcher/dr-copper-seasonal.jpg"
-                    alt="Copper Watcher Dr. Copper Economic Indicator card reading 'Economy Expanding — Copper and equities both rising signals broad economic growth' with Copper 3M +13.0 percent and S&P 500 3M +11.6 percent, then a Seasonal Patterns 10Y AVG chart and Copper ETFs list — CPER C$56.19, COPX C$129.63"
+                    alt="Copper Watcher Dr. Copper Economic Indicator card reading 'Economy Expanding: Copper and equities both rising signals broad economic growth' with Copper 3M +13.0 percent and S&P 500 3M +11.6 percent, then a Seasonal Patterns 10Y AVG chart and Copper ETFs list, CPER C$56.19, COPX C$129.63"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                    class="w-full rounded-2xl shadow-xl border border-line"
                 /></picture>
-                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Dr. Copper + seasonal</figcaption>
-                <p class="text-xs text-gray-400 mt-1">The classic copper-vs-S&amp;P macro signal, plus 10-year seasonal returns and every copper ETF.</p>
+                <figcaption class="mt-3 text-amber-700 font-semibold text-sm">Dr. Copper + seasonal</figcaption>
+                <p class="text-xs text-muted mt-1">The classic copper-vs-S&amp;P macro signal, plus 10-year seasonal returns and every copper ETF.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/copper-watcher/signals.webp" type="image/webp" /><img
                     src="/images/screenshots/copper-watcher/signals.jpg"
-                    alt="Copper Watcher Signals tab — 'Prediction markets and news moving copper' header, then a Prediction Markets section from Polymarket listing Fed interest-rate questions for the June 2026 meeting with vote-volume and YES odds for each"
+                    alt="Copper Watcher Signals tab: 'Prediction markets and news moving copper' header, then a Prediction Markets section from Polymarket listing Fed interest-rate questions for the June 2026 meeting with vote-volume and YES odds for each"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                    class="w-full rounded-2xl shadow-xl border border-line"
                 /></picture>
-                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Signals — news + Polymarket</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Live financial news with publisher logos plus prediction-market odds on macro forces moving copper.</p>
+                <figcaption class="mt-3 text-amber-700 font-semibold text-sm">Signals: news + Polymarket</figcaption>
+                <p class="text-xs text-muted mt-1">Live financial news with publisher logos plus prediction-market odds on macro forces moving copper.</p>
             </figure>
             <figure class="snap-center flex-shrink-0 w-72 sm:w-auto">
                 <picture><source srcset="/images/screenshots/copper-watcher/picks-shovels.webp" type="image/webp" /><img
                     src="/images/screenshots/copper-watcher/picks-shovels.jpg"
-                    alt="Copper Watcher Picks &amp; Shovels Premium section — 'Profit from copper demand, not the spot price' subtitle, with CAT (Caterpillar) C$1259.43, ETN (Eaton Corporation) C$578.10, PWR (Quanta Services) C$977.38, NVT (nVent Electric) C$240.02, and a Futures section below showing HG=F Copper Jul 26 C$9.22"
+                    alt="Copper Watcher Picks &amp; Shovels Premium section: 'Profit from copper demand, not the spot price' subtitle, with CAT (Caterpillar) C$1259.43, ETN (Eaton Corporation) C$578.10, PWR (Quanta Services) C$977.38, NVT (nVent Electric) C$240.02, and a Futures section below showing HG=F Copper Jul 26 C$9.22"
                     width="800"
                     height="1738"
                     loading="lazy"
                     decoding="async"
-                    class="w-full rounded-2xl shadow-xl border border-white/10"
+                    class="w-full rounded-2xl shadow-xl border border-line"
                 /></picture>
-                <figcaption class="mt-3 text-amber-300 font-semibold text-sm">Picks &amp; Shovels</figcaption>
-                <p class="text-xs text-gray-400 mt-1">Heavy equipment, electrical components, infrastructure — companies that profit from copper demand.</p>
+                <figcaption class="mt-3 text-amber-700 font-semibold text-sm">Picks &amp; Shovels</figcaption>
+                <p class="text-xs text-muted mt-1">Heavy equipment, electrical components, infrastructure: companies that profit from copper demand.</p>
             </figure>
         </div>
     </section>
@@ -296,15 +296,15 @@ const pageStructuredData = {
     <!-- Built for -->
     <section class="mb-16 bg-gradient-to-br from-amber-500/10 to-orange-500/10 backdrop-blur-sm rounded-3xl p-6 md:p-10 border border-amber-400/20">
         <h2 class="text-3xl font-bold mb-6 text-center">Built for copper</h2>
-        <p class="text-gray-300 text-lg max-w-3xl mx-auto text-center mb-6">
+        <p class="text-body text-lg max-w-3xl mx-auto text-center mb-6">
             Most metals apps treat copper as an afterthought. Copper Watcher was built specifically for the people who
-            buy, sell, scrap, or stack the red metal — with the calculators and currency support that real traders need.
+            buy, sell, scrap, or stack the red metal, with the calculators and currency support that real traders need.
         </p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-            <div class="text-center"><div class="text-amber-300 font-semibold">Investors</div></div>
-            <div class="text-center"><div class="text-amber-300 font-semibold">Scrap dealers</div></div>
-            <div class="text-center"><div class="text-amber-300 font-semibold">Electricians</div></div>
-            <div class="text-center"><div class="text-amber-300 font-semibold">Metal traders</div></div>
+            <div class="text-center"><div class="text-amber-700 font-semibold">Investors</div></div>
+            <div class="text-center"><div class="text-amber-700 font-semibold">Scrap dealers</div></div>
+            <div class="text-center"><div class="text-amber-700 font-semibold">Electricians</div></div>
+            <div class="text-center"><div class="text-amber-700 font-semibold">Metal traders</div></div>
         </div>
     </section>
 
@@ -313,34 +313,34 @@ const pageStructuredData = {
         <h2 class="text-3xl font-bold mb-8 text-center md:text-left">Frequently asked questions</h2>
         <div class="space-y-3">
             {faqs.map(({ q, a }) => (
-                <details class="bg-white/5 rounded-xl p-5 group hover:bg-white/10 transition-all">
+                <details class="p-5 transition-all bg-white border border-line rounded-2xl group hover:shadow-md">
                     <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-lg">
                         <span>{q}</span>
-                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="flex-shrink-0 w-8 h-8 p-1.5 transition-transform duration-300 rounded-full bg-[#efeff2] text-muted group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </summary>
-                    <p class="mt-3 text-gray-300">{a}</p>
+                    <p class="mt-3 text-body">{a}</p>
                 </details>
             ))}
         </div>
     </section>
 
-    <!-- Other watcher apps — internal links to the rest of the metals lineup -->
-    <section class="mb-12 text-center text-sm text-gray-400">
+    <!-- Other watcher apps: internal links to the rest of the metals lineup -->
+    <section class="mb-12 text-center text-sm text-muted">
         <p>
             Also from Artificial Igknorance:
-            <a href="/gold-watcher/" class="text-yellow-300 hover:text-yellow-200 underline">Gold Watcher</a> for precious-metals stackers, ·
-            <a href="/silver-watcher/" class="text-slate-300 hover:text-slate-200 underline">Silver Watcher</a> for stackers and sterling, ·
-            <a href="/lithium-watcher/" class="text-teal-300 hover:text-teal-200 underline">Lithium Watcher</a> for the EV market.
+            <a href="/gold-watcher/" class="text-yellow-700 hover:text-yellow-900 underline">Gold Watcher</a> for precious-metals stackers, ·
+            <a href="/silver-watcher/" class="text-slate-700 hover:text-slate-900 underline">Silver Watcher</a> for stackers and sterling, ·
+            <a href="/lithium-watcher/" class="text-teal-700 hover:text-teal-900 underline">Lithium Watcher</a> for the EV market.
         </p>
     </section>
 
     <!-- Final CTA -->
     <section class="text-center mb-16 bg-gradient-to-br from-amber-500/15 to-orange-500/15 rounded-3xl p-8 md:p-12 border border-amber-400/20">
         <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get Copper Watcher</h2>
-        <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">Free download on the App Store. Built for iPhone, designed for the copper market.</p>
+        <p class="text-body text-lg mb-8 max-w-2xl mx-auto">Free download on the App Store. Built for iPhone, designed for the copper market.</p>
         <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
-        <p class="mt-6 text-sm text-gray-400">Or browse <a href="/" class="text-amber-300 hover:text-amber-200 underline">all Artificial Igknorance apps</a>.</p>
+        <p class="mt-6 text-sm text-muted">Or browse <a href="/" class="text-amber-700 hover:text-amber-900 underline">all Artificial Igknorance apps</a>.</p>
     </section>
 </Layout>

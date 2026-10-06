@@ -10,7 +10,7 @@ const SITE = 'https://artificialigknorance.com';
 // Layout.astro. Used to emit <image:image> entries in the sitemap so Google
 // Image search can surface these screenshots.
 const PAGE_IMAGES = {
-    '/': [SITE + '/images/robot-mascot-transparent.png'],
+    '/': [SITE + '/images/hero-ai-handshake-transparent.png'],
     '/escalator-field-command/': [
         SITE + '/images/screenshots/escalator/dashboard-overview.jpg',
         SITE + '/images/screenshots/escalator/cat1-progress.jpg',

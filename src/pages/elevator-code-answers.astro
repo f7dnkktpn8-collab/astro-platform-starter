@@ -75,11 +75,11 @@ const pageStructuredData = {
     />
 
     <!-- Breadcrumb (visual + crawlable) -->
-    <nav aria-label="Breadcrumb" class="text-sm text-gray-400 pt-6">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted pt-6">
         <ol class="flex items-center gap-2">
-            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="/" class="hover:text-ink transition-colors">Home</a></li>
             <li aria-hidden="true">/</li>
-            <li class="text-gray-300">Elevator &amp; Escalator Code Answers</li>
+            <li class="text-body">Elevator &amp; Escalator Code Answers</li>
         </ol>
     </nav>
 
@@ -91,13 +91,13 @@ const pageStructuredData = {
         </div>
 
         <div class="relative text-center max-w-3xl mx-auto">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-ink">
                 Elevator &amp; Escalator Code Answers
             </h1>
-            <p class="text-xl sm:text-2xl text-blue-300 font-medium mb-4">
+            <p class="text-xl sm:text-2xl text-accent font-medium mb-4">
                 A17.1, A17.2, A17.3, and B44 — explained in plain language.
             </p>
-            <p class="text-gray-300 max-w-2xl mx-auto text-lg">
+            <p class="text-body max-w-2xl mx-auto text-lg">
                 Quick, plain-English answers to the elevator and escalator code questions mechanics,
                 inspectors, and building owners actually search for — no binder, no jargon, no login required.
             </p>
@@ -106,13 +106,13 @@ const pageStructuredData = {
 
     <!-- Quick badges -->
     <section class="flex flex-wrap gap-2 justify-center mb-12">
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">ASME A17.1</span>
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">ASME A17.2</span>
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">CSA B44</span>
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">ASME A17.3</span>
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Category 1 testing</span>
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">SSPI compliance</span>
-        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Maintenance Control Program</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">ASME A17.1</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">ASME A17.2</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">CSA B44</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">ASME A17.3</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">Category 1 testing</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">SSPI compliance</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">Maintenance Control Program</span>
     </section>
 
     <!-- FAQ (hidden until questions are supplied) -->
@@ -122,11 +122,11 @@ const pageStructuredData = {
             <div class="space-y-3">
                 {
                     faqs.map(({ q, a }) => (
-                        <details class="bg-white/5 rounded-xl p-5 group hover:bg-white/10 transition-all">
+                        <details class="p-5 transition-all bg-white border border-line rounded-2xl group hover:shadow-md">
                             <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-lg">
                                 <span>{q}</span>
                                 <svg
-                                    class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180"
+                                    class="flex-shrink-0 w-8 h-8 p-1.5 transition-transform duration-300 rounded-full bg-[#efeff2] text-muted group-open:rotate-180"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
@@ -139,7 +139,7 @@ const pageStructuredData = {
                                     />
                                 </svg>
                             </summary>
-                            <p class="mt-3 text-gray-300">{a}</p>
+                            <p class="mt-3 text-body">{a}</p>
                         </details>
                     ))
                 }
@@ -158,15 +158,15 @@ const pageStructuredData = {
             loading="lazy"
         />
         <h2 class="text-2xl sm:text-3xl font-bold mb-4">Need these answers on the job, not at a desk?</h2>
-        <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+        <p class="text-body text-lg mb-8 max-w-2xl mx-auto">
             Escalator Field Command's built-in Field Guide gives you plain-language, sourced code
             answers right at the unit — no signal required. Ask a question the way you'd ask a
             senior mechanic and get a clear answer citing the exact code section, drawn from
             ASME A17.1, A17.2, CSA B44, and the MCP.
         </p>
         <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
-        <p class="mt-6 text-sm text-gray-400">
-            Or <a href="/escalator-field-command/" class="text-blue-300 hover:text-blue-200 underline">learn more about Escalator Field Command</a>.
+        <p class="mt-6 text-sm text-muted">
+            Or <a href="/escalator-field-command/" class="text-accent hover:text-accent-deep underline">learn more about Escalator Field Command</a>.
         </p>
     </section>
 </Layout>

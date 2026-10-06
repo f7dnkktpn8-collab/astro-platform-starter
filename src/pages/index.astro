@@ -1,36 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Shot from '../components/Shot.astro';
+import '../styles/home.css';
 
 // Cross-app FAQs covering the brand-level questions visitors most often have:
 // privacy, why no signup, pricing, platform reach. Same content powers the
 // visible accordion AND a FAQPage JSON-LD block for Google rich results / AI
-// Overviews. Keep the answers tight — they're rendered verbatim in search.
+// Overviews. Keep the answers tight: they're rendered verbatim in search.
 const faqs = [
     {
         q: "Why don't your apps ask me to create an account?",
-        a: "Because we don't need your data to make the app work. Every Artificial Igknorance app is on-device by design — your information lives on your iPhone, not on our servers. No account means nothing to leak, nothing to subscribe to, and nothing to remember. You open the app and start using it."
+        a: "Because the apps don't need your data to work. Everything lives on your iPhone, so there's nothing on our side to leak and nothing for you to remember. You open the app and start using it."
     },
     {
-        q: "Is my data really private?",
-        a: "Yes. There are no analytics SDKs, no third-party trackers, no cloud sync, and no telemetry phoning home. The apps are designed to function fully offline. If you want to back up or export your data, that's something you trigger yourself — and it goes only where you send it."
+        q: 'Is my data really private?',
+        a: 'Yes. There are no analytics SDKs, no third-party trackers, no cloud sync and no telemetry. Backing up or exporting is something you trigger yourself, and it goes only where you send it. The two AI features described in the privacy section are the only exceptions.'
     },
     {
-        q: "Are the apps available outside the United States?",
-        a: "Yes. The apps are available on the App Store in most countries. The Watcher apps (Gold, Silver, Copper, Lithium) support 10+ currencies with live prices. SnapLedger, HealthTrail Medical, Escalator Field Command, Clock-In Everyday, and RidgePacker work worldwide. All are iPhone apps; Escalator Field Command and RidgePacker also run on iPad."
+        q: 'Are the apps available outside the United States?',
+        a: 'Yes, in most countries. The Watcher apps support 10 or more currencies with live prices. Everything is built for iPhone, and Escalator Field Command and RidgePacker run on iPad too.'
     },
     {
-        q: "What does \"Artificial Igknorance\" mean?",
-        a: "It's a play on \"artificial intelligence\" — a wink at the idea that the smartest software isn't the one that knows everything about you, but the one that's strategically ignorant. Our apps don't need to know who you are to be useful. The misspelling is on purpose."
+        q: 'What does "Artificial Igknorance" mean?',
+        a: 'It\'s a play on "artificial intelligence", and the misspelling is deliberate. Our apps don\'t need to know who you are to be useful, so we leaned into being ignorant on purpose.'
     }
 ];
 
 const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(({ q, a }) => ({
-        "@type": "Question",
-        "name": q,
-        "acceptedAnswer": { "@type": "Answer", "text": a }
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a }
     }))
 };
 
@@ -40,698 +42,496 @@ const faqStructuredData = {
 // it represents what the video opens on.
 const SITE_URL = 'https://artificialigknorance.com';
 const videoStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "@id": SITE_URL + "/#escalator-demo-video",
-    "name": "Escalator Field Command — quick app demo",
-    "description": "A short walk-through of Escalator Field Command on iPhone — daily command-center dashboard, Cat 1 testing progress, SSPI compliance logs, and per-unit shutdown records — built for working escalator mechanics.",
-    "thumbnailUrl": [SITE_URL + "/images/screenshots/escalator/dashboard-overview.jpg"],
-    "uploadDate": "2026-04-29T00:00:00+00:00",
-    "duration": "PT10S",
-    "contentUrl": SITE_URL + "/videos/escalator-field-command-demo.mp4",
-    "embedUrl": SITE_URL + "/#escalator-field-command",
-    "publisher": { "@id": SITE_URL + "/#organization" },
-    "about": { "@id": SITE_URL + "/#escalator-field-command" },
-    "inLanguage": "en-US"
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    '@id': SITE_URL + '/#escalator-demo-video',
+    name: 'Escalator Field Command: quick app demo',
+    description:
+        'A short walk-through of Escalator Field Command on iPhone: the daily command-center dashboard, Cat 1 testing progress, SSPI compliance logs, and per-unit shutdown records, built for working escalator mechanics.',
+    thumbnailUrl: [SITE_URL + '/images/screenshots/escalator/dashboard-overview.jpg'],
+    uploadDate: '2026-04-29T00:00:00+00:00',
+    duration: 'PT10S',
+    contentUrl: SITE_URL + '/videos/escalator-field-command-demo.mp4',
+    embedUrl: SITE_URL + '/#escalator-field-command',
+    publisher: { '@id': SITE_URL + '/#organization' },
+    about: { '@id': SITE_URL + '/#escalator-field-command' },
+    inLanguage: 'en-US'
 };
+
+// Each shot is [file name in /images/home/, alt text, width, height].
+const everyday = [
+    {
+        id: 'healthtrail-medical',
+        name: 'HealthTrail Medical',
+        tag: 'Your complete health timeline',
+        page: '/healthtrail-medical/',
+        store: 'https://apps.apple.com/us/app/healthtrail-medical/id6758072258',
+        icon: 'healthtrail-medical',
+        tint: 'health',
+        kind: 'poster',
+        shots: [
+            ['health-timeline', 'HealthTrail Medical timeline screen', 370, 800],
+            ['health-meds', 'HealthTrail Medical medications screen', 370, 800]
+        ],
+        desc: 'A medical memory for the whole family. Every appointment, medication and vaccine on one visual timeline, with optional photo scanning that fills in the details for you.'
+    },
+    {
+        id: 'clock-in-everyday',
+        name: 'Clock-In Everyday',
+        tag: 'Your new full time job is your body',
+        page: '/clock-in-everyday/',
+        store: 'https://apps.apple.com/us/app/clock-in-everyday/id6791800212',
+        icon: 'clock-in-everyday',
+        tint: 'clock',
+        kind: 'phone',
+        shots: [
+            ['clock-dashboard', 'Clock-In Everyday dashboard', 640, 1390],
+            ['clock-workout', 'Clock-In Everyday workout screen', 640, 1390]
+        ],
+        desc: 'Daily coached workouts for people over 50. A morning readiness score from Apple Health shapes a session around how you actually slept and recovered.'
+    },
+    {
+        id: 'ridgepacker',
+        name: 'RidgePacker',
+        tag: 'Hiking and backpacking gear',
+        page: '/ridgepacker/',
+        store: 'https://apps.apple.com/us/app/ridgepacker/id6766699306',
+        icon: 'ridgepacker',
+        tint: 'ridge',
+        kind: 'poster',
+        shots: [
+            ['ridge-trips', 'RidgePacker trips screen', 640, 1390],
+            ['ridge-catalog', 'RidgePacker gear catalog screen', 640, 1390]
+        ],
+        desc: 'Catalog every piece of gear with a photo and a weight, then build a packing list for any trip. Track your packed weight and keep a permanent Everyday Carry list. iPhone and iPad.'
+    },
+    {
+        id: 'snapledger',
+        name: 'SnapLedger ø',
+        tag: 'Bills and subscriptions tracker',
+        page: '/snapledger/',
+        store: 'https://apps.apple.com/ca/app/snapledger-%C3%B8/id6759497982',
+        icon: 'snapledger',
+        tint: 'snap',
+        kind: 'poster',
+        shots: [
+            ['snap-overview', 'SnapLedger household bills screen', 368, 800],
+            ['snap-subs', 'SnapLedger subscriptions screen', 368, 800]
+        ],
+        desc: 'Take a photo of a bill and the details fill themselves in. Sort subscriptions by category and watch the household total move month to month. No bank login anywhere.'
+    }
+];
+
+const watchers = [
+    {
+        id: 'gold-watcher',
+        name: 'Gold Watcher',
+        tag: 'Au · Gold is the new Gold',
+        page: '/gold-watcher/',
+        store: 'https://apps.apple.com/us/app/gold-watcher-au/id6758283387',
+        icon: 'gold-watcher',
+        tint: 'gold',
+        shot: ['gold-spot', 'Gold Watcher spot price screen'],
+        desc: 'Live spot price, GLD, IAU and SGOL, the gold/silver ratio and a karat calculator.'
+    },
+    {
+        id: 'silver-watcher',
+        name: 'Silver Watcher',
+        tag: 'Ag · Price tracker and alerts',
+        page: '/silver-watcher/',
+        store: 'https://apps.apple.com/us/app/silver-watcher-ag/id6760270695',
+        icon: 'silver-watcher',
+        tint: 'silver',
+        shot: ['silver-spot', 'Silver Watcher spot price screen'],
+        desc: 'Spot price, SLV, SIVR and PSLV, ratio signals and a purity calculator in 12 currencies.'
+    },
+    {
+        id: 'copper-watcher',
+        name: 'Copper Watcher',
+        tag: 'Cu · Copper is the future',
+        page: '/copper-watcher/',
+        store: 'https://apps.apple.com/us/app/copper-watcher-cu/id6757655923',
+        icon: 'copper-watcher',
+        tint: 'copper',
+        shot: ['copper-signals', 'Copper Watcher signals screen'],
+        desc: 'Spot price, CPER, COPX and COPP, the Dr Copper signal and a scrap calculator in 10 currencies.'
+    },
+    {
+        id: 'lithium-watcher',
+        name: 'Lithium Watcher',
+        tag: 'Li · From mine to the road',
+        page: '/lithium-watcher/',
+        store: 'https://apps.apple.com/us/app/lithium-watcher-li/id6761344726',
+        icon: 'lithium-watcher',
+        tint: 'lithium',
+        shot: ['lithium-markets', 'Lithium Watcher markets screen'],
+        desc: 'Lithium prices from three sources, mining stocks and the big EV makers on one compare chart.'
+    }
+];
 ---
 
 <Layout
-    title="Escalator Field Command — iOS App for Escalator Mechanics | Artificial Igknorance"
-    description="Escalator Field Command — iOS app for escalator mechanics: routes, Category 1 testing, SSPI compliance, inspections. Plus privacy-first apps for health, finance & more by Artificial Igknorance."
-    ogTitle="Artificial Igknorance — Privacy-first iOS apps"
-    ogDescription="Privacy-first iOS apps. No accounts, no cloud, no tracking — everything stays on your iPhone. Tools for health, finance, hiking, and the escalator industry."
+    title="Escalator Field Command: iOS App for Escalator Mechanics | Artificial Igknorance"
+    description="Escalator Field Command is an iOS app for escalator mechanics: routes, Category 1 testing, SSPI compliance, inspections. Plus privacy-first apps for health, finance and more by Artificial Igknorance."
+    ogTitle="Artificial Igknorance | Privacy-first iOS apps"
+    ogDescription="Privacy-first iOS apps. No accounts, no cloud, no tracking: everything stays on your iPhone. Tools for health, finance, hiking, and the escalator industry."
+    contained={false}
 >
+    <link slot="head" rel="preload" as="image" href="/images/home/efc-dashboard.webp" type="image/webp" fetchpriority="high" />
     <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqStructuredData)} />
     <script type="application/ld+json" slot="head" set:html={JSON.stringify(videoStructuredData)} />
-    <!-- Hero Section with Background -->
-    <div class="relative overflow-hidden">
-        <!-- Decorative Background Elements -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-10 left-10 w-32 h-32 bg-blue-400 rounded-full blur-3xl"></div>
-            <div class="absolute top-20 right-20 w-40 h-40 bg-purple-400 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-10 left-1/3 w-36 h-36 bg-cyan-400 rounded-full blur-3xl"></div>
-        </div>
 
-        <!-- Hero Content -->
-        <div class="relative text-center py-16 sm:py-24 px-4">
-            <!-- Logo lockup: small icon + wordmark, not a dominant illustration -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-6">
-                <picture>
-                    <source srcset="/images/hero-ai-handshake-transparent.webp" type="image/webp" />
-                    <img src="/images/hero-ai-handshake-transparent.png" alt="Artificial Igknorance logo" class="w-[50px] h-[50px] sm:w-[65px] sm:h-[65px] flex-shrink-0" fetchpriority="high" />
-                </picture>
-                <h1 class="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">
-                    Artificial Igknorance
-                </h1>
+    <div class="home">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="wrap">
+                <span class="eyebrow"><i></i>Nine apps on the App Store</span>
+                <h1>Apps that mind their own business.</h1>
+                <p class="sub">No sign-up, no account, no ads. What you put in lives on your iPhone and stays there.</p>
+                <div class="cta">
+                    <a class="hbtn" href="#apps">Browse the apps</a>
+                    <a class="link" href="#privacy">How we treat your data &#8250;</a>
+                </div>
             </div>
+            <div class="stage" aria-hidden="true">
+                <div class="phone p-side p-left"><Shot name="clock-dashboard" width={640} height={1390} eager /></div>
+                <div class="phone p-main"><Shot name="efc-dashboard" width={640} height={1391} eager /></div>
+                <div class="phone p-side p-right"><Shot name="efc-cat1" width={368} height={800} eager /></div>
+            </div>
+            <div class="wrap">
+                <div class="stats">
+                    <div class="stat"><b>0</b><span>accounts to create</span></div>
+                    <div class="stat"><b>0</b><span>trackers inside</span></div>
+                    <div class="stat"><b>0</b><span>ads in any app</span></div>
+                    <div class="stat"><b>9</b><span>apps, all free to download</span></div>
+                </div>
+            </div>
+        </section>
 
-            <!-- Single, confident value proposition -->
-            <p class="max-w-2xl mx-auto text-lg sm:text-2xl text-gray-300 mb-8">
-                Nine privacy-first iOS apps. No sign-ups, no accounts, nothing leaves your device.
-            </p>
+        <!-- Apps -->
+        <section class="sec" id="apps">
+            <div class="wrap">
+                <div class="sec-head">
+                    <h2>Built for the work, not for the data.</h2>
+                    <p>Every app is free to download. Pro upgrades are optional and always start with a free trial.</p>
+                </div>
 
-            <!-- Primary CTA -->
-            <a href="#apps" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline">
-                Browse the apps
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0-7-7m7 7V3" /></svg>
-            </a>
-        </div>
-    </div>
+                <div id="industry">
+                    <article class="feature" id="escalator-field-command">
+                        <div class="feature-copy">
+                            <span class="kicker">Featured &middot; Escalator industry</span>
+                            <div class="feature-id">
+                                <img src="/images/escalator-field-command-icon.webp" alt="" width="68" height="68" />
+                                <div><h3 class="feature-title">Escalator Field Command</h3></div>
+                            </div>
+                            <p class="lead">
+                                Maintenance routes, Category 1 testing, SSPI compliance and inspection logs in one app. A searchable Field Guide to the safety codes comes with it.
+                            </p>
+                            <ul class="checks">
+                                {
+                                    [
+                                        'Category 1 test progress, building by building',
+                                        'SSPI brake and step-skirt test records',
+                                        'Unit shutdown logs with the reason on file',
+                                        'Works on iPhone and iPad'
+                                    ].map((item) => (
+                                        <li>
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" opacity=".35" /><path d="m8 12.5 2.8 2.8L16 9.5" /></svg>
+                                            {item}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                            <div class="feature-actions">
+                                <a class="badge" href="https://apps.apple.com/us/app/escalator-field-command/id6756789866" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" /></a>
+                                <button type="button" class="ghost" data-open-escalator-video>Watch the 10-second demo &#9654;</button>
+                                <a class="ghost" href="/escalator-field-command/">Learn more &#8250;</a>
+                            </div>
+                        </div>
+                        <div class="feature-media" aria-hidden="true">
+                            <div class="phone f1"><Shot name="efc-sspi" width={368} height={800} /></div>
+                            <div class="phone f2"><Shot name="efc-shutdown" width={368} height={800} /></div>
+                        </div>
+                    </article>
+                </div>
 
-    <!-- Section Divider -->
-    <div class="flex items-center gap-4 px-4 mb-8">
-        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-    </div>
-    
-    <div class="py-4 sm:py-6">
-
-        <!-- Apps Section -->
-        <div id="apps" class="mb-16 scroll-mt-20">
-            <!-- Escalator Industry Section -->
-            <div id="industry" class="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-3xl p-2 sm:p-6 md:p-8 mb-8 border border-blue-400/20 scroll-mt-20">
-                <h3 class="text-2xl font-bold text-center mb-2 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Escalator Industry</h3>
-                <p class="text-center text-gray-400 mb-8 text-sm">Professional tools for escalator mechanics</p>
-                
-                <!-- Escalator Field Command -->
-                <div id="escalator-field-command" class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 hover:bg-white/10 transition-all duration-300 scroll-mt-20">
-                    <!-- Auto-expanded on mobile: this is the first/priority app, so visitors see one full card immediately and learn the others can be tapped open. -->
-                    <details class="md:hidden group" open>
-                        <summary class="flex items-center gap-2 sm:gap-4 cursor-pointer list-none">
-                            <div class="relative flex-shrink-0 cursor-pointer" data-open-escalator-video>
-                                <img src="/images/escalator-field-command-icon.webp" alt="Escalator Field Command" class="w-16 h-16 rounded-2xl shadow-lg" loading="lazy" />
-                                <div class="absolute inset-0 flex items-center justify-center bg-black/40 rounded-2xl">
-                                    <svg class="w-7 h-7 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <div class="subhead" id="health"><h3>For everyday life</h3><p>Your health, your family, your gear and your bills.</p></div>
+                <div class="grid2" style="margin-top:22px">
+                    {
+                        everyday.map((a) => (
+                            <article class="tile" id={a.id}>
+                                <div class={`media tint-${a.tint}`}>
+                                    {a.kind === 'poster'
+                                        ? a.shots.map((s, i) => <Shot name={s[0] as string} alt={s[1] as string} width={s[2] as number} height={s[3] as number} class={`poster ${i === 0 ? 'a' : 'b'}`} />)
+                                        : a.shots.map((s, i) => (
+                                              <div class={`phone ${i === 0 ? 'a' : 'b'}`}>
+                                                  <Shot name={s[0] as string} alt={s[1] as string} width={s[2] as number} height={s[3] as number} />
+                                              </div>
+                                          ))}
                                 </div>
-                            </div>
-                            <div class="flex-1 min-w-0 text-left">
-                                <h4 class="text-sm sm:text-xl font-bold truncate">Escalator Field Command</h4>
-                                <p class="text-sm text-blue-400">Tools for Escalator Mechanics</p>
-                            </div>
-                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </summary>
-                        <div class="mt-4 text-center">
-                            <p class="text-gray-300 mb-4 text-sm">
-                                Built for escalator mechanics. Manage maintenance routes, Category 1 testing, SSPI compliance, and documentation — now with a searchable Field Guide to the safety codes — all in one interface designed for real-world field use.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4 justify-center">
-                                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Productivity</span>
-                                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Field Operations</span>
-                                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Compliance</span>
-                            </div>
-                            <a href="https://apps.apple.com/us/app/escalator-field-command/id6756789866" target="_blank" rel="noopener noreferrer"
-                                class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3">
-                                <a href="/escalator-field-command/" class="text-sm text-blue-300 hover:text-blue-200 underline">Learn more about Escalator Field Command →</a>
-                            </div>
-                        </div>
-                    </details>
-                    <div class="hidden md:flex flex-row items-center gap-8">
-                        <div class="flex-shrink-0">
-                            <div class="relative cursor-pointer" data-open-escalator-video>
-                                <img src="/images/escalator-field-command-icon.webp" alt="Escalator Field Command" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
-                                <div class="absolute inset-0 flex items-center justify-center bg-black/40 rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-200">
-                                    <svg class="w-12 h-12 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                <div class="tile-body">
+                                    <div class="id">
+                                        <img src={`/images/${a.icon}-icon.webp`} alt="" width="52" height="52" loading="lazy" />
+                                        <div><h4>{a.name}</h4><div class="tag">{a.tag}</div></div>
+                                    </div>
+                                    <p class="desc">{a.desc}</p>
+                                    <div class="actions">
+                                        <a class="badge" href={a.store} target="_blank" rel="noopener noreferrer" aria-label={`Download ${a.name} on the App Store`}><img src="/images/appstore-badge.svg" alt="Download on the App Store" width="120" height="40" loading="lazy" /></a>
+                                        <a class="more" href={a.page}>Details &#8250;</a>
+                                    </div>
                                 </div>
-                                <div class="absolute -bottom-2 -right-2 bg-blue-500 rounded-full p-1.5 shadow-lg">
-                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </article>
+                        ))
+                    }
+                </div>
+
+                <div class="subhead" id="financial"><h3>The Watchers</h3><p>Live metal prices, ETFs and portfolios. Gold, silver, copper and lithium.</p></div>
+                <div class="grid4 watch" style="margin-top:22px">
+                    {
+                        watchers.map((a) => (
+                            <article class="tile" id={a.id}>
+                                <div class={`media short tint-${a.tint}`}>
+                                    <Shot name={a.shot[0]} alt={a.shot[1]} width={640} height={1390} class="poster solo" />
                                 </div>
-                            </div>
-                        </div>
-                        <div class="flex-1 min-w-0 text-left">
-                            <h4 class="text-2xl font-bold mb-2">Escalator Field Command</h4>
-                            <p class="text-lg text-blue-400 mb-4">Tools for Escalator Mechanics</p>
-                            <p class="text-gray-300 mb-6">
-                                Built for escalator mechanics. Manage maintenance routes, Category 1 testing, SSPI compliance, and documentation — now with a searchable Field Guide to the safety codes — all in one interface designed for real-world field use.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Productivity</span>
-                                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Field Operations</span>
-                                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Compliance</span>
-                            </div>
-                            <div class="flex flex-wrap items-center gap-4">
-                                <a href="https://apps.apple.com/us/app/escalator-field-command/id6756789866" target="_blank" rel="noopener noreferrer"
-                                    class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                                <a href="/escalator-field-command/" class="text-sm text-blue-300 hover:text-blue-200 underline">Learn more →</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Health & Fitness Section -->
-            <div id="health" class="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 backdrop-blur-sm rounded-3xl p-2 sm:p-6 md:p-8 mb-8 border border-emerald-400/20 scroll-mt-20">
-                <h3 class="text-2xl font-bold text-center mb-2 bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">Health &amp; Fitness</h3>
-                <p class="text-center text-gray-400 mb-8 text-sm">Medical records and daily fitness coaching</p>
-
-                <!-- HealthTrail Medical -->
-                <div id="healthtrail-medical" class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 mb-6 hover:bg-white/10 transition-all duration-300 scroll-mt-20">
-                <!-- Mobile: icon + name row with chevron toggle. -->
-                <details class="md:hidden group">
-                    <summary class="flex items-center gap-2 sm:gap-4 cursor-pointer list-none">
-                        <img src="/images/healthtrail-medical-icon.webp" alt="HealthTrail Medical" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" loading="lazy" />
-                        <div class="flex-1 min-w-0 text-left">
-                            <h4 class="text-sm sm:text-xl font-bold truncate">HealthTrail Medical</h4>
-                            <p class="text-sm text-green-400">Your Complete Health Timeline</p>
-                        </div>
-                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </summary>
-                    <div class="mt-4 text-center">
-                        <p class="text-gray-300 mb-4 text-sm">
-                            Your family's digital medical memory. A visual timeline of every medical event, medication, and milestone — with AI-powered medication scanning, vaccine tracking, and 100% private local storage.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
-                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Health & Fitness</span>
-                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Medical Records</span>
-                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Privacy First</span>
-                        </div>
-                        <a href="https://apps.apple.com/us/app/healthtrail-medical/id6758072258" target="_blank" rel="noopener noreferrer"
-                            class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3"><a href="/healthtrail-medical/" class="text-sm text-emerald-300 hover:text-emerald-200 underline">Learn more about HealthTrail Medical →</a></div>
-                    </div>
-                </details>
-                <!-- Desktop: full layout always visible -->
-                <div class="hidden md:flex flex-row items-center gap-8">
-                    <div class="flex-shrink-0">
-                        <img src="/images/healthtrail-medical-icon.webp" alt="HealthTrail Medical" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
-                    </div>
-                    <div class="flex-1 min-w-0 text-left">
-                        <h4 class="text-2xl font-bold mb-2">HealthTrail Medical</h4>
-                        <p class="text-lg text-green-400 mb-4">Your Complete Health Timeline</p>
-                        <p class="text-gray-300 mb-6">
-                            Your family's digital medical memory. A visual timeline of every medical event, medication, and milestone — with AI-powered medication scanning, vaccine tracking, and 100% private local storage.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Health & Fitness</span>
-                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Medical Records</span>
-                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Privacy First</span>
-                        </div>
-                        <a href="https://apps.apple.com/us/app/healthtrail-medical/id6758072258" target="_blank" rel="noopener noreferrer"
-                            class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3"><a href="/healthtrail-medical/" class="text-sm text-emerald-300 hover:text-emerald-200 underline">Learn more about HealthTrail Medical →</a></div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- Clock-In Everyday -->
-                <div id="clock-in-everyday" class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 hover:bg-white/10 transition-all duration-300 scroll-mt-20">
-                <!-- Mobile: icon + name row with chevron toggle. -->
-                <details class="md:hidden group">
-                    <summary class="flex items-center gap-2 sm:gap-4 cursor-pointer list-none">
-                        <img src="/images/clock-in-everyday-icon.webp" alt="Clock-In Everyday" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" loading="lazy" />
-                        <div class="flex-1 min-w-0 text-left">
-                            <h4 class="text-sm sm:text-xl font-bold truncate">Clock-In Everyday</h4>
-                            <p class="text-sm text-orange-400">Your New Full Time Job Is Your Body</p>
-                        </div>
-                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </summary>
-                    <div class="mt-4 text-center">
-                        <p class="text-gray-300 mb-4 text-sm">
-                            Daily AI-coached fitness, built for people over 50 and heading into retirement. A morning readiness score from Apple Health shapes a session that adapts to how you actually slept and recovered — with real progression tracking and personalized daily stretches.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
-                            <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Health & Fitness</span>
-                            <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">AI-coached</span>
-                            <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Apple Health sync</span>
-                        </div>
-                        <a href="https://apps.apple.com/us/app/clock-in-everyday/id6791800212" target="_blank" rel="noopener noreferrer"
-                            class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3"><a href="/clock-in-everyday/" class="text-sm text-orange-300 hover:text-orange-200 underline">Learn more about Clock-In Everyday →</a></div>
-                    </div>
-                </details>
-                <!-- Desktop: full layout always visible -->
-                <div class="hidden md:flex flex-row items-center gap-8">
-                    <div class="flex-shrink-0">
-                        <img src="/images/clock-in-everyday-icon.webp" alt="Clock-In Everyday" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
-                    </div>
-                    <div class="flex-1 min-w-0 text-left">
-                        <h4 class="text-2xl font-bold mb-2">Clock-In Everyday</h4>
-                        <p class="text-lg text-orange-400 mb-4">Your New Full Time Job Is Your Body</p>
-                        <p class="text-gray-300 mb-6">
-                            Daily AI-coached fitness, built for people over 50 and heading into retirement. A morning readiness score from Apple Health shapes a session that adapts to how you actually slept and recovered — with real progression tracking and personalized daily stretches.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Health & Fitness</span>
-                            <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">AI-coached</span>
-                            <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Apple Health sync</span>
-                        </div>
-                        <a href="https://apps.apple.com/us/app/clock-in-everyday/id6791800212" target="_blank" rel="noopener noreferrer"
-                            class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3"><a href="/clock-in-everyday/" class="text-sm text-orange-300 hover:text-orange-200 underline">Learn more about Clock-In Everyday →</a></div>
-                    </div>
-                </div>
+                                <div class="tile-body">
+                                    <div class="id">
+                                        <img src={`/images/${a.icon}-icon.webp`} alt="" width="44" height="44" loading="lazy" />
+                                        <div><h4>{a.name}</h4><div class="tag">{a.tag}</div></div>
+                                    </div>
+                                    <p class="desc">{a.desc}</p>
+                                    <div class="actions">
+                                        <a class="badge" href={a.store} target="_blank" rel="noopener noreferrer" aria-label={`Download ${a.name} on the App Store`}><img src="/images/appstore-badge.svg" alt="Download on the App Store" width="120" height="40" loading="lazy" /></a>
+                                        <a class="more" href={a.page}>Details &#8250;</a>
+                                    </div>
+                                </div>
+                            </article>
+                        ))
+                    }
                 </div>
             </div>
+        </section>
 
-            <!-- RidgePacker -->
-            <div id="ridgepacker" class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 mb-8 hover:bg-white/10 transition-all duration-300 scroll-mt-20">
-                <!-- Mobile: icon + name row with chevron toggle. -->
-                <details class="md:hidden group">
-                    <summary class="flex items-center gap-2 sm:gap-4 cursor-pointer list-none">
-                        <img src="/images/ridgepacker-icon.webp" alt="RidgePacker" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" loading="lazy" />
-                        <div class="flex-1 min-w-0 text-left">
-                            <h3 class="text-sm sm:text-xl font-bold truncate">RidgePacker</h3>
-                            <p class="text-sm text-sky-300">Hiking &amp; Backpacking Gear</p>
+        <!-- Privacy -->
+        <section class="sec" id="privacy">
+            <div class="wrap">
+                <div class="privacy">
+                    <h2>Your data stays where you put it.</h2>
+                    <p class="intro">
+                        Most apps treat your information as the product. These ones treat the app as the product, and that one decision shapes everything else about how they work.
+                    </p>
+                    <div class="pgrid">
+                        <div class="pitem">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="4" /><path d="M2.5 20c.6-3.6 3.6-5.5 7.5-5.5 1.6 0 3 .3 4.2.9M17 15l5 5M22 15l-5 5" /></svg>
+                            <h3>No accounts</h3><p>Open the app and start. No email to confirm, no password to forget.</p>
                         </div>
-                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </summary>
-                    <div class="mt-4 text-center">
-                        <p class="text-gray-300 mb-4 text-sm">
-                            Catalog every piece of gear with photos and weights, build packing lists for any trip in seconds, nest a day-pack sublist under any trip, track packed weight against your total load, and keep a permanent Everyday Carry list — all on iPhone and iPad, all stored on your device.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
-                            <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">Lifestyle</span>
-                            <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">Hiking &amp; Backpacking</span>
-                            <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">Privacy First</span>
+                        <div class="pitem">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 6.1A10.8 10.8 0 0 1 12 6c5.5 0 9 6 9 6a15 15 0 0 1-3.2 3.8M6.5 7.6C4 9.3 3 12 3 12s3.5 6 9 6c1.3 0 2.5-.3 3.6-.8" /><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2" /></svg>
+                            <h3>No tracking</h3><p>No analytics SDKs, no third-party trackers, nothing phoning home.</p>
                         </div>
-                        <a href="https://apps.apple.com/us/app/ridgepacker/id6766699306" target="_blank" rel="noopener noreferrer"
-                            class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                        <div class="mt-3"><a href="/ridgepacker/" class="text-sm text-sky-300 hover:text-sky-200 underline">Learn more about RidgePacker →</a></div>
+                        <div class="pitem">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 9.5H7Z" /><path d="M4 4l16 16" /></svg>
+                            <h3>No cloud sync</h3><p>Your records are stored on your iPhone. Exporting is something you choose to do.</p>
+                        </div>
+                        <div class="pitem">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg>
+                            <h3>Nothing to sell</h3><p>Your data isn't the product, so there is nothing to sell.</p>
+                        </div>
                     </div>
-                </details>
-                <!-- Desktop: full layout always visible -->
-                <div class="hidden md:flex flex-row items-center gap-8">
-                    <div class="flex-shrink-0">
-                        <img src="/images/ridgepacker-icon.webp" alt="RidgePacker" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
-                    </div>
-                    <div class="flex-1 min-w-0 text-left">
-                        <h3 class="text-2xl font-bold mb-2">RidgePacker</h3>
-                        <p class="text-lg text-sky-300 mb-4">Hiking &amp; Backpacking Gear</p>
-                        <p class="text-gray-300 mb-6">
-                            Catalog every piece of gear with photos and weights, build packing lists for any trip in seconds, nest a day-pack sublist under any trip, track packed weight against your total load, and keep a permanent Everyday Carry list — all on iPhone and iPad, all stored on your device.
+                    <div class="fine">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z" /><path d="M12 10v5M12 18v.01" /></svg>
+                        <p>
+                            <b>Two exceptions, stated plainly.</b> The AI coach in Clock-In Everyday sends your readiness, goals and notes to a secure server so it can write today's session. Nothing is kept afterward and nothing is tied to an account. Optional medication scanning in HealthTrail Medical sends the photo you chose to an AI provider to read it, and it is not stored by them for training. The full detail is in the <a href="/privacy/">Privacy Policy</a>.
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">Lifestyle</span>
-                            <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">Hiking &amp; Backpacking</span>
-                            <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">Privacy First</span>
-                        </div>
-                        <a href="https://apps.apple.com/us/app/ridgepacker/id6766699306" target="_blank" rel="noopener noreferrer"
-                            class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                        <div class="mt-3"><a href="/ridgepacker/" class="text-sm text-sky-300 hover:text-sky-200 underline">Learn more about RidgePacker →</a></div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Financial Section -->
-            <div id="financial" class="bg-gradient-to-br from-amber-500/10 to-yellow-500/10 backdrop-blur-sm rounded-3xl p-2 sm:p-6 md:p-8 mb-8 border border-amber-400/20 scroll-mt-20">
-                <h3 class="text-2xl font-bold text-center mb-2 bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">Financial</h3>
-                <p class="text-center text-gray-400 mb-8 text-sm">Budgeting, bill tracking, and precious metals</p>
-                
-                <!-- SnapLedger -->
-                <div id="snapledger" class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 mb-6 hover:bg-white/10 transition-all duration-300 scroll-mt-20">
-                    <details class="md:hidden group">
-                        <summary class="flex items-center gap-2 sm:gap-4 cursor-pointer list-none">
-                            <img src="/images/snapledger-icon.webp" alt="SnapLedger" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" loading="lazy" />
-                            <div class="flex-1 min-w-0 text-left">
-                                <h4 class="text-sm sm:text-xl font-bold truncate">SnapLedger ø</h4>
-                                <p class="text-sm text-green-400">Bills &amp; Subscriptions Tracker</p>
-                            </div>
-                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </summary>
-                        <div class="mt-4 text-center">
-                            <p class="text-gray-300 mb-4 text-sm">
-                                Snap a photo of any bill and let AI extract the details instantly. Track subscriptions by category, monitor household expenses, and spot trends across months — all in one clean dashboard.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4 justify-center">
-                                <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Finance</span>
-                                <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Bill Tracking</span>
-                                <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Subscriptions</span>
-                            </div>
-                            <a href="https://apps.apple.com/ca/app/snapledger-%C3%B8/id6759497982" target="_blank" rel="noopener noreferrer"
-                                class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3"><a href="/snapledger/" class="text-sm text-green-300 hover:text-green-200 underline">Learn more about SnapLedger →</a></div>
-                        </div>
-                    </details>
-                    <div class="hidden md:flex flex-row items-center gap-8">
-                        <div class="flex-shrink-0">
-                            <img src="/images/snapledger-icon.webp" alt="SnapLedger" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
-                        </div>
-                        <div class="flex-1 min-w-0 text-left">
-                            <h4 class="text-2xl font-bold mb-2">SnapLedger ø</h4>
-                            <p class="text-lg text-green-400 mb-4">Bills &amp; Subscriptions Tracker</p>
-                            <p class="text-gray-300 mb-6">
-                                Snap a photo of any bill and let AI extract the details instantly. Track subscriptions by category, monitor household expenses, and spot trends across months — all in one clean dashboard.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Finance</span>
-                                <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Bill Tracking</span>
-                                <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Subscriptions</span>
-                            </div>
-                            <a href="https://apps.apple.com/ca/app/snapledger-%C3%B8/id6759497982" target="_blank" rel="noopener noreferrer"
-                                class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3"><a href="/snapledger/" class="text-sm text-green-300 hover:text-green-200 underline">Learn more about SnapLedger →</a></div>
-                        </div>
+        <!-- Maker + Counterweight Dispatch -->
+        <section class="sec" id="maker">
+            <div class="wrap maker">
+                <div class="card">
+                    <div class="brandline">
+                        <picture>
+                            <source srcset="/images/hero-ai-handshake-transparent.webp" type="image/webp" />
+                            <img src="/images/hero-ai-handshake-transparent.png" alt="" width="45" height="34" loading="lazy" />
+                        </picture>
+                        Artificial Igknorance
                     </div>
+                    <h2>About the name.</h2>
+                    <p>
+                        Artificial Igknorance is a joke on "artificial intelligence". The smartest software isn't the kind that knows everything about you. It's the kind that stays strategically ignorant, and the misspelling is on purpose.
+                    </p>
+                    <p>
+                        Every app follows the same rules: your information stays on your phone, and nobody is waiting to monetize it.
+                    </p>
+                    <div class="cta" style="justify-content:flex-start"><a class="link" href="/about/">More about the apps and the name &#8250;</a></div>
                 </div>
-
-                <!-- Copper Watcher -->
-                <div id="copper-watcher" class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 mb-6 hover:bg-white/10 transition-all duration-300 scroll-mt-20">
-                    <details class="md:hidden group">
-                        <summary class="flex items-center gap-2 sm:gap-4 cursor-pointer list-none">
-                            <img src="/images/copper-watcher-icon.webp" alt="Copper Watcher" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" loading="lazy" />
-                            <div class="flex-1 min-w-0 text-left">
-                                <h4 class="text-sm sm:text-xl font-bold truncate">Copper Watcher (Cu)</h4>
-                                <p class="text-sm text-amber-400">Copper is the future</p>
+                <div class="card">
+                    <h2>Also in the works</h2>
+                    <p>Counterweight Dispatch is a home for people in the vertical transportation trade. It's also where the Field Guides live.</p>
+                    <a class="sitelink" href="https://counterweightdispatch.com" target="_blank" rel="noopener noreferrer">
+                        <picture>
+                            <source srcset="/images/counterweight-dispatch-icon.webp" type="image/webp" />
+                            <img src="/images/counterweight-dispatch-icon.png" alt="" width="38" height="36" loading="lazy" />
+                        </picture>
+                        counterweightdispatch.com &#8599;
+                    </a>
+                    <a class="guides" href="https://counterweightdispatch.com/#field-guides" target="_blank" rel="noopener noreferrer" aria-label="The Field Guides on Counterweight Dispatch">
+                        <div class="books">
+                            <div class="book">
+                                <picture>
+                                    <source srcset="/images/escalator-field-guide-book-lg.webp" type="image/webp" />
+                                    <img src="/images/escalator-field-guide-book-lg.png" alt="Escalator Field Guide book icon" width="240" height="285" loading="lazy" />
+                                </picture>
+                                <span>Escalator</span>
                             </div>
-                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </summary>
-                        <div class="mt-4 text-center">
-                            <p class="text-gray-300 mb-4 text-sm">
-                                Live copper spot price with heartbeat indicator, ETFs (CPER, COPX, COPP) and futures, the Dr Copper signal vs the S&amp;P 500, prediction markets, smarter sentiment, a scrap calculator, and a portfolio with realized P&amp;L. 10 currencies.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4 justify-center">
-                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Finance</span>
-                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Investment Tracking</span>
-                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Reference</span>
+                            <div class="book mid">
+                                <picture>
+                                    <source srcset="/images/vertical-transportation-field-guide-book.webp" type="image/webp" />
+                                    <img src="/images/vertical-transportation-field-guide-book.png" alt="Vertical Transportation Field Guide book icon" width="240" height="285" loading="lazy" />
+                                </picture>
+                                <span>Both in one</span>
                             </div>
-                            <a href="https://apps.apple.com/us/app/copper-watcher-cu/id6757655923" target="_blank" rel="noopener noreferrer"
-                                class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3"><a href="/copper-watcher/" class="text-sm text-amber-300 hover:text-amber-200 underline">Learn more about Copper Watcher →</a></div>
-                        </div>
-                    </details>
-                    <div class="hidden md:flex flex-row items-center gap-8">
-                        <div class="flex-shrink-0">
-                            <img src="/images/copper-watcher-icon.webp" alt="Copper Watcher" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
-                        </div>
-                        <div class="flex-1 min-w-0 text-left">
-                            <h4 class="text-2xl font-bold mb-2">Copper Watcher (Cu)</h4>
-                            <p class="text-lg text-amber-400 mb-4">Copper is the future</p>
-                            <p class="text-gray-300 mb-6">
-                                Live copper spot price with heartbeat indicator, ETFs (CPER, COPX, COPP) and futures, the Dr Copper signal vs the S&amp;P 500, prediction markets, smarter sentiment, a scrap calculator, and a portfolio with realized P&amp;L. 10 currencies.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Finance</span>
-                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Investment Tracking</span>
-                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Reference</span>
+                            <div class="book">
+                                <picture>
+                                    <source srcset="/images/elevator-field-guide-book.webp" type="image/webp" />
+                                    <img src="/images/elevator-field-guide-book.png" alt="Elevator Field Guide book icon" width="240" height="285" loading="lazy" />
+                                </picture>
+                                <span>Elevator</span>
                             </div>
-                            <a href="https://apps.apple.com/us/app/copper-watcher-cu/id6757655923" target="_blank" rel="noopener noreferrer"
-                                class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3"><a href="/copper-watcher/" class="text-sm text-amber-300 hover:text-amber-200 underline">Learn more about Copper Watcher →</a></div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Gold Watcher -->
-                <div id="gold-watcher" class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 mb-6 hover:bg-white/10 transition-all duration-300 scroll-mt-20">
-                    <details class="md:hidden group">
-                        <summary class="flex items-center gap-2 sm:gap-4 cursor-pointer list-none">
-                            <img src="/images/gold-watcher-icon.webp" alt="Gold Watcher" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" loading="lazy" />
-                            <div class="flex-1 min-w-0 text-left">
-                                <h4 class="text-sm sm:text-xl font-bold truncate">Gold Watcher (Au)</h4>
-                                <p class="text-sm text-yellow-400">Gold is the new Gold</p>
-                            </div>
-                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </summary>
-                        <div class="mt-4 text-center">
-                            <p class="text-gray-300 mb-4 text-sm">
-                                Live gold spot price with heartbeat indicator, ETFs (GLD, IAU, SGOL) and futures, the gold/silver ratio, prediction markets, smarter sentiment, seasonal patterns, a karat calculator, and a karat-aware portfolio with realized P&amp;L.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4 justify-center">
-                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Finance</span>
-                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Investment Tracking</span>
-                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Reference</span>
-                            </div>
-                            <a href="https://apps.apple.com/us/app/gold-watcher-au/id6758283387" target="_blank" rel="noopener noreferrer"
-                                class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3"><a href="/gold-watcher/" class="text-sm text-yellow-300 hover:text-yellow-200 underline">Learn more about Gold Watcher →</a></div>
+                        <div class="guides-text">
+                            <b>The Field Guides</b>
+                            <span>The code book rewritten in plain English, and searchable the way you'd ask a senior mechanic. Choose the Escalator guide, the Elevator guide, or both in one book. Paid, with a free trial.</span>
+                            <em>See the Field Guides &#8250;</em>
                         </div>
-                    </details>
-                    <div class="hidden md:flex flex-row items-center gap-8">
-                        <div class="flex-shrink-0">
-                            <img src="/images/gold-watcher-icon.webp" alt="Gold Watcher" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
-                        </div>
-                        <div class="flex-1 min-w-0 text-left">
-                            <h4 class="text-2xl font-bold mb-2">Gold Watcher (Au)</h4>
-                            <p class="text-lg text-yellow-400 mb-4">Gold is the new Gold</p>
-                            <p class="text-gray-300 mb-6">
-                                Live gold spot price with heartbeat indicator, ETFs (GLD, IAU, SGOL) and futures, the gold/silver ratio, prediction markets, smarter sentiment, seasonal patterns, a karat calculator, and a karat-aware portfolio with realized P&amp;L.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Finance</span>
-                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Investment Tracking</span>
-                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Reference</span>
-                            </div>
-                            <a href="https://apps.apple.com/us/app/gold-watcher-au/id6758283387" target="_blank" rel="noopener noreferrer"
-                                class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3"><a href="/gold-watcher/" class="text-sm text-yellow-300 hover:text-yellow-200 underline">Learn more about Gold Watcher →</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Silver Watcher -->
-                <div id="silver-watcher" class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 mb-6 hover:bg-white/10 transition-all duration-300 scroll-mt-20">
-                    <details class="md:hidden group">
-                        <summary class="flex items-center gap-2 sm:gap-4 cursor-pointer list-none">
-                            <img src="/images/silver-watcher-icon.webp" alt="Silver Watcher" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" loading="lazy" />
-                            <div class="flex-1 min-w-0 text-left">
-                                <h4 class="text-sm sm:text-xl font-bold truncate">Silver Watcher (Ag)</h4>
-                                <p class="text-sm text-slate-300">Silver Price Tracker &amp; Alerts</p>
-                            </div>
-                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </summary>
-                        <div class="mt-4 text-center">
-                            <p class="text-gray-300 mb-4 text-sm">
-                                Live silver spot price with heartbeat indicator, ETFs (SLV, SIVR, PSLV) and futures, the gold/silver ratio with buy/sell signals, prediction markets, smarter sentiment, seasonal patterns, a purity calculator, and a purity-aware portfolio with realized P&amp;L. 12 currencies.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4 justify-center">
-                                <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Finance</span>
-                                <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Investment Tracking</span>
-                                <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Reference</span>
-                            </div>
-                            <a href="https://apps.apple.com/us/app/silver-watcher-ag/id6760270695" target="_blank" rel="noopener noreferrer"
-                                class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3"><a href="/silver-watcher/" class="text-sm text-slate-300 hover:text-slate-200 underline">Learn more about Silver Watcher →</a></div>
-                        </div>
-                    </details>
-                    <div class="hidden md:flex flex-row items-center gap-8">
-                        <div class="flex-shrink-0">
-                            <img src="/images/silver-watcher-icon.webp" alt="Silver Watcher" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
-                        </div>
-                        <div class="flex-1 min-w-0 text-left">
-                            <h4 class="text-2xl font-bold mb-2">Silver Watcher (Ag)</h4>
-                            <p class="text-lg text-slate-300 mb-4">Silver Price Tracker &amp; Alerts</p>
-                            <p class="text-gray-300 mb-6">
-                                Live silver spot price with heartbeat indicator, ETFs (SLV, SIVR, PSLV) and futures, the gold/silver ratio with buy/sell signals, prediction markets, smarter sentiment, seasonal patterns, a purity calculator, and a purity-aware portfolio with realized P&amp;L. 12 currencies.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Finance</span>
-                                <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Investment Tracking</span>
-                                <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm">Reference</span>
-                            </div>
-                            <a href="https://apps.apple.com/us/app/silver-watcher-ag/id6760270695" target="_blank" rel="noopener noreferrer"
-                                class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3"><a href="/silver-watcher/" class="text-sm text-slate-300 hover:text-slate-200 underline">Learn more about Silver Watcher →</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Lithium Watcher -->
-                <div id="lithium-watcher" class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 hover:bg-white/10 transition-all duration-300 scroll-mt-20">
-                    <details class="md:hidden group">
-                        <summary class="flex items-center gap-2 sm:gap-4 cursor-pointer list-none">
-                            <img src="/images/lithium-watcher-icon.webp" alt="Lithium Watcher" class="w-16 h-16 rounded-2xl shadow-lg flex-shrink-0" loading="lazy" />
-                            <div class="flex-1 min-w-0 text-left">
-                                <h4 class="text-sm sm:text-xl font-bold truncate">Lithium Watcher (Li)</h4>
-                                <p class="text-sm text-teal-300">From lithium mine to the road</p>
-                            </div>
-                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </summary>
-                        <div class="mt-4 text-center">
-                            <p class="text-gray-300 mb-4 text-sm">
-                                Lithium prices from three sources (Lithium Hydroxide CME futures, GSCI Lithium Index, LIT ETF), mining stocks (ALB, SQM, PLL, LAC), KARS ETF, and EV manufacturers (Tesla, Rivian, NIO, XPeng, Lucid, Li Auto, BYD) on a single compare chart — plus prediction markets, smarter sentiment, and a portfolio with realized P&amp;L.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4 justify-center">
-                                <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">Finance</span>
-                                <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">EV Market</span>
-                                <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">Investment Tracking</span>
-                            </div>
-                            <a href="https://apps.apple.com/us/app/lithium-watcher-li/id6761344726" target="_blank" rel="noopener noreferrer"
-                                class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3"><a href="/lithium-watcher/" class="text-sm text-teal-300 hover:text-teal-200 underline">Learn more about Lithium Watcher →</a></div>
-                        </div>
-                    </details>
-                    <div class="hidden md:flex flex-row items-center gap-8">
-                        <div class="flex-shrink-0">
-                            <img src="/images/lithium-watcher-icon.webp" alt="Lithium Watcher" class="w-32 h-32 rounded-3xl shadow-lg" loading="lazy" />
-                        </div>
-                        <div class="flex-1 min-w-0 text-left">
-                            <h4 class="text-2xl font-bold mb-2">Lithium Watcher (Li)</h4>
-                            <p class="text-lg text-teal-300 mb-4">From lithium mine to the road</p>
-                            <p class="text-gray-300 mb-6">
-                                Lithium prices from three sources (Lithium Hydroxide CME futures, GSCI Lithium Index, LIT ETF), mining stocks (ALB, SQM, PLL, LAC), KARS ETF, and EV manufacturers (Tesla, Rivian, NIO, XPeng, Lucid, Li Auto, BYD) on a single compare chart — plus prediction markets, smarter sentiment, and a portfolio with realized P&amp;L.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">Finance</span>
-                                <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">EV Market</span>
-                                <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">Investment Tracking</span>
-                            </div>
-                            <a href="https://apps.apple.com/us/app/lithium-watcher-li/id6761344726" target="_blank" rel="noopener noreferrer"
-                                class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-12 w-auto" loading="lazy" /></a>
-                            <div class="mt-3"><a href="/lithium-watcher/" class="text-sm text-teal-300 hover:text-teal-200 underline">Learn more about Lithium Watcher →</a></div>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
-        </div>
-
-        <!-- Privacy Statement -->
-        <div class="bg-gradient-to-r from-blue-900/40 to-cyan-900/40 border border-cyan-500/20 backdrop-blur-sm rounded-2xl p-8 mb-8 text-center">
-            <p class="text-2xl sm:text-3xl font-bold text-white mb-2">Zero Infrastructure. Total Privacy.</p>
-            <p class="text-lg text-cyan-300">Everything stays on your metal.</p>
-        </div>
+        </section>
 
         <!-- FAQ -->
-        <div id="faq" class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 mb-8 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-2">Frequently Asked Questions</h2>
-            <p class="text-center text-gray-400 mb-8 text-sm">A few things people often ask before downloading.</p>
-            <div class="space-y-3 max-w-3xl mx-auto">
-                {faqs.map(({ q, a }) => (
-                    <details class="bg-white/5 rounded-xl p-5 group hover:bg-white/10 transition-all">
-                        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-lg">
-                            <span>{q}</span>
-                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </summary>
-                        <p class="mt-3 text-gray-300">{a}</p>
-                    </details>
-                ))}
+        <section class="sec" id="faq">
+            <div class="wrap">
+                <div class="sec-head"><h2>Questions people ask first.</h2></div>
+                <div class="max-w-3xl mx-auto space-y-3">
+                    {
+                        faqs.map(({ q, a }) => (
+                            <details class="p-5 transition-all bg-white border border-line rounded-2xl group hover:shadow-md">
+                                <summary class="flex items-center justify-between gap-4 text-lg font-semibold cursor-pointer list-none">
+                                    <span>{q}</span>
+                                    <svg class="flex-shrink-0 w-8 h-8 p-1.5 transition-transform duration-300 rounded-full bg-[#efeff2] text-muted group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </summary>
+                                <p class="mt-3 text-body">{a}</p>
+                            </details>
+                        ))
+                    }
+                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Get in Touch -->
-        <div id="contact" class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 text-center scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
-            <div class="flex flex-col gap-4 items-center">
-                <a href="mailto:info@artificialigknorance.com" class="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
-                    Info@artificialigknorance.com
-                </a>
-                <a href="https://x.com/igknorance" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-                    </svg>
-                    @igknorance
-                </a>
-                <a href="https://apps.apple.com/us/developer/mike-dangerfield/id1588904052" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                    All Apps on the App Store
-                </a>
+        <!-- Contact -->
+        <section id="contact">
+            <div class="wrap">
+                <div class="closing">
+                    <h2>Find them all on the App Store.</h2>
+                    <p>Questions, a bug, or an idea for the next app? Write to <a class="mail" href="mailto:info@artificialigknorance.com">info@artificialigknorance.com</a>, or find @igknorance on X.</p>
+                    <div class="row">
+                        <a class="badge" href="https://apps.apple.com/us/developer/mike-dangerfield/id1588904052" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" /></a>
+                        <a class="mail" href="https://x.com/igknorance" target="_blank" rel="noopener noreferrer">@igknorance on X</a>
+                    </div>
+                </div>
             </div>
+        </section>
+    </div>
+
+    <!-- Escalator Video Modal -->
+    <div id="escalator-video-modal" class="fixed inset-0 z-50 flex flex-col items-center justify-center hidden bg-black/85 backdrop-blur-sm">
+        <button
+            id="escalator-modal-close"
+            class="fixed top-4 right-4 z-[60] flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-semibold px-4 py-2 rounded-full backdrop-blur-sm transition-all duration-200 shadow-lg"
+        >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            Close
+        </button>
+        <div id="escalator-video-container" class="relative w-full max-w-3xl px-4" style="max-height: 90vh;">
+            <video
+                id="escalator-video"
+                class="w-full shadow-2xl rounded-2xl"
+                style="max-height: 80vh; object-fit: contain;"
+                controls
+                playsinline
+                preload="metadata"
+                poster="/images/screenshots/escalator/dashboard-overview.jpg"
+                aria-label="Escalator Field Command quick app demo: a 10-second walk-through of the dashboard, Cat 1 testing, SSPI compliance, and unit shutdowns"
+                src="/videos/escalator-field-command-demo.mp4"
+            >
+            </video>
         </div>
     </div>
-<!-- Escalator Video Modal -->
-<div id="escalator-video-modal" class="hidden fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 backdrop-blur-sm">
-    <!-- Close button — always visible at top right of screen -->
-    <button
-        id="escalator-modal-close"
-        class="fixed top-4 right-4 z-[60] flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-semibold px-4 py-2 rounded-full backdrop-blur-sm transition-all duration-200 shadow-lg">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-        Close
-    </button>
-    <!-- Video container — constrained to viewport with padding -->
-    <div id="escalator-video-container" class="relative w-full max-w-3xl px-4" style="max-height: 90vh;">
-        <video
-            id="escalator-video"
-            class="w-full rounded-2xl shadow-2xl"
-            style="max-height: 80vh; object-fit: contain;"
-            controls
-            playsinline
-            preload="metadata"
-            poster="/images/screenshots/escalator/dashboard-overview.jpg"
-            aria-label="Escalator Field Command — quick app demo (10-second walk-through of the dashboard, Cat 1 testing, SSPI compliance, and unit shutdowns)"
-            src="/videos/escalator-field-command-demo.mp4">
-        </video>
-    </div>
-</div>
 
-<script>
-    (function() {
-        var modal = document.getElementById('escalator-video-modal');
-        var video = document.getElementById('escalator-video');
-        var closeBtn = document.getElementById('escalator-modal-close');
-        var videoContainer = document.getElementById('escalator-video-container');
+    <script>
+        (function () {
+            var modal = document.getElementById('escalator-video-modal');
+            var video = document.getElementById('escalator-video') as HTMLVideoElement | null;
+            var closeBtn = document.getElementById('escalator-modal-close');
+            var videoContainer = document.getElementById('escalator-video-container');
+            if (!modal || !videoContainer) return;
 
-        function openModal() {
-            modal.classList.remove('hidden');
-            // Push a history state so the back button closes the modal
-            history.pushState({ escalatorVideoOpen: true }, '');
-        }
+            function openModal() {
+                modal!.classList.remove('hidden');
+                // Push a history state so the back button closes the modal
+                history.pushState({ escalatorVideoOpen: true }, '');
+            }
 
-        function closeModal() {
-            modal.classList.add('hidden');
-            if (video) { video.pause(); video.currentTime = 0; }
-        }
+            function closeModal() {
+                modal!.classList.add('hidden');
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            }
 
-        // Wire up all open triggers
-        document.querySelectorAll('[data-open-escalator-video]').forEach(function(el) {
-            el.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                openModal();
+            function requestClose() {
+                // If we pushed a state, go back to pop it; otherwise just close
+                if (history.state && history.state.escalatorVideoOpen) {
+                    history.back();
+                } else {
+                    closeModal();
+                }
+            }
+
+            document.querySelectorAll('[data-open-escalator-video]').forEach(function (el) {
+                el.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openModal();
+                });
             });
-        });
 
-        // Close button
-        if (closeBtn) closeBtn.addEventListener('click', function() {
-            // If we pushed a state, go back to pop it; otherwise just close
-            if (history.state && history.state.escalatorVideoOpen) {
-                history.back();
-            } else {
-                closeModal();
-            }
-        });
+            if (closeBtn)
+                closeBtn.addEventListener('click', function (e) {
+                    // Stop the click reaching the backdrop handler below, which would call back() a second time
+                    e.stopPropagation();
+                    requestClose();
+                });
 
-        // Click on backdrop (but not video container) closes modal
-        if (modal) modal.addEventListener('click', function(e) {
-            if (!videoContainer.contains(e.target)) {
-                if (history.state && history.state.escalatorVideoOpen) {
-                    history.back();
-                } else {
-                    closeModal();
-                }
-            }
-        });
+            // Click on the backdrop (but not the video) closes the modal
+            modal.addEventListener('click', function (e) {
+                if (!videoContainer!.contains(e.target as Node)) requestClose();
+            });
 
-        // Browser back button — intercept the popstate and close the modal
-        window.addEventListener('popstate', function(e) {
-            if (!modal.classList.contains('hidden')) {
-                closeModal();
-            }
-        });
+            // Browser back button closes the modal
+            window.addEventListener('popstate', function () {
+                if (!modal!.classList.contains('hidden')) closeModal();
+            });
 
-        // Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                if (history.state && history.state.escalatorVideoOpen) {
-                    history.back();
-                } else {
-                    closeModal();
-                }
-            }
-        });
-    })();
-</script>
-
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') requestClose();
+            });
+        })();
+    </script>
 </Layout>

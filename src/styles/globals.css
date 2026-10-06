@@ -5,6 +5,20 @@
     --color-primary: #f67280;
     --color-primary-content: #101828;
     --color-complementary: #355c7d;
+
+    /* Daylight design tokens (the site-wide look) */
+    --color-paper: #fbfbfd;
+    --color-surface: #ffffff;
+    --color-ink: #1d1d1f;
+    --color-body: #47474c;
+    --color-muted: #6e6e73;
+    --color-line: rgba(0, 0, 0, 0.09);
+    --color-accent: #0a7c96;
+    --color-accent-deep: #065a6e;
+    --color-tint: #e8f6f9;
+    --color-navy: #0b1f33;
+    --color-navy-2: #13314f;
+
     --background-image-noise: linear-gradient(
             to bottom,
             color-mix(in oklab, var(--color-gray-950) 0%, transparent),
@@ -14,6 +28,22 @@
 }
 
 @layer base {
+    html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+    }
+
+    body {
+        font-feature-settings: 'cv11', 'ss03';
+        text-rendering: optimizeLegibility;
+    }
+
     h1 {
         @apply text-4xl font-bold tracking-tight sm:text-5xl;
     }
@@ -23,7 +53,13 @@
     }
 
     a:not(.btn) {
-        @apply underline transition hover:opacity-80;
+        @apply underline transition;
+    }
+
+    :focus-visible {
+        outline: 3px solid var(--color-accent);
+        outline-offset: 3px;
+        border-radius: 8px;
     }
 
     pre {
@@ -75,4 +111,10 @@
         --btn-px: 1.5rem;
         --btn-py: 1.125rem;
     }
+}
+
+/* Shared page column used by the header, footer and homepage sections. */
+.wrap {
+    width: min(1120px, 100% - 48px);
+    margin-inline: auto;
 }

@@ -31,25 +31,31 @@ interface Props {
      */
     datePublished?: string;
     /**
-     * Schema.org `@id` of the entity this page is primarily about — typically
+     * Schema.org `@id` of the entity this page is primarily about, typically
      * a `MobileApplication`. Tells Google "this page is about that app" so
      * the WebPage and the app schema are linked. Optional.
      */
     mainEntityId?: string;
+    /**
+     * Wrap the page in the standard centered column. The homepage turns this
+     * off because its sections run edge to edge.
+     */
+    contained?: boolean;
 }
 
 const SITE_URL = 'https://artificialigknorance.com';
 
 const {
     title,
-    description = "Escalator Field Command — iOS app for escalator mechanics: routes, Category 1 testing, SSPI compliance, inspections. Plus privacy-first apps for health, finance & more by Artificial Igknorance.",
+    description = "Escalator Field Command is an iOS app for escalator mechanics: routes, Category 1 testing, SSPI compliance, inspections. Plus privacy-first apps for health, finance & more by Artificial Igknorance.",
     ogTitle,
     ogDescription,
-    ogImage = SITE_URL + '/images/og-card.jpg',
+    ogImage = SITE_URL + '/images/og-card-2026.jpg',
     twitterCard = 'summary_large_image',
     smartAppId = '6756789866',
     datePublished = '2026-04-15',
-    mainEntityId
+    mainEntityId,
+    contained = true
 } = Astro.props;
 
 // Social-share title/description default to the SEO title/description but can
@@ -70,27 +76,6 @@ const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
         {
-            "@type": "Person",
-            "@id": SITE_URL + "/#mike-dangerfield",
-            "name": "Mike Dangerfield",
-            "jobTitle": "Independent iOS Developer",
-            "worksFor": { "@id": SITE_URL + "/#organization" },
-            "sameAs": [
-                "https://twitter.com/igknorance",
-                "https://x.com/igknorance",
-                "https://apps.apple.com/us/developer/mike-dangerfield/id1588904052"
-            ],
-            "knowsAbout": [
-                "iOS app development",
-                "Privacy-first software design",
-                "Escalator industry tools",
-                "Category 1 testing and SSPI compliance",
-                "Precious metals tracking",
-                "Health records management",
-                "On-device AI"
-            ]
-        },
-        {
             "@type": "Organization",
             "@id": SITE_URL + "/#organization",
             "name": "Artificial Igknorance",
@@ -99,7 +84,6 @@ const structuredData = {
                 "@type": "ImageObject",
                 "url": SITE_URL + "/images/hero-ai-handshake-transparent.png"
             },
-            "founder": { "@id": SITE_URL + "/#mike-dangerfield" },
             "sameAs": [
                 "https://twitter.com/igknorance",
                 "https://x.com/igknorance",
@@ -116,7 +100,7 @@ const structuredData = {
             "@id": SITE_URL + "/#website",
             "url": SITE_URL,
             "name": "Artificial Igknorance",
-            "description": "Privacy-first iOS apps — escalator industry tools, health tracking, AI-coached fitness, precious metals, and bill scanning. On-device by default.",
+            "description": "Privacy-first iOS apps: escalator industry tools, health tracking, AI-coached fitness, precious metals, and bill scanning. On-device by default.",
             "publisher": { "@id": SITE_URL + "/#organization" },
             "inLanguage": "en-US"
         },
@@ -139,7 +123,7 @@ const structuredData = {
             "@id": SITE_URL + "/#escalator-field-command",
             "name": "Escalator Field Command",
             "alternateName": "Escalator Field Command for iOS",
-            "description": "Built for escalator mechanics. Manage maintenance routes, Category 1 testing, SSPI compliance, and inspection documentation, plus a searchable Field Guide to the escalator and moving walk safety codes — all in one offline-first interface designed for real-world field use.",
+            "description": "Built for escalator mechanics. Manage maintenance routes, Category 1 testing, SSPI compliance, and inspection documentation, plus a searchable Field Guide to the escalator and moving walk safety codes, all in one offline-first interface designed for real-world field use.",
             "applicationCategory": "BusinessApplication",
             "applicationSubCategory": "Productivity",
             "operatingSystem": "iOS",
@@ -214,7 +198,7 @@ const structuredData = {
             "@type": "MobileApplication",
             "@id": SITE_URL + "/#copper-watcher",
             "name": "Copper Watcher (Cu)",
-            "description": "Track copper prices in real time — spot with the Dr. Copper economic indicator, ETFs (CPER, COPX, COPP) and futures, prediction markets and live financial news (Signals), a Picks & Shovels section for companies that profit from copper demand (CAT, ETN, PWR, NVT), a scrap calculator with 9 commercial grades, and a portfolio with realized P&L. 10 currencies.",
+            "description": "Track copper prices in real time: spot with the Dr. Copper economic indicator, ETFs (CPER, COPX, COPP) and futures, prediction markets and live financial news (Signals), a Picks & Shovels section for companies that profit from copper demand (CAT, ETN, PWR, NVT), a scrap calculator with 9 commercial grades, and a portfolio with realized P&L. 10 currencies.",
             "applicationCategory": "FinanceApplication",
             "operatingSystem": "iOS",
             "url": "https://apps.apple.com/us/app/copper-watcher-cu/id6757655923",
@@ -239,7 +223,7 @@ const structuredData = {
             "@type": "MobileApplication",
             "@id": SITE_URL + "/#gold-watcher",
             "name": "Gold Watcher (Au)",
-            "description": "Track gold prices in real time — spot with Today's Pulse market read, ETFs (GLD, IAU, SGOL), futures, gold mining stocks, gold/silver and BTC/gold ratios, the Real Interest Rate macro indicator, prediction markets and live financial news (Signals), a karat calculator, and a karat-aware portfolio with realized P&L. 10 currencies.",
+            "description": "Track gold prices in real time: spot with Today's Pulse market read, ETFs (GLD, IAU, SGOL), futures, gold mining stocks, gold/silver and BTC/gold ratios, the Real Interest Rate macro indicator, prediction markets and live financial news (Signals), a karat calculator, and a karat-aware portfolio with realized P&L. 10 currencies.",
             "applicationCategory": "FinanceApplication",
             "operatingSystem": "iOS",
             "url": "https://apps.apple.com/us/app/gold-watcher-au/id6758283387",
@@ -263,7 +247,7 @@ const structuredData = {
             "@type": "MobileApplication",
             "@id": SITE_URL + "/#silver-watcher",
             "name": "Silver Watcher (Ag)",
-            "description": "Track silver prices in real time — spot, ETFs (SLV, SIVR, PSLV), futures, silver mining stocks, gold/silver ratio with a Premium buy/sell signal, prediction markets and live financial news (Signals), a purity calculator (Sterling, Britannia, Coin Silver), and a purity-aware portfolio with realized P&L. 12 currencies.",
+            "description": "Track silver prices in real time: spot, ETFs (SLV, SIVR, PSLV), futures, silver mining stocks, gold/silver ratio with a Premium buy/sell signal, prediction markets and live financial news (Signals), a purity calculator (Sterling, Britannia, Coin Silver), and a purity-aware portfolio with realized P&L. 12 currencies.",
             "applicationCategory": "FinanceApplication",
             "operatingSystem": "iOS",
             "url": "https://apps.apple.com/us/app/silver-watcher-ag/id6760270695",
@@ -287,7 +271,7 @@ const structuredData = {
             "@type": "MobileApplication",
             "@id": SITE_URL + "/#lithium-watcher",
             "name": "Lithium Watcher (Li)",
-            "description": "Track lithium prices and the EV market in real time — lithium price from three sources (CME futures, GSCI Index, LIT ETF), a Buy/Sell signal on LIT, mining stocks (ALB, SQM, PLL, LAC, SGML), lithium and battery ETFs (LIT, BATT, REMX, DRIV, KARS), every major EV manufacturer (Tesla, Rivian, Lucid, NIO, XPeng, Li Auto, BYD, GM, Ford, VW) on one compare chart, a Premium Picks & Shovels section, prediction markets and live financial news, and a portfolio with realized P&L.",
+            "description": "Track lithium prices and the EV market in real time: lithium price from three sources (CME futures, GSCI Index, LIT ETF), a Buy/Sell signal on LIT, mining stocks (ALB, SQM, PLL, LAC, SGML), lithium and battery ETFs (LIT, BATT, REMX, DRIV, KARS), every major EV manufacturer (Tesla, Rivian, Lucid, NIO, XPeng, Li Auto, BYD, GM, Ford, VW) on one compare chart, a Premium Picks & Shovels section, prediction markets and live financial news, and a portfolio with realized P&L.",
             "applicationCategory": "FinanceApplication",
             "operatingSystem": "iOS",
             "url": "https://apps.apple.com/us/app/lithium-watcher-li/id6761344726",
@@ -395,11 +379,9 @@ const structuredData = {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-        <!-- Mobile browser chrome — matches site background -->
-        <meta name="theme-color" content="#355c7d" />
+        <!-- Mobile browser chrome: matches site background -->
+        <meta name="theme-color" content="#fbfbfd" />
         <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin />
-        <!-- Preload the homepage hero image: it's the largest above-the-fold image there, so this lifts LCP / page-speed score -->
-        <link rel="preload" as="image" href="/images/hero-ai-handshake-transparent.png" />
 
         <!-- Structured data: Organization + WebSite + every iOS app, with Escalator Field Command first/most detailed -->
         <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
@@ -407,14 +389,12 @@ const structuredData = {
         <!-- Slot for per-page additions (extra structured data, preloads, etc.) -->
         <slot name="head" />
     </head>
-    <body class="antialiased text-white bg-complementary">
-        <div class="flex flex-col min-h-screen px-6 bg-noise sm:px-12">
-            <div class="flex flex-col w-full max-w-5xl mx-auto grow">
-                <Header />
-                <main class="grow"><slot /></main>
-                <Footer />
-            </div>
-        </div>
+    <body class="antialiased bg-paper text-ink">
+        <Header />
+        <main class="min-h-[60vh]">
+            <div class={contained ? 'w-full max-w-5xl px-6 pb-4 mx-auto sm:px-12' : ''}><slot /></div>
+        </main>
+        <Footer />
         <!-- Cloudflare Web Analytics -->
         <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "8612aa99a1424f8eb510657090672462"}'></script>
     </body>
