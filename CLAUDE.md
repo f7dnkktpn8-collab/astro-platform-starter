@@ -17,7 +17,7 @@ Live at https://artificialigknorance.com.
   `description`, `ogImage`, `twitterCard`, `smartAppId`, `datePublished`,
   `mainEntityId`. Emits OG/Twitter cards, canonical URL, iOS Smart App
   Banner, JSON-LD `@graph` (Person + Organization + WebSite + WebPage +
-  every MobileApplication + VideoObject for the Escalator demo).
+  every MobileApplication; the Escalator page adds the Field Guide VideoObject).
 - Pages: `index.astro`, `escalator-field-command.astro`,
   `healthtrail-medical.astro`, `clock-in-everyday.astro`,
   `snapledger.astro`, `gold-watcher.astro`, `silver-watcher.astro`,
@@ -106,6 +106,12 @@ Old anchors still exist: `#apps`, `#industry`, `#health`, `#financial`,
   maker everywhere. The only place his name survives is inside the App
   Store developer-page link addresses (`.../developer/mike-dangerfield/...`),
   which can't be changed.
+- **Demo videos must be real screen recordings of the app.** The old
+  "10-second demo" was an AI-made promo clip (Sora watermark, an actress at
+  an escalator) and Mike pulled it on 2026-10-05. The homepage button now
+  plays the real Field Guide recording
+  (`public/videos/escalator-field-guide-demo.mp4`). If Mike supplies a real
+  Escalator Field Command walkthrough, swap it in there.
 - **App Store buttons use Apple's official badge SVG**, never styled
   gradient buttons.
 - **Homepage app tiles** show the official App Store badge (`h-10`) plus a
@@ -135,8 +141,8 @@ Old anchors still exist: `#apps`, `#industry`, `#health`, `#financial`,
   Search Console flagged a date-only value (`"2026-04-29"`) as a
   non-critical structured-data issue. Always use full ISO 8601 with
   offset: `"2026-04-29T00:00:00+00:00"` (or `...Z` for UTC). Applies
-  to every `VideoObject` added to any page — currently the Escalator
-  demo in `index.astro`, plus any future demo videos for HealthTrail,
+  to every `VideoObject` added to any page: currently the Field Guide
+  demo on `escalator-field-command.astro`, plus any future demo videos for HealthTrail,
   SnapLedger, the metals apps, etc.
 - **No star-rating widgets** while apps have 0 ratings (would hurt
   conversions).

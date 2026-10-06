@@ -36,28 +36,6 @@ const faqStructuredData = {
     }))
 };
 
-// VideoObject schema for the Escalator Field Command demo video. Makes the
-// video eligible for Google's video rich results (thumbnail + play icon next
-// to the search listing). The thumbnail uses the dashboard screenshot since
-// it represents what the video opens on.
-const SITE_URL = 'https://artificialigknorance.com';
-const videoStructuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'VideoObject',
-    '@id': SITE_URL + '/#escalator-demo-video',
-    name: 'Escalator Field Command: quick app demo',
-    description:
-        'A short walk-through of Escalator Field Command on iPhone: the daily command-center dashboard, Cat 1 testing progress, SSPI compliance logs, and per-unit shutdown records, built for working escalator mechanics.',
-    thumbnailUrl: [SITE_URL + '/images/screenshots/escalator/dashboard-overview.jpg'],
-    uploadDate: '2026-04-29T00:00:00+00:00',
-    duration: 'PT10S',
-    contentUrl: SITE_URL + '/videos/escalator-field-command-demo.mp4',
-    embedUrl: SITE_URL + '/#escalator-field-command',
-    publisher: { '@id': SITE_URL + '/#organization' },
-    about: { '@id': SITE_URL + '/#escalator-field-command' },
-    inLanguage: 'en-US'
-};
-
 // Each shot is [file name in /images/home/, alt text, width, height].
 const everyday = [
     {
@@ -68,7 +46,6 @@ const everyday = [
         store: 'https://apps.apple.com/us/app/healthtrail-medical/id6758072258',
         icon: 'healthtrail-medical',
         tint: 'health',
-        kind: 'poster',
         shots: [
             ['health-timeline', 'HealthTrail Medical timeline screen', 370, 800],
             ['health-meds', 'HealthTrail Medical medications screen', 370, 800]
@@ -83,10 +60,9 @@ const everyday = [
         store: 'https://apps.apple.com/us/app/clock-in-everyday/id6791800212',
         icon: 'clock-in-everyday',
         tint: 'clock',
-        kind: 'phone',
         shots: [
-            ['clock-dashboard', 'Clock-In Everyday dashboard', 640, 1390],
-            ['clock-workout', 'Clock-In Everyday workout screen', 640, 1390]
+            ['clock-poster-1', 'Clock-In Everyday readiness score screen', 640, 1390],
+            ['clock-poster-2', 'Clock-In Everyday progress screen', 640, 1390]
         ],
         desc: 'Daily coached workouts for people over 50. A morning readiness score from Apple Health shapes a session around how you actually slept and recovered.'
     },
@@ -98,7 +74,6 @@ const everyday = [
         store: 'https://apps.apple.com/us/app/ridgepacker/id6766699306',
         icon: 'ridgepacker',
         tint: 'ridge',
-        kind: 'poster',
         shots: [
             ['ridge-trips', 'RidgePacker trips screen', 640, 1390],
             ['ridge-catalog', 'RidgePacker gear catalog screen', 640, 1390]
@@ -113,7 +88,6 @@ const everyday = [
         store: 'https://apps.apple.com/ca/app/snapledger-%C3%B8/id6759497982',
         icon: 'snapledger',
         tint: 'snap',
-        kind: 'poster',
         shots: [
             ['snap-overview', 'SnapLedger household bills screen', 368, 800],
             ['snap-subs', 'SnapLedger subscriptions screen', 368, 800]
@@ -179,7 +153,6 @@ const watchers = [
 >
     <link slot="head" rel="preload" as="image" href="/images/home/efc-dashboard.webp" type="image/webp" fetchpriority="high" />
     <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqStructuredData)} />
-    <script type="application/ld+json" slot="head" set:html={JSON.stringify(videoStructuredData)} />
 
     <div class="home">
         <!-- Hero -->
@@ -224,11 +197,12 @@ const watchers = [
                                 <div><h3 class="feature-title">Escalator Field Command</h3></div>
                             </div>
                             <p class="lead">
-                                Maintenance routes, Category 1 testing, SSPI compliance and inspection logs in one app. A searchable Field Guide to the safety codes comes with it.
+                                Maintenance routes, Category 1 testing, SSPI compliance and inspection logs in one app. The Escalator Field Guide, a searchable plain-English guide to the safety codes, is built right into it.
                             </p>
                             <ul class="checks">
                                 {
                                     [
+                                        'Escalator Field Guide included: ask a code question, get a sourced answer (Pro)',
                                         'Category 1 test progress, building by building',
                                         'SSPI brake and step-skirt test records',
                                         'Unit shutdown logs with the reason on file',
@@ -243,7 +217,7 @@ const watchers = [
                             </ul>
                             <div class="feature-actions">
                                 <a class="badge" href="https://apps.apple.com/us/app/escalator-field-command/id6756789866" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" /></a>
-                                <button type="button" class="ghost" data-open-escalator-video>Watch the 10-second demo &#9654;</button>
+                                <button type="button" class="ghost" data-open-escalator-video>See the Field Guide in action &#9654;</button>
                                 <a class="ghost" href="/escalator-field-command/">Learn more &#8250;</a>
                             </div>
                         </div>
@@ -260,13 +234,9 @@ const watchers = [
                         everyday.map((a) => (
                             <article class="tile" id={a.id}>
                                 <div class={`media tint-${a.tint}`}>
-                                    {a.kind === 'poster'
-                                        ? a.shots.map((s, i) => <Shot name={s[0] as string} alt={s[1] as string} width={s[2] as number} height={s[3] as number} class={`poster ${i === 0 ? 'a' : 'b'}`} />)
-                                        : a.shots.map((s, i) => (
-                                              <div class={`phone ${i === 0 ? 'a' : 'b'}`}>
-                                                  <Shot name={s[0] as string} alt={s[1] as string} width={s[2] as number} height={s[3] as number} />
-                                              </div>
-                                          ))}
+                                    {a.shots.map((s, i) => (
+                                        <Shot name={s[0] as string} alt={s[1] as string} width={s[2] as number} height={s[3] as number} class={`poster ${i === 0 ? 'a' : 'b'}`} />
+                                    ))}
                                 </div>
                                 <div class="tile-body">
                                     <div class="id">
@@ -464,9 +434,9 @@ const watchers = [
                 controls
                 playsinline
                 preload="metadata"
-                poster="/images/screenshots/escalator/dashboard-overview.jpg"
-                aria-label="Escalator Field Command quick app demo: a 10-second walk-through of the dashboard, Cat 1 testing, SSPI compliance, and unit shutdowns"
-                src="/videos/escalator-field-command-demo.mp4"
+                poster="/videos/escalator-field-guide-poster.jpg"
+                aria-label="Escalator Field Guide demo: typing a plain-language question about the force needed to trip a comb impact device and getting a sourced answer"
+                src="/videos/escalator-field-guide-demo.mp4"
             >
             </video>
         </div>
