@@ -16,15 +16,17 @@ Live at https://artificialigknorance.com.
 - Single layout: `src/layouts/Layout.astro`. Props: `title`,
   `description`, `ogImage`, `twitterCard`, `smartAppId`, `datePublished`,
   `mainEntityId`. Emits OG/Twitter cards, canonical URL, iOS Smart App
-  Banner, JSON-LD `@graph` (Person + Organization + WebSite + WebPage +
-  every MobileApplication; the Escalator page adds the Field Guide VideoObject).
+  Banner, JSON-LD `@graph` (Organization + WebSite + WebPage + every
+  MobileApplication; the Escalator page adds the Field Guide VideoObject).
+  There is deliberately no Person entry (no author name on the site).
 - Pages: `index.astro`, `escalator-field-command.astro`,
   `healthtrail-medical.astro`, `clock-in-everyday.astro`,
   `snapledger.astro`, `gold-watcher.astro`, `silver-watcher.astro`,
   `copper-watcher.astro`, `lithium-watcher.astro`, `ridgepacker.astro`,
   `elevator-code-answers.astro` (SEO landing page targeting A17.1/A17.2/
   A17.3/B44 search terms, funnels to Escalator Field Command), `about.astro`,
-  `privacy.astro`, `terms.astro`. The Astro starter demo pages (`blobs/`,
+  `privacy.astro`, `terms.astro`, and `family-lists/delete-account.astro`
+  (account-deletion page for the Family Lists app). The Astro starter demo pages (`blobs/`,
   `edge/`, `image-cdn/`, `revalidation/`, `api/`) are inherited and
   `Disallow`-ed in robots.txt.
 - **Look: "Daylight"** (light, Apple-style, redesigned Oct 2026 from the old
@@ -63,7 +65,7 @@ Live at https://artificialigknorance.com.
 | --- | --- | --- | --- | --- |
 | Escalator Field Command | 6756789866 | us | blue/cyan | **SEO priority — first in homepage list** |
 | HealthTrail Medical | 6758072258 | us | emerald/teal | shipping |
-| Clock-In Everyday | 6791800212 | us | orange/teal | shipping (Health & Fitness section) |
+| Clock-In Everyday | 6791800212 | us | orange/teal | shipping |
 | SnapLedger ø | 6759497982 | **ca** | green | shipping |
 | Copper Watcher (Cu) | 6757655923 | us | amber | shipping |
 | Gold Watcher (Au) | 6758283387 | us | yellow | shipping |
@@ -71,13 +73,10 @@ Live at https://artificialigknorance.com.
 | Lithium Watcher (Li) | 6761344726 | us | teal | shipping |
 | RidgePacker | 6766699306 | us | sky | shipping |
 
-Currently 9 apps. The homepage's hero subheading states the count in
-prose ("Nine privacy-first iOS apps...") — update that sentence, the
-`/about/` app list intro ("Nine apps live on the App Store today,
-across seven areas"), and the About-page bullet count whenever the
-catalog changes. There is no standalone "N apps on the App Store" line
-anymore; it was folded into the subheading during the hero redesign
-(see Current Session State).
+Currently 9 apps. The count appears on the homepage proof strip ("9 apps,
+all free to download") and on the `/about/` page ("Nine apps live on the
+App Store today, across seven areas" and "All nine apps are free to
+download"). Update those whenever the catalog changes.
 
 Homepage layout (Daylight): hero + proof strip, then a dark featured band
 for Escalator Field Command (always first, SEO priority), then "For
@@ -148,7 +147,7 @@ Old anchors still exist: `#apps`, `#industry`, `#health`, `#financial`,
   conversions).
 - **SEO is Escalator-led.** Don't dilute the focus by adding parallel
   category landing pages unless explicitly approved. Escalator is the
-  first card on the homepage and auto-expands on mobile.
+  featured band at the top of the homepage app list.
   `elevator-code-answers.astro` is the one standing exception — Mike
   explicitly approved it (it came out of an ad-ops session) as a
   free/organic counterpart to a paid Google Ads test on the same
@@ -209,16 +208,22 @@ base URL to fetch at full resolution. The iTunes Search API's
 
 ## Current Session State
 
-Last updated: 2026-10-05: Shipped the "Daylight" redesign of the whole site
-(new light look, new homepage, header with Apps dropdown, footer, every inner
-page re-skinned), a new link-preview picture, and removed the author name
-and every "one person / indie" claim from the public site.
+Last updated: 2026-10-05: The Daylight redesign and every follow-up shipped
+and verified live (name and "one person" claims removed, em dashes banned
+with a build check, hero tweaks, real Field Guide demo video, new Clock-In
+pictures, Field Guide shown as included). Nothing in flight.
 
-**Current focus:** No active work in flight.
+**Current focus:** None. Waiting on Mike's answers below.
 
 **Last shipped:** website is a static site, so "shipped" = pushed to `main`
-and Netlify auto-deploys. The Daylight redesign was pushed to `main` on
-2026-10-05 (see `git log` for the commit). Working tree clean at the time.
+and Netlify auto-deploys. All of today's work is on `main` and live
+(verified 2026-10-05: pages return 200, no em dashes, new video and pictures
+serving). `origin/main` is in sync at `7e5bf49` ("Use a real app recording,
+fix the Clock-In pictures, say the Field Guide is included"). Today's commits,
+oldest first: `96db1aa` redesign + name removal, `b608653` em dash clean-up and
+build guard, `3e4b87d` hero pill removed + Gold Watcher phone, `7e5bf49`
+real demo video + Clock-In pictures + Field Guide wording. Working tree clean,
+no extra worktrees.
 
 **Uncommitted work queued for next ship:** none.
 
@@ -229,10 +234,20 @@ and Netlify auto-deploys. The Daylight redesign was pushed to `main` on
   Premium FAQs and `src/data/pricing.ts` only know about monthly/yearly.
   Once he confirms the lifetime price, add a `lifetime` field to
   `pricing.ts` and mention it in those three FAQs.
-- **SnapLedger wording held for review.** The 2026-10-05 weekly sync left a
-  4-line SnapLedger page change on branch `appstore-sync/2026-10-05`
-  instead of publishing it. Needs a look, then merge or discard. It was
-  written against the old page markup, so expect to re-apply by hand.
+- **Ten held-back sync branches.** `appstore-sync/2026-07-06` through
+  `appstore-sync/2026-10-05` (local and remote) each hold 1 or 2 commits the
+  weekly job set aside for review. The 2026-10-05 one is a 4-line SnapLedger
+  change. Most older ones are probably superseded by later syncs on `main`.
+  Needs one review pass, then merge or discard. Do not delete without his OK.
+  They were written against the old page markup, so re-apply by hand.
+- **"Hi Mike" in a screenshot.** The Clock-In workout screenshot
+  (`public/images/screenshots/clock-in-everyday/workout.*`, shown on
+  `/clock-in-everyday/`) has the AI coach greeting "Hi Mike". He wants his name
+  off the site; ask whether to replace the picture. The new homepage Clock-In
+  pictures deliberately avoid that screen.
+- **Real Escalator Field Command walkthrough video.** The homepage demo
+  button plays the Field Guide recording because no real full-app recording
+  exists. If Mike supplies one, swap it in.
 
 **Parked for later:**
 - **App Store affiliate enrollment**: not enrolled; small per-install
@@ -243,24 +258,28 @@ and Netlify auto-deploys. The Daylight redesign was pushed to `main` on
   different app becomes priority, change the default in `Layout.astro`.
 - Inner pages were re-skinned (colors and cards), not re-laid-out. Each app
   page could get a Daylight-native layout later.
+- App Store developer-page links contain Mike's name in the web address
+  (`.../developer/mike-dangerfield/...`). Visible text is clean; the link
+  addresses cannot be changed.
+- Local-only leftovers in `mockups/` (git-ignored through `.git/info/exclude`):
+  the three mockups, `skin_pages.py` and `emdash_sweep.py` (re-run on a fresh
+  checkout if needed), and font/image helpers. Safe to delete.
 
 **Recent key decisions:**
-1. **Daylight redesign** (Mike picked option A of three mockups): light
-   Apple-style look, tokens in `globals.css`, homepage styles in `home.css`.
-   Inner pages keep their markup; only class lists changed (plus an
-   em dash clean-up of the wording, including Privacy, Terms and the
-   Elevator Code Answers FAQ, which Mike approved).
+1. **Daylight redesign** (Mike picked option A of three mockups) shipped
+   site-wide: light Apple-style look, tokens in `globals.css`, homepage styles
+   in `home.css`. Inner pages keep their markup; only class lists changed.
 2. **No author name and no "one person" framing on the public site**
-   (Mike, 2026-10-05). See the Conventions section.
-3. **Clock-In Everyday is NOT "100% on-device"**: its AI coach sends
+   (Mike, 2026-10-05). See Conventions.
+3. **No em dashes anywhere, ever** (Mike, 2026-10-05), including Privacy,
+   Terms and his Elevator Code Answers FAQ. Enforced by a check on every
+   build (`scripts/check-no-em-dashes.mjs`).
+4. **Demo videos must be real screen recordings.** The old "10-second demo"
+   was an AI promo clip (Sora watermark) and was removed.
+5. **Clock-In Everyday is NOT "100% on-device"**: its AI coach sends
    readiness/goals/injury context to a backend. The site carries an honest
    named exception instead of overclaiming (plus optional photo scanning in
    HealthTrail Medical).
-4. **Weekly App Store sync can publish straight to `main`** for plain,
-   literal changes, only holding back for review when a change looks
-   ambiguous or structural. Standing authorization from Mike.
-5. **Centralized pricing** lives in `src/data/pricing.ts`: change a
-   price or trial length there only, never inline in a page.
 
 ## Session-end protocol
 
