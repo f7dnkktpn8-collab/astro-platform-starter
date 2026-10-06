@@ -16,8 +16,6 @@
 .home h1,.home h2,.home h3{text-wrap:balance}
 .home p{text-wrap:pretty}
 .home .hero{text-align:center;padding:clamp(56px,9vw,112px) 0 0;overflow:hidden;position:relative}
-.home .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--accent-deep);background:var(--tint);padding:7px 14px;border-radius:999px;margin-bottom:26px}
-.home .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:block}
 .home h1{font-size:clamp(2.7rem,7.4vw,5.6rem);line-height:1.02;letter-spacing:-.048em;font-weight:720;max-width:14ch;margin-inline:auto}
 .home .hero .sub{font-size:clamp(1.1rem,2vw,1.4rem);line-height:1.4;color:var(--muted);max-width:34em;margin:24px auto 0;letter-spacing:-.012em}
 .home .cta{display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:34px}
