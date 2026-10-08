@@ -24,7 +24,7 @@ const faqs = [
     },
     {
         q: 'Is my financial data private?',
-        a: 'Yes. Every bill, receipt, and subscription stays on your iPhone. There is no cloud sync, no analytics SDK, no third-party data sharing. The app works fully offline: you control where your data goes, and the default is nowhere.'
+        a: 'Yes. Your bills, receipts, and subscriptions are stored on your iPhone, with no cloud sync, no analytics SDK, and no third-party data sharing. The one thing that leaves your phone is a photo or file you choose to scan: it is sent to our AI provider to read it, we do not keep it, and it is not used to train their models. Everything else stays with you.'
     },
     {
         q: 'Do I need to create an account?',
@@ -60,7 +60,7 @@ const pageStructuredData = {
 
 <Layout
     title="SnapLedger | iPhone Bill & Subscription Tracker with AI Receipt Scanning"
-    description="Snap any bill and let AI extract the details. Track subscriptions, household expenses, and spending trends in one clean iPhone dashboard. No bank login, no signup, all on-device."
+    description="Snap any bill and let AI extract the details. Track subscriptions, household expenses, and spending trends in one clean iPhone dashboard. No bank login, no signup, and your records stay on your phone."
     ogImage={APP_ICON}
     twitterCard="summary_large_image"
     smartAppId="6759497982"
@@ -109,7 +109,7 @@ const pageStructuredData = {
         <span class="px-3 py-1 bg-green-500/20 text-green-700 rounded-full text-sm">AI bill scan</span>
         <span class="px-3 py-1 bg-green-500/20 text-green-700 rounded-full text-sm">Subscription tracking</span>
         <span class="px-3 py-1 bg-green-500/20 text-green-700 rounded-full text-sm">No bank login</span>
-        <span class="px-3 py-1 bg-green-500/20 text-green-700 rounded-full text-sm">100% on-device</span>
+        <span class="px-3 py-1 bg-green-500/20 text-green-700 rounded-full text-sm">Records on your phone</span>
         <span class="px-3 py-1 bg-green-500/20 text-green-700 rounded-full text-sm">Zero account</span>
     </section>
 
@@ -134,12 +134,16 @@ const pageStructuredData = {
                 <p class="text-body">Automatically picks up iCloud+, Apple Music, Apple TV+, AppleCare+, and other Apple subscriptions. Skips duplicates so the list stays clean.</p>
             </div>
             <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-green-700">Price changes, caught for you</h3>
+                <p class="text-body">Once a month SnapLedger checks the published prices for Apple (Music, TV, One, iCloud+, Arcade, News+, Fitness+), Spotify, Netflix, Amazon Prime, Disney+, X Premium, Strava, TripIt Pro, HBO Max in the US and Crave in Canada. When a price you pay changes, your subscription updates, sales tax included, and the change goes into its price history. Taking a break from one? Put it on hold instead of deleting it. Works in the United States and Canada.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
                 <h3 class="text-xl font-bold mb-2 text-green-700">Full payment history</h3>
                 <p class="text-body">Every category keeps its full history. See exactly what your phone bill, internet bill, or streaming spend looked like over the past year.</p>
             </div>
             <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
                 <h3 class="text-xl font-bold mb-2 text-green-700">Zero credentials</h3>
-                <p class="text-body">No bank login, no Plaid token, no signup. The app works from photos and manual entry, and the data never leaves your phone.</p>
+                <p class="text-body">No bank login, no Plaid token, no signup. The app works from photos and manual entry, and your records stay on your phone.</p>
             </div>
         </div>
     </section>

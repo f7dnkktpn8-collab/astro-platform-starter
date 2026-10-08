@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const LAST_UPDATED = "July 19, 2026";
+const LAST_UPDATED = "October 7, 2026";
 const DEVELOPER = "Artificial Igknorance";
 const CONTACT_EMAIL = "info@artificialigknorance.com";
 ---
@@ -31,9 +31,10 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
           All apps published by {DEVELOPER} are built with a privacy-first philosophy. We do not collect,
           store, or share your personal data. All information you enter into our apps (including your
           portfolio holdings, price alerts, health records, and settings) is stored exclusively on your
-          device and never transmitted to our servers, with one exception: apps that include an AI
-          coaching or assistant feature send the relevant context to a third-party AI provider solely to
-          generate your personalized response, as described in Section 4 below.
+          device and never transmitted to our servers, with two exceptions: apps with an AI coaching or
+          optional AI scanning feature send the relevant context, photo or file to a third-party AI provider
+          solely to generate your response (Section 4), and apps with a free trial send a scrambled code so a
+          trial cannot be restarted again and again (Section 3).
         </p>
       </section>
 
@@ -50,6 +51,8 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
           <li>Market data (commodity prices, financial data) fetched from third-party APIs. These requests do not include any personal information.</li>
           <li>Anonymous crash and diagnostic data collected by Apple through standard iOS mechanisms if you have opted in to share analytics with app developers in your iOS Settings.</li>
           <li>For apps with an AI coaching feature, the context needed to generate your personalized plan (see Section 4).</li>
+          <li>For apps with optional AI scanning, the photo or file you choose to scan (see Section 4).</li>
+          <li>For apps with a free trial, a scrambled code that stops a trial being restarted (see Section 3).</li>
         </ul>
       </section>
 
@@ -58,12 +61,13 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
         <p class="text-body leading-relaxed">
           All user-generated data is stored locally on your device using iOS secure storage. This includes
           your preferences, settings, portfolio holdings, price alerts, health records, and any other data
-          you enter. This data never leaves your device and is not accessible to us.
+          you enter. This data stays on your device and is not accessible to us, apart from a photo or file you
+          choose to run through AI scanning (Section 4).
         </p>
       </section>
 
       <section>
-        <h2 class="text-xl font-bold text-ink mb-3">3. In-App Purchases and Subscriptions</h2>
+        <h2 class="text-xl font-bold text-ink mb-3">3. In-App Purchases, Subscriptions and Free Trials</h2>
         <p class="text-body leading-relaxed">
           Where applicable, subscription purchases are processed entirely by Apple through the App Store.
           We do not have access to your payment information. Subscription status may be managed by
@@ -73,10 +77,18 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
           <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer"
             class="text-accent hover:text-accent-deep underline">RevenueCat's Privacy Policy</a>.
         </p>
+        <p class="text-body leading-relaxed mt-3">
+          Some apps that offer a free trial (for example, HealthTrail Medical) check that a trial has not
+          already been used on the same device. To do this, the app sends our server a scrambled code (a
+          one-way hash) made from an identifier Apple provides for your device, plus the app's name and the
+          date your trial started. We keep those three items so a trial cannot be restarted again and again.
+          The code cannot be turned back into the device identifier, and it is not connected to your name,
+          your records, or anything else you enter in the app.
+        </p>
       </section>
 
       <section>
-        <h2 class="text-xl font-bold text-ink mb-3">4. AI Coaching Features</h2>
+        <h2 class="text-xl font-bold text-ink mb-3">4. AI Features</h2>
         <p class="text-body leading-relaxed">
           Some of our apps (for example, Clock-In Everyday) include an AI-powered coaching feature. When you
           use it, relevant context needed to generate your personalized plan, such as your stated goals,
@@ -92,6 +104,25 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
             class="text-accent hover:text-accent-deep underline">Anthropic's Privacy Policy</a>.
           This feature is never used for anything beyond generating the coaching response you requested.
         </p>
+        <h3 class="text-lg font-semibold text-ink mt-6 mb-2">Optional AI scanning</h3>
+        <p class="text-body leading-relaxed">
+          Some of our apps let you scan something to fill in details for you: HealthTrail Medical (a photo of
+          a pill bottle, insurance card, document or label) and SnapLedger (a photo of a bill, or a file you
+          import). Scanning only happens when you choose it. When you do, the photo or file is sent from your
+          device to our Cloudflare Worker, which forwards it to OpenAI's API to read the text. The details it
+          finds come back to your device and are saved there.
+        </p>
+        <p class="text-body leading-relaxed mt-3">
+          Our Worker does not store the photo, the file or the result, and none of it is tied to an account or
+          your name. To limit abuse, the Worker counts requests from each network (IP) address, and that count
+          expires after 24 hours. OpenAI says it does not use data sent through its API to train its models,
+          and that it may keep API requests for up to 30 days to check for abuse. See
+          <a href="https://developers.openai.com/api/docs/guides/your-data" target="_blank" rel="noopener noreferrer"
+            class="text-accent hover:text-accent-deep underline">OpenAI's API data controls</a> and
+          <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer"
+            class="text-accent hover:text-accent-deep underline">OpenAI's Privacy Policy</a>.
+          Scanning is never automatic, and every record it creates can be entered by hand instead.
+        </p>
       </section>
 
       <section>
@@ -104,6 +135,8 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
           <li><strong class="text-ink">Yahoo Finance (public API)</strong>: for historical price and financial data. Standard HTTP requests are made; no personal data is transmitted.</li>
           <li><strong class="text-ink">RevenueCat</strong>: for subscription management where applicable. See Section 3 above.</li>
           <li><strong class="text-ink">Anthropic (Claude)</strong>: for AI coaching features where applicable. See Section 4 above.</li>
+          <li><strong class="text-ink">OpenAI</strong>: for optional AI scanning where applicable. See Section 4 above.</li>
+          <li><strong class="text-ink">Cloudflare</strong>: runs the secure relay that passes AI requests along and the free-trial check. See Sections 3 and 4 above.</li>
           <li><strong class="text-ink">Apple Push Notification Service</strong>: for local notifications. Notifications are scheduled locally on your device and do not pass through our servers.</li>
         </ul>
       </section>
@@ -141,9 +174,10 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
         <p class="text-body leading-relaxed">
           Since we do not collect or store your personal data on our servers, there is no personal data
           for us to provide, correct, or delete on your behalf. You can delete all locally stored app
-          data at any time by uninstalling the app from your device. Data sent to an AI coaching feature
-          (Section 4) is not retained after your request is answered, so there is nothing to delete there
-          either.
+          data at any time by uninstalling the app from your device. Data sent to an AI feature
+          (Section 4) is not retained by us after your request is answered, so there is nothing to delete
+          there. The scrambled free-trial code (Section 3) is not linked to you, but if you would like it
+          removed, contact us and we will delete it.
         </p>
       </section>
 
