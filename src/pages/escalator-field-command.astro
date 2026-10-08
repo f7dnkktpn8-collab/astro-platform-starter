@@ -4,12 +4,17 @@ import { trialSentence } from '../data/pricing';
 
 const SITE_URL = 'https://artificialigknorance.com';
 const APP_STORE_URL = 'https://apps.apple.com/us/app/escalator-field-command/id6756789866';
+const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.vibecode.escalatorfieldcommand';
 const APP_ICON = '/images/escalator-field-command-icon.webp';
 
 const faqs = [
     {
         q: 'What is Escalator Field Command?',
-        a: 'Escalator Field Command is a native iOS app built for escalator mechanics. It combines maintenance route management, Category 1 testing logs, SSPI compliance documentation, equipment specs, service history, per-unit contacts, and a built-in Field Guide into one offline-first interface designed for real-world field use.'
+        a: 'Escalator Field Command is a native app for iPhone, iPad and Android, built for escalator mechanics. It combines maintenance route management, Category 1 testing logs, SSPI compliance documentation, equipment specs, service history, per-unit contacts, and a built-in Field Guide into one offline-first interface designed for real-world field use.'
+    },
+    {
+        q: 'Is Escalator Field Command on Android?',
+        a: 'Yes. Escalator Field Command is on Google Play as well as the App Store, so it works on iPhone, iPad and Android.'
     },
     {
         q: 'What is the Escalator Field Guide?',
@@ -104,8 +109,8 @@ const pageStructuredData = {
 ---
 
 <Layout
-    title="Escalator Field Command | iOS App for Escalator Mechanics"
-    description="The iOS app built for escalator mechanics. Maintenance routes, Category 1 testing, SSPI compliance, a searchable safety-code Field Guide, and inspection logs, offline-first, 100% on-device, no account required."
+    title="Escalator Field Command | iOS and Android App for Escalator Mechanics"
+    description="The iOS and Android app built for escalator mechanics. Maintenance routes, Category 1 testing, SSPI compliance, a searchable safety-code Field Guide, and inspection logs, offline-first, 100% on-device, no account required."
     ogImage={APP_ICON}
     twitterCard="summary_large_image"
     smartAppId="6756789866"
@@ -134,7 +139,7 @@ const pageStructuredData = {
             <div class="absolute bottom-10 right-10 w-40 h-40 bg-cyan-400 rounded-full blur-3xl"></div>
         </div>
 
-        <div class="relative flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div class="relative flex flex-col md:flex-row md:flex-wrap md:justify-center items-center gap-8 md:gap-12">
             <img
                 src={APP_ICON}
                 alt="Escalator Field Command app icon"
@@ -142,12 +147,12 @@ const pageStructuredData = {
                 height="180"
                 class="w-32 h-32 md:w-44 md:h-44 rounded-3xl shadow-2xl flex-shrink-0"
             />
-            <div class="flex-1 text-center md:text-left">
+            <div class="flex-1 max-w-full text-center md:text-left">
                 <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-3 text-ink">
                     Escalator Field Command
                 </h1>
                 <p class="text-xl sm:text-2xl text-accent font-medium mb-4">
-                    The iOS app built for escalator mechanics.
+                    The app built for escalator mechanics, on iPhone, iPad and Android.
                 </p>
                 <p class="text-body max-w-2xl mb-6 text-lg">
                     Manage maintenance routes, Category 1 testing, SSPI compliance, and inspection
@@ -156,6 +161,7 @@ const pageStructuredData = {
                 </p>
                 <div class="flex flex-wrap gap-3 justify-center md:justify-start">
                     <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+                    <a href={PLAY_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Get it on Google Play"><img src="/images/google-play-badge.png" alt="Get it on Google Play" width="188" height="56" class="h-14 w-auto" loading="lazy" /></a>
                 </div>
             </div>
         </div>
@@ -163,7 +169,7 @@ const pageStructuredData = {
 
     <!-- Quick badges -->
     <section class="flex flex-wrap gap-2 justify-center md:justify-start mb-12">
-        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">iOS native</span>
+        <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">iOS &amp; Android</span>
         <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">iPhone &amp; iPad</span>
         <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">Offline-first</span>
         <span class="px-3 py-1 bg-blue-500/20 text-accent rounded-full text-sm">Zero account</span>
@@ -547,9 +553,12 @@ const pageStructuredData = {
     <section class="text-center mb-16 bg-gradient-to-br from-blue-500/15 to-cyan-500/15 rounded-3xl p-8 md:p-12 border border-blue-400/20">
         <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get Escalator Field Command</h2>
         <p class="text-body text-lg mb-8 max-w-2xl mx-auto">
-            Free download on the App Store. Built for iPhone and iPad, designed for the field.
+            Free download on the App Store and Google Play. Built for iPhone, iPad and Android, designed for the field.
         </p>
-        <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+            <a href={PLAY_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Get it on Google Play"><img src="/images/google-play-badge.png" alt="Get it on Google Play" width="188" height="56" class="h-14 w-auto" loading="lazy" /></a>
+        </div>
         <p class="mt-6 text-sm text-muted">
             Or browse <a href="/" class="text-accent hover:text-accent-deep underline"
                 >all Artificial Igknorance apps</a

@@ -40,6 +40,7 @@
     }
 
     body {
+        overflow-wrap: break-word;
         font-feature-settings: 'cv11', 'ss03';
         text-rendering: optimizeLegibility;
     }
@@ -117,4 +118,14 @@
 .wrap {
     width: min(1120px, 100% - 48px);
     margin-inline: auto;
+}
+
+/* Large text and small screens: question rows keep their arrow on screen, and long words wrap instead of spilling out. */
+summary {
+    gap: 0.75rem;
+}
+
+summary > span {
+    min-width: 0;
+    overflow-wrap: anywhere;
 }

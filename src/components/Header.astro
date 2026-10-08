@@ -82,7 +82,8 @@ const apps = [
     }
     .nav-in {
         position: relative;
-        height: 60px;
+        min-height: 60px;
+        padding-block: 6px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -92,10 +93,11 @@ const apps = [
         display: flex;
         align-items: center;
         gap: 10px;
+        min-width: 0;
         text-decoration: none;
         font-weight: 650;
         letter-spacing: -0.02em;
-        font-size: 17px;
+        font-size: 1.0625rem;
         color: var(--color-ink);
     }
     .brand img {
@@ -107,7 +109,7 @@ const apps = [
         display: flex;
         align-items: center;
         gap: 30px;
-        font-size: 14px;
+        font-size: 0.875rem;
     }
     .links a,
     .menu-btn {
@@ -179,7 +181,7 @@ const apps = [
     }
     .menu-item b {
         display: block;
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: 620;
         color: var(--color-ink);
         line-height: 1.25;
@@ -187,7 +189,7 @@ const apps = [
     .menu-item i {
         display: block;
         font-style: normal;
-        font-size: 12.5px;
+        font-size: 0.7812rem;
         color: var(--color-muted);
         line-height: 1.3;
     }
@@ -245,7 +247,7 @@ const apps = [
     }
     .mobile .group {
         padding: 12px 14px 4px;
-        font-size: 11.5px;
+        font-size: 0.7188rem;
         font-weight: 650;
         letter-spacing: 0.1em;
         text-transform: uppercase;

@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 
 const SITE_URL = 'https://artificialigknorance.com';
 const APP_STORE_URL = 'https://apps.apple.com/us/app/escalator-field-command/id6756789866';
+const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.vibecode.escalatorfieldcommand';
 const APP_ICON = '/images/escalator-field-command-icon.webp';
 
 const faqs = [
@@ -164,7 +165,10 @@ const pageStructuredData = {
             senior mechanic and get a clear answer citing the exact code section, drawn from
             ASME A17.1, A17.2, CSA B44, and the MCP.
         </p>
-        <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Download on the App Store"><img src="/images/appstore-badge.svg" alt="Download on the App Store" class="h-14 w-auto" loading="lazy" /></a>
+            <a href={PLAY_URL} target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105" aria-label="Get it on Google Play"><img src="/images/google-play-badge.png" alt="Get it on Google Play" width="188" height="56" class="h-14 w-auto" loading="lazy" /></a>
+        </div>
         <p class="mt-6 text-sm text-muted">
             Or <a href="/escalator-field-command/" class="text-accent hover:text-accent-deep underline">learn more about Escalator Field Command</a>.
         </p>
