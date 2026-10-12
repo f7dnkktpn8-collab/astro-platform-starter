@@ -265,14 +265,13 @@ with `curl -L` when checking live, because `www.` redirects.
 
 **Waiting on Mike / open decisions:**
 - **Read the Brazil (LGPD) text** on branch `healthtrail-privacy`, then say
-  ship it. One call is his: the privacy contact (encarregado) is
+  ship it. Needed before the next HealthTrail release. One call is his: the privacy contact (encarregado) is
   info@artificialigknorance.com, with no personal name per his rule.
-- **Which privacy policy do the App Stores link to?** HealthTrail's and
-  SnapLedger's App Store text link to a TermsFeed policy, not this site's
-  policy. Escalator Field Command's text now links to
-  `counterweightdispatch.com/apps/escalator-field-command/privacy/`. If the
-  stores use TermsFeed, the new wording must go there too, or the links must
-  change. The HealthTrail session was asked to check the app side.
+- **HealthTrail now uses this site's policy as its only privacy policy**
+  (Mike's decision 2026-10-12, relayed by the HealthTrail session). The app's
+  links are changed; the App Store listing link switches at the next HealthTrail
+  release. So the Brazil (LGPD) text must be live before that release ships.
+  SnapLedger's App Store text still links to a TermsFeed policy.
 - **App Store "App Privacy" answers** for HealthTrail and SnapLedger should
   list photos sent for scanning and (HealthTrail) the device code. Not checked,
   outside the website.
@@ -281,14 +280,13 @@ with `curl -L` when checking live, because `www.` redirects.
   available." The site's Premium FAQs and `src/data/pricing.ts` only know
   monthly/yearly. Need the lifetime price, then add a `lifetime` field to
   `pricing.ts` and mention it in those FAQs.
-- **Eleven held-back sync branches** (`appstore-sync/2026-07-06` to
-  `2026-10-12`, local and remote). Everything useful in them is now on `main`
-  or no longer needed. Mike asked "what is this?" and has not said yes to
-  deleting them. Do not delete without his OK (deleting remote branches needs
-  explicit approval).
 - **Real Escalator Field Command walkthrough video** (optional).
 - **Portuguese version of the privacy policy** (optional, Brazilian users may
   expect it).
+
+(The eleven old held-back `appstore-sync/*` branches were deleted on
+2026-10-12 with Mike's OK, after checking nothing in them was missing from
+`main`. The Monday job will make new ones if it is unsure about a change.)
 
 **Parked for later:**
 - **App Store affiliate enrollment**: not enrolled; small per-install
