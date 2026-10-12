@@ -9,6 +9,8 @@
 // own notes: Gold, Silver, Copper and Lithium Watcher are all $1.99 a month or
 // $9.99 a year in US dollars. A Lifetime plan ($24.99) is listed here only when
 // people can really buy it inside the live app. Today that is Gold Watcher.
+// Free trials checked in App Store Connect 2026-10-12: Gold and Silver 3 days,
+// Copper and Lithium 7 days, each on both the monthly and the yearly plan.
 
 export type TrialScope = 'monthly' | 'yearly' | 'both' | null;
 
@@ -33,8 +35,8 @@ export interface AppPricing {
 export const PRICING: Record<string, AppPricing> = {
     'gold-watcher':    { monthly: '$1.99', yearly: '$9.99', lifetime: '$24.99', trialDays: 3, trialScope: 'both' },
     'silver-watcher':  { monthly: '$1.99', yearly: '$9.99', trialDays: 3, trialScope: 'both' },
-    'copper-watcher':  { monthly: '$1.99', yearly: '$9.99', trialDays: 7, trialScope: 'yearly' },
-    'lithium-watcher': { monthly: '$1.99', yearly: '$9.99', trialDays: 7, trialScope: 'yearly' },
+    'copper-watcher':  { monthly: '$1.99', yearly: '$9.99', trialDays: 7, trialScope: 'both' },
+    'lithium-watcher': { monthly: '$1.99', yearly: '$9.99', trialDays: 7, trialScope: 'both' },
     'ridgepacker':     { monthly: null,    yearly: null,     trialDays: 3, trialScope: 'both' },
     'escalator-field-command': {
         monthly: null,
