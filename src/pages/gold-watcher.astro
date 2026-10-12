@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { PRICING, trialSentence } from '../data/pricing';
+import { PRICING, trialSentence, lifetimeSentence } from '../data/pricing';
 
 const SITE_URL = 'https://artificialigknorance.com';
 const APP_STORE_URL = 'https://apps.apple.com/us/app/gold-watcher-au/id6758283387';
@@ -46,7 +46,7 @@ const faqs = [
     },
     {
         q: 'What does Premium cost?',
-        a: `Free to download. The Portfolio and What-If tabs are unlocked with a Gold Watcher subscription at ${p.monthly} per month or ${p.yearly} per year. ${trialSentence('gold-watcher')} Subscribers can see their plan, price and renewal date in Settings, and switch plans without leaving the app.`
+        a: `Free to download. The Portfolio and What-If tabs are unlocked with a Gold Watcher subscription at ${p.monthly} per month or ${p.yearly} per year. ${lifetimeSentence('gold-watcher')} ${trialSentence('gold-watcher')} Subscribers can see their plan, price and renewal date in Settings, and switch plans without leaving the app.`
     }
 ];
 

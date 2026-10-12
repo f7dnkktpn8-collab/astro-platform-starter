@@ -4,6 +4,11 @@
 // up the new value on the next build.
 //
 // One file to edit. Do not put prices inline on individual page files.
+//
+// Checked 2026-10-12 against the public US App Store pages and the metals apps'
+// own notes: Gold, Silver, Copper and Lithium Watcher are all $1.99 a month or
+// $9.99 a year in US dollars. A Lifetime plan ($24.99) is listed here only when
+// people can really buy it inside the live app. Today that is Gold Watcher.
 
 export type TrialScope = 'monthly' | 'yearly' | 'both' | null;
 
@@ -21,13 +26,15 @@ export interface AppPricing {
      * doesn't fit the auto-generated monthly/yearly phrasing (e.g. a single "Pro" tier).
      * When set, this is returned as-is instead of the generated sentence. */
     trialText?: string;
+    /** US-dollar price string for a one-time Lifetime plan. Leave unset until the plan can really be bought in the live app. */
+    lifetime?: string;
 }
 
 export const PRICING: Record<string, AppPricing> = {
-    'gold-watcher':    { monthly: '$2.99', yearly: '$12.99', trialDays: 3, trialScope: 'both' },
-    'silver-watcher':  { monthly: '$2.99', yearly: '$12.99', trialDays: 3, trialScope: 'both' },
-    'copper-watcher':  { monthly: '$1.99', yearly: '$4.99',  trialDays: 7, trialScope: 'yearly' },
-    'lithium-watcher': { monthly: '$1.99', yearly: '$4.99',  trialDays: 7, trialScope: 'yearly' },
+    'gold-watcher':    { monthly: '$1.99', yearly: '$9.99', lifetime: '$24.99', trialDays: 3, trialScope: 'both' },
+    'silver-watcher':  { monthly: '$1.99', yearly: '$9.99', trialDays: 3, trialScope: 'both' },
+    'copper-watcher':  { monthly: '$1.99', yearly: '$9.99', trialDays: 7, trialScope: 'yearly' },
+    'lithium-watcher': { monthly: '$1.99', yearly: '$9.99', trialDays: 7, trialScope: 'yearly' },
     'ridgepacker':     { monthly: null,    yearly: null,     trialDays: 3, trialScope: 'both' },
     'escalator-field-command': {
         monthly: null,
@@ -49,4 +56,11 @@ export function trialSentence(slug: string): string {
     if (p.trialScope === 'yearly')  return `The yearly plan comes with a ${p.trialDays}-day free trial.`;
     if (p.trialScope === 'monthly') return `The monthly plan comes with a ${p.trialDays}-day free trial.`;
     return '';
+}
+
+/** Sentence about the one-time Lifetime plan for FAQ copy. Returns "" when the app has none yet. */
+export function lifetimeSentence(slug: string): string {
+    const p = PRICING[slug];
+    if (!p || !p.lifetime) return '';
+    return `There is also a one-time Lifetime plan at ${p.lifetime}, paid once with no renewal.`;
 }
