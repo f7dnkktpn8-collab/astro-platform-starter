@@ -143,6 +143,19 @@ Old anchors still exist: `#apps`, `#industry`, `#health`, `#financial`,
   to every `VideoObject` added to any page: currently the Field Guide
   demo on `escalator-field-command.astro`, plus any future demo videos for HealthTrail,
   SnapLedger, the metals apps, etc.
+- **Privacy claims must match what the apps really do** (checked 2026-10-12
+  against the apps' relay servers). HealthTrail Medical and SnapLedger send a
+  photo or file you choose to scan to a Cloudflare Worker, which passes it to
+  OpenAI (the Worker stores nothing). The Clock-In Everyday coach sends context
+  to Anthropic. HealthTrail also sends a hashed device ID, app ID and trial
+  start date to a database to stop repeat free trials. So never write
+  "100% on-device", "never leaves your phone" or "nothing leaves the device"
+  for those apps. Say records are stored on the device, and name the scan.
+  Before changing any privacy claim, read the app's relay code
+  (`~/Dev/ArtificialIgknorance/<app>/ai-worker` or `cloudflare-worker`). Also,
+  OpenAI's own words: API data is not used for training, and may be kept up to
+  30 days for abuse checks. Recheck https://developers.openai.com/api/docs/guides/your-data
+  now and then.
 - **Android.** Escalator Field Command is the only app with a Google Play
   listing (`com.vibecode.escalatorfieldcommand`). Everywhere its App Store
   badge appears (app page, Elevator Code Answers page, homepage featured band,
@@ -227,44 +240,55 @@ base URL to fetch at full resolution. The iTunes Search API's
 
 ## Current Session State
 
-Last updated: 2026-10-07: The screen-size and large-text fixes plus the Google
-Play links are live (`981473c`). The Clock-In "Hi Mike" picture fix is ready on
-a branch, waiting for Mike's "ship it".
+Last updated: 2026-10-12: Screen-size fixes, Google Play links, the privacy
+wording fixes, the Clock-In picture fix and a Copper Watcher line are all live
+(`1bf736f`). The Brazil (LGPD) privacy section is drafted and held for Mike's
+read.
 
 **Current focus:** None in flight. Waiting on Mike's answers below.
 
 **Last shipped:** the website is static, so "shipped" = pushed to `main` and
-Netlify auto-deploys. `origin/main` is `981473c` "Fit every screen size and
-text size, add Google Play links", verified live 2026-10-07 (main pages 200,
-Google Play badges on the Escalator page, Elevator page, homepage and About,
-"iOS native" tag gone from the Escalator page, no em dashes, new styles
-serving). Note: `www.` redirects to the bare domain, so use
-`https://artificialigknorance.com` (with `curl -L`) when checking live.
+Netlify auto-deploys. `origin/main` is `1bf736f`, verified live 2026-10-12
+(pages 200, no em dashes, new privacy text and date serving, SnapLedger and
+HealthTrail "on-device" claims gone, Copper export line and SnapLedger price
+card live, new workout picture serving). Use `https://artificialigknorance.com`
+with `curl -L` when checking live, because `www.` redirects.
 
 **Uncommitted work queued for next ship:**
-- Branch `clock-in-name-fix` (one commit, 4 image files, NOT pushed): swaps
-  "Hi Mike" for "Hi there!" in the Clock-In Workout screenshot on
-  `/clock-in-everyday/` and the homepage tile (JPG and WebP). Only that one
-  line of the picture changed. To ship: `git merge --ff-only clock-in-name-fix`
-  on `main`, push, then delete the branch. The rest of the coach note in the
-  picture still has the app's own em dashes (they are part of the app text).
+- Branch `healthtrail-privacy` (one commit on top of main, NOT pushed): adds
+  "If you are in Brazil (LGPD)" under "9. Your Rights" in `privacy.astro`,
+  requested by the HealthTrail session because the app now offers Brazil.
+  Legal text, so Mike must read it first. To ship: `git merge --ff-only
+  healthtrail-privacy` on `main` (rebase it first if main moved), push, delete
+  the branch, then tell the HealthTrail session the live URL
+  (`https://artificialigknorance.com/privacy/`).
 
 **Waiting on Mike / open decisions:**
-- **Lifetime Access plan (flagged by the 2026-09-28 weekly sync).** The App
-  Store text for Gold, Silver and Lithium Watcher says "Monthly, yearly, and
-  one-time Lifetime Access plans available." The site's Premium FAQs and
-  `src/data/pricing.ts` only know monthly/yearly. Need the lifetime price, then
-  add a `lifetime` field to `pricing.ts` and mention it in those three FAQs.
-- **Ten held-back sync branches** (`appstore-sync/2026-07-06` to
-  `2026-10-05`, local and remote). Most are routine, but a cluster is a real
-  accuracy question: HealthTrail's App Store text now says the optional AI
-  scan sends the photo to an AI provider, while the site still says "on-device"
-  in places (branches 08-17 to 09-07), plus a draft privacy-policy paragraph
-  (09-14). The 10-05 one is a 4-line SnapLedger copy sync. They were written
-  against the old page markup, so re-apply by hand. Do not delete without his OK.
-- **Real Escalator Field Command walkthrough video** (optional). The homepage
-  demo plays the Field Guide recording because no real full-app recording
-  exists.
+- **Read the Brazil (LGPD) text** on branch `healthtrail-privacy`, then say
+  ship it. One call is his: the privacy contact (encarregado) is
+  info@artificialigknorance.com, with no personal name per his rule.
+- **Which privacy policy do the App Stores link to?** HealthTrail's and
+  SnapLedger's App Store text link to a TermsFeed policy, not this site's
+  policy. Escalator Field Command's text now links to
+  `counterweightdispatch.com/apps/escalator-field-command/privacy/`. If the
+  stores use TermsFeed, the new wording must go there too, or the links must
+  change. The HealthTrail session was asked to check the app side.
+- **App Store "App Privacy" answers** for HealthTrail and SnapLedger should
+  list photos sent for scanning and (HealthTrail) the device code. Not checked,
+  outside the website.
+- **Lifetime Access plan.** The App Store text for Gold, Silver, Lithium and
+  now Copper Watcher says "Monthly, yearly, and one-time Lifetime Access plans
+  available." The site's Premium FAQs and `src/data/pricing.ts` only know
+  monthly/yearly. Need the lifetime price, then add a `lifetime` field to
+  `pricing.ts` and mention it in those FAQs.
+- **Eleven held-back sync branches** (`appstore-sync/2026-07-06` to
+  `2026-10-12`, local and remote). Everything useful in them is now on `main`
+  or no longer needed. Mike asked "what is this?" and has not said yes to
+  deleting them. Do not delete without his OK (deleting remote branches needs
+  explicit approval).
+- **Real Escalator Field Command walkthrough video** (optional).
+- **Portuguese version of the privacy policy** (optional, Brazilian users may
+  expect it).
 
 **Parked for later:**
 - **App Store affiliate enrollment**: not enrolled; small per-install
@@ -273,29 +297,25 @@ serving). Note: `www.` redirects to the bare domain, so use
 **Known issues / TODO:**
 - The "Smart App Banner default" is Escalator Field Command. If a different
   app becomes priority, change the default in `Layout.astro`.
-- Inner pages were re-skinned (colors and cards), not re-laid-out. Each app
-  page could get a Daylight-native layout later.
+- Inner pages were re-skinned (colors and cards), not re-laid-out.
 - App Store developer-page links contain Mike's name in the web address
   (`.../developer/mike-dangerfield/...`). Visible text is clean; the link
   addresses cannot be changed.
 - The other eight apps have no Android version on the site. If any is on
   Google Play, add its badge (see Conventions).
-- Local-only leftovers in `mockups/` (git-ignored): the three mockups,
-  `skin_pages.py`, `emdash_sweep.py`, and helpers. Safe to delete.
+- The Clock-In Workout picture was edited in one line ("Hi Mike" became "Hi
+  there!"). The rest of the coach note in the pictures still has the app's own
+  em dashes.
+- Local-only leftovers in `mockups/` (git-ignored). Safe to delete.
 
 **Recent key decisions:**
-1. **Daylight redesign** (Mike picked option A of three mockups) shipped
-   site-wide: light Apple-style look, tokens in `globals.css`, homepage styles
-   in `home.css`. Inner pages keep their markup; only class lists changed.
-2. **No author name and no "one person" framing on the public site**
-   (Mike, 2026-10-05). See Conventions.
-3. **No em dashes anywhere, ever** (Mike, 2026-10-05), enforced by a check on
-   every build (`scripts/check-no-em-dashes.mjs`).
-4. **Demo videos must be real screen recordings.** The old "10-second demo"
-   was an AI promo clip and was removed.
-5. **Wherever there is an App Store link there should be a Google Play link**
-   (Mike, 2026-10-05), but only for apps that really are on Google Play. Today
-   that is Escalator Field Command only.
+1. **Daylight redesign** shipped site-wide (Mike picked option A).
+2. **No author name and no "one person" framing** on the public site.
+3. **No em dashes anywhere, ever**, enforced by a build check.
+4. **Wherever there is an App Store link there should be a Google Play link**,
+   but only for apps really on Google Play (Escalator Field Command only).
+5. **Privacy wording follows the real data flows** (see Conventions), including
+   HealthTrail and SnapLedger scanning through OpenAI.
 
 ## Session-end protocol
 
