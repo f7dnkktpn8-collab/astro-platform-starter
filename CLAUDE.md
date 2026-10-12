@@ -263,9 +263,24 @@ with `curl -L` when checking live, because `www.` redirects.
   the branch, then tell the HealthTrail session the live URL
   (`https://artificialigknorance.com/privacy/`).
 
+- Branch `pricing-fix` (one commit on top of main, NOT pushed, in worktree
+  `../artificialigknorance-website-pricing`): `src/data/pricing.ts` had the
+  wrong plan prices for the four metals apps ($2.99/$12.99 for Gold and Silver,
+  $4.99 a year for Copper and Lithium). Now all four are $1.99 a month and $9.99
+  a year, matching the public App Store pages and the apps' own notes. Adds
+  Gold Watcher's one-time Lifetime plan ($24.99) to its FAQ through a new
+  `lifetime` field and `lifetimeSentence()`. Copper, Silver and Lithium get no
+  Lifetime line yet: Copper's live build does not show it in the app, and
+  Silver's and Lithium's Lifetime purchases are not approved by Apple yet (per
+  the metals notes, 2026-10-04). Add `lifetime` to each when it really can be
+  bought. Trial wording was left as is (Copper's App Store page says "either
+  subscription" has a 7-day trial, the site says yearly only; unverified).
+
 **Waiting on Mike / open decisions:**
-- **Read the Brazil (LGPD) text** on branch `healthtrail-privacy`, then say
-  ship it. Needed before the next HealthTrail release. One call is his: the privacy contact (encarregado) is
+- **Say ship it** for the pricing fix (`pricing-fix`) and the Brazil (LGPD)
+  text (`healthtrail-privacy`, needed before the next HealthTrail release; Mike
+  was asked to read it). Merge each with `git merge --ff-only`, rebase the
+  second after the first. One call is his: the privacy contact (encarregado) is
   info@artificialigknorance.com, with no personal name per his rule.
 - **HealthTrail now uses this site's policy as its only privacy policy**
   (Mike's decision 2026-10-12, relayed by the HealthTrail session). The app's
@@ -275,20 +290,19 @@ with `curl -L` when checking live, because `www.` redirects.
 - **App Store "App Privacy" answers** for HealthTrail and SnapLedger should
   list photos sent for scanning and (HealthTrail) the device code. Not checked,
   outside the website.
-- **Lifetime Access plan.** The App Store text for Gold, Silver, Lithium and
-  now Copper Watcher says "Monthly, yearly, and one-time Lifetime Access plans
-  available." The site's Premium FAQs and `src/data/pricing.ts` only know
-  monthly/yearly. Need the lifetime price, then add a `lifetime` field to
-  `pricing.ts` and mention it in those FAQs.
-- **Real Escalator Field Command walkthrough video** (optional).
-- **Portuguese version of the privacy policy** (optional, Brazilian users may
-  expect it).
+- **SnapLedger's privacy links** (in the app's paywall and in its App Store
+  text and Privacy Policy URL field) still point at the old TermsFeed policy.
+  Mike said fix it on 2026-10-12. That belongs to the SnapLedger project, so a
+  task for a SnapLedger session was created. Nothing to do here unless the
+  website policy needs another change.
 
 (The eleven old held-back `appstore-sync/*` branches were deleted on
 2026-10-12 with Mike's OK, after checking nothing in them was missing from
 `main`. The Monday job will make new ones if it is unsure about a change.)
 
 **Parked for later:**
+- Real Escalator Field Command walkthrough video and a Portuguese privacy
+  policy: Mike said skip both (2026-10-12). Ask again only if he raises them.
 - **App Store affiliate enrollment**: not enrolled; small per-install
   revenue with no effort once Mike signs up. Parked, no urgency.
 
