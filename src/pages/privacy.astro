@@ -179,6 +179,44 @@ const CONTACT_EMAIL = "info@artificialigknorance.com";
           there. The scrambled free-trial code (Section 3) is not linked to you, but if you would like it
           removed, contact us and we will delete it.
         </p>
+
+        <h3 class="text-lg font-semibold text-ink mt-6 mb-2">If you are in Brazil (LGPD)</h3>
+        <p class="text-body leading-relaxed">
+          Brazil's data protection law, the Lei Geral de Prote&ccedil;&atilde;o de Dados (LGPD), gives people in
+          Brazil specific rights over their personal data. This part explains how our apps, including HealthTrail
+          Medical, handle your data under that law.
+        </p>
+        <p class="text-body leading-relaxed mt-3">
+          <strong class="text-ink">What we handle, and why.</strong> Your records, photos and backups stay on your
+          own phone, and we cannot see them. The only things that reach us are a photo you choose to scan (for
+          example a lab report, a medication label, or a health or insurance card) and, for apps with a free trial,
+          the scrambled trial code described in Section 3. A health document can hold sensitive personal data, which
+          the LGPD treats with extra care. We use a scanned photo for one purpose, reading it for you. Our legal
+          basis is your consent, which you give when you choose to scan. Nothing is scanned unless you start it,
+          and you can type every record in by hand instead.
+        </p>
+        <p class="text-body leading-relaxed mt-3">
+          <strong class="text-ink">Where it goes.</strong> A scanned photo is sent to our Cloudflare Worker and on
+          to OpenAI, which reads the text (Section 4). Both run outside Brazil, so scanning means your photo is
+          transferred internationally. We do not keep the photo or the result. How long OpenAI keeps requests is
+          described in Section 4.
+        </p>
+        <p class="text-body leading-relaxed mt-3">
+          <strong class="text-ink">Your rights.</strong> Under the LGPD you can ask us to confirm whether we process
+          your personal data, give you access to it, correct it, anonymize, block or delete data that is unnecessary
+          or handled unlawfully, send it to you in a portable form, delete data we process with your consent, tell
+          you who it has been shared with, and explain what happens if you say no. You can also withdraw your
+          consent at any time. Because your records live only on your phone, you can already see, change and delete
+          them yourself in the app, or by deleting the app. For anything we might hold about you, such as the
+          scrambled trial code, write to us and we will answer.
+        </p>
+        <p class="text-body leading-relaxed mt-3">
+          <strong class="text-ink">Who to contact.</strong> Send privacy requests under the LGPD to
+          <a href={`mailto:${CONTACT_EMAIL}`} class="text-accent hover:text-accent-deep underline">{CONTACT_EMAIL}</a>.
+          That address is our point of contact for data protection (the <em>encarregado</em>). You also have the
+          right to complain to Brazil's data protection authority, the ANPD (Autoridade Nacional de Prote&ccedil;&atilde;o
+          de Dados).
+        </p>
       </section>
 
       <section>
