@@ -240,18 +240,18 @@ base URL to fetch at full resolution. The iTunes Search API's
 
 ## Current Session State
 
-Last updated: 2026-10-12: Everything asked for today is live (`8b2a188`):
+Last updated: 2026-10-12: Everything asked for today is live (`48a1942`):
 screen-size fixes, Google Play links, privacy wording, the Brazil (LGPD)
-privacy section, corrected metals app prices and Gold Watcher's Lifetime plan.
+privacy section, corrected metals app prices and trial wording, and Gold Watcher's Lifetime plan.
 Nothing in flight.
 
 **Current focus:** None. No branches or work copies are open.
 
 **Last shipped:** the website is static, so "shipped" = pushed to `main` and
-Netlify auto-deploys. `origin/main` is `8b2a188`, verified live 2026-10-12
+Netlify auto-deploys. `origin/main` is `48a1942`, verified live 2026-10-12
 (pages 200, no em dashes, Brazil section and ANPD note on `/privacy/`, the
 four metals pages show $1.99 a month and $9.99 a year with no stale prices,
-Gold shows the $24.99 Lifetime plan). Use `https://artificialigknorance.com`
+Gold shows the $24.99 Lifetime plan, and all four show the right free trial: 3 days on both plans for Gold and Silver, 7 days on both plans for Copper and Lithium, checked in App Store Connect). Use `https://artificialigknorance.com`
 with `curl -L` when checking live, because `www.` redirects.
 
 **Uncommitted work queued for next ship:** none.
@@ -270,9 +270,6 @@ with `curl -L` when checking live, because `www.` redirects.
 - **App Store "App Privacy" answers** for HealthTrail and SnapLedger should list
   photos sent for scanning and (HealthTrail) the device code. Not checked,
   outside the website.
-- **Trial wording on the metals pages is unverified.** Copper's App Store page
-  says "either subscription" has a 7-day trial, the site says the yearly plan
-  only. Check against App Store Connect before changing.
 
 **Parked for later:**
 - Real Escalator Field Command walkthrough video and a Portuguese privacy
