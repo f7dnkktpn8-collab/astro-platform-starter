@@ -31,6 +31,10 @@ const faqs = [
         a: 'Doctor visits, specialist appointments, surgeries, screenings (Pap smears, colonoscopies, mammograms), lab results, prescriptions and refills, vaccinations and boosters, insurance cards, and any photos or PDFs you attach to those events. Everything is chronological, searchable, and tied to a profile.'
     },
     {
+        q: 'Can I track lab results over time?',
+        a: 'Yes. Track cholesterol, blood sugar, kidney and liver results, blood pressure and more, each with its own trend chart. Normal ranges come from Canadian and Brazilian medical guidelines, in the units your lab uses. You can also enter the range printed on your lab report, or a goal from your doctor, and personal ranges are clearly marked as yours. If a test is not listed, like vitamin D or thyroid (TSH), add it under My Tests with its own unit. To skip the typing, photograph the lab report and the values are filled in for you, including reports in Portuguese.'
+    },
+    {
         q: 'Can I share records with my doctor?',
         a: 'Yes. Export a clean Medical History Report as a PDF, properly named with the date, and email it, AirDrop it, or print it. You control what gets shared and with whom.'
     },
@@ -112,6 +116,7 @@ const pageStructuredData = {
         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-700 rounded-full text-sm">iOS native</span>
         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-700 rounded-full text-sm">Family profiles</span>
         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-700 rounded-full text-sm">AI medication scan</span>
+        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-700 rounded-full text-sm">Lab result trends</span>
         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-700 rounded-full text-sm">Vaccine tracking</span>
         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-700 rounded-full text-sm">Stored on your device</span>
         <span class="px-3 py-1 bg-emerald-500/20 text-emerald-700 rounded-full text-sm">Zero account</span>
@@ -131,7 +136,7 @@ const pageStructuredData = {
             </div>
             <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
                 <h3 class="text-xl font-bold mb-2 text-emerald-700">Vaccine tracking</h3>
-                <p class="text-body">Childhood boosters, annual flu shots, travel vaccines, logged with photos of records. The next time school, work, or a border asks for proof, you have it ready.</p>
+                <p class="text-body">Childhood boosters, annual flu shots, travel vaccines, logged with photos of records. The next time school, work, or a border asks for proof, you have it ready. Every vaccine you record shows up on your Timeline too.</p>
             </div>
             <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
                 <h3 class="text-xl font-bold mb-2 text-emerald-700">Family profiles</h3>
@@ -144,6 +149,14 @@ const pageStructuredData = {
             <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
                 <h3 class="text-xl font-bold mb-2 text-emerald-700">Daily medication dashboard</h3>
                 <p class="text-body">A daily command center: today's doses, upcoming appointments, vaccinations due in the next 14 days, and one-tap call/book buttons for your top providers.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-emerald-700">Lab results with trend charts</h3>
+                <p class="text-body">Cholesterol, blood sugar, kidney and liver results, blood pressure and more, each with its own trend chart. Normal ranges follow Canadian and Brazilian guidelines in your lab's units, or set your own range from your report or your doctor. Missing a test, like vitamin D or TSH? Add it under My Tests.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 hover:shadow-md transition-all border border-line">
+                <h3 class="text-xl font-bold mb-2 text-emerald-700">Scan a lab report</h3>
+                <p class="text-body">Photograph a lab report and the values are filled in for you, including reports in Portuguese. No more typing numbers off a printout.</p>
             </div>
         </div>
     </section>
